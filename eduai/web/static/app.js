@@ -44,7 +44,7 @@ async function refreshStatus() {
   try {
     state.status = await api("/api/status");
   } catch {
-    state.status = { state: "error", error: "EduLite's server is not responding." };
+    state.status = { state: "error", error: "Edu.ai's server is not responding." };
   }
   renderStatus();
   clearTimeout(statusTimer);
@@ -87,12 +87,12 @@ function chipsNode(mode, sources, auto) {
   const chips = el("div", "chips");
   if (mode) {
     const chip = el("span", "chip mode-chip", modeLabel(mode) + (auto ? " (auto)" : ""));
-    chip.title = "How EduLite chose to answer. Change it with the picker next to the message box.";
+    chip.title = "How Edu.ai chose to answer. Change it with the picker next to the message box.";
     chips.appendChild(chip);
   }
   for (const source of sources || []) {
     const chip = el("span", "chip", "📘 " + source);
-    chip.title = "From EduLite's course notes";
+    chip.title = "From Edu.ai's course notes";
     chips.appendChild(chip);
   }
   return chips;
@@ -103,7 +103,7 @@ function updateComposer() {
   $("send").hidden = state.generating;
   $("stop").hidden = !state.generating;
   $("send").disabled = !ready || state.generating;
-  $("input").placeholder = ready ? "Ask EduLite a question…"
+  $("input").placeholder = ready ? "Ask Edu.ai a question…"
     : state.status && state.status.state === "error" ? "The model could not start. Open Settings or check the terminal."
     : "Loading the model…";
 }
@@ -198,7 +198,7 @@ function renderMessages(messages) {
 function messageNode(message) {
   const wrap = el("div", `msg ${message.role}`);
   if (message.role === "assistant") {
-    wrap.appendChild(el("div", "who", "EduLite"));
+    wrap.appendChild(el("div", "who", "Edu.ai"));
     const stats = message.stats || {};
     if (stats.mode || (stats.sources && stats.sources.length)) wrap.appendChild(chipsNode(stats.mode, stats.sources));
   }
@@ -291,7 +291,7 @@ async function send(text) {
       if (event === "user") {
         box.appendChild(messageNode(data));
         assistantWrap = el("div", "msg assistant");
-        assistantWrap.appendChild(el("div", "who", "EduLite"));
+        assistantWrap.appendChild(el("div", "who", "Edu.ai"));
         bubble = el("div", "bubble cursor");
         assistantWrap.appendChild(bubble);
         box.appendChild(assistantWrap);

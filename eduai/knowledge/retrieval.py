@@ -1,6 +1,6 @@
-"""Search EduLite's curated notes with SQLite FTS5 (BM25 ranking).
+"""Search Edu.ai's curated notes with SQLite FTS5 (BM25 ranking).
 
-The notes are Markdown files under ``edulite/knowledge/notes``; every ``##``
+The notes are Markdown files under ``eduai/knowledge/notes``; every ``##``
 section becomes one passage. The index lives in memory and is rebuilt at
 startup (a few milliseconds), so there is no database to keep in sync and no
 embedding model to load: retrieval adds almost no RAM.

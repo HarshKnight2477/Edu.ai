@@ -3,7 +3,7 @@
 Sends the same 12 varied prompts (HumanEval tasks + tutoring questions) to each
 model and records the peak working set. Compares:
   default   - llama-server defaults (8 GB prompt cache, 32 context checkpoints)
-  lean      - --cache-ram 0 --ctx-checkpoints 1   (what EduLite will use)
+  lean      - --cache-ram 0 --ctx-checkpoints 1   (what Edu.ai will use)
   lean-norp - lean + --no-repack                  (no repacked weight copy)
 
     python benchmarks/memory_probe.py

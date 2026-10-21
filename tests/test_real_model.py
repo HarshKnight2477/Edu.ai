@@ -9,8 +9,8 @@ import time
 import psutil
 import pytest
 
-from edulite.config import DEFAULT_SERVER_BINARY, REGISTRY, config_from_env, model_status
-from edulite.inference import LlamaServer
+from eduai.config import DEFAULT_SERVER_BINARY, REGISTRY, config_from_env, model_status
+from eduai.inference import LlamaServer
 
 from conftest import free_port
 

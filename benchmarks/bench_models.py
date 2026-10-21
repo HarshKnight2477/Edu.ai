@@ -1,4 +1,4 @@
-"""Benchmark candidate small language models on CPU for EduLite.
+"""Benchmark candidate small language models on CPU for Edu.ai.
 
 For each GGUF model this starts llama.cpp's ``llama-server`` (CPU only, a fixed
 thread count to approximate a modest laptop) and measures:

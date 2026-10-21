@@ -5,8 +5,8 @@ from pathlib import Path
 
 import pytest
 
-from edulite.config import REGISTRY, InferenceConfig
-from edulite.inference import LlamaServer
+from eduai.config import REGISTRY, InferenceConfig
+from eduai.inference import LlamaServer
 
 FAKE_SERVER = Path(__file__).with_name("fake_llama_server.py")
 

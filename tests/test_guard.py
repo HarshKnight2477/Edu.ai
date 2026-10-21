@@ -1,6 +1,6 @@
 import pytest
 
-from edulite.tutor.guard import REPLACEMENT, HintGuard, guard_text, is_complete_solution
+from eduai.tutor.guard import REPLACEMENT, HintGuard, guard_text, is_complete_solution
 
 SOLUTION = "def largest(nums):\n    m = nums[0]\n    for n in nums:\n        if n > m:\n            m = n\n    return m\n"
 ANSWER = ("Key idea: keep track of the biggest value so far.\n\nTry writing this code:\n\n"
@@ -54,7 +54,7 @@ def test_multiple_blocks_judged_separately():
 
 # ------------------------------------------------------------ one-sentence trim
 
-from edulite.tutor.guard import (HintGuard as _HintGuard, OneSentenceGuard, first_sentence,  # noqa: E402
+from eduai.tutor.guard import (HintGuard as _HintGuard, OneSentenceGuard, first_sentence,  # noqa: E402
                                  select_guard, trim_to_one_sentence, wants_one_sentence)
 
 FIX = "```python\ndef c2f(c):\n    return c * 9 / 5 + 32\n```"

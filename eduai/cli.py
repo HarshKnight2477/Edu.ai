@@ -1,10 +1,10 @@
 """Terminal chat with the local model.
 
-    python -m edulite                    # default model (Qwen3.5-2B)
-    python -m edulite --model lite       # Qwen3.5-0.8B for low-memory PCs
-    python -m edulite --list-models
-    python -m edulite --web              # browser interface at http://127.0.0.1:8770
-    python -m edulite --level intermediate
+    python -m eduai                    # default model (Qwen3.5-2B)
+    python -m eduai --model lite       # Qwen3.5-0.8B for low-memory PCs
+    python -m eduai --list-models
+    python -m eduai --web              # browser interface at http://127.0.0.1:8770
+    python -m eduai --level intermediate
 
 Commands during a chat: /help, /reset, /info, /level, /mode, /notes, /exit.
 Ctrl+C stops the current answer; Ctrl+C at the prompt (or /exit) quits.
@@ -20,14 +20,14 @@ from collections.abc import Callable
 from dataclasses import dataclass
 from typing import TextIO
 
-from edulite import __version__
-from edulite.config import REGISTRY, config_from_env, model_status
-from edulite.conversation import Conversation
-from edulite.inference import (ContextOverflowError, InferenceError, LlamaServer, ModelNotFoundError,
+from eduai import __version__
+from eduai.config import REGISTRY, config_from_env, model_status
+from eduai.conversation import Conversation
+from eduai.inference import (ContextOverflowError, InferenceError, LlamaServer, ModelNotFoundError,
                                ServerNotRunningError, ServerStartError)
-from edulite.tutor.engine import AUTO, Tutor
-from edulite.tutor.guard import select_guard
-from edulite.tutor.prompts import LEVELS, MODE_LABELS
+from eduai.tutor.engine import AUTO, Tutor
+from eduai.tutor.guard import select_guard
+from eduai.tutor.prompts import LEVELS, MODE_LABELS
 
 HELP = """Commands:
   /help    show this help
@@ -35,9 +35,9 @@ HELP = """Commands:
   /info    model, settings and memory use
   /level   beginner | intermediate | advanced   (how detailed answers are)
   /mode    auto | explain | hint | debug | code | quiz | project
-  /notes   on | off   (use EduLite's course notes to ground answers)
+  /notes   on | off   (use Edu.ai's course notes to ground answers)
   /exit    quit (also /quit, or Ctrl+C at the prompt)
-Ctrl+C while EduLite is answering stops that answer."""
+Ctrl+C while Edu.ai is answering stops that answer."""
 
 
 def list_models(out: TextIO) -> None:
@@ -90,7 +90,7 @@ def answer(server: LlamaServer, conversation: Conversation, out: TextIO, show_st
                 label = MODE_LABELS[prepared.mode] + (" (auto)" if prepared.detected else "")
                 notes = f" · notes: {'; '.join(prepared.sources)}" if prepared.sources else ""
                 out.write(f"[{label}{notes}]\n")
-            out.write("EduLite: ")
+            out.write("Edu.ai: ")
             out.flush()
             # Output checks: hint mode withholds complete solutions; an explicit
             # "one sentence" request is trimmed to that format.
@@ -212,7 +212,7 @@ def chat_loop(server: LlamaServer, conversation: Conversation, read_input: Calla
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(prog="edulite", description="EduLite: offline AI tutor (terminal chat)")
+    parser = argparse.ArgumentParser(prog="eduai", description="Edu.ai: offline AI tutor (terminal chat)")
     parser.add_argument("--model", choices=list(REGISTRY), help="model to use (default: default)")
     parser.add_argument("--threads", type=int, help="CPU threads (default: physical cores, max 8)")
     parser.add_argument("--ctx", type=int, help="context length in tokens (default: 4096)")
@@ -226,7 +226,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--no-browser", action="store_true", help="with --web: don't open a browser window")
     parser.add_argument("--list-models", action="store_true", help="show available models and exit")
     parser.add_argument("--verbose", action="store_true", help="log server commands and events")
-    parser.add_argument("--version", action="version", version=f"EduLite {__version__}")
+    parser.add_argument("--version", action="version", version=f"Edu.ai {__version__}")
     return parser
 
 
@@ -249,11 +249,11 @@ def main(argv: list[str] | None = None) -> int:
         return 2
 
     if args.web:
-        from edulite.web.server import run
+        from eduai.web.server import run
         run(config, port=args.web_port, open_browser=not args.no_browser, explicit_model=args.model is not None)
         return 0
 
-    out.write(f"EduLite {__version__}: offline AI tutor\n")
+    out.write(f"Edu.ai {__version__}: offline AI tutor\n")
     out.write(f"Loading {config.model.name} ({config.threads} threads, context {config.context_tokens})... ")
     out.flush()
     server = LlamaServer(config)

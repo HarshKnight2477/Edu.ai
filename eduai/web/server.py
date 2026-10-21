@@ -1,7 +1,7 @@
-"""Start the EduLite web interface on this computer.
+"""Start the Edu.ai web interface on this computer.
 
-    python -m edulite --web             # opens http://127.0.0.1:8770 in your browser
-    python -m edulite --web --no-browser --web-port 9000
+    python -m eduai --web             # opens http://127.0.0.1:8770 in your browser
+    python -m eduai --web --no-browser --web-port 9000
 """
 
 from __future__ import annotations
@@ -12,12 +12,12 @@ import webbrowser
 
 import uvicorn
 
-from edulite.config import REGISTRY, InferenceConfig, model_status
-from edulite.model_manager import ModelManager, validate_settings
-from edulite.storage import Store
-from edulite.web.app import create_app
+from eduai.config import REGISTRY, InferenceConfig, model_status
+from eduai.model_manager import ModelManager, validate_settings
+from eduai.storage import Store
+from eduai.web.app import create_app
 
-logger = logging.getLogger("edulite.web")
+logger = logging.getLogger("eduai.web")
 DEFAULT_WEB_PORT = 8770
 
 
@@ -53,11 +53,11 @@ def run(config: InferenceConfig, port: int = DEFAULT_WEB_PORT, open_browser: boo
     if not model_status(config.model).installed:
         fallback = next((s for s in REGISTRY.values() if model_status(s).installed), None)
         if fallback is None:
-            raise SystemExit("No EduLite model is installed. Run: python -m edulite --list-models")
+            raise SystemExit("No Edu.ai model is installed. Run: python -m eduai --list-models")
         config = config.with_overrides(model=fallback)
     app = create_app(ModelManager(config, **tutoring), store)
     url = f"http://127.0.0.1:{port}"
-    print(f"EduLite is starting at {url}  (press Ctrl+C here to stop)")
+    print(f"Edu.ai is starting at {url}  (press Ctrl+C here to stop)")
     if open_browser:
         threading.Timer(1.0, webbrowser.open, args=(url,)).start()
     try:

@@ -1,4 +1,4 @@
-from edulite.storage import Store, make_title
+from eduai.storage import Store, make_title
 
 
 def test_conversation_lifecycle(tmp_path):
@@ -55,3 +55,24 @@ def test_make_title_shortens():
     assert make_title("short") == "short"
     long = make_title("word " * 40)
     assert len(long) <= 60 and long.endswith("…")
+
+
+def test_legacy_database_is_migrated(tmp_path, monkeypatch):
+    import eduai.storage as storage
+    new, old = tmp_path / "eduai.db", tmp_path / "edulite.db"
+    monkeypatch.setattr(storage, "DEFAULT_DB_PATH", new)
+    monkeypatch.setattr(storage, "LEGACY_DB_PATH", old)
+    legacy = Store(old)
+    c = legacy.create_conversation()
+    legacy.add_message(c.id, "user", "kept from before the rename")
+    legacy.close()
+    migrated = Store(new)
+    assert migrated.messages(c.id)[0].content == "kept from before the rename" and not old.exists()
+    migrated.close()
+
+
+def test_old_environment_variables_still_work(monkeypatch):
+    from eduai.config import config_from_env
+    monkeypatch.delenv("EDUAI_THREADS", raising=False)
+    monkeypatch.setenv("EDULITE_THREADS", "3")
+    assert config_from_env().threads == 3

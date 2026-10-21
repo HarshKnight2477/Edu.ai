@@ -1,4 +1,4 @@
-# EduLite — Milestone 1 Report
+# Edu.ai — Milestone 1 Report
 
 **Requirements, hardware budget, model comparison and architecture**
 Date: 2026-10-21 · Status: Milestone 1 complete · No application code written yet (by design: the spec asks for model selection and architecture before the prototype)
@@ -14,7 +14,7 @@ Date: 2026-10-21 · Status: Milestone 1 complete · No application code written 
 | **4 GB PCs** | Feasible only as a *lite* mode with **Qwen3.5-0.8B** (0.76 GB RAM): good concept answers (83% quiz) but weak code (25% HumanEval subset). Code features must be checked by running tests, not trusted. Qwen3.5-2B *might* fit at 4 GB with a short context; it must be tested on a real 4 GB machine. |
 | **Runtime** | llama.cpp `llama-server`, CPU build (**23 MB** download), started with `--cache-ram 0 --ctx-checkpoints 1 --no-repack` |
 | **Fine-tuning?** | Not yet. The spec says fine-tune only if it beats the baseline; first build prompts + retrieval + execution checks, then measure. |
-| **Biggest finding** | Sub-1B models often **return the buggy code unchanged while claiming they fixed it** (Qwen2.5-Coder-0.5B did this on 6 of 12 tasks). For a tutor, this is worse than a wrong answer. EduLite must verify code fixes by execution before presenting them as fixed. |
+| **Biggest finding** | Sub-1B models often **return the buggy code unchanged while claiming they fixed it** (Qwen2.5-Coder-0.5B did this on 6 of 12 tasks). For a tutor, this is worse than a wrong answer. Edu.ai must verify code fixes by execution before presenting them as fixed. |
 
 ---
 
@@ -22,7 +22,7 @@ Date: 2026-10-21 · Status: Milestone 1 complete · No application code written 
 
 1. **Surveyed current small models** (October 2026) via the Hugging Face API and web search. Published third-party benchmark numbers disagreed with each other, so every candidate was measured locally instead of trusting them.
 2. **Chose six candidates** from 0.5B to 3B parameters, all Apache-2.0, all with official or widely used GGUF builds (section 4).
-3. **Set up the project** at `EduLite/`: a Python virtual environment, the llama.cpp CPU runtime (build b11780), and the six quantized models (6.8 GB total, git-ignored).
+3. **Set up the project** at `Edu.ai/`: a Python virtual environment, the llama.cpp CPU runtime (build b11780), and the six quantized models (6.8 GB total, git-ignored).
 4. **Built three task sets**:
    - a fixed **40-problem subset of HumanEval** (seed 0), scored pass@1 by running each answer against the official tests;
    - **12 buggy beginner functions** with unit tests, written for this project. Each was validated: every buggy version fails its tests and a reference fix passes;
@@ -36,7 +36,7 @@ Date: 2026-10-21 · Status: Milestone 1 complete · No application code written 
 
 ## 3. Hardware budget (assumptions to validate)
 
-| Target PC | RAM left for EduLite (estimate) | Implication |
+| Target PC | RAM left for Edu.ai (estimate) | Implication |
 |---|---|---|
 | **4 GB, Windows 10/11** | ~1.2–1.5 GB (Windows plus a browser commonly use 2.5–3 GB at idle) | Model + runtime must stay **under ~1 GB**, or ~1.5 GB with nothing else open |
 | **8 GB** | ~4–5 GB | 2B models comfortable; 3B fine |
@@ -108,7 +108,7 @@ Peak RAM after 12 varied prompts (`benchmarks/results/memory_probe.json`):
 | Qwen3.5-2B | 2,393 MB | 1,939 MB | **1,448 MB** |
 | Granite-4.2-3B | 4,072 MB | 3,855 MB | **2,406 MB** |
 
-Turning repacking off did **not** slow generation on this CPU; it was equal or slightly faster for every model. Prompt reading was also unchanged, except for the one Q4_0 file (Qwen3.5-0.8B: 401 → 248 tok/s). So EduLite will run Q4_K_M models with `--no-repack`, and keep repacking for Q4_0 files.
+Turning repacking off did **not** slow generation on this CPU; it was equal or slightly faster for every model. Prompt reading was also unchanged, except for the one Q4_0 file (Qwen3.5-0.8B: 401 → 248 tok/s). So Edu.ai will run Q4_K_M models with `--no-repack`, and keep repacking for Q4_0 files.
 
 ---
 
@@ -119,7 +119,7 @@ Turning repacking off did **not** slow generation on this CPU; it was equal or s
 - **Knowledge vs code.** Qwen3.5-0.8B scored 83% on concepts but 25% on HumanEval. Qwen2.5-Coder-0.5B is the reverse: 55% coding, 50% concepts. Neither is balanced enough to be the main tutor.
 - **No formatting failures from the larger models.** Every model wrapped HumanEval answers in code blocks, so the scores reflect code quality, not parsing.
 
-**Design consequence:** before EduLite says "fixed", it should (1) check that the code actually changed, and (2) when tests exist, run them in the sandbox. This guardrail matters most for the 4 GB lite mode.
+**Design consequence:** before Edu.ai says "fixed", it should (1) check that the code actually changed, and (2) when tests exist, run them in the sandbox. This guardrail matters most for the 4 GB lite mode.
 
 ---
 
@@ -146,7 +146,7 @@ Turning repacking off did **not** slow generation on this CPU; it was equal or s
 ## 8. Proposed architecture
 
 ```
-┌──────────────────────────── EduLite (all local, offline) ────────────────────────────┐
+┌──────────────────────────── Edu.ai (all local, offline) ────────────────────────────┐
 │                                                                                      │
 │  Browser UI (static HTML/JS, no build step; vendored marked + highlight.js)          │
 │    chat · code highlighting · level & mode picker · settings · progress              │
@@ -179,7 +179,7 @@ Key choices:
 
 | # | Milestone | Main deliverables | Done when |
 |---|---|---|---|
-| 2 | Minimal local inference | `edulite/inference.py` (start/stop llama-server, health, streaming chat), model registry, CLI chat | Streams answers offline from the chosen model; tests pass with a fake server |
+| 2 | Minimal local inference | `eduai/inference.py` (start/stop llama-server, health, streaming chat), model registry, CLI chat | Streams answers offline from the chosen model; tests pass with a fake server |
 | 3 | Chat interface | FastAPI backend, static web UI, chat history in SQLite, settings (model, context, max tokens) | Usable in a browser on localhost; history persists |
 | 4 | Tutoring prompts + retrieval | Mode/level templates, homework policy, curated notes (Python basics, DSA, AI/ML), FTS5 retrieval | Retrieval measurably improves quiz/explanation scores vs prompt-only |
 | 5 | Dataset + optional LoRA | Data pipeline (dedup, quality filter, leak-free split), LoRA training script | Fine-tune kept **only** if it beats Milestone 4 on held-out tests |
@@ -218,7 +218,7 @@ Key choices:
 ## 12. Files
 
 ```
-EduLite/
+Edu.ai/
 ├── docs/milestone-1-report.md        this report
 ├── benchmarks/
 │   ├── bench_models.py                main benchmark (quality, speed, startup)
@@ -237,4 +237,4 @@ EduLite/
 
 1. Confirm **Qwen3.5-2B as the default model** (with Granite-4.2-3B and Qwen3.5-0.8B as alternatives).
 2. Confirm **how strict "4 GB" is**. If it's a hard requirement on Windows, the lite mode becomes the main path and Milestone 6 moves earlier.
-3. Choose whether to **create a GitHub repository** for EduLite now.
+3. Choose whether to **create a GitHub repository** for Edu.ai now.

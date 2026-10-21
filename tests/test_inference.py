@@ -6,8 +6,8 @@ from dataclasses import replace
 import psutil
 import pytest
 
-from edulite.config import REGISTRY, config_from_env, model_status
-from edulite.inference import (ContextOverflowError, InferenceError, InferenceTimeoutError, ModelNotFoundError,
+from eduai.config import REGISTRY, config_from_env, model_status
+from eduai.inference import (ContextOverflowError, InferenceError, InferenceTimeoutError, ModelNotFoundError,
                                PortInUseError, ServerNotRunningError, ServerStartError, validate_messages)
 
 USER = [{"role": "user", "content": "hello"}]
@@ -37,8 +37,8 @@ def test_model_status_detects_missing_and_partial_files(tmp_path):
 
 
 def test_config_from_env(monkeypatch):
-    monkeypatch.setenv("EDULITE_THREADS", "3")
-    monkeypatch.setenv("EDULITE_CTX", "2048")
+    monkeypatch.setenv("EDUAI_THREADS", "3")
+    monkeypatch.setenv("EDUAI_CTX", "2048")
     config = config_from_env("lite")
     assert (config.model.key, config.threads, config.context_tokens) == ("lite", 3, 2048)
     assert config.host == "127.0.0.1"

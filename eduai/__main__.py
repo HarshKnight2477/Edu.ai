@@ -1,5 +1,5 @@
 import sys
 
-from edulite.cli import main
+from eduai.cli import main
 
 sys.exit(main())

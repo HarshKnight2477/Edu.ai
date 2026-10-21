@@ -41,12 +41,12 @@ from bench_models import extract_code  # noqa: E402
 from grading import score_quiz, wilson_interval  # noqa: E402
 from sandbox import run_python  # noqa: E402
 
-from edulite.config import config_from_env  # noqa: E402
-from edulite.conversation import DEFAULT_SYSTEM_PROMPT  # noqa: E402
-from edulite.inference import LlamaServer  # noqa: E402
-from edulite.tutor.engine import Tutor  # noqa: E402
-from edulite.tutor.guard import apply_guard, select_guard  # noqa: E402
-from edulite.tutor.prompts import PROMPT_VERSION  # noqa: E402
+from eduai.config import config_from_env  # noqa: E402
+from eduai.conversation import DEFAULT_SYSTEM_PROMPT  # noqa: E402
+from eduai.inference import LlamaServer  # noqa: E402
+from eduai.tutor.engine import Tutor  # noqa: E402
+from eduai.tutor.guard import apply_guard, select_guard  # noqa: E402
+from eduai.tutor.prompts import PROMPT_VERSION  # noqa: E402
 
 TASKS = Path(__file__).resolve().parent / "tasks"
 RESULTS = Path(__file__).resolve().parent / "results"

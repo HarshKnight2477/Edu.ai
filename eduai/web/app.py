@@ -1,4 +1,4 @@
-"""FastAPI backend for the EduLite web interface (localhost only)."""
+"""FastAPI backend for the Edu.ai web interface (localhost only)."""
 
 from __future__ import annotations
 
@@ -15,14 +15,14 @@ from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
-from edulite import __version__
-from edulite.conversation import Conversation
-from edulite.inference import ContextOverflowError, InferenceError
-from edulite.model_manager import ModelBusyError, ModelManager, models_overview
-from edulite.storage import Store
-from edulite.tutor.engine import AUTO, Tutor
-from edulite.tutor.guard import select_guard
-from edulite.tutor.prompts import LEVELS, MODE_LABELS
+from eduai import __version__
+from eduai.conversation import Conversation
+from eduai.inference import ContextOverflowError, InferenceError
+from eduai.model_manager import ModelBusyError, ModelManager, models_overview
+from eduai.storage import Store
+from eduai.tutor.engine import AUTO, Tutor
+from eduai.tutor.guard import select_guard
+from eduai.tutor.prompts import LEVELS, MODE_LABELS
 
 STATIC_DIR = Path(__file__).parent / "static"
 LOCAL_HOSTS = {"127.0.0.1", "localhost", "::1"}
@@ -74,14 +74,14 @@ def create_app(manager: ModelManager, store: Store, start_model: bool = True, tu
         yield
         manager.shutdown()
 
-    app = FastAPI(title="EduLite", version=__version__, lifespan=lifespan, docs_url=None, redoc_url=None)
+    app = FastAPI(title="Edu.ai", version=__version__, lifespan=lifespan, docs_url=None, redoc_url=None)
 
     @app.middleware("http")
     async def local_only(request: Request, call_next):
         # Blocks DNS-rebinding (a foreign site resolving to 127.0.0.1) and other
         # websites sending requests to this local app from the student's browser.
         if _host_of(request.headers.get("host", "")) not in LOCAL_HOSTS:
-            return JSONResponse({"detail": "EduLite only accepts requests addressed to localhost."}, status_code=400)
+            return JSONResponse({"detail": "Edu.ai only accepts requests addressed to localhost."}, status_code=400)
         origin = request.headers.get("origin")
         if origin and request.method not in ("GET", "HEAD") and _host_of(origin) not in LOCAL_HOSTS:
             return JSONResponse({"detail": "Cross-site requests are not allowed."}, status_code=403)
@@ -161,7 +161,7 @@ def create_app(manager: ModelManager, store: Store, start_model: bool = True, tu
         if body.mode != AUTO and body.mode not in MODE_LABELS:
             raise HTTPException(422, f"Unknown mode '{body.mode}'")
         if manager.generation_lock.locked():
-            raise HTTPException(409, "EduLite is already answering. Wait for it or press Stop.")
+            raise HTTPException(409, "Edu.ai is already answering. Wait for it or press Stop.")
         try:
             server = manager.server  # raises if the model isn't ready
         except InferenceError as error:
@@ -173,7 +173,7 @@ def create_app(manager: ModelManager, store: Store, start_model: bool = True, tu
             # The lock is taken inside the stream so it is always released by the
             # finally block, even if the client disconnects at any point.
             if not manager.generation_lock.acquire(blocking=False):
-                yield sse("error", {"message": "EduLite is already answering. Wait for it or press Stop."})
+                yield sse("error", {"message": "Edu.ai is already answering. Wait for it or press Stop."})
                 return
             cancel = threading.Event()
             current_cancel["event"] = cancel

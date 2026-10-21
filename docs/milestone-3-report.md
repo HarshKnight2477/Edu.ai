@@ -1,29 +1,29 @@
-# EduLite — Milestone 3 Report: Chat Interface
+# Edu.ai — Milestone 3 Report: Chat Interface
 
 Date: 2026-10-21 · Status: **complete** · Builds on [milestone-2-report.md](milestone-2-report.md)
 
 ## Objective
 
-From the Milestone 1 plan: *a FastAPI backend, a static web UI, chat history in SQLite, and settings (model, context, max tokens). Done when EduLite is usable in a browser on localhost and history persists.*
+From the Milestone 1 plan: *a FastAPI backend, a static web UI, chat history in SQLite, and settings (model, context, max tokens). Done when Edu.ai is usable in a browser on localhost and history persists.*
 
 ## How to run
 
 ```bash
 pip install -r requirements-dev.txt
-python -m edulite --web                 # opens http://127.0.0.1:8770
-python -m edulite --web --no-browser --web-port 9000
-python -m edulite                       # the terminal chat from Milestone 2 still works
+python -m eduai --web                 # opens http://127.0.0.1:8770
+python -m eduai --web --no-browser --web-port 9000
+python -m eduai                       # the terminal chat from Milestone 2 still works
 ```
 
 ## What was built
 
 | File | Purpose |
 |---|---|
-| `edulite/storage.py` | SQLite store (`data/edulite.db`): conversations, messages (with model, stats and a "stopped" flag), saved settings |
-| `edulite/model_manager.py` | Owns the single model server: loading / ready / error state, settings validation, restart on model, context or thread changes, refuses changes mid-answer |
-| `edulite/web/app.py` | FastAPI app: status, settings, conversation CRUD, streamed answers (SSE), stop, localhost-only protection |
-| `edulite/web/server.py` | Launcher: restores saved settings, falls back to an installed model, binds 127.0.0.1, opens the browser |
-| `edulite/web/static/` | The UI: `index.html`, `app.css`, `app.js`, `markdown.js`, plus vendored highlight.js 11.12.0 (BSD-3) — **166 KB in total, no build step, no CDN** |
+| `eduai/storage.py` | SQLite store (`data/eduai.db`): conversations, messages (with model, stats and a "stopped" flag), saved settings |
+| `eduai/model_manager.py` | Owns the single model server: loading / ready / error state, settings validation, restart on model, context or thread changes, refuses changes mid-answer |
+| `eduai/web/app.py` | FastAPI app: status, settings, conversation CRUD, streamed answers (SSE), stop, localhost-only protection |
+| `eduai/web/server.py` | Launcher: restores saved settings, falls back to an installed model, binds 127.0.0.1, opens the browser |
+| `eduai/web/static/` | The UI: `index.html`, `app.css`, `app.js`, `markdown.js`, plus vendored highlight.js 11.12.0 (BSD-3) — **166 KB in total, no build step, no CDN** |
 | `tests/test_storage.py`, `tests/test_web.py`, `tests/js/markdown.test.js` | 20 new tests (58 in the whole suite) |
 
 ## Features
@@ -35,7 +35,7 @@ python -m edulite                       # the terminal chat from Milestone 2 sti
   - Changing the model, context or threads restarts the model server; answer length and temperature apply instantly.
   - Settings are remembered for the next launch.
 - **Status:** the current model and its live RAM use, a "Loading…" state while it starts, and a clear error state with the reason if it fails.
-- **Honest notices:** answers that hit the length limit show *"cut off: ask it to continue"*; when old messages had to be left out to fit, the answer says how many. A permanent hint reminds students that EduLite can make mistakes.
+- **Honest notices:** answers that hit the length limit show *"cut off: ask it to continue"*; when old messages had to be left out to fit, the answer says how many. A permanent hint reminds students that Edu.ai can make mistakes.
 - **Works offline, in light and dark mode, and at phone width.**
 
 ## Privacy and security
@@ -45,7 +45,7 @@ python -m edulite                       # the terminal chat from Milestone 2 sti
 - **Cross-site requests blocked:** any change request carrying another website's `Origin` gets 403. Verified live: a cross-site attempt to change the model was refused.
 - **Content-Security-Policy** `default-src 'self'`: the page can't load or send anything to other sites.
 - **XSS-safe rendering:** model output is placed into the page with `textContent` only. The one exception is highlight.js's output, which escapes its input itself. Tests confirm that HTML written by the model stays plain text.
-- **Chats stay in `data/edulite.db` on the student's computer** (git-ignored). Nothing is sent anywhere.
+- **Chats stay in `data/eduai.db` on the student's computer** (git-ignored). Nothing is sent anywhere.
 
 ## Testing
 
@@ -82,13 +82,13 @@ python -m edulite                       # the terminal chat from Milestone 2 sti
 | Web app (Python + FastAPI + uvicorn) | 58 MB (+4 MB launcher stub) |
 | UI files | 166 KB on disk |
 
-The interface adds about **4%** to EduLite's memory use. A browser tab adds its own few hundred MB, which matters on 4 GB PCs. That's why the terminal chat remains available and a lighter desktop window is an option for later.
+The interface adds about **4%** to Edu.ai's memory use. A browser tab adds its own few hundred MB, which matters on 4 GB PCs. That's why the terminal chat remains available and a lighter desktop window is an option for later.
 
 ## Problems found and fixed
 
 | Problem | How found | Fix |
 |---|---|---|
-| **The "busy" lock could leak.** It was taken before streaming began, so a browser disconnecting at the wrong moment would have left EduLite "busy" forever | Code review while writing the endpoint | The lock and the saving of the user's message moved inside the stream, where `finally` always releases the lock |
+| **The "busy" lock could leak.** It was taken before streaming began, so a browser disconnecting at the wrong moment would have left Edu.ai "busy" forever | Code review while writing the endpoint | The lock and the saving of the user's message moved inside the stream, where `finally` always releases the lock |
 | **Chat order could be wrong.** Windows clock timestamps can be identical for events milliseconds apart, so a just-used chat could sort below a newer empty one | Storage test failed even after switching to microsecond timestamps | Ordering by an always-increasing activity counter; timestamps kept for display |
 | **The JavaScript tests silently didn't run.** Node 24 treated the `tests/js` folder argument as a file | The wrapper test failed with "test failed" and 0 tests run | The test files are now passed explicitly; all 7 run |
 | **Tests couldn't use a fake model.** The manager always looked models up in the real registry and folder | While writing the API tests | The registry and models folder are now injectable |

@@ -3,8 +3,8 @@
 Everything stays on this machine: the server binds to 127.0.0.1 and requests
 only ever go to that local address.
 
-    from edulite.config import config_from_env
-    from edulite.inference import LlamaServer
+    from eduai.config import config_from_env
+    from eduai.inference import LlamaServer
 
     with LlamaServer(config_from_env()) as server:
         print(server.chat([{"role": "user", "content": "What is a variable?"}]).text)
@@ -29,9 +29,9 @@ from pathlib import Path
 
 import httpx
 
-from edulite.config import LEAN_MEMORY_FLAGS, InferenceConfig
+from eduai.config import LEAN_MEMORY_FLAGS, InferenceConfig
 
-logger = logging.getLogger("edulite.inference")
+logger = logging.getLogger("eduai.inference")
 
 VALID_ROLES = frozenset({"system", "user", "assistant"})
 LOG_TAIL_LINES = 25
@@ -326,7 +326,7 @@ class LlamaServer:
                 raise PortInUseError(
                     f"Port {self.config.port} is already used by another program "
                     f"{'(a llama-server with a different model)' if running else ''}. "
-                    "Choose another port with --port or EDULITE_PORT.")
+                    "Choose another port with --port or EDUAI_PORT.")
 
             self.config.log_dir.mkdir(parents=True, exist_ok=True)
             self._log_path = self.config.log_dir / "llama-server.log"
@@ -514,7 +514,7 @@ class LlamaServer:
 
 
 if __name__ == "__main__":  # pragma: no cover - manual smoke test
-    from edulite.config import config_from_env
+    from eduai.config import config_from_env
     logging.basicConfig(level=logging.INFO)
     with LlamaServer(config_from_env(sys.argv[1] if len(sys.argv) > 1 else None)) as srv:
         print(srv.chat([{"role": "user", "content": "In one sentence, what is a variable?"}]).text)

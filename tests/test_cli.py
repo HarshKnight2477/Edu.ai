@@ -3,9 +3,9 @@ from dataclasses import replace
 
 import pytest
 
-from edulite import cli
-from edulite.config import REGISTRY
-from edulite.conversation import Conversation
+from eduai import cli
+from eduai.config import REGISTRY
+from eduai.conversation import Conversation
 
 
 def run_session(server, inputs, conversation=None, out=None):
@@ -42,7 +42,7 @@ def test_multi_turn_chat_and_commands(make_config, servers):
     server.start()
     output, conversation = run_session(server, ["", "What is a variable?", "/info", "And a loop?",
                                                 "/help", "/oops", "/reset", "/exit"])
-    assert output.count("EduLite: echo: w0 w1 w2 w3 w4") == 2  # two streamed answers
+    assert output.count("Edu.ai: echo: w0 w1 w2 w3 w4") == 2  # two streamed answers
     assert "History:  1 exchange(s)" in output  # /info after the first question
     assert "Commands:" in output and "Unknown command /oops" in output
     assert "Started a new conversation." in output and output.rstrip().endswith("Goodbye!")
@@ -86,7 +86,7 @@ def test_full_context_drops_oldest_messages(make_config, servers, monkeypatch):
     for i in range(3):
         conversation.add_user("x" * 300); conversation.add_assistant("y" * 300)
     output, conversation = run_session(server, ["/notes off", "new question", "/exit"], conversation)
-    assert "EduLite: echo: w0" in output
+    assert "Edu.ai: echo: w0" in output
     assert "Older messages were forgotten" in output
     assert conversation.turns[-2]["content"] == "new question"
 
@@ -106,13 +106,13 @@ def test_server_crash_is_recovered_by_restart(make_config, servers, monkeypatch)
     server._process.wait()
     output, _ = run_session(server, ["hello", "hello again", "/exit"])
     assert "stopped unexpectedly. Restarting" in output and "Restarted" in output
-    assert output.count("EduLite: echo: w0") == 1  # the retry after the restart was answered
+    assert output.count("Edu.ai: echo: w0") == 1  # the retry after the restart was answered
 
 
 def test_main_reports_missing_model(monkeypatch, capsys, tmp_path):
     missing = replace(REGISTRY["default"], file="not-downloaded.gguf")
     monkeypatch.setitem(cli.REGISTRY, "default", missing)
-    monkeypatch.setattr("edulite.config.REGISTRY", cli.REGISTRY)
+    monkeypatch.setattr("eduai.config.REGISTRY", cli.REGISTRY)
     assert cli.main([]) == 1
     output = capsys.readouterr().out
     assert "Model file not found" in output and "Models:" in output

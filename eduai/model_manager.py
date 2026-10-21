@@ -10,11 +10,11 @@ from collections.abc import Callable
 from dataclasses import dataclass
 from pathlib import Path
 
-from edulite.config import MODELS_DIR, REGISTRY, InferenceConfig, ModelSpec, model_status
-from edulite.inference import InferenceError, LlamaServer
-from edulite.tutor.prompts import LEVELS
+from eduai.config import MODELS_DIR, REGISTRY, InferenceConfig, ModelSpec, model_status
+from eduai.inference import InferenceError, LlamaServer
+from eduai.tutor.prompts import LEVELS
 
-logger = logging.getLogger("edulite.models")
+logger = logging.getLogger("eduai.models")
 
 CONTEXT_CHOICES = (2048, 4096, 8192)
 # Changing these needs a server restart; max_tokens and temperature apply per request.
@@ -114,7 +114,7 @@ class ModelManager:
         validate_settings(merged, self.registry, self._config.models_dir)
         restart = any(merged[k] != current[k] for k in RESTART_KEYS)
         if not self.generation_lock.acquire(blocking=False):
-            raise ModelBusyError("EduLite is still answering. Stop the answer before changing settings.")
+            raise ModelBusyError("Edu.ai is still answering. Stop the answer before changing settings.")
         try:
             self._config = self._config.with_overrides(
                 model=self.registry[merged["model"]], context_tokens=merged["context_tokens"],

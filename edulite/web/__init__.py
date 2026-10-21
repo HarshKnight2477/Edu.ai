@@ -1,1 +1,0 @@
-"""EduLite web interface."""

@@ -1,7 +1,7 @@
 // Run with: node --test tests/js
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { parseBlocks, parseInline } = require("../../edulite/web/static/markdown.js");
+const { parseBlocks, parseInline } = require("../../eduai/web/static/markdown.js");
 
 test("fenced code keeps contents verbatim and language", () => {
   const blocks = parseBlocks("Here:\n```python\nx = 1  # **not bold**\nprint(x)\n```\nDone.");

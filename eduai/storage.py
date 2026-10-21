@@ -13,9 +13,9 @@ from dataclasses import asdict, dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 
-from edulite.config import DATA_DIR
+from eduai.config import DATA_DIR
 
-DEFAULT_DB_PATH = DATA_DIR / "edulite.db"
+DEFAULT_DB_PATH = DATA_DIR / "eduai.db"
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS conversations (
@@ -78,10 +78,24 @@ class Message:
         return asdict(self)
 
 
+LEGACY_DB_PATH = DATA_DIR / "edulite.db"  # name before the project became Edu.ai
+
+
+def migrate_legacy_db(path: Path) -> None:
+    """Keep chats from before the rename: move edulite.db (and its WAL files) to eduai.db."""
+    if path != DEFAULT_DB_PATH or path.exists() or not LEGACY_DB_PATH.exists():
+        return
+    for suffix in ("", "-wal", "-shm"):
+        old = LEGACY_DB_PATH.with_name(LEGACY_DB_PATH.name + suffix)
+        if old.exists():
+            old.rename(path.with_name(path.name + suffix))
+
+
 class Store:
     def __init__(self, path: Path | str = DEFAULT_DB_PATH):
         if str(path) != ":memory:":
             Path(path).parent.mkdir(parents=True, exist_ok=True)
+            migrate_legacy_db(Path(path))
         self._conn = sqlite3.connect(str(path), check_same_thread=False)
         self._conn.row_factory = sqlite3.Row
         self._conn.execute("PRAGMA foreign_keys = ON")

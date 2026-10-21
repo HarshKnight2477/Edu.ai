@@ -31,7 +31,7 @@ class RunResult:
 
 
 def run_python(code: str, timeout: float = 10.0) -> RunResult:
-    with tempfile.TemporaryDirectory(prefix="edulite_sandbox_") as workdir:
+    with tempfile.TemporaryDirectory(prefix="eduai_sandbox_") as workdir:
         script = Path(workdir) / "program.py"
         script.write_text(code, encoding="utf-8")
         env = {"PATH": os.environ.get("PATH", ""), "SYSTEMROOT": os.environ.get("SYSTEMROOT", ""),

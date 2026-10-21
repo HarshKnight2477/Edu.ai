@@ -16,9 +16,9 @@ from pathlib import Path
 import psutil
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from edulite.config import REGISTRY, config_from_env, model_status  # noqa: E402
-from edulite.conversation import Conversation  # noqa: E402
-from edulite.inference import LlamaServer  # noqa: E402
+from eduai.config import REGISTRY, config_from_env, model_status  # noqa: E402
+from eduai.conversation import Conversation  # noqa: E402
+from eduai.inference import LlamaServer  # noqa: E402
 
 QUESTIONS = [
     "Explain what a Python variable is using a simple example.",

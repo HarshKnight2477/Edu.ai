@@ -3,7 +3,7 @@
 Model choices and runtime flags come from the Milestone 1 evaluation
 (docs/milestone-1-report.md): Qwen3.5-2B by default, Qwen3.5-0.8B for
 memory-constrained PCs, Granite-4.2-3B for quality. Every setting can be
-overridden with an ``EDULITE_*`` environment variable or a CLI flag.
+overridden with an ``EDUAI_*`` environment variable or a CLI flag.
 """
 
 from __future__ import annotations
@@ -96,8 +96,16 @@ def default_threads() -> int:
     return max(1, min(8, physical))
 
 
-def _env_int(name: str, default: int) -> int:
+def getenv(name: str, default: str | None = None) -> str | None:
+    """Read an EDUAI_* setting, falling back to the pre-rename EDULITE_* name."""
     value = os.getenv(name)
+    if value is None and name.startswith("EDUAI_"):
+        value = os.getenv("EDULITE_" + name[len("EDUAI_"):])
+    return default if value is None else value
+
+
+def _env_int(name: str, default: int) -> int:
+    value = getenv(name)
     return int(value) if value else default
 
 
@@ -131,15 +139,15 @@ class InferenceConfig:
 
 
 def config_from_env(model_key: str | None = None) -> InferenceConfig:
-    key = model_key or os.getenv("EDULITE_MODEL", "default")
+    key = model_key or getenv("EDUAI_MODEL", "default")
     if key not in REGISTRY:
         raise ValueError(f"Unknown model '{key}'. Choose one of: {', '.join(REGISTRY)}")
     base = InferenceConfig(model=REGISTRY[key])
-    binary = os.getenv("EDULITE_SERVER_BINARY")
+    binary = getenv("EDUAI_SERVER_BINARY")
     return base.with_overrides(
-        threads=_env_int("EDULITE_THREADS", base.threads),
-        context_tokens=_env_int("EDULITE_CTX", base.context_tokens),
-        max_tokens=_env_int("EDULITE_MAX_TOKENS", base.max_tokens),
-        port=_env_int("EDULITE_PORT", base.port),
+        threads=_env_int("EDUAI_THREADS", base.threads),
+        context_tokens=_env_int("EDUAI_CTX", base.context_tokens),
+        max_tokens=_env_int("EDUAI_MAX_TOKENS", base.max_tokens),
+        port=_env_int("EDUAI_PORT", base.port),
         server_command=(binary,) if binary else None,
     )

@@ -1,8 +1,8 @@
 import pytest
 
-from edulite.knowledge.retrieval import KnowledgeBase, parse_notes, query_terms
-from edulite.tutor.engine import Tutor
-from edulite.tutor.prompts import LEVELS, MODES, build_system_prompt, detect_mode
+from eduai.knowledge.retrieval import KnowledgeBase, parse_notes, query_terms
+from eduai.tutor.engine import Tutor
+from eduai.tutor.prompts import LEVELS, MODES, build_system_prompt, detect_mode
 
 
 @pytest.fixture(scope="module")
@@ -18,7 +18,7 @@ def test_notes_are_indexed(kb):
 
 
 def test_every_note_section_has_content():
-    from edulite.knowledge.retrieval import NOTES_DIR
+    from eduai.knowledge.retrieval import NOTES_DIR
     for path in NOTES_DIR.glob("*.md"):
         for source, section, text in parse_notes(path):
             assert len(text) > 150, f"{path.name}: '{section}' is too short"
@@ -177,7 +177,7 @@ def test_invalid_level_or_mode(kb):
 
 # ------------------------------------------------------------ P2/P4 regressions
 
-from edulite.tutor.prompts import FORMAT_PRIORITY, HINT_PLACEHOLDER, redact_worked_solutions  # noqa: E402
+from eduai.tutor.prompts import FORMAT_PRIORITY, HINT_PLACEHOLDER, redact_worked_solutions  # noqa: E402
 
 
 def test_format_priority_comes_before_teaching_steps():

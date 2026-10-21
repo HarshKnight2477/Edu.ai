@@ -1,4 +1,4 @@
-# EduLite — Milestone 2 Report: Local Inference Engine
+# Edu.ai — Milestone 2 Report: Local Inference Engine
 
 Date: 2026-10-21 · Status: **complete** · Builds on [milestone-1-report.md](milestone-1-report.md)
 
@@ -10,10 +10,10 @@ Make the selected model run reliably on the CPU and answer messages locally. Thi
 
 | File | Purpose |
 |---|---|
-| `edulite/config.py` | Model registry (default / lite / quality), exact file sizes for download checks, `InferenceConfig`, `EDULITE_*` environment overrides, thread auto-detection |
-| `edulite/inference.py` | `LlamaServer`: start / attach / health wait / stop, flag verification, `chat()`, `stream_chat()` with cancellation, typed errors |
-| `edulite/conversation.py` | Conversation history with a short tutor system prompt and oldest-first trimming |
-| `edulite/cli.py`, `edulite/__main__.py` | Terminal chat: `python -m edulite` |
+| `eduai/config.py` | Model registry (default / lite / quality), exact file sizes for download checks, `InferenceConfig`, `EDUAI_*` environment overrides, thread auto-detection |
+| `eduai/inference.py` | `LlamaServer`: start / attach / health wait / stop, flag verification, `chat()`, `stream_chat()` with cancellation, typed errors |
+| `eduai/conversation.py` | Conversation history with a short tutor system prompt and oldest-first trimming |
+| `eduai/cli.py`, `eduai/__main__.py` | Terminal chat: `python -m eduai` |
 | `tests/fake_llama_server.py` | Model-free stand-in for llama-server, able to simulate loading, crashes, timeouts, bad replies and a full context |
 | `tests/test_inference.py`, `tests/test_cli.py` | 34 tests of lifecycle, chat, streaming and CLI behaviour |
 | `tests/test_real_model.py` | 4 end-to-end tests with the real runtime and lite model (skipped if not installed) |
@@ -27,10 +27,10 @@ Nothing new was downloaded. The milestone reuses the llama.cpp build b11780 in `
 ```bash
 .venv\Scripts\activate                 # Linux: source .venv/bin/activate
 pip install -r requirements-dev.txt
-python -m edulite                      # default model, Qwen3.5-2B
-python -m edulite --model lite         # Qwen3.5-0.8B
-python -m edulite --list-models
-python -m edulite --stats --threads 4 --ctx 2048 --max-tokens 512
+python -m eduai                      # default model, Qwen3.5-2B
+python -m eduai --model lite         # Qwen3.5-0.8B
+python -m eduai --list-models
+python -m eduai --stats --threads 4 --ctx 2048 --max-tokens 512
 python -m pytest
 ```
 
@@ -43,8 +43,8 @@ In the chat: `/help`, `/reset`, `/info`, `/exit`. **Ctrl+C stops the current ans
 - **`--no-webui`**: the server's built-in web page is disabled, leaving the API only.
 - **Thinking disabled** (`enable_thinking: false`) for the hybrid-reasoning models, so answers start immediately.
 - **Single slot** (`--parallel 1`): one student, one conversation, minimum memory.
-- **No duplicate servers.** If the port already serves the *same* model file (checked through `/props`), EduLite attaches to it. A different model or another program on the port is refused with a clear message.
-- **The server can't be orphaned.** It runs in its own process group, so Ctrl+C reaches the chat, not the server. On Windows it's also placed in a Job object that kills it if EduLite dies; on Linux the parent-death signal does the same.
+- **No duplicate servers.** If the port already serves the *same* model file (checked through `/props`), Edu.ai attaches to it. A different model or another program on the port is refused with a clear message.
+- **The server can't be orphaned.** It runs in its own process group, so Ctrl+C reaches the chat, not the server. On Windows it's also placed in a Job object that kills it if Edu.ai dies; on Linux the parent-death signal does the same.
 - **A full context is recovered automatically.** When llama-server reports `exceed_context_size_error`, the CLI drops the oldest exchange and retries, and tells the student it did so.
 
 ## Test results
@@ -81,7 +81,7 @@ What the tests cover:
   - the server listens only on 127.0.0.1.
 
 **Also verified by hand:**
-- **Hard-kill check:** after hard-killing the EduLite Python process (so no cleanup code ran), the llama-server process was gone a second later. That confirms the Job object works.
+- **Hard-kill check:** after hard-killing the Edu.ai Python process (so no cleanup code ran), the llama-server process was gone a second later. That confirms the Job object works.
 - **A real CLI session with Qwen3.5-2B:** two turns, where the follow-up correctly built on the first answer, then `/info` (1,457 MB server RAM), `/reset` and `/exit`.
 
 ## Measurements

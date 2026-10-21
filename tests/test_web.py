@@ -6,9 +6,9 @@ from dataclasses import replace
 import pytest
 from fastapi.testclient import TestClient
 
-from edulite.model_manager import ModelManager
-from edulite.storage import Store
-from edulite.web.app import create_app
+from eduai.model_manager import ModelManager
+from eduai.storage import Store
+from eduai.web.app import create_app
 
 BASE = "http://127.0.0.1"
 
@@ -56,7 +56,7 @@ def stream_message(client, conversation_id, content):
 def test_index_status_and_security_headers(web):
     client, manager, _ = web()
     page = client.get("/")
-    assert page.status_code == 200 and "EduLite" in page.text
+    assert page.status_code == 200 and "Edu.ai" in page.text
     assert "default-src 'self'" in page.headers["content-security-policy"]
     status = client.get("/api/status").json()
     assert status["state"] == "ready" and status["model"]["key"] == "default"

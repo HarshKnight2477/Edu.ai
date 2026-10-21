@@ -27,11 +27,11 @@ Date: 2026-10-22 · Versions compared: **m4-v1** (original) → **m4-v2** (remed
 
 | File | Change | Addresses |
 |---|---|---|
-| `edulite/tutor/prompts.py` | **Mode detection rewritten.** Debug now needs evidence: a traceback or error line (`TypeError: …`), code together with a reported problem, or an explicit request about the student's own code ("fix my…", "why does my…", "what's wrong with this…"). Conceptual questions and code-explanation requests go to Explain. Explicit hint, quiz and full-solution requests win first. | P1 |
-| `edulite/tutor/prompts.py` | **Format priority:** a new rule right after the persona says that the student's explicit format or length request overrides the teaching steps. | P2 |
-| `edulite/tutor/prompts.py` | **Debug template is code-first:** trace the code with the failing input, show the smallest fix, then briefly explain; ask for missing code. No numbered sections, no analogy. **Beginner level:** "use an analogy only if it makes the idea clearer". **Explain:** no mandatory headings; short answers to factual questions. | P2 |
-| `edulite/tutor/prompts.py` | **Hint mode and notes:** code blocks in retrieved notes that define a function or class, or run 3+ lines, are replaced by a placeholder, while prose, inline code and 1–2 line snippets stay. The notes are introduced as "for explaining ideas, not for writing the solution". Explain and Debug still get full code examples. The notes have no metadata separating worked solutions from concepts, so this structural rule is the documented fallback. | P3 |
-| `edulite/tutor/prompts.py` | `PROMPT_VERSION = "m4-v2"`, recorded in every evaluation result. | Reproducibility |
+| `eduai/tutor/prompts.py` | **Mode detection rewritten.** Debug now needs evidence: a traceback or error line (`TypeError: …`), code together with a reported problem, or an explicit request about the student's own code ("fix my…", "why does my…", "what's wrong with this…"). Conceptual questions and code-explanation requests go to Explain. Explicit hint, quiz and full-solution requests win first. | P1 |
+| `eduai/tutor/prompts.py` | **Format priority:** a new rule right after the persona says that the student's explicit format or length request overrides the teaching steps. | P2 |
+| `eduai/tutor/prompts.py` | **Debug template is code-first:** trace the code with the failing input, show the smallest fix, then briefly explain; ask for missing code. No numbered sections, no analogy. **Beginner level:** "use an analogy only if it makes the idea clearer". **Explain:** no mandatory headings; short answers to factual questions. | P2 |
+| `eduai/tutor/prompts.py` | **Hint mode and notes:** code blocks in retrieved notes that define a function or class, or run 3+ lines, are replaced by a placeholder, while prose, inline code and 1–2 line snippets stay. The notes are introduced as "for explaining ideas, not for writing the solution". Explain and Debug still get full code examples. The notes have no metadata separating worked solutions from concepts, so this structural rule is the documented fallback. | P3 |
+| `eduai/tutor/prompts.py` | `PROMPT_VERSION = "m4-v2"`, recorded in every evaluation result. | Reproducibility |
 | `benchmarks/grading.py` (new) | **Strict answer extraction**, separate from scoring: accepts a bare letter, a leading option label ("C. …"), or an explicit label ("Answer: C", "Option C"). Anything else, or conflicting labels, is *unparseable*. Reports correct / incorrect / unparseable / coverage / accuracy-on-parseable, and Wilson 95% intervals. | P4 |
 | `benchmarks/regrade_quiz.py` (new) | Re-scores saved replies without new inference. | P4 |
 | `benchmarks/eval_tutoring.py` | v2: strict grading; debug **format check** (one code block, then ≤2 sentences / ≤400 characters) and cut-off tracking; the **extended homework benchmark**; a diagnostic for solutions written outside code blocks; metadata (prompt version, model file, llama.cpp build, decoding, task counts); per-request latency and server peak RAM. **The baseline prompt is unchanged.** | P2–P5, methodology |
@@ -47,8 +47,8 @@ v2 showed that the 2B model still presented complete functions as "hints" even w
 
 | File | Change |
 |---|---|
-| `edulite/tutor/guard.py` (new) | `HintGuard`, a streaming filter used only in hint mode. Prose passes through immediately; each fenced code block is held until it closes. A block that defines a function, returns a value and has 3+ code lines (the shape of a complete solution) is replaced by a note offering the full solution on request. Skeletons, syntax snippets and pseudo-code are kept. |
-| `edulite/web/app.py`, `edulite/cli.py` | Hint-mode answers go through the guard; **the saved message is what the student saw**; stats record `solutions_withheld`. |
+| `eduai/tutor/guard.py` (new) | `HintGuard`, a streaming filter used only in hint mode. Prose passes through immediately; each fenced code block is held until it closes. A block that defines a function, returns a value and has 3+ code lines (the shape of a complete solution) is replaced by a note offering the full solution on request. Skeletons, syntax snippets and pseudo-code are kept. |
+| `eduai/web/app.py`, `eduai/cli.py` | Hint-mode answers go through the guard; **the saved message is what the student saw**; stats record `solutions_withheld`. |
 | `benchmarks/eval_tutoring.py` | The same guard applied in the tutor configurations when the mode is hint (as in the product); `--tasks hint` re-runs only the homework sets. |
 | `tests/test_guard.py`, `tests/test_web.py`, `tests/test_cli.py`, `tests/fake_llama_server.py` | 14 new tests: solution shape, prose kept, harmless code kept, identical results for any chunk size, prose released immediately while code is held, an unclosed block judged at the end, end-to-end checks that the solution never reaches the browser or terminal in hint mode, and that Explain mode is untouched. The fake server can now stream a given text. |
 
@@ -56,7 +56,7 @@ v2 showed that the 2B model still presented complete functions as "hints" even w
 
 | File | Change |
 |---|---|
-| `edulite/tutor/prompts.py` | The debug template now says: "Then, **in one or two sentences**, say what caused the bug and why the fix works (**exactly one sentence if the student asks for one**)", instead of "briefly". `PROMPT_VERSION = "m4-v4"`. |
+| `eduai/tutor/prompts.py` | The debug template now says: "Then, **in one or two sentences**, say what caused the bug and why the fix works (**exactly one sentence if the student asks for one**)", instead of "briefly". `PROMPT_VERSION = "m4-v4"`. |
 | `benchmarks/eval_tutoring.py` | `--tasks debug` re-runs only the debugging set. |
 
 Only debug mode's wording changed, so the quiz (Explain mode) and homework (Hint mode) results from v2/v3 still apply.
@@ -67,8 +67,8 @@ v4 showed that wording alone doesn't make the 2B model keep to one sentence, so 
 
 | File | Change |
 |---|---|
-| `edulite/tutor/guard.py` | `OneSentenceGuard` + `select_guard()`. Active only when the student's latest message explicitly asks for one sentence ("one sentence", "a single sentence", "1 sentence"). With a code-block request, the answer becomes the first code block plus one sentence of explanation; otherwise, the first sentence. The sentence splitter doesn't break on decimals ("1.8") or "e.g.". The whole answer is buffered and shown when complete, since such answers are short. Hint mode keeps priority (the hint guard runs instead). **m4-v6 fix:** if nothing follows the code, the first sentence written *before* it is used. v5 had dropped the explanation entirely for the lite model, which explains first (see results). |
-| `edulite/web/app.py`, `edulite/cli.py`, `benchmarks/eval_tutoring.py` | All three use the same `select_guard()`, so the evaluation measures exactly what students see. Stats record `trimmed_to_one_sentence`. The baseline configuration is never trimmed. |
+| `eduai/tutor/guard.py` | `OneSentenceGuard` + `select_guard()`. Active only when the student's latest message explicitly asks for one sentence ("one sentence", "a single sentence", "1 sentence"). With a code-block request, the answer becomes the first code block plus one sentence of explanation; otherwise, the first sentence. The sentence splitter doesn't break on decimals ("1.8") or "e.g.". The whole answer is buffered and shown when complete, since such answers are short. Hint mode keeps priority (the hint guard runs instead). **m4-v6 fix:** if nothing follows the code, the first sentence written *before* it is used. v5 had dropped the explanation entirely for the lite model, which explains first (see results). |
+| `eduai/web/app.py`, `eduai/cli.py`, `benchmarks/eval_tutoring.py` | All three use the same `select_guard()`, so the evaluation measures exactly what students see. Stats record `trimmed_to_one_sentence`. The baseline configuration is never trimmed. |
 | `tests/test_guard.py`, `tests/test_web.py` | 13 new tests: request detection, sentence splitting, trim with and without code, the fallback to an explanation before the code, buffering, selector priority, and end-to-end web trimming only when one sentence is explicitly requested. |
 
 Why quiz and debug weren't re-run for v3: hint mode is never selected for them (all 60 quiz prompts → Explain, all 12 debug prompts → Debug; verified), and the guard is only active in hint mode. So their v2 results also hold for v3.

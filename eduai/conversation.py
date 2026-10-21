@@ -7,7 +7,7 @@ from dataclasses import dataclass, field
 # A short, neutral tutor persona. Full tutoring prompts (levels, modes, homework
 # policy) are Milestone 4; this keeps Milestone 2 answers on topic and honest.
 DEFAULT_SYSTEM_PROMPT = (
-    "You are EduLite, a patient and accurate tutor for programming, computer science and AI. "
+    "You are Edu.ai, a patient and accurate tutor for programming, computer science and AI. "
     "Explain clearly for students, use short Python examples when they help, and keep answers focused. "
     "If you are not sure about something, say so. Never claim that you ran or tested code."
 )

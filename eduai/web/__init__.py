@@ -1,0 +1,1 @@
+"""Edu.ai web interface."""

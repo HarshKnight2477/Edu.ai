@@ -4,8 +4,8 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 
-from edulite.knowledge.retrieval import KnowledgeBase, default_knowledge_base, query_terms
-from edulite.tutor.prompts import LEVELS, MODES, build_system_prompt, detect_mode
+from eduai.knowledge.retrieval import KnowledgeBase, default_knowledge_base, query_terms
+from eduai.tutor.prompts import LEVELS, MODES, build_system_prompt, detect_mode
 
 AUTO = "auto"
 DEFAULT_LEVEL = "beginner"

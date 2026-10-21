@@ -11,9 +11,9 @@ import re
 # Recorded with every evaluation run so results can be tied to the exact prompts.
 # m4-v1: first Milestone 4 prompts. m4-v2: format priority, code-first debugging,
 # analogies only when helpful, hint mode ignores code in notes. m4-v3: same prompts
-# as v2, plus the hint-mode output check (edulite/tutor/guard.py). m4-v4: debug
+# as v2, plus the hint-mode output check (eduai/tutor/guard.py). m4-v4: debug
 # explanation length made explicit (one or two sentences). m4-v5: same prompts as
-# v4, plus the deterministic one-sentence trim (edulite/tutor/guard.py). m4-v6: the
+# v4, plus the deterministic one-sentence trim (eduai/tutor/guard.py). m4-v6: the
 # trim falls back to the explanation written before the code when none follows it.
 PROMPT_VERSION = "m4-v6"
 
@@ -62,7 +62,7 @@ FORMAT_PRIORITY = (
     "one sentence), follow it exactly. It overrides the teaching steps below."
 )
 
-PERSONA = "You are EduLite, a patient, encouraging and accurate tutor for programming, computer science and AI."
+PERSONA = "You are Edu.ai, a patient, encouraging and accurate tutor for programming, computer science and AI."
 
 # ------------------------------------------------------------------ detection
 
@@ -167,11 +167,11 @@ def build_system_prompt(level: str, mode: str, notes: list[tuple[str, str]] | No
     if notes:
         if mode == "hint":
             notes = [(title, redact_worked_solutions(text)) for title, text in notes]
-            intro = ("Course notes for explaining the ideas involved (written for EduLite and checked for "
+            intro = ("Course notes for explaining the ideas involved (written for Edu.ai and checked for "
                      "accuracy). Use them to explain concepts and suggest the next step, not to write the "
                      "student's solution.")
         else:
-            intro = ("Course notes that may help (written for EduLite and checked for accuracy). Use them when "
+            intro = ("Course notes that may help (written for Edu.ai and checked for accuracy). Use them when "
                      "relevant and prefer them over memory if they disagree; ignore them if unrelated.")
         listed = "\n\n".join(f"[{i}] {title}\n{text}" for i, (title, text) in enumerate(notes, 1))
         parts.append(intro + "\n\n" + listed)

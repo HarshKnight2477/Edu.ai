@@ -1,6 +1,10 @@
-# EduLite
+# Edu.ai
 
-A lightweight, offline AI tutor for programming and AI, designed for low-end PCs without a GPU.
+**A small language model (SLM) that gives early-level coding help on weaker PCs, for schools.**
+
+Edu.ai is an offline AI tutor for beginner programming and AI. It runs entirely on an ordinary school computer, with no GPU, no internet connection and no student data leaving the machine: about 1–1.5 GB of RAM with the default model, about 1 GB in lite mode. It explains concepts at the student's level, helps debug code, and gives hints instead of answers for homework.
+
+*Formerly EduLite. Settings using the old `EDULITE_*` environment variables, and chat history from before the rename, still work.*
 
 **Status:** Milestone 4 (tutoring prompts and course-notes retrieval) complete.
 - [Milestone 1 report](docs/milestone-1-report.md): model selection and architecture
@@ -14,9 +18,9 @@ A lightweight, offline AI tutor for programming and AI, designed for low-end PCs
 python -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements-dev.txt
-python -m edulite --list-models
-python -m edulite --web           # web interface at http://127.0.0.1:8770
-python -m edulite                 # terminal chat
+python -m eduai --list-models
+python -m eduai --web           # web interface at http://127.0.0.1:8770
+python -m eduai                 # terminal chat
 ```
 
 Needs llama.cpp CPU build b11780 in `runtime/llama-cpu/` and the GGUF models in `models/`. `--list-models` shows each model's download link and whether it's installed.
@@ -27,7 +31,7 @@ Needs llama.cpp CPU build b11780 in `runtime/llama-cpu/` and the GGUF models in 
 | Qwen3.5-0.8B Q4_0 | `lite` | ~1.0 GB | Low-memory PCs |
 | Granite-4.2-3B Q4_K_M | `quality` | ~2.4 GB | Best answers, slower |
 
-Settings can be set with flags (`--threads`, `--ctx`, `--max-tokens`, `--port`) or environment variables (`EDULITE_MODEL`, `EDULITE_THREADS`, `EDULITE_CTX`, `EDULITE_MAX_TOKENS`, `EDULITE_PORT`).
+Settings can be set with flags (`--threads`, `--ctx`, `--max-tokens`, `--port`) or environment variables (`EDUAI_MODEL`, `EDUAI_THREADS`, `EDUAI_CTX`, `EDUAI_MAX_TOKENS`, `EDUAI_PORT`).
 
 ## Tests
 
