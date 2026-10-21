@@ -3,6 +3,8 @@
     python -m edulite                    # default model (Qwen3.5-2B)
     python -m edulite --model lite       # Qwen3.5-0.8B for low-memory PCs
     python -m edulite --list-models
+    python -m edulite --web              # browser interface at http://127.0.0.1:8770
+    python -m edulite --web              # browser interface at http://127.0.0.1:8770
 
 Commands during a chat: /help, /reset, /info, /exit. Ctrl+C stops the current
 answer; Ctrl+C at the prompt (or /exit) quits.
@@ -149,6 +151,9 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--max-tokens", type=int, help="maximum answer length in tokens (default: 1024)")
     parser.add_argument("--port", type=int, help="local port for the model server (default: 8765)")
     parser.add_argument("--stats", action="store_true", help="show time and speed after each answer")
+    parser.add_argument("--web", action="store_true", help="open the web interface instead of the terminal chat")
+    parser.add_argument("--web-port", type=int, default=8770, help="port for the web interface (default: 8770)")
+    parser.add_argument("--no-browser", action="store_true", help="with --web: don't open a browser window")
     parser.add_argument("--list-models", action="store_true", help="show available models and exit")
     parser.add_argument("--verbose", action="store_true", help="log server commands and events")
     parser.add_argument("--version", action="version", version=f"EduLite {__version__}")
@@ -172,6 +177,11 @@ def main(argv: list[str] | None = None) -> int:
     except ValueError as error:
         out.write(f"{error}\n")
         return 2
+
+    if args.web:
+        from edulite.web.server import run
+        run(config, port=args.web_port, open_browser=not args.no_browser, explicit_model=args.model is not None)
+        return 0
 
     out.write(f"EduLite {__version__}: offline AI tutor\n")
     out.write(f"Loading {config.model.name} ({config.threads} threads, context {config.context_tokens})... ")

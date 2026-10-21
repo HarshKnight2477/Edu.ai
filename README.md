@@ -2,9 +2,10 @@
 
 A lightweight, offline AI tutor for programming and AI, designed for low-end PCs without a GPU.
 
-**Status:** Milestone 2 (local inference engine) complete.
+**Status:** Milestone 3 (web chat interface) complete.
 - [Milestone 1 report](docs/milestone-1-report.md): model selection and architecture
 - [Milestone 2 report](docs/milestone-2-report.md): inference engine, tests and measurements
+- [Milestone 3 report](docs/milestone-3-report.md): web interface, chat history, settings
 
 ## Quick start (Windows)
 
@@ -13,7 +14,8 @@ python -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements-dev.txt
 python -m edulite --list-models
-python -m edulite                 # chat with the default model (Qwen3.5-2B)
+python -m edulite --web           # web interface at http://127.0.0.1:8770
+python -m edulite                 # terminal chat
 ```
 
 Needs llama.cpp CPU build b11780 in `runtime/llama-cpu/` and the GGUF models in `models/`. `--list-models` shows each model's download link and whether it's installed.
@@ -29,7 +31,7 @@ Settings can be set with flags (`--threads`, `--ctx`, `--max-tokens`, `--port`) 
 ## Tests
 
 ```bash
-python -m pytest        # 38 tests; the real-model tests are skipped if the runtime/model aren't installed
+python -m pytest        # 58 tests; the real-model tests are skipped if the runtime/model aren't installed
 ```
 
 ## Benchmarks

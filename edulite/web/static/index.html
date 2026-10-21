@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EduLite</title>
+  <link rel="stylesheet" href="/static/app.css">
+  <link rel="stylesheet" href="/static/vendor/hljs-github.min.css" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" href="/static/vendor/hljs-github-dark.min.css" media="(prefers-color-scheme: dark)">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <span class="logo" aria-hidden="true">◆</span>
+        <span>EduLite</span>
+      </div>
+      <button id="new-chat" class="primary new-chat" type="button">+ New chat</button>
+      <nav aria-label="Conversations">
+        <ul id="conversations" class="conversations"></ul>
+      </nav>
+      <div class="sidebar-foot">
+        <button id="open-settings" type="button" class="ghost">Settings</button>
+        <span class="privacy">Runs offline. Chats stay on this computer.</span>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button id="toggle-sidebar" class="ghost icon" type="button" aria-label="Show conversations">☰</button>
+        <h1 id="chat-title" class="chat-title">New chat</h1>
+        <div id="status" class="status" role="status" aria-live="polite">
+          <span class="dot"></span><span id="status-text">Connecting…</span>
+        </div>
+      </header>
+
+      <section id="messages" class="messages" aria-live="polite">
+        <div id="welcome" class="welcome">
+          <h2>What would you like to learn?</h2>
+          <p>Ask about Python, algorithms, debugging, or how AI works. Everything runs on this computer.</p>
+          <div class="suggestions">
+            <button type="button" class="suggestion">Explain what a Python variable is with a simple example.</button>
+            <button type="button" class="suggestion">Why does my for loop skip the first item in a list?</button>
+            <button type="button" class="suggestion">What is gradient descent? Explain it simply.</button>
+            <button type="button" class="suggestion">Write a Python function that checks if a word is a palindrome.</button>
+          </div>
+        </div>
+      </section>
+
+      <form id="composer" class="composer">
+        <textarea id="input" rows="1" placeholder="Ask EduLite a question…" aria-label="Message" maxlength="20000"></textarea>
+        <button id="send" class="primary" type="submit">Send</button>
+        <button id="stop" class="danger" type="button" hidden>Stop</button>
+      </form>
+      <p class="hint">Enter to send · Shift+Enter for a new line · EduLite can make mistakes: check important code by running it.</p>
+    </main>
+  </div>
+
+  <dialog id="settings-dialog" class="settings">
+    <form id="settings-form" method="dialog">
+      <h2>Settings</h2>
+      <label>Model
+        <select id="set-model" name="model"></select>
+      </label>
+      <p id="model-note" class="note"></p>
+      <label>Context length (how much of the chat the model remembers)
+        <select id="set-context" name="context_tokens">
+          <option value="2048">2,048 tokens (less memory)</option>
+          <option value="4096">4,096 tokens (recommended)</option>
+          <option value="8192">8,192 tokens (more memory)</option>
+        </select>
+      </label>
+      <label>Maximum answer length (tokens)
+        <input id="set-max" name="max_tokens" type="number" min="64" max="4096" step="64">
+      </label>
+      <label>CPU threads
+        <input id="set-threads" name="threads" type="number" min="1" max="64">
+      </label>
+      <label>Creativity (temperature): <output id="temp-out"></output>
+        <input id="set-temp" name="temperature" type="range" min="0" max="1.5" step="0.1">
+      </label>
+      <p id="settings-error" class="error" role="alert"></p>
+      <div class="dialog-actions">
+        <button type="button" id="settings-cancel" class="ghost">Cancel</button>
+        <button type="submit" id="settings-save" class="primary">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="/static/vendor/highlight.min.js"></script>
+  <script src="/static/markdown.js"></script>
+  <script src="/static/app.js"></script>
+</body>
+</html>
