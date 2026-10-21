@@ -1,0 +1,74 @@
+[
+  {
+    "id": "debug-01-average",
+    "symptom": "average([2, 4, 6]) gives 3.33 instead of 4.0",
+    "code": "def average(nums):\n    \"\"\"Return the arithmetic mean of a non-empty list of numbers.\"\"\"\n    total = 0\n    for i in range(1, len(nums)):\n        total += nums[i]\n    return total / len(nums)\n",
+    "tests": "assert average([2, 4, 6]) == 4.0\nassert average([5]) == 5.0\nassert average([-1, 1]) == 0.0\n"
+  },
+  {
+    "id": "debug-02-palindrome",
+    "symptom": "AttributeError: 'str' object has no attribute 'reverse'",
+    "code": "def is_palindrome(s):\n    \"\"\"Return True if the string reads the same forwards and backwards.\"\"\"\n    return s == s.reverse()\n",
+    "tests": "assert is_palindrome('racecar') is True\nassert is_palindrome('abc') is False\nassert is_palindrome('') is True\n"
+  },
+  {
+    "id": "debug-03-factorial",
+    "symptom": "factorial(0) never returns (RecursionError)",
+    "code": "def factorial(n):\n    \"\"\"Return n! for a non-negative integer n.\"\"\"\n    if n == 1:\n        return 1\n    return n * factorial(n - 1)\n",
+    "tests": "assert factorial(0) == 1\nassert factorial(1) == 1\nassert factorial(5) == 120\n"
+  },
+  {
+    "id": "debug-04-vowels",
+    "symptom": "count_vowels('HELLO') returns 0, but it should be 2",
+    "code": "def count_vowels(text):\n    \"\"\"Count the vowels (a, e, i, o, u) in text, ignoring case.\"\"\"\n    count = 0\n    for ch in text:\n        if ch in 'aeiou':\n            count += 1\n    return count\n",
+    "tests": "assert count_vowels('HELLO') == 2\nassert count_vowels('Programming') == 3\nassert count_vowels('xyz') == 0\n"
+  },
+  {
+    "id": "debug-05-max",
+    "symptom": "find_max([-3, -1, -7]) returns 0",
+    "code": "def find_max(nums):\n    \"\"\"Return the largest number in a non-empty list.\"\"\"\n    max_val = 0\n    for n in nums:\n        if n > max_val:\n            max_val = n\n    return max_val\n",
+    "tests": "assert find_max([-3, -1, -7]) == -1\nassert find_max([4, 9, 2]) == 9\nassert find_max([0]) == 0\n"
+  },
+  {
+    "id": "debug-06-fizzbuzz",
+    "symptom": "fizzbuzz(15)[-1] is 'Fizz' instead of 'FizzBuzz'",
+    "code": "def fizzbuzz(n):\n    \"\"\"Return a list for 1..n: 'Fizz' for multiples of 3, 'Buzz' for multiples of 5,\n    'FizzBuzz' for multiples of both, otherwise the number as a string.\"\"\"\n    result = []\n    for i in range(1, n + 1):\n        if i % 3 == 0:\n            result.append('Fizz')\n        elif i % 5 == 0:\n            result.append('Buzz')\n        elif i % 15 == 0:\n            result.append('FizzBuzz')\n        else:\n            result.append(str(i))\n    return result\n",
+    "tests": "r = fizzbuzz(15)\nassert r[-1] == 'FizzBuzz'\nassert r[2] == 'Fizz' and r[4] == 'Buzz' and r[0] == '1'\nassert len(r) == 15\n"
+  },
+  {
+    "id": "debug-07-binary-search",
+    "symptom": "binary_search([5], 5) returns -1 even though 5 is in the list",
+    "code": "def binary_search(arr, target):\n    \"\"\"Return the index of target in the sorted list arr, or -1 if absent.\"\"\"\n    low, high = 0, len(arr) - 1\n    while low < high:\n        mid = (low + high) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            low = mid + 1\n        else:\n            high = mid - 1\n    return -1\n",
+    "tests": "assert binary_search([5], 5) == 0\nassert binary_search([1, 3, 5, 7], 7) == 3\nassert binary_search([1, 3, 5, 7], 1) == 0\nassert binary_search([1, 3, 5, 7], 4) == -1\nassert binary_search([], 1) == -1\n"
+  },
+  {
+    "id": "debug-08-remove-duplicates",
+    "symptom": "remove_duplicates([1, 1, 1, 2]) returns [1, 1, 2]",
+    "code": "def remove_duplicates(items):\n    \"\"\"Return a new list without duplicates, keeping the first occurrence order.\"\"\"\n    for i, x in enumerate(items):\n        if x in items[:i]:\n            items.remove(x)\n    return items\n",
+    "tests": "assert remove_duplicates([1, 1, 1, 2]) == [1, 2]\nassert remove_duplicates([3, 1, 3, 2, 1]) == [3, 1, 2]\nassert remove_duplicates([]) == []\n"
+  },
+  {
+    "id": "debug-09-word-freq",
+    "symptom": "KeyError: 'the'",
+    "code": "def word_frequencies(text):\n    \"\"\"Return a dict mapping each lowercase word (split on whitespace) to its count.\"\"\"\n    counts = {}\n    for word in text.lower().split():\n        counts[word] += 1\n    return counts\n",
+    "tests": "assert word_frequencies('the cat the hat') == {'the': 2, 'cat': 1, 'hat': 1}\nassert word_frequencies('') == {}\nassert word_frequencies('A a') == {'a': 2}\n"
+  },
+  {
+    "id": "debug-10-mutable-default",
+    "symptom": "the second call append_item('b') returns ['a', 'b'] instead of ['b']",
+    "code": "def append_item(item, items=[]):\n    \"\"\"Append item to items and return the list. With no list given, start a new one.\"\"\"\n    items.append(item)\n    return items\n",
+    "tests": "assert append_item('a') == ['a']\nassert append_item('b') == ['b']\nassert append_item('c', ['x']) == ['x', 'c']\n"
+  },
+  {
+    "id": "debug-11-temperature",
+    "symptom": "celsius_to_fahrenheit(100) returns 132 instead of 212",
+    "code": "def celsius_to_fahrenheit(c):\n    \"\"\"Convert degrees Celsius to Fahrenheit.\"\"\"\n    return c * (9 // 5) + 32\n",
+    "tests": "assert celsius_to_fahrenheit(100) == 212\nassert abs(celsius_to_fahrenheit(37) - 98.6) < 1e-9\nassert celsius_to_fahrenheit(-40) == -40\n"
+  },
+  {
+    "id": "debug-12-second-largest",
+    "symptom": "second_largest([5, 5, 3]) returns 5, but the second largest distinct value is 3",
+    "code": "def second_largest(nums):\n    \"\"\"Return the second largest distinct value in nums (at least two distinct values).\"\"\"\n    nums = sorted(nums)\n    return nums[-2]\n",
+    "tests": "assert second_largest([5, 5, 3]) == 3\nassert second_largest([1, 2, 3, 4]) == 3\nassert second_largest([-1, -2, -2]) == -2\n"
+  }
+]

@@ -1,0 +1,19 @@
+{
+  "model": "qwen3.5-2b",
+  "file": "Qwen3.5-2B-Q4_K_M.gguf",
+  "params": "2B",
+  "license": "Apache-2.0",
+  "file_size_gb": 1.28,
+  "threads": 4,
+  "ctx": 4096,
+  "startup_s": 1.85,
+  "rss_after_load_mb": 1885,
+  "humaneval_pass@1": 0.625,
+  "debug_fix_rate": 0.917,
+  "quiz_accuracy": 0.833,
+  "tutor_reply_s": 14.45,
+  "gen_tok_s": 20.3,
+  "prompt_tok_s": 189.2,
+  "bench_minutes": 11.0,
+  "peak_rss_mb": 6355
+}

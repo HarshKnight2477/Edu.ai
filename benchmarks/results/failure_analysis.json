@@ -1,0 +1,44 @@
+{
+  "qwen2.5-coder-0.5b": {
+    "unchanged": 7,
+    "unchanged_and_claims_fix": 6,
+    "no_code": 2,
+    "wrong_fix": 0,
+    "humaneval_no_code_block": 0
+  },
+  "qwen3.5-0.8b": {
+    "unchanged": 9,
+    "unchanged_and_claims_fix": 0,
+    "no_code": 0,
+    "wrong_fix": 0,
+    "humaneval_no_code_block": 0
+  },
+  "qwen2.5-coder-1.5b": {
+    "unchanged": 2,
+    "unchanged_and_claims_fix": 2,
+    "no_code": 2,
+    "wrong_fix": 0,
+    "humaneval_no_code_block": 0
+  },
+  "qwen3-1.7b": {
+    "unchanged": 2,
+    "unchanged_and_claims_fix": 2,
+    "no_code": 0,
+    "wrong_fix": 1,
+    "humaneval_no_code_block": 0
+  },
+  "qwen3.5-2b": {
+    "unchanged": 0,
+    "unchanged_and_claims_fix": 0,
+    "no_code": 0,
+    "wrong_fix": 1,
+    "humaneval_no_code_block": 0
+  },
+  "granite-4.2-3b": {
+    "unchanged": 0,
+    "unchanged_and_claims_fix": 0,
+    "no_code": 0,
+    "wrong_fix": 0,
+    "humaneval_no_code_block": 0
+  }
+}

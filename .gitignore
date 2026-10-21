@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Large binaries: downloaded by scripts, never committed
+models/*.gguf
+runtime/
+benchmarks/data/
+benchmarks/bench_run.log
+
+# Local student data stays on the device
+data/

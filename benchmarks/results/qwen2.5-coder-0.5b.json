@@ -1,0 +1,19 @@
+{
+  "model": "qwen2.5-coder-0.5b",
+  "file": "qwen2.5-coder-0.5b-instruct-q4_k_m.gguf",
+  "params": "0.5B",
+  "license": "Apache-2.0",
+  "file_size_gb": 0.49,
+  "threads": 4,
+  "ctx": 4096,
+  "startup_s": 1.0,
+  "rss_after_load_mb": 522,
+  "humaneval_pass@1": 0.55,
+  "debug_fix_rate": 0.25,
+  "quiz_accuracy": 0.5,
+  "tutor_reply_s": 1.96,
+  "gen_tok_s": 70.4,
+  "prompt_tok_s": 417.2,
+  "bench_minutes": 3.9,
+  "peak_rss_mb": 835
+}

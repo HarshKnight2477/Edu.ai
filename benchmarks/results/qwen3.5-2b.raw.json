@@ -1,0 +1,419 @@
+{
+  "humaneval": [
+    {
+      "task": "HumanEval/3",
+      "passed": true,
+      "answer": "```python\nfrom typing import List\n\n\ndef below_zero(operations: List[int]) -> bool:\n    \"\"\"\n    You're given a list of deposit and withdrawal operations on a bank account that starts with\n    zero balance. Your task is to detect if at any point the balance of account falls below zero,\n    and at that point function should return True. Otherwise it should return False.\n    \n    >>> below_zero([1, 2, 3])\n    False\n    >>> below_zero([1, 2, -4, 5])\n    True\n    \"\"\"\n    balance = 0\n    for op in operations:\n        balance += op\n        if balance < 0:\n            return True\n    return False\n```"
+    },
+    {
+      "task": "HumanEval/10",
+      "passed": true,
+      "answer": "```python\ndef is_palindrome(string: str) -> bool:\n    \"\"\"Test if given string is a palindrome.\"\"\"\n    return string == string[::-1]\n\n\ndef make_palindrome(string: str) -> str:\n    \"\"\"Find the shortest palindrome that begins with a supplied string.\n    Algorithm idea is simple:\n    - Find the longest postfix of supplied string that is a palindrome.\n    - Append to the end of the string reverse of a string prefix that comes before the palindromic suffix.\n    >>> make_palindrome('')\n    ''\n    >>> make_palindrome('cat')\n    'catac'\n    >>> make_palindrome('cata')\n    'catac'\n    \"\"\"\n    n = len(string)\n    if n == 0:\n        return ''\n\n    # Find the longest suffix of string that is a palindrome\n    # We can do this by checking all lengths from n down to 1\n    longest_pal_suffix_len = 0\n    for length in range(n, 0, -1):\n        if string[-length:] == string[-length:][::-1]:\n            longest_pal_suffix_len = length\n            break\n\n    # The prefix to be reversed is the first (n - longest_pal_suffix_len) characters\n    prefix_len = n - longest_pal_suffix_len\n    prefix = string[:prefix_len]\n    reversed_prefix = prefix[::-1]\n\n    # Construct the result: original string + reversed prefix\n    result = string + reversed_prefix\n\n    return result\n```"
+    },
+    {
+      "task": "HumanEval/15",
+      "passed": true,
+      "answer": "```python\ndef string_sequence(n: int) -> str:\n    \"\"\"Return a string containing space-delimited numbers starting from 0 up to n inclusive.\"\"\"\n    return ' '.join(str(i) for i in range(n + 1))\n```"
+    },
+    {
+      "task": "HumanEval/18",
+      "passed": true,
+      "answer": "```python\ndef how_many_times(string: str, substring: str) -> int:\n    \"\"\" Find how many times a given substring can be found in the original string. Count overlaping cases.\n    >>> how_many_times('', 'a')\n    0\n    >>> how_many_times('aaa', 'a')\n    3\n    >>> how_many_times('aaaa', 'aa')\n    3\n    \"\"\"\n    if not substring:\n        return 0\n    \n    count = 0\n    i = 0\n    n = len(string)\n    m = len(substring)\n    \n    while i <= n - m:\n        if string[i:i+m] == substring:\n            count += 1\n            i += 1\n        else:\n            i += 1\n    \n    return count\n```"
+    },
+    {
+      "task": "HumanEval/23",
+      "passed": true,
+      "answer": "```python\ndef strlen(string: str) -> int:\n    \"\"\"Return length of given string\n    >>> strlen('')\n    0\n    >>> strlen('abc')\n    3\n    \"\"\"\n    return len(string)\n```"
+    },
+    {
+      "task": "HumanEval/24",
+      "passed": false,
+      "answer": "```python\ndef largest_divisor(n: int) -> int:\n    \"\"\"\n    For a given number n, find the largest number that divides n evenly, smaller than n.\n    \n    This is equivalent to finding the largest proper divisor of n.\n    The largest proper divisor is n divided by the smallest prime factor of n.\n    \n    >>> largest_divisor(15)\n    3\n    >>> largest_divisor(1)\n    1\n    >>> largest_divisor(2)\n    1\n    >>> largest_divisor(4)\n    2\n    >>> largest_divisor(6)\n    3\n    \"\"\"\n    if n <= 1:\n        return 1\n    \n    # Find the smallest prime factor of n\n    # We can iterate from 2 up to sqrt(n)\n    i = 2\n    while i * i <= n:\n        if n % i == 0:\n            # i is the smallest prime factor\n            return n // i\n        i += 1\n    \n    # If no divisor found up to sqrt(n), n is prime\n    return n\n```"
+    },
+    {
+      "task": "HumanEval/25",
+      "passed": true,
+      "answer": "```python\nfrom typing import List\n\n\ndef factorize(n: int) -> List[int]:\n    \"\"\"Return list of prime factors of given integer in the order from smallest to largest.\n    Each of the factors should be listed number of times corresponding to how many times it appears in factorization.\n    Input number should be equal to the product of all factors.\n    >>> factorize(8)\n    [2, 2, 2]\n    >>> factorize(25)\n    [5, 5]\n    >>> factorize(70)\n    [2, 5, 7]\n    \"\"\"\n    if n <= 1:\n        return []\n\n    factors = []\n    d = 2\n\n    # Handle factor 2 separately to allow incrementing d by 1 later\n    while n % d == 0:\n        factors.append(d)\n        n //= d\n\n    d = 3\n    while d * d <= n:\n        while n % d == 0:\n            factors.append(d)\n            n //= d\n        d += 2\n\n    # If n is now a prime greater than 2\n    if n > 1:\n        factors.append(n)\n\n    return factors\n```"
+    },
+    {
+      "task": "HumanEval/35",
+      "passed": true,
+      "answer": "```python\ndef max_element(l: list):\n    \"\"\"Return maximum element in the list.\n    >>> max_element([1, 2, 3])\n    3\n    >>> max_element([5, 3, -5, 2, -3, 3, 9, 0, 123, 1, -10])\n    123\n    \"\"\"\n    if not l:\n        raise ValueError(\"max_element() arg is an empty list\")\n    return max(l)\n```"
+    },
+    {
+      "task": "HumanEval/37",
+      "passed": true,
+      "answer": "```python\ndef sort_even(l: list):\n    \"\"\"This function takes a list l and returns a list l' such that\n    l' is identical to l in the odd indicies, while its values at the even indicies are equal\n    to the values of the even indicies of l, but sorted.\n    >>> sort_even([1, 2, 3])\n    [1, 2, 3]\n    >>> sort_even([5, 6, 3, 4])\n    [3, 6, 5, 4]\n    \"\"\"\n    # Extract elements at even indices\n    evens = [l[i] for i in range(0, len(l), 2)]\n    # Sort the extracted elements\n    evens.sort()\n    # Reconstruct the list with sorted even-indexed elements\n    result = []\n    for i in range(len(l)):\n        if i % 2 == 0:\n            result.append(evens[i // 2])\n        else:\n            result.append(l[i])\n    return result\n```"
+    },
+    {
+      "task": "HumanEval/52",
+      "passed": true,
+      "answer": "```python\ndef below_threshold(l: list, t: int):\n    \"\"\"Return True if all numbers in the list l are below threshold t.\n    >>> below_threshold([1, 2, 4, 10], 100)\n    True\n    >>> below_threshold([1, 20, 4, 10], 5)\n    False\n    \"\"\"\n    return all(x < t for x in l)\n```"
+    },
+    {
+      "task": "HumanEval/55",
+      "passed": true,
+      "answer": "```python\ndef fib(n: int):\n    \"\"\"Return n-th Fibonacci number.\n    >>> fib(10)\n    55\n    >>> fib(1)\n    1\n    >>> fib(8)\n    21\n    \"\"\"\n    if n <= 0:\n        return 0\n    if n == 1:\n        return 1\n\n    a, b = 0, 1\n    for _ in range(2, n + 1):\n        a, b = b, a + b\n    return b\n```"
+    },
+    {
+      "task": "HumanEval/64",
+      "passed": false,
+      "answer": "```python\nFIX = \"\"\"\nAdd more test cases.\n\"\"\"\n\ndef vowels_count(s):\n    \"\"\"Write a function vowels_count which takes a string representing\n    a word as input and returns the number of vowels in the string.\n    Vowels in this case are 'a', 'e', 'i', 'o', 'u'. Here, 'y' is also a\n    vowel, but only when it is at the end of the given word.\n\n    Example:\n    >>> vowels_count(\"abcde\")\n    2\n    >>> vowels_count(\"ACEDY\")\n    3\n    \"\"\"\n    vowels = {'a', 'e', 'i', 'o', 'u'}\n    count = 0\n    for char in s:\n        if char in vowels:\n            count += 1\n        elif char == 'y' and count == 0:\n            count += 1\n    return count\n```"
+    },
+    {
+      "task": "HumanEval/66",
+      "passed": true,
+      "answer": "```python\ndef digitSum(s):\n    \"\"\"\n    Task\n    Write a function that takes a string as input and returns the sum of the upper characters only'\n    ASCII codes.\n\n    Examples:\n        digitSum(\"\") => 0\n        digitSum(\"abAB\") => 131\n        digitSum(\"abcCd\") => 67\n        digitSum(\"helloE\") => 69\n        digitSum(\"woArBld\") => 131\n        digitSum(\"aAaaaXa\") => 153\n    \"\"\"\n    return sum(ord(c) for c in s if c.isupper())\n```"
+    },
+    {
+      "task": "HumanEval/72",
+      "passed": true,
+      "answer": "```python\ndef will_it_fly(q, w):\n    '''\n    Write a function that returns True if the object q will fly, and False otherwise.\n    The object q will fly if it's balanced (it is a palindromic list) and the sum of its elements is less than or equal the maximum possible weight w.\n\n    Example:\n    will_it_fly([1, 2], 5) \u279e False \n    # 1+2 is less than the maximum possible weight, but it's unbalanced.\n\n    will_it_fly([3, 2, 3], 1) \u279e False\n    # it's balanced, but 3+2+3 is more than the maximum possible weight.\n\n    will_it_fly([3, 2, 3], 9) \u279e True\n    # 3+2+3 is less than the maximum possible weight, and it's balanced.\n\n    will_it_fly([3], 5) \u279e True\n    # 3 is less than the maximum possible weight, and it's balanced.\n    '''\n    # Check if the list is balanced (palindromic)\n    if q != q[::-1]:\n        return False\n\n    # Calculate the sum of elements\n    total_sum = sum(q)\n\n    # Check if the sum is within the maximum possible weight w\n    return total_sum <= w\n```"
+    },
+    {
+      "task": "HumanEval/77",
+      "passed": false,
+      "answer": "```python\ndef iscube(a):\n    '''\n    Write a function that takes an integer a and returns True \n    if this integer is a cube of some integer number.\n    Note: you may assume the input is always valid.\n    Examples:\n    iscube(1) ==> True\n    iscube(2) ==> False\n    iscube(-1) ==> True\n    iscube(64) ==> True\n    iscube(0) ==> True\n    iscube(180) ==> False\n    '''\n    # Since we are dealing with integers, we can use the integer cube root\n    # and check if its cube equals the original number.\n    # We use round() to find the nearest integer cube root, then cube it back.\n    root = round(a ** (1/3))\n    return root ** 3 == a\n```"
+    },
+    {
+      "task": "HumanEval/79",
+      "passed": true,
+      "answer": "```python\ndef decimal_to_binary(decimal):\n    \"\"\"You will be given a number in decimal form and your task is to convert it to\n    binary format. The function should return a string, with each character representing a binary\n    number. Each character in the string will be '0' or '1'.\n\n    There will be an extra couple of characters 'db' at the beginning and at the end of the string.\n    The extra characters are there to help with the format.\n\n    Examples:\n    decimal_to_binary(15)   # returns \"db1111db\"\n    decimal_to_binary(32)   # returns \"db100000db\"\n    \"\"\"\n    if decimal == 0:\n        return \"db0db\"\n    \n    # Convert decimal to binary string\n    binary_str = bin(decimal)[2:]  # bin() returns '0b...' so we slice off '0b'\n    \n    # Add 'db' at the beginning and end\n    result = \"db\" + binary_str + \"db\"\n    \n    return result\n```"
+    },
+    {
+      "task": "HumanEval/80",
+      "passed": true,
+      "answer": "```python\ndef is_happy(s):\n    \"\"\"You are given a string s.\n    Your task is to check if the string is happy or not.\n    A string is happy if its length is at least 3 and every 3 consecutive letters are distinct\n    For example:\n    is_happy(a) => False\n    is_happy(aa) => False\n    is_happy(abcd) => True\n    is_happy(aabb) => False\n    is_happy(adb) => True\n    is_happy(xyy) => False\n    \"\"\"\n    if len(s) < 3:\n        return False\n\n    # Check every 3 consecutive characters\n    for i in range(len(s) - 2):\n        if s[i] == s[i + 1] or s[i] == s[i + 2] or s[i + 1] == s[i + 2]:\n            return False\n\n    return True\n```"
+    },
+    {
+      "task": "HumanEval/84",
+      "passed": false,
+      "answer": "```python\ndef solve(N):\n    \"\"\"Given a positive integer N, return the total sum of its digits in binary.\n    \n    Example\n        For N = 1000, the sum of digits will be 1 the output should be \"1\".\n        For N = 150, the sum of digits will be 6 the output should be \"110\".\n        For N = 147, the sum of digits will be 12 the output should be \"1100\".\n    \n    Variables:\n        N integer\n             Constraints: 0 <= N <= 10000.\n    Output:\n         a string of binary number\n    \"\"\"\n    if N == 0:\n        return \"0\"\n    \n    # Convert the number to binary string\n    binary_representation = bin(N)[2:]  # Remove '0b' prefix\n    \n    # Calculate the sum of digits in the binary representation\n    digit_sum = sum(int(digit) for digit in binary_representation)\n    \n    return str(digit_sum)\n```"
+    },
+    {
+      "task": "HumanEval/90",
+      "passed": false,
+      "answer": "```python\ndef next_smallest(lst):\n    \"\"\"\n    You are given a list of integers.\n    Write a function next_smallest() that returns the 2nd smallest element of the list.\n    Return None if there is no such element.\n    \n    next_smallest([1, 2, 3, 4, 5]) == 2\n    next_smallest([5, 1, 4, 3, 2]) == 2\n    next_smallest([]) == None\n    next_smallest([1, 1]) == None\n    \"\"\"\n    if not lst:\n        return None\n    \n    seen = set()\n    for num in lst:\n        if num not in seen:\n            seen.add(num)\n            if len(seen) == 2:\n                return num\n    return None\n```"
+    },
+    {
+      "task": "HumanEval/91",
+      "passed": false,
+      "answer": "```python\ndef is_bored(S):\n    \"\"\"\n    You'll be given a string of words, and your task is to count the number\n    of boredoms. A boredom is a sentence that starts with the word \"I\".\n    Sentences are delimited by '.', '?' or '!'.\n   \n    For example:\n    >>> is_bored(\"Hello world\")\n    0\n    >>> is_bored(\"The sky is blue. The sun is shining. I love this weather\")\n    1\n    \"\"\"\n    import re\n\n    # Split the string by sentence delimiters\n    sentences = S.split(r'[.!?]')\n\n    count = 0\n    for sentence in sentences:\n        # Strip whitespace and check if the sentence starts with \"I\"\n        stripped = sentence.strip()\n        if stripped and stripped[0].lower() == 'i':\n            count += 1\n\n    return count\n```"
+    },
+    {
+      "task": "HumanEval/98",
+      "passed": true,
+      "answer": "```python\ndef count_upper(s):\n    \"\"\"\n    Given a string s, count the number of uppercase vowels in even indices.\n    \n    For example:\n    count_upper('aBCdEf') returns 1\n    count_upper('abcdefg') returns 0\n    count_upper('dBBE') returns 0\n    \"\"\"\n    vowels = set('AEIOU')\n    count = 0\n    \n    for i, char in enumerate(s):\n        if i % 2 == 0 and char in vowels:\n            count += 1\n            \n    return count\n```"
+    },
+    {
+      "task": "HumanEval/100",
+      "passed": false,
+      "answer": "```python\ndef make_a_pile(n):\n    \"\"\"\n    Given a positive integer n, you have to make a pile of n levels of stones.\n    The first level has n stones.\n    The number of stones in the next level is:\n        - the next odd number if n is odd.\n        - the next even number if n is even.\n    Return the number of stones in each level in a list, where element at index\n    i represents the number of stones in the level (i+1).\n\n    Examples:\n    >>> make_a_pile(3)\n    [3, 5, 7]\n    \"\"\"\n    levels = []\n    current_stones = n\n\n    for _ in range(n - 1):\n        if current_stones % 2 == 0:\n            current_stones += 1  # next even number\n        else:\n            current_stones += 2  # next odd number\n        levels.append(current_stones)\n\n    return levels\n```"
+    },
+    {
+      "task": "HumanEval/102",
+      "passed": true,
+      "answer": "```python\ndef choose_num(x, y):\n    \"\"\"This function takes two positive numbers x and y and returns the\n    biggest even integer number that is in the range [x, y] inclusive. If \n    there's no such number, then the function should return -1.\n\n    For example:\n    choose_num(12, 15) = 14\n    choose_num(13, 12) = -1\n    \"\"\"\n    if x > y:\n        return -1\n\n    # Find the largest even number <= y\n    if y % 2 == 0:\n        return y\n    else:\n        return y - 1 if y - 1 >= x else -1\n```"
+    },
+    {
+      "task": "HumanEval/103",
+      "passed": false,
+      "answer": "```python\ndef rounded_avg(n, m):\n    \"\"\"You are given two positive integers n and m, and your task is to compute the\n    average of the integers from n through m (including n and m). \n    Round the answer to the nearest integer and convert that to binary.\n    If n is greater than m, return -1.\n    Example:\n    rounded_avg(1, 5) => \"0b11\"\n    rounded_avg(7, 5) => -1\n    rounded_avg(10, 20) => \"0b1111\"\n    rounded_avg(20, 33) => \"0b11010\"\n    \"\"\"\n    if n > m:\n        return \"-1\"\n    \n    # Calculate the sum of integers from n to m\n    total = sum(range(n, m + 1))\n    \n    # Calculate the count of integers\n    count = m - n + 1\n    \n    # Calculate the average\n    avg = total / count\n    \n    # Round to the nearest integer\n    rounded_avg_val = round(avg)\n    \n    # Convert the rounded average to binary string\n    binary_str = bin(rounded_avg_val)[2:]  # bin() returns '0b...' prefix\n    \n    return binary_str\n```"
+    },
+    {
+      "task": "HumanEval/105",
+      "passed": true,
+      "answer": "```python\ndef by_length(arr):\n    \"\"\"\n    Given an array of integers, sort the integers that are between 1 and 9 inclusive,\n    reverse the resulting array, and then replace each digit by its corresponding name from\n    \"One\", \"Two\", \"Three\", \"Four\", \"Five\", \"Six\", \"Seven\", \"Eight\", \"Nine\".\n\n    For example:\n      arr = [2, 1, 1, 4, 5, 8, 2, 3]   \n            -> sort arr -> [1, 1, 2, 2, 3, 4, 5, 8] \n            -> reverse arr -> [8, 5, 4, 3, 2, 2, 1, 1]\n      return [\"Eight\", \"Five\", \"Four\", \"Three\", \"Two\", \"Two\", \"One\", \"One\"]\n    \n      If the array is empty, return an empty array:\n      arr = []\n      return []\n    \n      If the array has any strange number ignore it:\n      arr = [1, -1 , 55] \n            -> sort arr -> [-1, 1, 55]\n            -> reverse arr -> [55, 1, -1]\n      return = ['One']\n    \"\"\"\n    # Filter only integers between 1 and 9 (inclusive)\n    filtered = [x for x in arr if 1 <= x <= 9]\n    \n    # Sort the filtered numbers\n    sorted_numbers = sorted(filtered)\n    \n    # Reverse the sorted numbers\n    reversed_numbers = sorted_numbers[::-1]\n    \n    # Replace each number with its name\n    mapping = {\n        1: \"One\",\n        2: \"Two\",\n        3: \"Three\",\n        4: \"Four\",\n        5: \"Five\",\n        6: \"Six\",\n        7: \"Seven\",\n        8: \"Eight\",\n        9: \"Nine\"\n    }\n    \n    result = []\n    for num in reversed_numbers:\n        result.append(mapping[num])\n    \n    return result\n```"
+    },
+    {
+      "task": "HumanEval/107",
+      "passed": true,
+      "answer": "```python\ndef even_odd_palindrome(n):\n    \"\"\"\n    Given a positive integer n, return a tuple that has the number of even and odd\n    integer palindromes that fall within the range(1, n), inclusive.\n\n    Example 1:\n\n        Input: 3\n        Output: (1, 2)\n        Explanation:\n        Integer palindrome are 1, 2, 3. one of them is even, and two of them are odd.\n\n    Example 2:\n\n        Input: 12\n        Output: (4, 6)\n        Explanation:\n        Integer palindrome are 1, 2, 3, 4, 5, 6, 7, 8, 9, 11. four of them are even, and 6 of them are odd.\n\n    Note:\n        1. 1 <= n <= 10^3\n        2. returned tuple has the number of even and odd integer palindromes respectively.\n    \"\"\"\n    # Generate all integers from 1 to n\n    palindromes = []\n    for i in range(1, n + 1):\n        s = str(i)\n        if s == s[::-1]:  # Check if the string is a palindrome\n            palindromes.append(i)\n\n    # Count even and odd palindromes\n    even_count = sum(1 for p in palindromes if p % 2 == 0)\n    odd_count = sum(1 for p in palindromes if p % 2 != 0)\n\n    return (even_count, odd_count)\n```"
+    },
+    {
+      "task": "HumanEval/111",
+      "passed": true,
+      "answer": "```python\nfrom collections import Counter\n\ndef histogram(test):\n    \"\"\"Given a string representing a space separated lowercase letters, return a dictionary\n    of the letter with the most repetition and containing the corresponding count.\n    If several letters have the same occurrence, return all of them.\n    \n    Example:\n    histogram('a b c') == {'a': 1, 'b': 1, 'c': 1}\n    histogram('a b b a') == {'a': 2, 'b': 2}\n    histogram('a b c a b') == {'a': 2, 'b': 2}\n    histogram('b b b b a') == {'b': 4}\n    histogram('') == {}\n\n    \"\"\"\n    if not test:\n        return {}\n    \n    # Split the string by spaces and count occurrences\n    counts = Counter(test.split())\n    \n    # Find the maximum count\n    max_count = max(counts.values())\n    \n    # Filter letters that have the maximum count\n    result = {letter: count for letter, count in counts.items() if count == max_count}\n    \n    return result\n```"
+    },
+    {
+      "task": "HumanEval/113",
+      "passed": false,
+      "answer": "```python\ndef odd_count(lst):\n    \"\"\"Given a list of strings, where each string consists of only digits, return a list.\n    Each element i of the output should be \"the number of odd elements in the\n    string i of the input.\" where all the i's should be replaced by the number\n    of odd digits in the i'th string of the input.\n\n    >>> odd_count(['1234567'])\n    [\"the number of odd elements 4 in the string 4 of the input.\"]\n    >>> odd_count(['3',\"11111111\"])\n    [\"the number of odd elements 1 in the string 1 of the input.\",\n     \"the number of odd elements 8 in the string 8 of the input.\"]\n    \"\"\"\n    def count_odd_digits(s):\n        return sum(1 for c in s if int(c) % 2 != 0)\n\n    return [f\"the number of odd elements {count_odd_digits(s)} in the string {s} of the input.\" for s in lst]\n```"
+    },
+    {
+      "task": "HumanEval/120",
+      "passed": true,
+      "answer": "```python\ndef maximum(arr, k):\n    \"\"\"\n    Given an array arr of integers and a positive integer k, return a sorted list \n    of length k with the maximum k numbers in arr.\n\n    Example 1:\n\n        Input: arr = [-3, -4, 5], k = 3\n        Output: [-4, -3, 5]\n\n    Example 2:\n\n        Input: arr = [4, -4, 4], k = 2\n        Output: [4, 4]\n\n    Example 3:\n\n        Input: arr = [-3, 2, 1, 2, -1, -2, 1], k = 1\n        Output: [2]\n\n    Note:\n        1. The length of the array will be in the range of [1, 1000].\n        2. The elements in the array will be in the range of [-1000, 1000].\n        3. 0 <= k <= len(arr)\n    \"\"\"\n    if k == 0:\n        return []\n    \n    # Sort the array in ascending order\n    arr_sorted = sorted(arr)\n    \n    # Return the last k elements (which are the largest)\n    return arr_sorted[-k:]\n```"
+    },
+    {
+      "task": "HumanEval/122",
+      "passed": true,
+      "answer": "```python\ndef add_elements(arr, k):\n    \"\"\"\n    Given a non-empty array of integers arr and an integer k, return\n    the sum of the elements with at most two digits from the first k elements of arr.\n\n    Example:\n\n        Input: arr = [111,21,3,4000,5,6,7,8,9], k = 4\n        Output: 24 # sum of 21 + 3\n\n    Constraints:\n        1. 1 <= len(arr) <= 100\n        2. 1 <= k <= len(arr)\n    \"\"\"\n    total_sum = 0\n    for i in range(k):\n        if len(str(arr[i])) <= 2:\n            total_sum += arr[i]\n    return total_sum\n```"
+    },
+    {
+      "task": "HumanEval/124",
+      "passed": false,
+      "answer": "```python\ndef valid_date(date):\n    \"\"\"You have to write a function which validates a given date string and\n    returns True if the date is valid otherwise False.\n    The date is valid if all of the following rules are satisfied:\n    1. The date string is not empty.\n    2. The number of days is not less than 1 or higher than 31 days for months 1,3,5,7,8,10,12. And the number of days is not less than 1 or higher than 30 days for months 4,6,9,11. And, the number of days is not less than 1 or higher than 29 for the month 2.\n    3. The months should not be less than 1 or higher than 12.\n    4. The date should be in the format: mm-dd-yyyy\n\n    for example: \n    valid_date('03-11-2000') => True\n\n    valid_date('15-01-2012') => False\n\n    valid_date('04-0-2040') => False\n\n    valid_date('06-04-2020') => True\n\n    valid_date('06/04/2020') => False\n    \"\"\"\n    # Rule 1: Check if the date string is not empty\n    if not date:\n        return False\n\n    # Rule 4: Check if the date is in the format mm-dd-yyyy\n    if not date.isdigit() or len(date) != 8:\n        return False\n\n    # Split the date into parts\n    parts = date.split('-')\n    if len(parts) != 3:\n        return False\n\n    month_str, day_str, year_str = parts\n\n    # Rule 3: Check if the month is between 1 and 12\n    month = int(month_str)\n    if month < 1 or month > 12:\n        return False\n\n    # Rule 2: Check if the day is valid for the given month\n    # Days for each month:\n    # 1, 3, 5, 7, 8, 10, 12 -> 31 days\n    # 4, 6, 9, 11 ->"
+    },
+    {
+      "task": "HumanEval/129",
+      "passed": false,
+      "answer": "```python\ndef minPath(grid, k):\n    \"\"\"\n    Given a grid with N rows and N columns (N >= 2) and a positive integer k, \n    each cell of the grid contains a value. Every integer in the range [1, N * N]\n    inclusive appears exactly once on the cells of the grid.\n\n    You have to find the minimum path of length k in the grid. You can start\n    from any cell, and in each step you can move to any of the neighbor cells,\n    in other words, you can go to cells which share an edge with you current\n    cell.\n    Please note that a path of length k means visiting exactly k cells (not\n    necessarily distinct).\n    You CANNOT go off the grid.\n    A path A (of length k) is considered less than a path B (of length k) if\n    after making the ordered lists of the values on the cells that A and B go\n    through (let's call them lst_A and lst_B), lst_A is lexicographically less\n    than lst_B, in other words, there exist an integer index i (1 <= i <= k)\n    such that lst_A[i] < lst_B[i] and for any j (1 <= j < i) we have\n    lst_A[j] = lst_B[j].\n    It is guaranteed that the answer is unique.\n    Return an ordered list of the values on the cells that the minimum path go through.\n\n    Examples:\n\n        Input: grid = [ [1,2,3], [4,5,6], [7,8,9]], k = 3\n        Output: [1, 2, 1]\n\n        Input: grid = [ [5,9,3], [4,1,6], [7,8,2]], k = 1\n        Output: [1]\n    \"\"\"\n    N = len(grid)\n    # Directions: up, down, left, right\n    directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]\n\n    # Precompute all possible paths of length k\n    # Since N is small (implied by the problem constraints and typical competitive programming\n    # style of this problem), we can generate all paths and pick the lexicographically smallest.\n    # However, to"
+    },
+    {
+      "task": "HumanEval/130",
+      "passed": false,
+      "answer": "```python\ndef tri(n):\n    \"\"\"\n    Returns the first n + 1 numbers of the Tribonacci sequence.\n    \n    Tribonacci sequence is defined by:\n    tri(1) = 3\n    tri(n) = 1 + n / 2, if n is even.\n    tri(n) = tri(n - 1) + tri(n - 2) + tri(n + 1), if n is odd.\n    \n    Note: The recurrence for odd n uses tri(n+1), which means the sequence\n    grows faster than standard Tribonacci.\n    \n    Examples:\n    tri(3) -> [1, 3, 2, 8]\n    \"\"\"\n    if n == 0:\n        return []\n    \n    # Base cases\n    # tri(1) = 3\n    # tri(2) = 1 + 2/2 = 2\n    # tri(3) = tri(2) + tri(1) + tri(4)\n    \n    # We need to compute up to index n+1.\n    # Let's define a helper to compute tri(k) for any k >= 1\n    def compute_tri(k):\n        if k == 1:\n            return 3\n        if k == 2:\n            return 2\n        if k == 3:\n            return 8  # tri(2) + tri(1) + tri(4) = 2 + 3 + 3 = 8\n        \n        # For k >= 4, we can use the recurrence:\n        # tri(k) = tri(k-1) + tri(k-2) + tri(k+1)\n        # => tri(k+1) = tri(k) - tri(k-1) - tri(k-2)\n        # So we can compute tri(k+1) from tri(k) and tri(k-1)\n        \n        # We'll compute iteratively from k=4 to k=n+1\n        # We need to keep track of tri(k-1) and tri(k) to compute tri(k+1)\n        \n        a = 3  # tri(1)\n        b = 2  # tri(2)\n        c = 8  # tri(3)\n        \n        # We need to compute up to tri(n+1)\n        # Current"
+    },
+    {
+      "task": "HumanEval/136",
+      "passed": true,
+      "answer": "```python\ndef largest_smallest_integers(lst):\n    '''\n    Create a function that returns a tuple (a, b), where 'a' is\n    the largest of negative integers, and 'b' is the smallest\n    of positive integers in a list.\n    If there is no negative or positive integers, return them as None.\n\n    Examples:\n    largest_smallest_integers([2, 4, 1, 3, 5, 7]) == (None, 1)\n    largest_smallest_integers([]) == (None, None)\n    largest_smallest_integers([0]) == (None, None)\n    '''\n    negatives = [x for x in lst if x < 0]\n    positives = [x for x in lst if x > 0]\n\n    if not negatives:\n        a = None\n    else:\n        a = max(negatives)\n\n    if not positives:\n        b = None\n    else:\n        b = min(positives)\n\n    return (a, b)\n```"
+    },
+    {
+      "task": "HumanEval/137",
+      "passed": false,
+      "answer": "```python\ndef compare_one(a, b):\n    \"\"\"\n    Create a function that takes integers, floats, or strings representing\n    real numbers, and returns the larger variable in its given variable type.\n    Return None if the values are equal.\n    Note: If a real number is represented as a string, the floating point might be . or ,\n\n    compare_one(1, 2.5) \u279e 2.5\n    compare_one(1, \"2,3\") \u279e \"2,3\"\n    compare_one(\"5,1\", \"6\") \u279e \"6\"\n    compare_one(\"1\", 1) \u279e None\n    \"\"\"\n    def parse_value(val):\n        if isinstance(val, (int, float)):\n            return val\n        if isinstance(val, str):\n            # Handle comma-separated strings like \"5,1\" or \"1,2\"\n            if ',' in val:\n                parts = val.split(',')\n                if len(parts) == 2:\n                    return float(parts[0]) + float(parts[1])\n                else:\n                    return float(val)\n            else:\n                return float(val)\n        return val\n\n    val_a = parse_value(a)\n    val_b = parse_value(b)\n\n    if val_a > val_b:\n        return val_a\n    elif val_b > val_a:\n        return val_b\n    else:\n        return None\n```"
+    },
+    {
+      "task": "HumanEval/142",
+      "passed": false,
+      "answer": "```python\ndef sum_squares(lst):\n    \"\"\"\n    This function will take a list of integers. For all entries in the list, the function shall square the integer entry if its index is a \n    multiple of 3 and will cube the integer entry if its index is a multiple of 4 and not a multiple of 3. The function will not \n    change the entries in the list whose indexes are not a multiple of 3 or 4. The function shall then return the sum of all entries. \n    \n    Examples:\n    For lst = [1,2,3] the output should be 6\n    For lst = []  the output should be 0\n    For lst = [-1,-5,2,-1,-5]  the output should be -126\n    \"\"\"\n    total = 0\n    for i, num in enumerate(lst):\n        if i % 3 == 0:\n            # Index is a multiple of 3: square the number\n            total += num ** 2\n        elif i % 4 == 0:\n            # Index is a multiple of 4 and not a multiple of 3: cube the number\n            total += num ** 3\n        # Else: do nothing to the number\n    return total\n```"
+    },
+    {
+      "task": "HumanEval/149",
+      "passed": true,
+      "answer": "```python\ndef sorted_list_sum(lst):\n    \"\"\"Write a function that accepts a list of strings as a parameter,\n    deletes the strings that have odd lengths from it,\n    and returns the resulted list with a sorted order,\n    The list is always a list of strings and never an array of numbers,\n    and it may contain duplicates.\n    The order of the list should be ascending by length of each word, and you\n    should return the list sorted by that rule.\n    If two words have the same length, sort the list alphabetically.\n    The function should return a list of strings in sorted order.\n    You may assume that all words will have the same length.\n    For example:\n    assert list_sort([\"aa\", \"a\", \"aaa\"]) => [\"aa\"]\n    assert list_sort([\"ab\", \"a\", \"aaa\", \"cd\"]) => [\"ab\", \"cd\"]\n    \"\"\"\n    # Filter out strings with odd lengths\n    filtered = [word for word in lst if len(word) % 2 == 0]\n    \n    # Sort by length first, then alphabetically for ties\n    filtered.sort(key=lambda x: (len(x), x))\n    \n    return filtered\n```"
+    },
+    {
+      "task": "HumanEval/150",
+      "passed": true,
+      "answer": "```python\ndef x_or_y(n, x, y):\n    \"\"\"A simple program which should return the value of x if n is \n    a prime number and should return the value of y otherwise.\n\n    Examples:\n    for x_or_y(7, 34, 12) == 34\n    for x_or_y(15, 8, 5) == 5\n    \n    \"\"\"\n    def is_prime(num):\n        if num < 2:\n            return False\n        if num == 2:\n            return True\n        if num % 2 == 0:\n            return False\n        for i in range(3, int(num ** 0.5) + 1, 2):\n            if num % i == 0:\n                return False\n        return True\n\n    if is_prime(n):\n        return x\n    else:\n        return y\n```"
+    },
+    {
+      "task": "HumanEval/155",
+      "passed": true,
+      "answer": "```python\ndef even_odd_count(num):\n    \"\"\"Given an integer. return a tuple that has the number of even and odd digits respectively.\n\n     Example:\n        even_odd_count(-12) ==> (1, 1)\n        even_odd_count(123) ==> (1, 2)\n    \"\"\"\n    if num == 0:\n        return (1, 0)\n\n    count_even = 0\n    count_odd = 0\n\n    # Handle negative numbers by taking absolute value\n    abs_num = abs(num)\n\n    while abs_num > 0:\n        digit = abs_num % 10\n        if digit % 2 == 0:\n            count_even += 1\n        else:\n            count_odd += 1\n        abs_num //= 10\n\n    return (count_even, count_odd)\n```"
+    },
+    {
+      "task": "HumanEval/160",
+      "passed": false,
+      "answer": "```python\ndef do_algebra(operator, operand):\n    \"\"\"\n    Given two lists operator, and operand. The first list has basic algebra operations, \n    and the second list is a list of integers. Use the two given lists to build the algebric \n    expression and return the evaluation of this expression.\n\n    The basic algebra operations:\n    Addition ( + ) \n    Subtraction ( - ) \n    Multiplication ( * ) \n    Floor division ( // ) \n    Exponentiation ( ** ) \n\n    Example:\n    operator['+', '*', '-']\n    array = [2, 3, 4, 5]\n    result = 2 + 3 * 4 - 5\n    => result = 9\n\n    Note:\n        The length of operator list is equal to the length of operand list minus one.\n        Operand is a list of non-negative integers.\n        Operator list has at least one operator, and operand list has at least two operands.\n\n    \"\"\"\n    # Build the expression string\n    expr = operand[0]\n    for i, op in enumerate(operator):\n        expr += f\" {op} \"\n        expr += operand[i + 1]\n    \n    # Evaluate the expression using Python's built-in eval\n    # Note: We use eval because the expression is a simple arithmetic expression\n    # with no external dependencies or complex control flow.\n    return eval(expr)\n```"
+    }
+  ],
+  "debug": [
+    {
+      "task": "debug-01-average",
+      "passed": true,
+      "answer": "```python\ndef average(nums):\n    \"\"\"Return the arithmetic mean of a non-empty list of numbers.\"\"\"\n    total = 0\n    for i in range(len(nums)):\n        total += nums[i]\n    return total / len(nums)\n```\n\nThe bug was caused by starting the loop at `range(1, len(nums))`, which skipped the first element (`nums[0]`) and therefore excluded it from the sum."
+    },
+    {
+      "task": "debug-02-palindrome",
+      "passed": true,
+      "answer": "```python\ndef is_palindrome(s):\n    \"\"\"Return True if the string reads the same forwards and backwards.\"\"\"\n    return s == s[::-1]\n```\n\nThe bug occurred because Python strings do not have a built-in `reverse()` method; instead, you can use slicing with a step of `-1` (e.g., `s[::-1]`) to reverse the string efficiently."
+    },
+    {
+      "task": "debug-03-factorial",
+      "passed": true,
+      "answer": "```python\ndef factorial(n):\n    \"\"\"Return n! for a non-negative integer n.\"\"\"\n    if n == 0:\n        return 1\n    return n * factorial(n - 1)\n```\n\nThe bug was that the base case `if n == 1:` was missing the `return 1` statement, causing the function to call itself recursively with `n = 0` instead of stopping the recursion."
+    },
+    {
+      "task": "debug-04-vowels",
+      "passed": true,
+      "answer": "```python\ndef count_vowels(text):\n    \"\"\"Count the vowels (a, e, i, o, u) in text, ignoring case.\"\"\"\n    count = 0\n    for ch in text:\n        if ch.lower() in 'aeiou':\n            count += 1\n    return count\n```\n\nThe bug was caused by the function not converting the input character to lowercase before checking if it is a vowel, so uppercase letters like 'H' were not recognized as vowels."
+    },
+    {
+      "task": "debug-05-max",
+      "passed": true,
+      "answer": "```python\ndef find_max(nums):\n    \"\"\"Return the largest number in a non-empty list.\"\"\"\n    max_val = nums[0]\n    for n in nums[1:]:\n        if n > max_val:\n            max_val = n\n    return max_val\n```\n\nThe bug was that the initial `max_val` was set to `0`, which is greater than any negative number in the list, so the function returned `0` instead of the actual maximum value."
+    },
+    {
+      "task": "debug-06-fizzbuzz",
+      "passed": true,
+      "answer": "```python\ndef fizzbuzz(n):\n    \"\"\"Return a list for 1..n: 'Fizz' for multiples of 3, 'Buzz' for multiples of 5,\n    'FizzBuzz' for multiples of both, otherwise the number as a string.\"\"\"\n    result = []\n    for i in range(1, n + 1):\n        if i % 3 == 0 and i % 5 == 0:\n            result.append('FizzBuzz')\n        elif i % 3 == 0:\n            result.append('Fizz')\n        elif i % 5 == 0:\n            result.append('Buzz')\n        else:\n            result.append(str(i))\n    return result\n```\n\nThe bug was caused by the order of the `if` statements: the code checked for divisibility by 3 first and appended 'Fizz' for any multiple of 3, even those that were also multiples of 5. This meant that numbers like 15 were incorrectly assigned to 'Fizz' instead of 'FizzBuzz'."
+    },
+    {
+      "task": "debug-07-binary-search",
+      "passed": true,
+      "answer": "```python\ndef binary_search(arr, target):\n    \"\"\"Return the index of target in the sorted list arr, or -1 if absent.\"\"\"\n    low, high = 0, len(arr) - 1\n    while low <= high:\n        mid = (low + high) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            low = mid + 1\n        else:\n            high = mid - 1\n    return -1\n```\n\nThe bug was that the loop condition `while low < high` excluded the final iteration where `low` equals `high`, so when the target was found at the last element, the loop terminated before returning its index."
+    },
+    {
+      "task": "debug-08-remove-duplicates",
+      "passed": true,
+      "answer": "```python\ndef remove_duplicates(items):\n    \"\"\"Return a new list without duplicates, keeping the first occurrence order.\"\"\"\n    seen = set()\n    result = []\n    for item in items:\n        if item not in seen:\n            seen.add(item)\n            result.append(item)\n    return result\n```\n\nThe bug was caused by modifying the original list in place (`items.remove(x)`), which altered the list while iterating over it, leading to incorrect removals and duplicate handling."
+    },
+    {
+      "task": "debug-09-word-freq",
+      "passed": true,
+      "answer": "```python\ndef word_frequencies(text):\n    \"\"\"Return a dict mapping each lowercase word (split on whitespace) to its count.\"\"\"\n    counts = {}\n    for word in text.lower().split():\n        counts[word] = counts.get(word, 0) + 1\n    return counts\n```\n\nThe bug was caused by using `counts[word] += 1` without checking if the key already exists in the dictionary. If the word was already present, this line would raise a `KeyError` instead of incrementing the count."
+    },
+    {
+      "task": "debug-10-mutable-default",
+      "passed": true,
+      "answer": "```python\ndef append_item(item, items=None):\n    \"\"\"Append item to items and return the list. With no list given, start a new one.\"\"\"\n    if items is None:\n        items = []\n    items.append(item)\n    return items\n```\n\nThe bug was caused by the default argument value `items=[]` being evaluated once when the function is defined, rather than being evaluated every time the function is called. This means that the default list is shared across all calls, so the first call modifies the shared list, and subsequent calls see the modified list instead of creating a new one."
+    },
+    {
+      "task": "debug-11-temperature",
+      "passed": true,
+      "answer": "```python\ndef celsius_to_fahrenheit(c):\n    \"\"\"Convert degrees Celsius to Fahrenheit.\"\"\"\n    return c * (9 / 5) + 32\n```\n\nThe bug was caused by using integer division (`//`) instead of floating-point division (`/`) when converting Celsius to Fahrenheit."
+    },
+    {
+      "task": "debug-12-second-largest",
+      "passed": false,
+      "answer": "```python\ndef second_largest(nums):\n    \"\"\"Return the second largest distinct value in nums (at least two distinct values).\"\"\"\n    if len(nums) < 2:\n        raise ValueError(\"At least two distinct values are required.\")\n    \n    # Remove duplicates and sort to find the second largest distinct value\n    unique_nums = sorted(list(set(nums)), reverse=True)\n    return unique_nums[-2]\n```\n\nThe bug was caused by using `sorted(nums)` which returns a list of all numbers in ascending order, including duplicates. When the list is sorted, the last element (`nums[-1]`) is the largest, and the second-to-last element (`nums[-2]`) is the second largest *value*, not the second largest *distinct* value. For example, in `[5, 5, 3]`, sorting gives `[3, 5, 5]`, so `nums[-2]` is `5`, which is actually the largest value, not the second largest distinct one."
+    }
+  ],
+  "quiz": [
+    {
+      "id": "py-01",
+      "correct": true,
+      "answer": "B"
+    },
+    {
+      "id": "py-02",
+      "correct": false,
+      "answer": "B"
+    },
+    {
+      "id": "py-03",
+      "correct": true,
+      "answer": "A"
+    },
+    {
+      "id": "py-04",
+      "correct": false,
+      "answer": "B"
+    },
+    {
+      "id": "py-05",
+      "correct": true,
+      "answer": "B"
+    },
+    {
+      "id": "py-06",
+      "correct": true,
+      "answer": "C"
+    },
+    {
+      "id": "py-07",
+      "correct": false,
+      "answer": "B"
+    },
+    {
+      "id": "py-08",
+      "correct": false,
+      "answer": "B"
+    },
+    {
+      "id": "cs-01",
+      "correct": true,
+      "answer": "B"
+    },
+    {
+      "id": "cs-02",
+      "correct": true,
+      "answer": "C"
+    },
+    {
+      "id": "cs-03",
+      "correct": true,
+      "answer": "A"
+    },
+    {
+      "id": "cs-04",
+      "correct": true,
+      "answer": "D"
+    },
+    {
+      "id": "cs-05",
+      "correct": true,
+      "answer": "B"
+    },
+    {
+      "id": "cs-06",
+      "correct": true,
+      "answer": "C"
+    },
+    {
+      "id": "cs-07",
+      "correct": true,
+      "answer": "A."
+    },
+    {
+      "id": "ai-01",
+      "correct": true,
+      "answer": "B"
+    },
+    {
+      "id": "ai-02",
+      "correct": true,
+      "answer": "C"
+    },
+    {
+      "id": "ai-03",
+      "correct": true,
+      "answer": "A"
+    },
+    {
+      "id": "ai-04",
+      "correct": false,
+      "answer": "A"
+    },
+    {
+      "id": "ai-05",
+      "correct": true,
+      "answer": "B"
+    },
+    {
+      "id": "ai-06",
+      "correct": true,
+      "answer": "C"
+    },
+    {
+      "id": "ai-07",
+      "correct": true,
+      "answer": "A"
+    },
+    {
+      "id": "ai-08",
+      "correct": true,
+      "answer": "D"
+    },
+    {
+      "id": "ai-09",
+      "correct": true,
+      "answer": "B"
+    },
+    {
+      "id": "ai-10",
+      "correct": true,
+      "answer": "C"
+    },
+    {
+      "id": "ai-11",
+      "correct": true,
+      "answer": "A"
+    },
+    {
+      "id": "ai-12",
+      "correct": true,
+      "answer": "D"
+    },
+    {
+      "id": "ai-13",
+      "correct": true,
+      "answer": "B"
+    },
+    {
+      "id": "ai-14",
+      "correct": true,
+      "answer": "C"
+    },
+    {
+      "id": "ai-15",
+      "correct": true,
+      "answer": "A"
+    }
+  ],
+  "tutor_reply": "Hello! Welcome to your first coding lesson! \ud83c\udf89\n\nA **Python list** is basically a **box** that can hold many different things at the same time. Unlike a regular box that only holds one item, a list is like a shopping cart where you can add apples, oranges, and milk all in one go.\n\n### The Simple Example\n\nImagine you want to make a list of your favorite fruits. You can't just write one fruit; you have to write them all in one line.\n\n```python\nfruits = [\"apple\", \"banana\", \"orange\"]\n\nprint(fruits)\n```\n\n**Output:**\n```text\n['apple', 'banana', 'orange']\n```\n\nHere is what that code does:\n1.  We created a variable named `fruits`.\n2.  We put three items inside it: `\"apple\"`, `\"banana\"`, and `\"orange\"`.\n3.  When we print it, Python shows us the list using brackets `[]` and quotes `\"\"`.\n\n### Why use a list?\nLists are super useful because they let you:\n*   Store many items in one place.\n*   Change the order of items (like rearranging your shopping cart).\n*   Add new items easily (like adding a new fruit to your cart).\n\nSo, next time you see a list in code, just think of it as a **box with a lid** that holds"
+}

@@ -1,0 +1,62 @@
+{
+  "qwen2.5-coder-0.5b": {
+    "repack": {
+      "gen_tok_s": 70.0,
+      "prompt_tok_s": 404.6
+    },
+    "no-repack": {
+      "gen_tok_s": 69.9,
+      "prompt_tok_s": 393.7
+    }
+  },
+  "qwen3.5-0.8b": {
+    "repack": {
+      "gen_tok_s": 43.2,
+      "prompt_tok_s": 400.8
+    },
+    "no-repack": {
+      "gen_tok_s": 43.4,
+      "prompt_tok_s": 248.2
+    }
+  },
+  "qwen2.5-coder-1.5b": {
+    "repack": {
+      "gen_tok_s": 27.6,
+      "prompt_tok_s": 220.2
+    },
+    "no-repack": {
+      "gen_tok_s": 28.5,
+      "prompt_tok_s": 213.9
+    }
+  },
+  "qwen3-1.7b": {
+    "repack": {
+      "gen_tok_s": 24.4,
+      "prompt_tok_s": 209.1
+    },
+    "no-repack": {
+      "gen_tok_s": 25.9,
+      "prompt_tok_s": 224.9
+    }
+  },
+  "qwen3.5-2b": {
+    "repack": {
+      "gen_tok_s": 20.6,
+      "prompt_tok_s": 188.3
+    },
+    "no-repack": {
+      "gen_tok_s": 21.3,
+      "prompt_tok_s": 195.2
+    }
+  },
+  "granite-4.2-3b": {
+    "repack": {
+      "gen_tok_s": 12.1,
+      "prompt_tok_s": 92.4
+    },
+    "no-repack": {
+      "gen_tok_s": 14.1,
+      "prompt_tok_s": 103.0
+    }
+  }
+}

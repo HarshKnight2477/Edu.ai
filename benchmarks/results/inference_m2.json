@@ -1,0 +1,62 @@
+[
+  {
+    "model": "Qwen3.5-2B",
+    "threads": 4,
+    "startup_s": 1.63,
+    "ram_after_load_mb": 1393,
+    "peak_ram_mb": 1433,
+    "first_text_ms": 566,
+    "gen_tok_s": 20.9,
+    "answer_s_300_tokens_max": 14.7
+  },
+  {
+    "model": "Qwen3.5-2B",
+    "threads": 8,
+    "startup_s": 1.62,
+    "ram_after_load_mb": 1394,
+    "peak_ram_mb": 1436,
+    "first_text_ms": 375,
+    "gen_tok_s": 20.2,
+    "answer_s_300_tokens_max": 15.1
+  },
+  {
+    "model": "Qwen3.5-0.8B",
+    "threads": 4,
+    "startup_s": 1.79,
+    "ram_after_load_mb": 977,
+    "peak_ram_mb": 1015,
+    "first_text_ms": 246,
+    "gen_tok_s": 40.4,
+    "answer_s_300_tokens_max": 7.5
+  },
+  {
+    "model": "Qwen3.5-0.8B",
+    "threads": 8,
+    "startup_s": 1.36,
+    "ram_after_load_mb": 977,
+    "peak_ram_mb": 1015,
+    "first_text_ms": 187,
+    "gen_tok_s": 38.2,
+    "answer_s_300_tokens_max": 7.8
+  },
+  {
+    "model": "Granite-4.2-3B",
+    "threads": 4,
+    "startup_s": 2.14,
+    "ram_after_load_mb": 2375,
+    "peak_ram_mb": 2392,
+    "first_text_ms": 379,
+    "gen_tok_s": 12.7,
+    "answer_s_300_tokens_max": 23.8
+  },
+  {
+    "model": "Granite-4.2-3B",
+    "threads": 8,
+    "startup_s": 1.39,
+    "ram_after_load_mb": 2375,
+    "peak_ram_mb": 2393,
+    "first_text_ms": 246,
+    "gen_tok_s": 14.9,
+    "answer_s_300_tokens_max": 20.3
+  }
+]

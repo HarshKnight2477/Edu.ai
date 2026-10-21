@@ -1,0 +1,86 @@
+{
+  "qwen2.5-coder-0.5b": {
+    "default": {
+      "after_load_mb": 522,
+      "peak_mb": 572
+    },
+    "lean": {
+      "after_load_mb": 522,
+      "peak_mb": 539
+    },
+    "lean-norp": {
+      "after_load_mb": 494,
+      "peak_mb": 510
+    }
+  },
+  "qwen3.5-0.8b": {
+    "default": {
+      "after_load_mb": 977,
+      "peak_mb": 1481
+    },
+    "lean": {
+      "after_load_mb": 977,
+      "peak_mb": 1026
+    },
+    "lean-norp": {
+      "after_load_mb": 709,
+      "peak_mb": 758
+    }
+  },
+  "qwen2.5-coder-1.5b": {
+    "default": {
+      "after_load_mb": 1716,
+      "peak_mb": 1818
+    },
+    "lean": {
+      "after_load_mb": 1716,
+      "peak_mb": 1743
+    },
+    "lean-norp": {
+      "after_load_mb": 1120,
+      "peak_mb": 1147
+    }
+  },
+  "qwen3-1.7b": {
+    "default": {
+      "after_load_mb": 2217,
+      "peak_mb": 2525
+    },
+    "lean": {
+      "after_load_mb": 2217,
+      "peak_mb": 2241
+    },
+    "lean-norp": {
+      "after_load_mb": 1571,
+      "peak_mb": 1595
+    }
+  },
+  "qwen3.5-2b": {
+    "default": {
+      "after_load_mb": 1884,
+      "peak_mb": 2393
+    },
+    "lean": {
+      "after_load_mb": 1885,
+      "peak_mb": 1939
+    },
+    "lean-norp": {
+      "after_load_mb": 1394,
+      "peak_mb": 1448
+    }
+  },
+  "granite-4.2-3b": {
+    "default": {
+      "after_load_mb": 3823,
+      "peak_mb": 4072
+    },
+    "lean": {
+      "after_load_mb": 3823,
+      "peak_mb": 3855
+    },
+    "lean-norp": {
+      "after_load_mb": 2375,
+      "peak_mb": 2406
+    }
+  }
+}
