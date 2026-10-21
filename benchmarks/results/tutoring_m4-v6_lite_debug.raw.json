@@ -1,0 +1,452 @@
+{
+  "baseline": {
+    "quiz": [],
+    "debug": [
+      {
+        "id": "debug-01-average",
+        "passed": true,
+        "unchanged": false,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "The bug is that the loop iterates from `i = 1` to `len(nums)`, but it should iterate from `i = 0` to `len(nums) - 1` to correctly sum the first `len(nums) - 1` elements.\n\n```python\ndef average(nums):\n    \"\"\"Return the arithmetic mean of a non-empty list of numbers.\"\"\"\n    total = 0\n    for i in range(0, len(nums)):\n        total += nums[i]\n    return total / len(nums)\n```"
+      },
+      {
+        "id": "debug-02-palindrome",
+        "passed": true,
+        "unchanged": false,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "The bug occurs because the `s` variable is a string, but the `reverse()` method is defined on the `list` type, not the `str` type.\n\n```python\ndef is_palindrome(s):\n    \"\"\"Return True if the string reads the same forwards and backwards.\"\"\"\n    return s == s[::-1]\n```\n\nThe fix is to replace `s.reverse()` with `s[::-1]` to use the correct slicing syntax for reversing a string."
+      },
+      {
+        "id": "debug-03-factorial",
+        "passed": false,
+        "unchanged": true,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "The bug occurs because the base case `if n == 1` is missing the argument `n` inside the function call `factorial(n - 1)`. Without `n`, the recursive step `n * factorial(n - 1)` would try to call `factorial(0)`, which never returns and causes a RecursionError.\n\n```python\ndef factorial(n):\n    \"\"\"Return n! for a non-negative integer n.\"\"\"\n    if n == 1:\n        return 1\n    return n * factorial(n - 1)\n```"
+      },
+      {
+        "id": "debug-04-vowels",
+        "passed": false,
+        "unchanged": true,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "The bug is that the `if` condition checks for lowercase letters only (`'aeiou'`), but the function ignores uppercase letters like 'H' and 'L' as well.\n\n```python\ndef count_vowels(text):\n    \"\"\"Count the vowels (a, e, i, o, u) in text, ignoring case.\"\"\"\n    count = 0\n    for ch in text:\n        if ch in 'aeiou':\n            count += 1\n    return count\n```\n\n```python\ndef count_vowels(text):\n    \"\"\"Count the vowels (a, e, i, o, u) in text, ignoring case.\"\"\"\n    count = 0\n    for ch in text:\n        if ch in 'aeiou':\n            count += 1\n    return count\n```"
+      },
+      {
+        "id": "debug-05-max",
+        "passed": true,
+        "unchanged": false,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "The bug is that `max_val` is initialized to `0`, but the list contains negative numbers, so the function incorrectly returns `0` instead of the largest negative number.\n\n```python\ndef find_max(nums):\n    \"\"\"Return the largest number in a non-empty list.\"\"\"\n    max_val = -float('inf')\n    for n in nums:\n        if n > max_val:\n            max_val = n\n    return max_val\n```"
+      },
+      {
+        "id": "debug-06-fizzbuzz",
+        "passed": false,
+        "unchanged": true,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "The bug occurs because the condition `i % 15 == 0` is checked before the `i % 5 == 0` check, so the number 15 is incorrectly classified as a multiple of 3 instead of 5.\n\n```python\ndef fizzbuzz(n):\n    \"\"\"Return a list for 1..n: 'Fizz' for multiples of 3, 'Buzz' for multiples of 5,\n    'FizzBuzz' for multiples of both, otherwise the number as a string.\"\"\"\n    result = []\n    for i in range(1, n + 1):\n        if i % 3 == 0:\n            result.append('Fizz')\n        elif i % 5 == 0:\n            result.append('Buzz')\n        elif i % 15 == 0:\n            result.append('FizzBuzz')\n        else:\n            result.append(str(i))\n    return result\n```\n\nThe bug was caused by the incorrect order of the `if` conditions, where `i % 15 == 0` was evaluated before `i % 5 == 0`."
+      },
+      {
+        "id": "debug-07-binary-search",
+        "passed": false,
+        "unchanged": true,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "The bug is that the `mid` calculation uses integer division `// 2` instead of floating-point division `/ 2`, which causes the index to be off by one when the list length is odd.\n\n```python\ndef binary_search(arr, target):\n    \"\"\"Return the index of target in the sorted list arr, or -1 if absent.\"\"\"\n    low, high = 0, len(arr) - 1\n    while low < high:\n        mid = (low + high) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            low = mid + 1\n        else:\n            high = mid - 1\n    return -1\n```\n\nThe bug is that integer division `// 2` results in `mid` being off by one when the list length is odd."
+      },
+      {
+        "id": "debug-08-remove-duplicates",
+        "passed": true,
+        "unchanged": false,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "The bug occurs because the list comprehension `items[:i]` creates a new list for every iteration, causing the list to grow indefinitely as the loop runs.\n\n```python\ndef remove_duplicates(items):\n    \"\"\"Return a new list without duplicates, keeping the first occurrence order.\"\"\"\n    for i, x in enumerate(items):\n        if x in items[:i]:\n            items.remove(x)\n    return items\n```\n\nThe function should be fixed to avoid creating a new list for each iteration. Here is the corrected version:\n\n```python\ndef remove_duplicates(items):\n    \"\"\"Return a new list without duplicates, keeping the first occurrence order.\"\"\"\n    seen = set()\n    result = []\n    for item in items:\n        if item not in seen:\n            seen.add(item)\n            result.append(item)\n    return result\n```"
+      },
+      {
+        "id": "debug-09-word-freq",
+        "passed": false,
+        "unchanged": true,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "The bug occurs because the function splits the text by whitespace, but the key in the dictionary is the lowercase version of the word, which includes the space character. When the code tries to access `counts['the']`, Python raises a `KeyError` because the key 'the' is not in the dictionary; the actual word is 'the ' (with a space).\n\n```python\ndef word_frequencies(text):\n    \"\"\"Return a dict mapping each lowercase word (split on whitespace) to its count.\"\"\"\n    counts = {}\n    for word in text.lower().split():\n        counts[word] += 1\n    return counts\n```\n\nThe fix is to use the original word as the key in the dictionary, so the code can correctly identify the word 'the' and increment its count."
+      },
+      {
+        "id": "debug-10-mutable-default",
+        "passed": true,
+        "unchanged": false,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "The bug occurs because the `items` list is initialized to an empty list `[]` inside the function definition, but the function does not actually create a new list when `items` is empty. Instead, it relies on the global variable `items` to be passed in, which means the function is modifying the global list instead of creating a new one.\n\n```python\ndef append_item(item, items=[]):\n    if not items:\n        items = []\n    items.append(item)\n    return items\n```\n\nThe fix is to ensure the function creates a new list whenever `items` is empty, preventing the global list from being modified."
+      },
+      {
+        "id": "debug-11-temperature",
+        "passed": false,
+        "unchanged": false,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "The bug is that the integer division `//` operator performs integer division, which truncates the result. When multiplying `100` by `9` (which is `9 // 5`), the result is `18`, not `20`. This causes the calculation to be `18 + 32 = 50` instead of the correct `212`.\n\n```python\ndef celsius_to_fahrenheit(c):\n    \"\"\"Convert degrees Celsius to Fahrenheit.\"\"\"\n    return c * 9 + 32\n```\n\nThe correct function is `c * 9 + 32`."
+      },
+      {
+        "id": "debug-12-second-largest",
+        "passed": false,
+        "unchanged": false,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "The bug occurs because `sorted()` sorts the list in ascending order, so `nums[-2]` returns the second element in the sorted list, which is the smallest value in the list. To find the second largest distinct value, you need to sort the list in descending order and then take the element at index 1.\n\n```python\ndef second_largest(nums):\n    \"\"\"Return the second largest distinct value in nums (at least two distinct values).\"\"\"\n    nums = sorted(nums, reverse=True)\n    return nums[1]\n```\n\nThe bug was caused by sorting the list in ascending order, which caused the function to return the smallest value instead of the second largest distinct value."
+      }
+    ],
+    "hint": [],
+    "hint_ext": []
+  },
+  "tutor": {
+    "quiz": [],
+    "debug": [
+      {
+        "id": "debug-01-average",
+        "passed": true,
+        "unchanged": false,
+        "format_ok": true,
+        "finish_reason": "stop",
+        "answer": "```python\ndef average(nums):\n    \"\"\"Return the arithmetic mean of a non-empty list of numbers.\"\"\"\n    total = 0\n    for i in range(0, len(nums)):\n        total += nums[i]\n    return total / len(nums)\n```\n\nThe bug occurs because the loop runs from `i = 1` to `i = len(nums)`, but it should run from `i = 0` to `i = len(nums) - 1` to correctly access the elements at indices 0, 1, 2, and so on.",
+        "mode": "debug",
+        "sources": [],
+        "solutions_withheld": 0,
+        "trimmed_to_one_sentence": true
+      },
+      {
+        "id": "debug-02-palindrome",
+        "passed": true,
+        "unchanged": false,
+        "format_ok": true,
+        "finish_reason": "stop",
+        "answer": "```python\ndef is_palindrome(s):\n    \"\"\"Return True if the string reads the same forwards and backwards.\"\"\"\n    return s == s[::-1]\n```\n\nThe bug occurs because the `reverse()` method is a built-in function for strings, not a method attached to the `str` type itself.",
+        "mode": "debug",
+        "sources": [],
+        "solutions_withheld": 0,
+        "trimmed_to_one_sentence": true
+      },
+      {
+        "id": "debug-03-factorial",
+        "passed": false,
+        "unchanged": true,
+        "format_ok": true,
+        "finish_reason": "stop",
+        "answer": "```python\ndef factorial(n):\n    \"\"\"Return n! for a non-negative integer n.\"\"\"\n    if n == 1:\n        return 1\n    return n * factorial(n - 1)\n```\n\nThe fix is to change the base case from `if n == 1` to `if n == 0: return 1`.",
+        "mode": "debug",
+        "sources": [],
+        "solutions_withheld": 0,
+        "trimmed_to_one_sentence": true
+      },
+      {
+        "id": "debug-04-vowels",
+        "passed": false,
+        "unchanged": false,
+        "format_ok": true,
+        "finish_reason": "stop",
+        "answer": "```python\ndef count_vowels(text):\n    \"\"\"Count the vowels (a, e, i, o, u, l) in text, ignoring case.\"\"\"\n    count = 0\n    for ch in text:\n        if ch in 'aeiou':\n            count += 1\n    return count\n```\n\nThe bug is that the function checks for 'a', 'e', 'i', 'o', 'u' but ignores the letter 'l'.",
+        "mode": "debug",
+        "sources": [],
+        "solutions_withheld": 0,
+        "trimmed_to_one_sentence": true
+      },
+      {
+        "id": "debug-05-max",
+        "passed": false,
+        "unchanged": true,
+        "format_ok": true,
+        "finish_reason": "stop",
+        "answer": "```python\ndef find_max(nums):\n    \"\"\"Return the largest number in a non-empty list.\"\"\"\n    max_val = 0\n    for n in nums:\n        if n > max_val:\n            max_val = n\n    return max_val\n\n```\n\nThe bug occurs because the function initializes `max_val` to 0, but the input list contains negative numbers.",
+        "mode": "debug",
+        "sources": [],
+        "solutions_withheld": 0,
+        "trimmed_to_one_sentence": true
+      },
+      {
+        "id": "debug-06-fizzbuzz",
+        "passed": false,
+        "unchanged": true,
+        "format_ok": true,
+        "finish_reason": "stop",
+        "answer": "```python\ndef fizzbuzz(n):\n    \"\"\"Return a list for 1..n: 'Fizz' for multiples of 3, 'Buzz' for multiples of 5,\n    'FizzBuzz' for multiples of both, otherwise the number as a string.\"\"\"\n    result = []\n    for i in range(1, n + 1):\n        if i % 3 == 0:\n            result.append('Fizz')\n        elif i % 5 == 0:\n            result.append('Buzz')\n        elif i % 15 == 0:\n            result.append('FizzBuzz')\n        else:\n            result.append(str(i))\n    return result\n```\n\nThe bug occurs because the condition `i % 15 == 0` is checked before the `i % 5 == 0` check, so the number 15 is incorrectly classified as a multiple of 3 instead of 5.",
+        "mode": "debug",
+        "sources": [],
+        "solutions_withheld": 0,
+        "trimmed_to_one_sentence": true
+      },
+      {
+        "id": "debug-07-binary-search",
+        "passed": false,
+        "unchanged": true,
+        "format_ok": true,
+        "finish_reason": "stop",
+        "answer": "```python\ndef binary_search(arr, target):\n    \"\"\"Return the index of target in the sorted list arr, or -1 if absent.\"\"\"\n    low, high = 0, len(arr) - 1\n    while low < high:\n        mid = (low + high) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            low = mid + 1\n        else:\n            high = mid - 1\n    return -1\n```\n\nThe bug is that the `mid` calculation uses integer division `// 2`, which rounds the result down to the nearest even number.",
+        "mode": "debug",
+        "sources": [],
+        "solutions_withheld": 0,
+        "trimmed_to_one_sentence": true
+      },
+      {
+        "id": "debug-08-remove-duplicates",
+        "passed": false,
+        "unchanged": true,
+        "format_ok": true,
+        "finish_reason": "stop",
+        "answer": "```python\ndef remove_duplicates(items):\n    \"\"\"Return a new list without duplicates, keeping the first occurrence order.\"\"\"\n    for i, x in enumerate(items):\n        if x in items[:i]:\n            items.remove(x)\n    return items\n```\n\nThe bug occurs because the list comprehension `items[:i]` creates a new list that is shorter than the original list, so the condition `x in items[:i]` is always true for any `x` since the list is shorter than the current index `i`.",
+        "mode": "debug",
+        "sources": [],
+        "solutions_withheld": 0,
+        "trimmed_to_one_sentence": true
+      },
+      {
+        "id": "debug-09-word-freq",
+        "passed": false,
+        "unchanged": true,
+        "format_ok": true,
+        "finish_reason": "stop",
+        "answer": "```python\ndef word_frequencies(text):\n    \"\"\"Return a dict mapping each lowercase word (split on whitespace) to its count.\"\"\"\n    counts = {}\n    for word in text.lower().split():\n        counts[word] += 1\n    return counts\n```\n\nThe bug occurs because the code splits the text by whitespace, but the word \"the\" is not a space-separated word\u2014it is a single word.",
+        "mode": "debug",
+        "sources": [],
+        "solutions_withheld": 0,
+        "trimmed_to_one_sentence": true
+      },
+      {
+        "id": "debug-10-mutable-default",
+        "passed": false,
+        "unchanged": false,
+        "format_ok": true,
+        "finish_reason": "stop",
+        "answer": "```python\ndef append_item(item, items=[]):\n    \"\"\"Append item to items and return the list. With no list given, start a new one.\"\"\"\n    items = []\n    items.append(item)\n    return items\n```\n\nThe bug occurs because the `items` list is empty at the start of the function, so `items.append()` adds the new item to an empty list, resulting in `['a', 'b']` instead of `['b']`.",
+        "mode": "debug",
+        "sources": [],
+        "solutions_withheld": 0,
+        "trimmed_to_one_sentence": true
+      },
+      {
+        "id": "debug-11-temperature",
+        "passed": false,
+        "unchanged": false,
+        "format_ok": true,
+        "finish_reason": "stop",
+        "answer": "```python\ndef celsius_to_fahrenheit(c):\n    \"\"\"Convert degrees Celsius to Fahrenheit.\"\"\"\n    return c * 9 + 32\n```\n\nThe bug occurs because the line `return c * (9 // 5) + 32` uses integer division (`//`) which truncates the result when the numbers are not evenly divisible.",
+        "mode": "debug",
+        "sources": [],
+        "solutions_withheld": 0,
+        "trimmed_to_one_sentence": true
+      },
+      {
+        "id": "debug-12-second-largest",
+        "passed": false,
+        "unchanged": false,
+        "format_ok": true,
+        "finish_reason": "stop",
+        "answer": "```python\ndef second_largest(nums):\n    return nums[-2]\n```\n\nThe bug occurs because the code sorts the list first, which removes the distinct values entirely.",
+        "mode": "debug",
+        "sources": [],
+        "solutions_withheld": 0,
+        "trimmed_to_one_sentence": true
+      }
+    ],
+    "hint": [],
+    "hint_ext": []
+  },
+  "tutor_notes": {
+    "quiz": [],
+    "debug": [
+      {
+        "id": "debug-01-average",
+        "passed": false,
+        "unchanged": true,
+        "format_ok": true,
+        "finish_reason": "stop",
+        "answer": "```python\ndef average(nums):\n    \"\"\"Return the arithmetic mean of a non-empty list of numbers.\"\"\"\n    total = 0\n    for i in range(1, len(nums)):\n        total += nums[i]\n    return total / len(nums)\n```\n\nThe bug occurred because the loop started at index 1, skipping the first number (index 0), which caused the sum to be missing the first element.",
+        "mode": "debug",
+        "sources": [
+          "Errors, debugging and files in Python \u203a Common logic bugs in beginner code",
+          "Python basics \u203a Functions, parameters and return values",
+          "Python basics \u203a Numbers and arithmetic operators"
+        ],
+        "solutions_withheld": 0,
+        "trimmed_to_one_sentence": false
+      },
+      {
+        "id": "debug-02-palindrome",
+        "passed": true,
+        "unchanged": false,
+        "format_ok": true,
+        "finish_reason": "stop",
+        "answer": "```python\ndef is_palindrome(s):\n    return s == s[::-1]\n```\n\nThe fix is to change `s.reverse()` to `s[::-1]` to use the correct slicing syntax for reversing a string.",
+        "mode": "debug",
+        "sources": [
+          "Errors, debugging and files in Python \u203a Common Python exceptions and what they mean",
+          "Object-oriented programming in Python \u203a Classes and objects",
+          "C, C++, Java and SQL basics \u203a C language basics compared with Python"
+        ],
+        "solutions_withheld": 0,
+        "trimmed_to_one_sentence": true
+      },
+      {
+        "id": "debug-03-factorial",
+        "passed": true,
+        "unchanged": false,
+        "format_ok": true,
+        "finish_reason": "stop",
+        "answer": "```python\ndef factorial(n):\n    \"\"\"Return n! for a non-negative integer n.\"\"\"\n    if n <= 1:\n        return 1\n    return n * factorial(n - 1)\n```\n\nThe bug is that the code uses `n - 1` when `n` is 0, causing the recursion to stop at 0 and never return the value 1.",
+        "mode": "debug",
+        "sources": [
+          "Python basics \u203a Recursion",
+          "Errors, debugging and files in Python \u203a Common logic bugs in beginner code",
+          "Python basics \u203a Functions, parameters and return values"
+        ],
+        "solutions_withheld": 0,
+        "trimmed_to_one_sentence": true
+      },
+      {
+        "id": "debug-04-vowels",
+        "passed": false,
+        "unchanged": true,
+        "format_ok": true,
+        "finish_reason": "stop",
+        "answer": "```python\ndef count_vowels(text):\n    \"\"\"Count the vowels (a, e, i, o, u) in text, ignoring case.\"\"\"\n    count = 0\n    for ch in text:\n        if ch in 'aeiou':\n            count += 1\n    return count\n```\n\nThe bug is that the `for` loop iterates through every character in the string, including the final character of the string, which causes the count to be off by one.",
+        "mode": "debug",
+        "sources": [
+          "Errors, debugging and files in Python \u203a Common logic bugs in beginner code",
+          "Python basics \u203a Functions, parameters and return values",
+          "Errors, debugging and files in Python \u203a A step-by-step debugging process"
+        ],
+        "solutions_withheld": 0,
+        "trimmed_to_one_sentence": true
+      },
+      {
+        "id": "debug-05-max",
+        "passed": true,
+        "unchanged": false,
+        "format_ok": true,
+        "finish_reason": "stop",
+        "answer": "```python\ndef find_max(nums):\n    \"\"\"Return the largest number in a non-empty list.\"\"\"\n    max_val = nums[0]\n    for n in nums:\n        if n > max_val:\n            max_val = n\n    return max_val\n```\n\nThe bug is that `max_val` is initialized to `0`, but the list contains negative numbers.",
+        "mode": "debug",
+        "sources": [
+          "Errors, debugging and files in Python \u203a Common logic bugs in beginner code",
+          "Python basics \u203a Functions, parameters and return values",
+          "Python collections \u203a Lists"
+        ],
+        "solutions_withheld": 0,
+        "trimmed_to_one_sentence": true
+      },
+      {
+        "id": "debug-06-fizzbuzz",
+        "passed": false,
+        "unchanged": true,
+        "format_ok": true,
+        "finish_reason": "stop",
+        "answer": "```python\ndef fizzbuzz(n):\n    \"\"\"Return a list for 1..n: 'Fizz' for multiples of 3, 'Buzz' for multiples of 5,\n    'FizzBuzz' for multiples of both, otherwise the number as a string.\"\"\"\n    result = []\n    for i in range(1, n + 1):\n        if i % 3 == 0:\n            result.append('Fizz')\n        elif i % 5 == 0:\n            result.append('Buzz')\n        elif i % 15 == 0:\n            result.append('FizzBuzz')\n        else:\n            result.append(str(i))\n    return result\n```\n\nThe bug is caused by the `elif` chain checking conditions in order.",
+        "mode": "debug",
+        "sources": [
+          "Python basics \u203a Conditional statements (if, elif, else)",
+          "Errors, debugging and files in Python \u203a Common logic bugs in beginner code"
+        ],
+        "solutions_withheld": 0,
+        "trimmed_to_one_sentence": true
+      },
+      {
+        "id": "debug-07-binary-search",
+        "passed": true,
+        "unchanged": false,
+        "format_ok": true,
+        "finish_reason": "stop",
+        "answer": "```python\ndef binary_search(arr, target):\n    \"\"\"Return the index of target in the sorted list arr, or -1 if absent.\"\"\"\n    low, high = 0, len(arr) - 1\n    while low <= high:\n        mid = (low + high) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            low = mid + 1\n        else:\n            high = mid - 1\n    return -1\n```\n\nThe bug is that the `while` loop condition `while low < high` is incorrect for a list with one element.",
+        "mode": "debug",
+        "sources": [
+          "Algorithms and data structures \u203a Linear search and binary search"
+        ],
+        "solutions_withheld": 0,
+        "trimmed_to_one_sentence": true
+      },
+      {
+        "id": "debug-08-remove-duplicates",
+        "passed": false,
+        "unchanged": false,
+        "format_ok": true,
+        "finish_reason": "stop",
+        "answer": "```python\ndef remove_duplicates(items):\n    \"\"\"Return a new list without duplicates, keeping the first occurrence order.\"\"\"\n    for i, x in enumerate(items):\n        if x in items:\n            items.remove(x)\n    return items\n```\n\nThe bug occurs because the loop iterates through the original list `items` using `items[:i]`, which creates a copy of the list at every step.",
+        "mode": "debug",
+        "sources": [
+          "Python collections \u203a Sets",
+          "Python basics \u203a Functions, parameters and return values",
+          "Python collections \u203a Modifying a list while iterating over it"
+        ],
+        "solutions_withheld": 0,
+        "trimmed_to_one_sentence": true
+      },
+      {
+        "id": "debug-09-word-freq",
+        "passed": false,
+        "unchanged": true,
+        "format_ok": true,
+        "finish_reason": "stop",
+        "answer": "```python\ndef word_frequencies(text):\n    \"\"\"Return a dict mapping each lowercase word (split on whitespace) to its count.\"\"\"\n    counts = {}\n    for word in text.lower().split():\n        counts[word] += 1\n    return counts\n```\n\nThe bug occurred because the code used `split()` without handling the empty string at the end of the input, causing the loop to skip the final empty string and leading up to the `KeyError` when the word \"the\" was not found in the text.",
+        "mode": "debug",
+        "sources": [
+          "Errors, debugging and files in Python \u203a Common logic bugs in beginner code",
+          "Python collections \u203a Dictionaries",
+          "Deep learning and language models \u203a Tokenization"
+        ],
+        "solutions_withheld": 0,
+        "trimmed_to_one_sentence": false
+      },
+      {
+        "id": "debug-10-mutable-default",
+        "passed": false,
+        "unchanged": true,
+        "format_ok": true,
+        "finish_reason": "stop",
+        "answer": "```python\ndef append_item(item, items=[]):\n    \"\"\"Append item to items and return the list. With no list given, start a new one.\"\"\"\n    items.append(item)\n    return items\n```\n\nThe bug occurs because the function `append_item` uses a default list `items=[]` inside the function definition.",
+        "mode": "debug",
+        "sources": [
+          "Python basics \u203a Functions, parameters and return values",
+          "Errors, debugging and files in Python \u203a Common logic bugs in beginner code",
+          "Python collections \u203a Lists"
+        ],
+        "solutions_withheld": 0,
+        "trimmed_to_one_sentence": true
+      },
+      {
+        "id": "debug-11-temperature",
+        "passed": true,
+        "unchanged": false,
+        "format_ok": true,
+        "finish_reason": "stop",
+        "answer": "```python\ndef celsius_to_fahrenheit(c):\n    \"\"\"Convert degrees Celsius to Fahrenheit.\"\"\"\n    return c * (9 / 5) + 32\n```\n\nThe bug is caused by using integer division (`//`) instead of floating-point division (`/`) to calculate the conversion factor between Celsius and Fahrenheit.",
+        "mode": "debug",
+        "sources": [
+          "Errors, debugging and files in Python \u203a Common logic bugs in beginner code",
+          "Python basics \u203a Functions, parameters and return values",
+          "Errors, debugging and files in Python \u203a A step-by-step debugging process"
+        ],
+        "solutions_withheld": 0,
+        "trimmed_to_one_sentence": true
+      },
+      {
+        "id": "debug-12-second-largest",
+        "passed": false,
+        "unchanged": true,
+        "format_ok": true,
+        "finish_reason": "stop",
+        "answer": "```python\ndef second_largest(nums):\n    \"\"\"Return the second largest distinct value in nums (at least two distinct values).\"\"\"\n    nums = sorted(nums)\n    return nums[-2]\n```\n\nThe bug occurs because `sorted()` sorts the list in place, so the list itself is modified.",
+        "mode": "debug",
+        "sources": [
+          "Python basics \u203a Functions, parameters and return values",
+          "Errors, debugging and files in Python \u203a Common logic bugs in beginner code",
+          "Python collections \u203a Lists"
+        ],
+        "solutions_withheld": 0,
+        "trimmed_to_one_sentence": true
+      }
+    ],
+    "hint": [],
+    "hint_ext": []
+  }
+}

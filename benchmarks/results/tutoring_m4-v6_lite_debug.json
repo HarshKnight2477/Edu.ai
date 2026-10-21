@@ -1,0 +1,91 @@
+{
+  "prompt_version": "m4-v6",
+  "model": "lite",
+  "model_file": "Qwen3.5-0.8B-Q4_0.gguf",
+  "runtime": "version: 0.7.0-dev (build 11780, commit 1242be66f)",
+  "threads": 8,
+  "context_tokens": 4096,
+  "decoding": {
+    "temperature": 0,
+    "top_p": 0.9,
+    "max_tokens": {
+      "quiz": 16,
+      "debug": 512,
+      "hint": 512
+    }
+  },
+  "task_counts": {
+    "quiz": 60,
+    "debug": 12,
+    "hint": 10,
+    "hint_ext": 10
+  },
+  "task_set": "debug",
+  "hint_guard": true,
+  "started": "2026-10-22T01:14:20",
+  "configs": {
+    "baseline": {
+      "debug": {
+        "fixed": 5,
+        "total": 12,
+        "fix_rate": 0.417,
+        "fix_rate_95ci": [
+          0.193,
+          0.68
+        ],
+        "unchanged_code": 5,
+        "format_followed": 0,
+        "cut_off_at_limit": 0
+      },
+      "resources": {
+        "minutes": 0.7,
+        "median_seconds": {
+          "debug": 3.42
+        },
+        "server_peak_ram_mb": 1027
+      }
+    },
+    "tutor": {
+      "debug": {
+        "fixed": 2,
+        "total": 12,
+        "fix_rate": 0.167,
+        "fix_rate_95ci": [
+          0.047,
+          0.448
+        ],
+        "unchanged_code": 6,
+        "format_followed": 12,
+        "cut_off_at_limit": 0
+      },
+      "resources": {
+        "minutes": 0.7,
+        "median_seconds": {
+          "debug": 3.34
+        },
+        "server_peak_ram_mb": 1030
+      }
+    },
+    "tutor_notes": {
+      "debug": {
+        "fixed": 5,
+        "total": 12,
+        "fix_rate": 0.417,
+        "fix_rate_95ci": [
+          0.193,
+          0.68
+        ],
+        "unchanged_code": 6,
+        "format_followed": 12,
+        "cut_off_at_limit": 0
+      },
+      "resources": {
+        "minutes": 0.9,
+        "median_seconds": {
+          "debug": 4.27
+        },
+        "server_peak_ram_mb": 1039
+      }
+    }
+  }
+}

@@ -48,6 +48,9 @@
       </section>
 
       <form id="composer" class="composer">
+        <select id="mode" class="mode" aria-label="Answer mode" title="How EduLite should answer">
+          <option value="auto">Auto</option>
+        </select>
         <textarea id="input" rows="1" placeholder="Ask EduLite a question…" aria-label="Message" maxlength="20000"></textarea>
         <button id="send" class="primary" type="submit">Send</button>
         <button id="stop" class="danger" type="button" hidden>Stop</button>
@@ -59,6 +62,17 @@
   <dialog id="settings-dialog" class="settings">
     <form id="settings-form" method="dialog">
       <h2>Settings</h2>
+      <label>Your level
+        <select id="set-level" name="level">
+          <option value="beginner">Beginner: simple words, analogies, small examples</option>
+          <option value="intermediate">Intermediate: details, pitfalls, trade-offs</option>
+          <option value="advanced">Advanced: theory, maths, internals</option>
+        </select>
+      </label>
+      <label class="check">
+        <input id="set-notes" name="use_notes" type="checkbox">
+        Use EduLite's course notes to ground answers (recommended)
+      </label>
       <label>Model
         <select id="set-model" name="model"></select>
       </label>

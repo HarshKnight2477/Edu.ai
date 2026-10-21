@@ -21,35 +21,41 @@ logger = logging.getLogger("edulite.web")
 DEFAULT_WEB_PORT = 8770
 
 
-def restore_settings(config: InferenceConfig, store: Store) -> InferenceConfig:
-    """Apply settings saved from the web UI, ignoring any that are no longer valid."""
+def restore_settings(config: InferenceConfig, store: Store) -> tuple[InferenceConfig, dict]:
+    """Apply settings saved from the web UI, ignoring any that are no longer valid.
+
+    Returns the inference config and the tutoring settings (level, use_notes).
+    """
+    tutoring = {"level": "beginner", "use_notes": True}
     saved = store.get_settings()
     if not saved:
-        return config
+        return config, tutoring
     merged = {"model": config.model.key, "context_tokens": config.context_tokens,
               "max_tokens": config.max_tokens, "threads": config.threads,
-              "temperature": config.temperature, **saved}
+              "temperature": config.temperature, **tutoring, **saved}
     try:
         validate_settings(merged)
     except (ValueError, KeyError) as error:
         logger.warning("Ignoring saved settings: %s", error)
-        return config
-    return config.with_overrides(model=REGISTRY[merged["model"]], context_tokens=merged["context_tokens"],
-                                 max_tokens=merged["max_tokens"], threads=merged["threads"],
-                                 temperature=merged["temperature"])
+        return config, tutoring
+    config = config.with_overrides(model=REGISTRY[merged["model"]], context_tokens=merged["context_tokens"],
+                                   max_tokens=merged["max_tokens"], threads=merged["threads"],
+                                   temperature=merged["temperature"])
+    return config, {"level": merged["level"], "use_notes": merged["use_notes"]}
 
 
 def run(config: InferenceConfig, port: int = DEFAULT_WEB_PORT, open_browser: bool = True,
         explicit_model: bool = False) -> None:
     store = Store()
+    tutoring = {"level": "beginner", "use_notes": True}
     if not explicit_model:
-        config = restore_settings(config, store)
+        config, tutoring = restore_settings(config, store)
     if not model_status(config.model).installed:
         fallback = next((s for s in REGISTRY.values() if model_status(s).installed), None)
         if fallback is None:
             raise SystemExit("No EduLite model is installed. Run: python -m edulite --list-models")
         config = config.with_overrides(model=fallback)
-    app = create_app(ModelManager(config), store)
+    app = create_app(ModelManager(config, **tutoring), store)
     url = f"http://127.0.0.1:{port}"
     print(f"EduLite is starting at {url}  (press Ctrl+C here to stop)")
     if open_browser:

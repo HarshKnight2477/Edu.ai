@@ -124,6 +124,11 @@ nav { flex: 1; overflow-y: auto; padding: 0 8px; }
 .composer textarea { flex: 1; resize: none; max-height: 220px; padding: 10px 12px; border: 1px solid var(--border);
   border-radius: var(--radius); background: var(--panel); line-height: 1.5; }
 .composer button { height: 44px; padding: 0 18px; }
+.composer .mode { height: 44px; padding: 0 8px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--panel); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 2px 0 6px; }
+.chip { font-size: 12px; border-radius: 999px; padding: 1px 9px; background: var(--code-bg); border: 1px solid var(--border); color: var(--muted); }
+.chip.mode-chip { color: var(--accent); border-color: var(--accent); }
+.settings label.check { flex-direction: row; align-items: center; gap: 8px; color: var(--text); }
 .hint { max-width: 860px; margin: 6px auto 12px; padding: 0 20px; font-size: 12px; color: var(--muted); }
 
 /* ------------------------------------------------------------ settings */
@@ -144,5 +149,6 @@ nav { flex: 1; overflow-y: auto; padding: 0 8px; }
   .icon { display: inline-block; }
   .suggestions { grid-template-columns: 1fr; }
   .messages { padding: 16px 12px 8px; }
-  .composer { padding: 8px 12px 0; }
+  .composer { padding: 8px 12px 0; flex-wrap: wrap; }
+  .composer .mode { order: 3; }
 }

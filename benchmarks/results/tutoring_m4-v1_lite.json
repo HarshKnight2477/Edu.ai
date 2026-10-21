@@ -1,0 +1,38 @@
+{
+  "model": "lite",
+  "configs": {
+    "baseline": {
+      "quiz_m1": 0.8,
+      "quiz_held_out": 0.567,
+      "quiz_all": 0.683,
+      "debug_fixed": 0.417,
+      "debug_unchanged": 5,
+      "hint_gave_full_solution": 5,
+      "hint_policy_followed": 0.5,
+      "hint_answers_without_code": 0,
+      "minutes": 2.4
+    },
+    "tutor": {
+      "quiz_m1": 0.5,
+      "quiz_held_out": 0.533,
+      "quiz_all": 0.517,
+      "debug_fixed": 0.333,
+      "debug_unchanged": 6,
+      "hint_gave_full_solution": 3,
+      "hint_policy_followed": 0.7,
+      "hint_answers_without_code": 3,
+      "minutes": 2.9
+    },
+    "tutor_notes": {
+      "quiz_m1": 0.7,
+      "quiz_held_out": 0.767,
+      "quiz_all": 0.733,
+      "debug_fixed": 0.5,
+      "debug_unchanged": 2,
+      "hint_gave_full_solution": 2,
+      "hint_policy_followed": 0.8,
+      "hint_answers_without_code": 2,
+      "minutes": 3.8
+    }
+  }
+}

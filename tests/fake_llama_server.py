@@ -6,6 +6,7 @@ Behaviour is controlled with environment variables (inherited from the test):
   FAKE_MODE           normal | malformed | error500 | slow | crash_on_chat
   FAKE_MAX_CHARS      reply 400 exceed_context_size_error when the prompt is longer
   FAKE_STREAM_WORDS   number of words in a streamed reply (default 5)
+  FAKE_STREAM_TEXT    stream exactly this text (in 7-character chunks) instead of echo words
   FAKE_CHUNK_DELAY    seconds between streamed chunks (default 0.01)
   FAKE_UNSUPPORTED    comma-separated flags to leave out of --help
   FAKE_RECORD         file to append each request body to (one JSON per line)
@@ -102,7 +103,11 @@ def main():
             self.send_header("Connection", "close")
             self.end_headers()
             try:
-                pieces = ["echo:"] + [f" w{i}" for i in range(words)]
+                text = os.getenv("FAKE_STREAM_TEXT")
+                if text:  # stream a given answer in small chunks, splitting fences across chunks
+                    pieces = [text[i:i + 7] for i in range(0, len(text), 7)]
+                else:
+                    pieces = ["echo:"] + [f" w{i}" for i in range(words)]
                 for piece in pieces:
                     event = {"choices": [{"index": 0, "delta": {"content": piece}, "finish_reason": None}]}
                     self.wfile.write(f"data: {json.dumps(event)}\n\n".encode())

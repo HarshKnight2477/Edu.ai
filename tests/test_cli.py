@@ -85,7 +85,7 @@ def test_full_context_drops_oldest_messages(make_config, servers, monkeypatch):
     conversation = Conversation(system_prompt="")
     for i in range(3):
         conversation.add_user("x" * 300); conversation.add_assistant("y" * 300)
-    output, conversation = run_session(server, ["new question", "/exit"], conversation)
+    output, conversation = run_session(server, ["/notes off", "new question", "/exit"], conversation)
     assert "EduLite: echo: w0" in output
     assert "Older messages were forgotten" in output
     assert conversation.turns[-2]["content"] == "new question"
@@ -121,3 +121,29 @@ def test_main_reports_missing_model(monkeypatch, capsys, tmp_path):
 def test_list_models(capsys):
     assert cli.main(["--list-models"]) == 0
     assert "Qwen3.5-2B" in capsys.readouterr().out
+
+
+def test_tutor_commands_and_mode_label(make_config, servers, monkeypatch, tmp_path):
+    record = tmp_path / "requests.jsonl"
+    monkeypatch.setenv("FAKE_RECORD", str(record))
+    server = servers(make_config())
+    server.start()
+    output, _ = run_session(server, ["/level advanced", "/mode hint", "/notes off", "/level", "/mode essay",
+                                     "Find the largest number in a list", "/info", "/exit"])
+    assert "Level set to advanced." in output and "Mode set to hint." in output and "Course notes off." in output
+    assert "Level is advanced." in output and "Mode is hint. Choose:" in output
+    assert "[Hint]" in output  # chosen explicitly, so no "(auto)" and no notes
+    assert "Tutor:    level advanced, mode hint, course notes off" in output
+    import json
+    system = json.loads(record.read_text().splitlines()[-1])["messages"][0]["content"]
+    assert "Do NOT give the full solution" in system and "Advanced:" in system
+
+
+def test_cli_hint_mode_withholds_complete_solution(make_config, servers, monkeypatch):
+    solution = "```python\ndef largest(nums):\n    m = nums[0]\n    for n in nums:\n        m = max(m, n)\n    return m\n```"
+    monkeypatch.setenv("FAKE_STREAM_TEXT", "Think about a running maximum.\n" + solution)
+    server = servers(make_config())
+    server.start()
+    output, conversation = run_session(server, ["/mode hint", "help with largest", "/exit"])
+    assert "return m" not in output and "left out a complete solution" in output
+    assert "return m" not in conversation.turns[-1]["content"]

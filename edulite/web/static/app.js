@@ -69,7 +69,33 @@ function renderStatus() {
     text = s.state || "Unknown";
   }
   $("status-text").textContent = text;
+  if (s.modes && $("mode").options.length <= 1) {
+    $("mode").replaceChildren(...Object.entries(s.modes).map(([value, label]) => {
+      const option = el("option", "", label);
+      option.value = value;
+      return option;
+    }));
+  }
   updateComposer();
+}
+
+function modeLabel(mode) {
+  return (state.status && state.status.modes && state.status.modes[mode]) || mode;
+}
+
+function chipsNode(mode, sources, auto) {
+  const chips = el("div", "chips");
+  if (mode) {
+    const chip = el("span", "chip mode-chip", modeLabel(mode) + (auto ? " (auto)" : ""));
+    chip.title = "How EduLite chose to answer. Change it with the picker next to the message box.";
+    chips.appendChild(chip);
+  }
+  for (const source of sources || []) {
+    const chip = el("span", "chip", "📘 " + source);
+    chip.title = "From EduLite's course notes";
+    chips.appendChild(chip);
+  }
+  return chips;
 }
 
 function updateComposer() {
@@ -171,7 +197,11 @@ function renderMessages(messages) {
 
 function messageNode(message) {
   const wrap = el("div", `msg ${message.role}`);
-  if (message.role === "assistant") wrap.appendChild(el("div", "who", "EduLite"));
+  if (message.role === "assistant") {
+    wrap.appendChild(el("div", "who", "EduLite"));
+    const stats = message.stats || {};
+    if (stats.mode || (stats.sources && stats.sources.length)) wrap.appendChild(chipsNode(stats.mode, stats.sources));
+  }
   const bubble = el("div", "bubble");
   if (message.role === "assistant") bubble.appendChild(EduMarkdown.render(message.content, document, window.hljs));
   else bubble.textContent = message.content;
@@ -241,7 +271,7 @@ async function send(text) {
     const response = await fetch(`/api/conversations/${state.currentId}/messages`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ content: text }),
+      body: JSON.stringify({ content: text, mode: $("mode").value }),
     });
     if (!response.ok) {
       const body = await response.json().catch(() => ({}));
@@ -266,6 +296,8 @@ async function send(text) {
         assistantWrap.appendChild(bubble);
         box.appendChild(assistantWrap);
         scrollToBottom(true);
+      } else if (event === "meta") {
+        if (assistantWrap) assistantWrap.insertBefore(chipsNode(data.mode, data.sources, data.auto), bubble);
       } else if (event === "token") {
         answer += data.text;
         // Re-render at most once per frame: smooth even for fast models.
@@ -309,6 +341,8 @@ function openSettings() {
     select.appendChild(option);
   }
   select.value = s.settings.model;
+  $("set-level").value = s.settings.level;
+  $("set-notes").checked = s.settings.use_notes;
   $("set-context").value = String(s.settings.context_tokens);
   $("set-max").value = s.settings.max_tokens;
   $("set-threads").value = s.settings.threads;
@@ -336,6 +370,8 @@ async function saveSettings(event) {
     max_tokens: Number($("set-max").value),
     threads: Number($("set-threads").value),
     temperature: Number($("set-temp").value),
+    level: $("set-level").value,
+    use_notes: $("set-notes").checked,
   };
   const save = $("settings-save");
   save.disabled = true;

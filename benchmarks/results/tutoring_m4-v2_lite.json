@@ -1,0 +1,305 @@
+{
+  "prompt_version": "m4-v2",
+  "model": "lite",
+  "model_file": "Qwen3.5-0.8B-Q4_0.gguf",
+  "runtime": "version: 0.7.0-dev (build 11780, commit 1242be66f)",
+  "threads": 8,
+  "context_tokens": 4096,
+  "decoding": {
+    "temperature": 0,
+    "top_p": 0.9,
+    "max_tokens": {
+      "quiz": 16,
+      "debug": 512,
+      "hint": 512
+    }
+  },
+  "task_counts": {
+    "quiz": 60,
+    "debug": 12,
+    "hint": 10,
+    "hint_ext": 10
+  },
+  "started": "2026-10-21T23:56:22",
+  "configs": {
+    "baseline": {
+      "quiz_m1": {
+        "correct": 23,
+        "incorrect": 3,
+        "unparseable": 4,
+        "total": 30,
+        "accuracy": 0.767,
+        "accuracy_on_parseable": 0.885,
+        "coverage": 0.867
+      },
+      "quiz_held_out": {
+        "correct": 17,
+        "incorrect": 13,
+        "unparseable": 0,
+        "total": 30,
+        "accuracy": 0.567,
+        "accuracy_on_parseable": 0.567,
+        "coverage": 1.0
+      },
+      "quiz": {
+        "correct": 40,
+        "incorrect": 16,
+        "unparseable": 4,
+        "total": 60,
+        "accuracy": 0.667,
+        "accuracy_on_parseable": 0.714,
+        "coverage": 0.933,
+        "accuracy_95ci": [
+          0.541,
+          0.773
+        ]
+      },
+      "debug": {
+        "fixed": 5,
+        "total": 12,
+        "fix_rate": 0.417,
+        "fix_rate_95ci": [
+          0.193,
+          0.68
+        ],
+        "unchanged_code": 5,
+        "format_followed": 0,
+        "cut_off_at_limit": 0
+      },
+      "hint": {
+        "violations": 5,
+        "total": 10,
+        "policy_followed": 0.5,
+        "solutions_without_code_block": 0,
+        "answers_without_code": 0
+      },
+      "hint_ext": {
+        "exact_solution_in_notes": {
+          "ok": 0,
+          "total": 2,
+          "solutions": 2,
+          "unfenced": 0
+        },
+        "similar_solution_in_notes": {
+          "ok": 1,
+          "total": 2,
+          "solutions": 1,
+          "unfenced": 0
+        },
+        "conceptual_notes_only": {
+          "ok": 1,
+          "total": 2,
+          "solutions": 1,
+          "unfenced": 0
+        },
+        "explicit_full_answer": {
+          "ok": 1,
+          "total": 2,
+          "solutions": 1,
+          "unfenced": 0
+        },
+        "next_hint": {
+          "ok": 1,
+          "total": 2,
+          "solutions": 1,
+          "unfenced": 0
+        }
+      },
+      "resources": {
+        "minutes": 3.6,
+        "median_seconds": {
+          "quiz": 0.37,
+          "debug": 3.45,
+          "hint": 6.93
+        },
+        "server_peak_ram_mb": 1026
+      }
+    },
+    "tutor": {
+      "quiz_m1": {
+        "correct": 16,
+        "incorrect": 4,
+        "unparseable": 10,
+        "total": 30,
+        "accuracy": 0.533,
+        "accuracy_on_parseable": 0.8,
+        "coverage": 0.667
+      },
+      "quiz_held_out": {
+        "correct": 15,
+        "incorrect": 9,
+        "unparseable": 6,
+        "total": 30,
+        "accuracy": 0.5,
+        "accuracy_on_parseable": 0.625,
+        "coverage": 0.8
+      },
+      "quiz": {
+        "correct": 31,
+        "incorrect": 13,
+        "unparseable": 16,
+        "total": 60,
+        "accuracy": 0.517,
+        "accuracy_on_parseable": 0.705,
+        "coverage": 0.733,
+        "accuracy_95ci": [
+          0.393,
+          0.638
+        ]
+      },
+      "debug": {
+        "fixed": 4,
+        "total": 12,
+        "fix_rate": 0.333,
+        "fix_rate_95ci": [
+          0.138,
+          0.609
+        ],
+        "unchanged_code": 5,
+        "format_followed": 1,
+        "cut_off_at_limit": 0
+      },
+      "hint": {
+        "violations": 4,
+        "total": 10,
+        "policy_followed": 0.6,
+        "solutions_without_code_block": 0,
+        "answers_without_code": 2
+      },
+      "hint_ext": {
+        "exact_solution_in_notes": {
+          "ok": 1,
+          "total": 2,
+          "solutions": 1,
+          "unfenced": 0
+        },
+        "similar_solution_in_notes": {
+          "ok": 2,
+          "total": 2,
+          "solutions": 0,
+          "unfenced": 0
+        },
+        "conceptual_notes_only": {
+          "ok": 2,
+          "total": 2,
+          "solutions": 0,
+          "unfenced": 0
+        },
+        "explicit_full_answer": {
+          "ok": 2,
+          "total": 2,
+          "solutions": 2,
+          "unfenced": 0
+        },
+        "next_hint": {
+          "ok": 2,
+          "total": 2,
+          "solutions": 0,
+          "unfenced": 0
+        }
+      },
+      "resources": {
+        "minutes": 3.6,
+        "median_seconds": {
+          "quiz": 0.82,
+          "debug": 4.43,
+          "hint": 4.97
+        },
+        "server_peak_ram_mb": 1029
+      }
+    },
+    "tutor_notes": {
+      "quiz_m1": {
+        "correct": 20,
+        "incorrect": 8,
+        "unparseable": 2,
+        "total": 30,
+        "accuracy": 0.667,
+        "accuracy_on_parseable": 0.714,
+        "coverage": 0.933
+      },
+      "quiz_held_out": {
+        "correct": 27,
+        "incorrect": 3,
+        "unparseable": 0,
+        "total": 30,
+        "accuracy": 0.9,
+        "accuracy_on_parseable": 0.9,
+        "coverage": 1.0
+      },
+      "quiz": {
+        "correct": 47,
+        "incorrect": 11,
+        "unparseable": 2,
+        "total": 60,
+        "accuracy": 0.783,
+        "accuracy_on_parseable": 0.81,
+        "coverage": 0.967,
+        "accuracy_95ci": [
+          0.664,
+          0.869
+        ]
+      },
+      "debug": {
+        "fixed": 4,
+        "total": 12,
+        "fix_rate": 0.333,
+        "fix_rate_95ci": [
+          0.138,
+          0.609
+        ],
+        "unchanged_code": 7,
+        "format_followed": 2,
+        "cut_off_at_limit": 0
+      },
+      "hint": {
+        "violations": 4,
+        "total": 10,
+        "policy_followed": 0.6,
+        "solutions_without_code_block": 0,
+        "answers_without_code": 4
+      },
+      "hint_ext": {
+        "exact_solution_in_notes": {
+          "ok": 1,
+          "total": 2,
+          "solutions": 1,
+          "unfenced": 0
+        },
+        "similar_solution_in_notes": {
+          "ok": 1,
+          "total": 2,
+          "solutions": 1,
+          "unfenced": 0
+        },
+        "conceptual_notes_only": {
+          "ok": 1,
+          "total": 2,
+          "solutions": 1,
+          "unfenced": 0
+        },
+        "explicit_full_answer": {
+          "ok": 0,
+          "total": 2,
+          "solutions": 0,
+          "unfenced": 0
+        },
+        "next_hint": {
+          "ok": 2,
+          "total": 2,
+          "solutions": 0,
+          "unfenced": 0
+        }
+      },
+      "resources": {
+        "minutes": 4.6,
+        "median_seconds": {
+          "quiz": 1.3,
+          "debug": 3.99,
+          "hint": 6.85
+        },
+        "server_peak_ram_mb": 1039
+      }
+    }
+  }
+}

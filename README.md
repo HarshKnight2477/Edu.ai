@@ -2,10 +2,11 @@
 
 A lightweight, offline AI tutor for programming and AI, designed for low-end PCs without a GPU.
 
-**Status:** Milestone 3 (web chat interface) complete.
+**Status:** Milestone 4 (tutoring prompts and course-notes retrieval) complete.
 - [Milestone 1 report](docs/milestone-1-report.md): model selection and architecture
 - [Milestone 2 report](docs/milestone-2-report.md): inference engine, tests and measurements
 - [Milestone 3 report](docs/milestone-3-report.md): web interface, chat history, settings
+- [Milestone 4 report](docs/milestone-4-issues.md): tutoring modes, levels, homework policy, course notes, evaluation
 
 ## Quick start (Windows)
 
@@ -31,8 +32,15 @@ Settings can be set with flags (`--threads`, `--ctx`, `--max-tokens`, `--port`) 
 ## Tests
 
 ```bash
-python -m pytest        # 58 tests; the real-model tests are skipped if the runtime/model aren't installed
+python -m pytest        # 171 tests; the real-model tests are skipped if the runtime/model aren't installed
 ```
+
+## Tutoring features
+
+- **Levels:** beginner, intermediate or advanced, set in Settings or with `--level`.
+- **Modes:** explain, hint, debug, write code, quiz me or project. Chosen automatically from the question, or picked next to the message box (`/mode` in the terminal).
+- **Homework policy:** hint mode gives guidance, not answers. Complete solutions are filtered out of hint answers; ask for the full solution to see it.
+- **Course notes:** 70 original sections on Python, algorithms, C/C++/Java/SQL and AI/ML, searched locally with SQLite FTS5. Each answer shows which notes it used.
 
 ## Benchmarks
 

@@ -12,6 +12,7 @@ from pathlib import Path
 
 from edulite.config import MODELS_DIR, REGISTRY, InferenceConfig, ModelSpec, model_status
 from edulite.inference import InferenceError, LlamaServer
+from edulite.tutor.prompts import LEVELS
 
 logger = logging.getLogger("edulite.models")
 
@@ -31,10 +32,8 @@ class Settings:
     max_tokens: int
     threads: int
     temperature: float
-
-    @classmethod
-    def from_config(cls, config: InferenceConfig) -> Settings:
-        return cls(config.model.key, config.context_tokens, config.max_tokens, config.threads, config.temperature)
+    level: str = "beginner"       # tutoring settings: apply to the next answer, no restart
+    use_notes: bool = True
 
     def to_dict(self) -> dict:
         return dict(self.__dict__)
@@ -43,8 +42,10 @@ class Settings:
 class ModelManager:
     def __init__(self, config: InferenceConfig,
                  server_factory: Callable[[InferenceConfig], LlamaServer] = LlamaServer,
-                 registry: dict[str, ModelSpec] | None = None):
+                 registry: dict[str, ModelSpec] | None = None, level: str = "beginner", use_notes: bool = True):
         self._config = config
+        self.level = level
+        self.use_notes = use_notes
         self.registry = registry or REGISTRY
         self._factory = server_factory
         self._server: LlamaServer | None = None
@@ -61,7 +62,9 @@ class ModelManager:
 
     @property
     def settings(self) -> Settings:
-        return Settings.from_config(self._config)
+        c = self._config
+        return Settings(c.model.key, c.context_tokens, c.max_tokens, c.threads, c.temperature,
+                        self.level, self.use_notes)
 
     @property
     def server(self) -> LlamaServer:
@@ -116,6 +119,7 @@ class ModelManager:
             self._config = self._config.with_overrides(
                 model=self.registry[merged["model"]], context_tokens=merged["context_tokens"],
                 max_tokens=merged["max_tokens"], threads=merged["threads"], temperature=merged["temperature"])
+            self.level, self.use_notes = merged["level"], merged["use_notes"]
             if restart:
                 self.shutdown()
                 self.start()
@@ -154,6 +158,10 @@ def validate_settings(values: dict, registry: dict[str, ModelSpec] = REGISTRY, m
         raise ValueError(f"Threads must be between 1 and {os.cpu_count()}")
     if not 0.0 <= values["temperature"] <= 1.5:
         raise ValueError("Temperature must be between 0 and 1.5")
+    if values.get("level", "beginner") not in LEVELS:
+        raise ValueError(f"Level must be one of: {', '.join(LEVELS)}")
+    if not isinstance(values.get("use_notes", True), bool):
+        raise ValueError("use_notes must be true or false")
 
 
 def models_overview(registry: dict[str, ModelSpec] = REGISTRY, models_dir: Path = MODELS_DIR) -> list[dict]:

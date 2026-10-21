@@ -1,0 +1,671 @@
+{
+  "baseline": {
+    "quiz": [],
+    "debug": [],
+    "hint": [
+      {
+        "id": "hint-01",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "answer": "Great question! Let's break this down step-by-step.\n\n### The Strategy\nSince we cannot use the built-in `max()` function, we need to manually compare numbers. The most efficient way is to:\n1.  Start with the first number as our \"current maximum.\"\n2.  Loop through the rest of the list.\n3.  If a new number is larger than our current maximum, update it.\n\n### Step-by-Step Logic\n1.  Initialize `largest` to the first element of the list.\n2.  Iterate from the second element to the end.\n3.  Compare the current element with `largest`.\n4.  If the current element is bigger, update `largest`.\n\n### Python Example\nHere is a clean, efficient implementation:\n\n```python\ndef largest(nums):\n    if len(nums) == 0:\n        return None # Handle empty list case\n\n    # Start with the first number as the initial maximum\n    largest = nums[0]\n\n    # Loop through the rest of the list\n    for num in nums[1:]:\n        if num > largest:\n            largest = num\n\n    return largest\n\n# Test it\nprint(largest([3, 7, 2, 9, 5]))  # Output: 9\n```\n\n### Key Takeaways\n*   **Initialization**: Always pick the first element as your starting point.\n*   **Comparison**: Use `if num > largest` to update only when a bigger number is found.\n*   **Efficiency**: This runs in **O(n)** time, which is optimal for finding the maximum.\n\nIf you have another question about how to handle edge cases (like an empty list) or how to sort a list, feel free to ask!"
+      },
+      {
+        "id": "hint-02",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "answer": "Hello! It's great that you're starting out. Counting vowels is a classic beginner problem in programming.\n\nHere is a step-by-step guide to solving it, followed by a clean Python example.\n\n### The Logic\n1.  **Convert to lowercase**: This ensures that 'A' and 'a' are treated as the same vowel.\n2.  **Iterate through characters**: Go through every letter in the string.\n3.  **Check if it's a vowel**: If the current character is 'a', 'e', 'i', 'o', or 'u', increment your counter.\n4.  **Return the result**: Print the final count.\n\n### Python Code\nHere is a simple function you can copy and run:\n\n```python\ndef count_vowels(text):\n    vowels = \"aeiou\"\n    count = 0\n    \n    # Convert the string to lowercase first\n    text = text.lower()\n    \n    # Iterate through each character\n    for char in text:\n        if char in vowels:\n            count += 1\n            \n    return count\n\n# Test it\nprint(count_vowels(\"Hello World\"))  # Output: 2\nprint(count_vowels(\"AEIOU\"))        # Output: 5\n```\n\n### How it works\n-   We define a string `vowels` containing the letters we care about.\n-   We convert the input `text` to lowercase so \"A\" and \"a\" match.\n-   We loop through every character in the string.\n-   If the character is in our `vowels` list, we add 1 to our `count`.\n-   Finally, we return the total number.\n\nIf you get stuck on any part of this, just let me know!"
+      },
+      {
+        "id": "hint-03",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "answer": "Here is a simple hint to get you started:\n\n1.  **Split the sentence**: First, break the string into individual words using a method like `split()`.\n2.  **Reverse the list**: Since you want the words in reverse order, simply reverse the list of words.\n3.  **Join them**: Finally, combine the reversed list back into a single string with spaces.\n\n**Python Example:**\n\n```python\ndef reverse_words(sentence):\n    words = sentence.split()\n    return \" \".join(reversed(words))\n\nprint(reverse_words(\"I like Python\"))\n# Output: Python like I\n```\n\n**Hint:** Remember that `split()` creates a list, and `reversed()` returns an iterator that can be converted back to a list with `list()`."
+      },
+      {
+        "id": "hint-04",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "answer": "To solve `is_prime(n)`, you need to check if `n` has any divisors other than 1 and itself.\n\n### The Approach\n1.  **Check 1 and n**: If `n` is 1 or `n` itself, it is not prime (unless you define 1 as prime, but standard math says no).\n2.  **Check divisors**: Iterate from 2 up to `n - 1`. If `n` is divisible by any number in this range, it's **not** prime.\n3.  **Optimization**: You only need to check up to the square root of `n`. If `n` has a factor larger than its square root, the other factor must be smaller.\n\n### Python Implementation\nHere is a clean, efficient version:\n\n```python\ndef is_prime(n):\n    # 1 is not prime\n    if n <= 1:\n        return False\n    \n    # Check from 2 to sqrt(n)\n    # We use <= because if n is a perfect square (e.g., 4), \n    # sqrt(4) is 2, and 2*2=4, so we check up to the root.\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n            \n    return True\n\n# Test cases\nprint(is_prime(2))   # True\nprint(is_prime(17))  # True\nprint(is_prime(18))  # False\nprint(is_prime(1))   # False\n```\n\n### Key Logic Notes\n- **Range**: `range(2, int(n**0.5) + 1)` ensures we stop at the square root.\n- **Modulo**: `n % i == 0` checks for divisibility.\n- **Edge Cases**: Numbers like 2, 3, and 5 are prime because the loop range starts at 2, and 2 is the smallest prime.\n\nIf you get stuck on a specific part (e.g., performance or edge cases), let me know!"
+      },
+      {
+        "id": "hint-05",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "answer": "Here is a clear, step-by-step solution using Python.\n\n### The Logic\nTo sum the digits of a number, we can repeatedly:\n1.  Take the last digit of the number.\n2.  Add it to our running total.\n3.  Remove that last digit (effectively dividing by 10).\n4.  Repeat until the number becomes 0.\n\n### Python Code\n```python\ndef sum_digits(n):\n    total = 0\n    while n > 0:\n        # Get the last digit\n        digit = n % 10\n        # Add it to the total\n        total += digit\n        # Remove the last digit\n        n //= 10\n    return total\n\n# Test it\nprint(sum_digits(1234))  # Output: 10\n```\n\n### How it works\n-   **`n % 10`**: This gets the remainder when `n` is divided by 10. For 1234, this gives **4**.\n-   **`total += digit`**: Adds 4 to our sum (total becomes 4).\n-   **`n //= 10`**: This divides `n` by 10. 1234 becomes 123.\n-   The loop repeats until `n` is 0.\n\n### Edge Case Note\nIf you pass `0`, the loop condition `while n > 0` will never be true, and the function returns `0`. This is mathematically correct for the sum of digits of 0 (which is 0).\n\nLet me know if you need help with a specific variation of this problem!"
+      },
+      {
+        "id": "hint-06",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "answer": "To write a factorial function using a loop, you need to break down the problem into smaller steps. The factorial of a number $n$ (denoted as $n!$) is the product of all positive integers from 1 up to $n$.\n\nHere is the logic:\n1.  **Base Case**: If $n$ is 0 or 1, the answer is 1.\n2.  **Recursive Step**: If $n$ is greater than 1, multiply $n$ by the factorial of $(n-1)$.\n3.  **Loop**: Use a `for` loop to iterate from 1 to $n$, multiplying a running total by each number.\n\n### Python Implementation\n\n```python\ndef factorial(n):\n    # Base case: 0! and 1! are both 1\n    if n <= 1:\n        return 1\n    \n    # Initialize the result to 1\n    result = 1\n    \n    # Loop from 1 to n\n    for i in range(1, n + 1):\n        result *= i\n    \n    return result\n\n# Test it\nprint(factorial(5))  # Output: 120\n```\n\n### How to Start?\n1.  **Define the function**: Create a function named `factorial` that takes an integer `n` as an argument.\n2.  **Handle the edge case**: Check if `n` is less than or equal to 1. Return 1 immediately.\n3.  **Set up variables**: Create a variable `result` to store the running product.\n4.  **Write the loop**: Use a `for` loop to go from 1 to `n`. Inside the loop, multiply `result` by the current number `i`.\n5.  **Return**: Return the final `result`.\n\nThis approach avoids recursion entirely and relies on iteration, which is often easier to debug and understand for beginners."
+      },
+      {
+        "id": "hint-07",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "answer": "To keep the original order while removing duplicates, you can use a **set** to track what you've seen so far.\n\nHere is the logic:\n1.  Create an empty set called `seen`.\n2.  Iterate through your list.\n3.  For each item, check if it is already in `seen`.\n4.  If it is **not** in `seen`, add it to the set and add it to your result list.\n5.  Finally, convert the set back to a list.\n\n### Python Hint\n\n```python\ndef unique(items):\n    seen = set()\n    result = []\n    for item in items:\n        if item not in seen:\n            seen.add(item)\n            result.append(item)\n    return result\n\n# Example usage:\nprint(unique([1, 2, 3, 2, 4, 1])) \n# Output: [1, 2, 3, 4]\n```\n\n**Why this works:** Sets automatically handle uniqueness, but they don't preserve order. By checking `if item not in seen` before adding, we ensure duplicates are skipped while maintaining the sequence from the original list."
+      },
+      {
+        "id": "hint-08",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "answer": "You are stuck because you likely haven't implemented the logic yet. To solve this, we need to iterate through the string and count occurrences.\n\nHere is a clear, step-by-step solution using Python.\n\n### The Logic\n1. Initialize a dictionary `counts` to store the frequency of each character.\n2. Loop through every character in the input string `text`.\n3. For each character, check if it already exists in the dictionary.\n   - If yes, increment its count.\n   - If no, add it with a count of 1.\n\n### Python Code\n\n```python\ndef char_count(text):\n    counts = {}\n    \n    for char in text:\n        if char in counts:\n            counts[char] += 1\n        else:\n            counts[char] = 1\n            \n    return counts\n\n# Example usage:\ntext = \"hello world\"\nresult = char_count(text)\nprint(result)\n```\n\n### Output\n```python\n{'h': 1, 'e': 1, 'l': 3, 'o': 2, ' ': 1, 'w': 1, 'r': 1, 'd': 1}\n```\n\n### Key Takeaways\n- **Dictionary**: We use a dictionary (`counts`) to store the character and its frequency.\n- **Iteration**: We loop through `text` character by character.\n- **Conditional Check**: We use `if char in counts` to decide whether to add the character to the dictionary or update its existing count.\n\nIf you are still unsure about how the loop works or how dictionaries handle keys, let me know, and I'll break it down further!"
+      },
+      {
+        "id": "hint-09",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "answer": "To approach this problem, we need to translate the mathematical formula for the conversion between Celsius and Fahrenheit into Python code.\n\n### The Logic\nThe standard formula to convert Celsius ($C$) to Fahrenheit ($F$) is:\n$$F = \\frac{9}{5}C + 32$$\n\n**Steps to solve:**\n1.  **Define the input**: Accept a single argument `c` representing the temperature in Celsius.\n2.  **Apply the formula**: Multiply the Celsius value by 1.8 (or 9/5) and add 32.\n3.  **Return the result**: Print or return the final Fahrenheit temperature.\n\n### Python Implementation\n\nHere is a clean, functional solution:\n\n```python\ndef celsius_to_fahrenheit(c):\n    \"\"\"\n    Converts a temperature from Celsius to Fahrenheit.\n    Formula: F = (9/5) * C + 32\n    \"\"\"\n    # Calculate the conversion\n    fahrenheit = (9 / 5) * c + 32\n    \n    # Return the result\n    return fahrenheit\n\n# Example usage:\n# temperature_c = 25\n# result = celsius_to_fahrenheit(temperature_c)\n# print(f\"The temperature is {result} degrees Fahrenheit.\")\n```\n\n### Key Considerations\n*   **Precision**: Using floating-point division (`9 / 5`) ensures accuracy rather than integer truncation.\n*   **Input Validation**: In a real-world scenario, you might want to check if the input is a valid number or if it's within a reasonable temperature range. For this exercise, we assume valid input.\n*   **No Testing**: As per your instructions, I am providing the logic and code structure. I cannot run the code myself to verify the output, but the logic above is standard and correct.\n\nIf you have a specific edge case (like negative numbers or very large temperatures) or want to handle input validation, let me know!"
+      },
+      {
+        "id": "hint-10",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "answer": "To solve this, you need to check if the word is the same when reversed, regardless of capitalization.\n\n### The Logic\n1.  **Normalize Case**: Convert the word to lowercase (or uppercase) so 'A' and 'a' are treated as the same.\n2.  **Reverse**: Reverse the string.\n3.  **Compare**: Check if the original (normalized) string matches the reversed string.\n\n### Python Example\nHere is a clean, focused implementation:\n\n```python\ndef is_palindrome(word):\n    # 1. Normalize case to 'a' or 'A'\n    normalized = word.lower()\n    \n    # 2. Reverse the string\n    reversed_word = normalized[::-1]\n    \n    # 3. Compare\n    return normalized == reversed_word\n\n# Test cases\nprint(is_palindrome(\"A man, a plan, a canal: Panama\"))  # True\nprint(is_palindrome(\"racecar\"))                          # True\nprint(is_palindrome(\"hello\"))                            # False\n```\n\n### Key Steps Explained\n*   **`word.lower()`**: This ensures \"RaceCar\" becomes \"racecar\" before we check.\n*   **`[::-1]`**: This is Python's slicing syntax to reverse a string in one line.\n*   **`==`**: This checks for equality.\n\nIf you get stuck on any part of the logic, let me know!"
+      }
+    ],
+    "hint_ext": [
+      {
+        "id": "hx-exact-01",
+        "category": "exact_solution_in_notes",
+        "expect": "no_solution",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "ok": false,
+        "answer": "Here is a hint to get you started:\n\nSince the list is **sorted**, you can use the **Binary Search** algorithm. This means you don't need to check every single element one by one. Instead, you can:\n\n1.  Find the middle element of the list.\n2.  Compare your `target` to that middle element.\n3.  If they are equal, you found your index!\n4.  If the target is smaller, you only need to search the **left half**.\n5.  If the target is larger, you only need to search the **right half**.\n\n**Python Hint:**\nYou can use the `mid = len(arr) // 2` formula to find the middle index.\n\n```python\ndef binary_search(arr, target):\n    left, right = 0, len(arr) - 1\n    \n    while left <= right:\n        mid = (left + right) // 2\n        \n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n            \n    return -1\n```\n\nDoes this logic make sense to you?"
+      },
+      {
+        "id": "hx-exact-02",
+        "category": "exact_solution_in_notes",
+        "expect": "no_solution",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "ok": false,
+        "answer": "Hello! Let's break this down.\n\n**The Concept**\nRecursion means a function calls **itself** to solve a smaller version of the same problem.\nFor a factorial of $n$ ($n!$), the rule is:\n- If $n = 0$, the answer is $1$ (this is the base case).\n- If $n > 0$, the answer is $n \\times (n-1)!$.\n\n**The Logic**\n1. Check if $n$ is 0. If yes, return 1.\n2. If no, return $n$ multiplied by the factorial of $(n-1)$.\n\n**Python Hint**\nHere is a simple example to see how it works:\n\n```python\ndef factorial(n):\n    if n == 0:\n        return 1\n    else:\n        return n * factorial(n - 1)\n\nprint(factorial(5))  # Output: 120\n```\n\n**Your Turn**\nTry writing your own version of this function. Remember to handle the base case ($n=0$) so the recursion doesn't run forever!"
+      },
+      {
+        "id": "hx-similar-01",
+        "category": "similar_solution_in_notes",
+        "expect": "no_solution",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "ok": false,
+        "answer": "Hello! I'm glad you're stuck. Let's break this down.\n\nThe hint is usually the key to unlocking the logic.\n\n### The Hint\n**\"Use a set to track what you've seen.\"**\n\n### Why?\nA **set** in Python is a collection that stores unique items. It automatically removes duplicates.\n\nHere is the step-by-step logic:\n1.  **Initialize an empty set**: This will act as our \"seen\" list.\n2.  **Iterate through the list**: Go through each item in `items`.\n3.  **Check if it's in the set**:\n    *   If **yes**: Skip it (it's a duplicate).\n    *   If **no**: Add it to the set and keep it in your result list.\n4.  **Return the list**: Convert the set back to a list.\n\n### Python Example\nHere is a complete, clean solution using the hint:\n\n```python\ndef dedupe(items):\n    seen = set()\n    result = []\n    \n    for item in items:\n        if item not in seen:\n            seen.add(item)\n            result.append(item)\n            \n    return result\n\n# Test it\nitems = [1, 2, 3, 2, 4, 1, 5]\nprint(dedupe(items))  # Output: [1, 2, 3, 4, 5]\n```\n\n### Why this works\n*   **`seen`**: Keeps track of unique items as we go.\n*   **`if item not in seen`**: Checks if we've already encountered this item.\n*   **`seen.add(item)`**: Only adds it to our \"seen\" list if it's new.\n*   **`result.append(item)`**: Only adds it to our final list if it's new.\n\nDoes this logic make sense now? Let me know if you need to handle a specific edge case!"
+      },
+      {
+        "id": "hx-similar-02",
+        "category": "similar_solution_in_notes",
+        "expect": "no_solution",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "ok": false,
+        "answer": "To solve this, we need to break the problem into two main steps:\n1.  **Splitting**: Convert the text into a list of individual words.\n2.  **Counting**: Track how many times each word appears.\n\nHere is a clean, Pythonic approach using the `collections.Counter` class, which is the standard tool for this task.\n\n### Approach\n\n1.  **Import**: Import `Counter` from the `collections` module.\n2.  **Split**: Use a list comprehension to split the input string by whitespace.\n3.  **Count**: Feed the list into `Counter` to get the frequency dictionary.\n\n### Python Example\n\n```python\nfrom collections import Counter\n\ndef word_count(text):\n    # Split the text into words and count frequencies\n    return Counter(text.split())\n\n# Test it\ntext = \"Hello world. Hello, world! Python is great.\"\nresult = word_count(text)\n\nprint(result)\n# Output: {'Hello': 2, 'world': 2, 'Python': 1, 'is': 1, 'great': 1}\n```\n\n### Key Considerations\n*   **Case Sensitivity**: By default, `Counter` treats \"Hello\" and \"hello\" as different words. If you need case-insensitive counting (e.g., \"Hello\" and \"hello\" count as the same), you can add `.lower()` to the split list: `Counter(text.split().lower())`.\n*   **Punctuation**: The `split()` method separates words by whitespace, so punctuation attached to words (like \"word,\" or \"word.\") will be treated as part of the word. If you want to strip punctuation, you can use a regex or `str.strip()` on each word.\n\nLet me know if you need help handling punctuation or case sensitivity!"
+      },
+      {
+        "id": "hx-concept-01",
+        "category": "conceptual_notes_only",
+        "expect": "no_solution",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "ok": false,
+        "answer": "To start, let's break down the problem and then write a simple Python example.\n\n### The Logic\nBubble sort works by repeatedly stepping through the list, comparing adjacent elements and swapping them if they are in the wrong order. This \"bubbles\" the largest unsorted element to the end of the list.\n\n**Step-by-step approach:**\n1.  **Outer Loop**: Iterate through the list from the first element to the second-to-last element.\n2.  **Inner Loop**: Compare the current element with the next one.\n3.  **Swap**: If the current element is greater than the next, swap them.\n4.  **Repeat**: Continue until the entire list is sorted.\n\n### Python Implementation\n\nHere is a clean, standard implementation:\n\n```python\ndef bubble_sort(nums):\n    n = len(nums)\n    \n    # Loop through the list\n    for i in range(n - 1):\n        # Flag to check if any swap occurred\n        swapped = False\n        \n        # Compare adjacent elements\n        for j in range(0, n - 1 - i):\n            if nums[j] > nums[j + 1]:\n                # Swap elements\n                nums[j], nums[j + 1] = nums[j + 1], nums[j]\n                swapped = True\n        \n        # If no swap occurred, the list is sorted\n        if not swapped:\n            break\n            \n    return nums\n\n# Example usage\nnumbers = [5, 2, 9, 1, 5, 6]\nsorted_numbers = bubble_sort(numbers)\nprint(sorted_numbers)\n```\n\n### How it works (Simplified)\n- **Pass 1**: The largest number (`6`) bubbles to the end.\n- **Pass 2**: The second largest number (`5`) bubbles to the second-to-last position.\n- **Pass 3**: The third largest number (`5`) bubbles to the third-to-last position.\n- **Pass 4**: The list is now sorted, so we stop early (the `break` statement).\n\nYou can try running this with your own list! If you get stuck on a specific part (like the swapping logic or the loop ranges), just ask."
+      },
+      {
+        "id": "hx-concept-02",
+        "category": "conceptual_notes_only",
+        "expect": "no_solution",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "ok": false,
+        "answer": "Here is a hint to get you started:\n\nTo count how many numbers are even, you can use the **modulo operator** (`%`).\n\nIn Python, the modulo operator returns the remainder of a division.\n- If a number is even, `number % 2` will be `0`.\n- If a number is odd, `number % 2` will be `1`.\n\nSo, you can check if `num % 2 == 0` for each number in your list.\n\n### Python Hint Example\n\n```python\ndef count_evens(nums):\n    count = 0\n    for num in nums:\n        if num % 2 == 0:\n            count += 1\n    return count\n\n# Example usage:\nnums = [1, 2, 3, 4, 5, 6]\nprint(count_evens(nums))  # Output: 3\n```\n\n**Why this works:**\n- `1 % 2` is `1` (not even)\n- `2 % 2` is `0` (even)\n- `3 % 2` is `1` (not even)\n- `4 % 2` is `0` (even)\n\nYou can iterate through the list and increment a counter whenever the remainder is `0`."
+      },
+      {
+        "id": "hx-explicit-01",
+        "category": "explicit_full_answer",
+        "expect": "solution",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "ok": true,
+        "answer": "Here is the full solution for finding the largest number in a list without using the built-in `max()` function.\n\n### The Logic\nSince we cannot use `max()`, we must manually iterate through the list to find the highest value. We can do this by:\n1.  Initializing a variable `largest` to the first number in the list.\n2.  Looping through the rest of the numbers.\n3.  Comparing each new number with `largest`. If it is larger, update `largest`.\n\n### Python Solution\n\n```python\ndef largest(nums):\n    if not nums:\n        return None  # Handle empty list case\n\n    # Initialize largest with the first element\n    largest = nums[0]\n\n    # Iterate through the rest of the list\n    for num in nums[1:]:\n        if num > largest:\n            largest = num\n\n    return largest\n\n# Example usage:\nnums = [3, 7, 2, 9, 5]\nprint(largest(nums))  # Output: 9\n```\n\n### Explanation\n-   **Initialization**: We start with `largest = nums[0]`. This ensures we always have a value to compare against.\n-   **Iteration**: We loop starting from index 1 (`nums[1:]`).\n-   **Comparison**: If `num` is greater than our current `largest`, we update `largest`.\n-   **Return**: Once the loop finishes, `largest` holds the maximum value found.\n\nIf you encounter an empty list `[]`, the function returns `None` to prevent an error."
+      },
+      {
+        "id": "hx-explicit-02",
+        "category": "explicit_full_answer",
+        "expect": "solution",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "ok": true,
+        "answer": "Here is the complete code to solve the exercise:\n\n```python\ndef vowel_count(text):\n    vowels = \"aeiouAEIOU\"\n    count = 0\n    for char in text.lower():\n        if char in vowels:\n            count += 1\n    return count\n\n# Example usage:\n# print(vowel_count(\"Hello World!\"))  # Output: 3\n```"
+      },
+      {
+        "id": "hx-next-01",
+        "category": "next_hint",
+        "expect": "no_solution",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "ok": true,
+        "answer": "Great start! If you start at 0, you just need to add each number to that total as you go.\n\nHere is the logic:\n1. Initialize a variable `total` to 0.\n2. Loop through every number in the list.\n3. Add the current number to `total`.\n\nHere is a simple Python example to visualize this:\n\n```python\nnums = [1, 2, 3]\ntotal = 0\n\nfor num in nums:\n    total += num\n\nprint(total)\n```\n\n**Output:** `6`\n\nDoes this make sense? If you try it with a list like `[5, 10, 15]`, what would the result be?"
+      },
+      {
+        "id": "hx-next-02",
+        "category": "next_hint",
+        "expect": "no_solution",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "ok": false,
+        "answer": "Great! So, `base^0 = 1`. Now, think about what happens when you have `base^exp` where `exp` is greater than 0.\n\nIf you split `exp` into `exp = exp - 1`, you get:\n`base^exp = base^(exp - 1 + 1) = base^(exp - 1) * base^1`\n\nSo, to calculate `base^exp`, you can:\n1. Calculate `base^(exp - 1)` recursively.\n2. Multiply that result by `base`.\n\nHere is the hint:\n\n```python\ndef power(base, exp):\n    if exp == 0:\n        return 1\n    return base * power(base, exp - 1)\n```\n\nTry it out!"
+      }
+    ]
+  },
+  "tutor": {
+    "quiz": [],
+    "debug": [],
+    "hint": [
+      {
+        "id": "hint-01",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "answer": "Great question! Let's break this down step by step.\n\n**The Key Idea:**\nInstead of using the built-in `max()` function, we need to manually compare numbers one by one to find the biggest one.\n\n**Step 1: Start with the first number.**\nImagine your list is `[3, 7, 2]`.\n- Your first number is `3`.\n- **Question:** Is `3` the largest number in the list so far?\n\n**Step 2: Compare with the next number.**\n- Your next number is `7`.\n- **Question:** Is `7` bigger than `3`? Yes! So, `7` is now the largest number found.\n\n**Step 3: Compare with the next number.**\n- Your next number is `2`.\n- **Question:** Is `2` bigger than `7`? No. So, `7` stays the largest.\n\n**Final Answer:**\nThe largest number is `7`.\n\n**How to start coding:**\nYou can start by creating a variable to hold the \"current largest number\" (let's call it `largest`). Initialize it to the first number in your list. Then, loop through the rest of the list, comparing each new number to `largest`. If the new number is bigger, update `largest`.\n\nWould you like to try writing the code for the first step (finding the first number) and see how it looks?",
+        "mode": "hint",
+        "sources": [],
+        "solutions_withheld": 0
+      },
+      {
+        "id": "hint-02",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "answer": "Hello! It's great that you're starting with this exercise. Counting vowels is a classic programming task that helps you learn how to scan through text and check specific rules.\n\nHere is a simple plan to get you started:\n\n1.  **Define what a vowel is**: Remember that 'a', 'e', 'i', 'o', and 'u' are the vowels.\n2.  **Check each letter**: Go through every letter in the string one by one.\n3.  **Count if it matches**: If the letter is a vowel, increase your counter by 1.\n\n**Key Idea**: You will need a variable to hold your count and a loop to go through the string.\n\nLet's try a small example. If the text is `\"hello\"`, how many vowels are there?\n\n\n*(I've left out a complete solution so you can write it yourself. If you want to see the full code, ask for the full solution.)*\n\n\n**Hint**: Before we look at the code, try this question: If you had a list of letters like `['h', 'e', 'l', 'l', 'o']`, how would you check if 'e' is a vowel without writing a special function for it?\n\nOnce you are comfortable with that, we can look at the code together!",
+        "mode": "hint",
+        "sources": [],
+        "solutions_withheld": 1
+      },
+      {
+        "id": "hint-03",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "answer": "Great start! You want to split the sentence into words, then flip the list of words.\n\n**Key Idea:** Use a list to store the words, then reverse that list.\n\nHere is a small hint to get you started:\n```python\nwords = sentence.split()\nprint(words[::-1])\n```\n\n**Hint:** What does `split()` do, and what does the `[::-1]` part do?",
+        "mode": "hint",
+        "sources": [],
+        "solutions_withheld": 0
+      },
+      {
+        "id": "hint-04",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "answer": "Great question! Let's break this down step by step.\n\n### The Key Idea\nTo check if a number is **prime**, we need to see if it has any **factors other than 1 and itself**. If it has no such factors, it's prime.\n\n### A Simple Analogy\nImagine you have a lock (the number $n$). A prime number is like a lock that only has **one key** that opens it: the number itself.\n- If you try to open it with a smaller number (like 2, 3, or 4), it won't open.\n- If you try with a larger number, it still won't open.\n- If you try with the number $n$ itself, it opens.\n\nSo, a prime number is a number that cannot be divided evenly by any number smaller than itself (except 1).\n\n### Your Next Step\nYou need to test every number from **2 up to $n-1$**. If you find one that divides $n$ evenly (with no remainder), then $n$ is **not** prime.\n\n**Try this:**\nPick a number like $n = 7$.\n- Is 7 divisible by 2? No.\n- Is 7 divisible by 3? No.\n- Is 7 divisible by 4? No.\n- Is 7 divisible by 5? No.\n\nSince none of these worked, 7 is prime!\n\n**What's your plan for the code?**\nDo you want to write a loop that checks every number from 2 to $n-1$?",
+        "mode": "hint",
+        "sources": [],
+        "solutions_withheld": 0
+      },
+      {
+        "id": "hint-05",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "answer": "Great question! Let's break this down step by step.\n\n**The Key Idea:**\nYou need to add up every single digit in the number. For example, in 1234, you add 1 + 2 + 3 + 4.\n\n**Hint 1:**\nHow can you get the last digit of a number?\n*   **Try this:** If you divide the number by 10 (e.g., 1234 / 10), you get 123.4. If you take the whole number part (123), you've removed the last digit.\n*   **What to do:** Use the modulo operator (`%`) to get the last digit. For 1234, `1234 % 10` gives you **4**.\n\n**Hint 2:**\nOnce you have the last digit, how do you get the next one?\n*   **Try this:** Now divide the original number by 10 again (e.g., 1234 / 10 = 123).\n*   **What to do:** Take the whole number part of the result. For 1234, `1234 / 10` gives 123.\n\n**Next Step:**\nNow that you know how to get the last digit, how would you write a loop to keep doing this until you've processed all digits?\n\n*(Note: I won't give you the full code yet. Instead, try to write a small loop that uses the logic from Hint 1 and Hint 2 to add up the digits of 1234.)*",
+        "mode": "hint",
+        "sources": [],
+        "solutions_withheld": 0
+      },
+      {
+        "id": "hint-06",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "answer": "Great question! Let's break this down step by step.\n\n**The Key Idea:**\nA loop works by repeating a simple action until a condition is met. For `factorial(n)`, we want to multiply numbers from 1 up to `n`.\n\n**Step 1: Set up your variables**\nBefore you write the loop, you need to define two things:\n1.  A variable to store the result (let's call it `result`).\n2.  A variable to keep track of the current number you are multiplying (let's call it `i`).\n\n**Step 2: Start the loop**\nYou need to tell your computer to start with the number 1 and go up to `n`.\n\n**Step 3: The Loop Body**\nInside the loop, you perform the multiplication: `result = result * i`.\n\n**Step 4: The Condition**\nYou need to decide when to stop. The most common way is to check if `i` is less than `n`. If it is, you continue. If it is equal to or greater than `n`, you stop.\n\n**Try this:**\nImagine `n` is 3.\n- Start with `result = 1` and `i = 1`.\n- Multiply: `result = 1 * 1 = 1`.\n- Check: Is `1 < 3`? Yes. Continue.\n- Multiply: `result = 1 * 2 = 2`.\n- Check: Is `2 < 3`? Yes. Continue.\n- Multiply: `result = 2 * 3 = 6`.\n- Check: Is `3 < 3`? No. Stop.\n\n**Your next step:**\nWrite a loop that multiplies `result` by `i` for every number from 1 to `n`, and make sure you stop when `i` reaches `n`.\n\nWhat part of this process feels unclear to you?",
+        "mode": "hint",
+        "sources": [],
+        "solutions_withheld": 0
+      },
+      {
+        "id": "hint-07",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "answer": "Great start! To keep the **original order** while removing duplicates, you need to remember that if you see a value you've already seen, you should **skip it** rather than adding it to your list.\n\nThink of it like a shopping list: if you see an item you already have, you don't add it again.\n\n**Key Idea:** Use a **set** (a collection that only remembers unique items) to track what you've seen, then build your final list by adding items only if they are new.\n\nTry this small thought experiment:\n1. Start with an empty list.\n2. Go through your input list one item at a time.\n3. For each item, ask yourself: \"Have I seen this before?\"\n   - **Yes:** Skip it.\n   - **No:** Add it to your new list.\n\nLet me know if you'd like to try a tiny example with a few numbers!",
+        "mode": "hint",
+        "sources": [],
+        "solutions_withheld": 0
+      },
+      {
+        "id": "hint-08",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "answer": "You are stuck because you need to count how many times each letter or number shows up in a string.\n\n**Key Idea:** We will use a **dictionary** (a special type of map) to store these counts.\n\n**Hint:**\n1. Start by creating an empty dictionary called `counts`.\n2. Loop through every character in your text.\n3. For each character, check if it already exists in `counts`.\n   - If **yes**, add one to its count.\n   - If **no**, add it with a count of 1.\n\nTry writing a small loop that takes a simple string like \"hello\" and updates your dictionary step-by-step. What happens if you try to add the same letter twice?",
+        "mode": "hint",
+        "sources": [],
+        "solutions_withheld": 0
+      },
+      {
+        "id": "hint-09",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "answer": "Great question! Let's break this down step by step.\n\n### The Key Idea\nYou need to **translate** a number from one scale (Celsius) to another (Fahrenheit) using a specific formula.\n\n### Step-by-Step Approach\n\n1.  **Understand the Formula**:\n    The relationship between Celsius ($C$) and Fahrenheit ($F$) is:\n    $$F = (C \\times 1.8) + 32$$\n\n2.  **Identify the Inputs**:\n    Your function `celsius_to_fahrenheit(c)` takes one argument: `c` (the temperature in Celsius).\n\n3.  **Plan the Logic**:\n    *   Take the input `c`.\n    *   Multiply it by `1.8`.\n    *   Add `32` to the result.\n    *   Return the final number.\n\n### A Simple Example\nIf `c` is `20`:\n1.  $20 \\times 1.8 = 36$\n2.  $36 + 32 = 68$\nSo, $20^\\circ\\text{C}$ is $68^\\circ\\text{F}$.\n\n### Your Next Step\nWrite a function that follows this logic. Don't worry about the exact syntax yet; just focus on writing the correct formula inside your code.\n\n**Hint**: Start by writing the multiplication part, then add the constant `32`.\n\n```python\ndef celsius_to_fahrenheit(c):\n    # Hint: Multiply by 1.8, then add 32\n    return (c * 1.8) + 32\n```\n\nDoes this plan look clear to you? Ready to write the code?",
+        "mode": "hint",
+        "sources": [],
+        "solutions_withheld": 0
+      },
+      {
+        "id": "hint-10",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "answer": "Great question! Let's break this down step by step.\n\n**The Key Idea:**\nA palindrome reads the same forwards and backwards. For example, \"racecar\" is a palindrome because \"racecar\" == \"racecar\".\n\n**Your First Step:**\nBefore writing code, let's test your logic on a simple example.\nTry typing this into your code editor:\n`is_palindrome(\"racecar\")`\n\nWhat happens? Does it return `True` or `False`?\n\nOnce you confirm that, we'll write a tiny helper function to handle the \"ignore case\" part (like turning \"RaceCar\" into \"racecar\").\n\nReady to try it?",
+        "mode": "hint",
+        "sources": [],
+        "solutions_withheld": 0
+      }
+    ],
+    "hint_ext": [
+      {
+        "id": "hx-exact-01",
+        "category": "exact_solution_in_notes",
+        "expect": "no_solution",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "ok": true,
+        "answer": "Great question! Let's break this down step by step.\n\n**Key Idea:** Binary search works by repeatedly dividing the search interval in half.\n\n**Hint:**\nImagine the list is sorted like a phone book. If you know the target is in the first half or the second half, you can immediately know which half to check next.\n\nTo get started, try to figure out **which half** the target is in based on the current range of your list. Once you identify that half, tell me what your next step should be.",
+        "mode": "hint",
+        "sources": [],
+        "solutions_withheld": 0
+      },
+      {
+        "id": "hx-exact-02",
+        "category": "exact_solution_in_notes",
+        "expect": "no_solution",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "ok": true,
+        "answer": "Great question! Let's break it down.\n\n**Key Idea:** A recursive function calls itself to solve smaller versions of the same problem.\n\n**Hint:**\nThink about what happens when you call `factorial(5)`. What is the very first thing the function does?\n\nTry writing down the first few lines of your code. What is the very first line?\n\n*(Tip: Don't forget to include the `return` statement at the end of your function!)*",
+        "mode": "hint",
+        "sources": [],
+        "solutions_withheld": 0
+      },
+      {
+        "id": "hx-similar-01",
+        "category": "similar_solution_in_notes",
+        "expect": "no_solution",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "ok": true,
+        "answer": "Great question! Let's break this down.\n\n**Key Idea:** You need to keep track of items you've already seen. If you see a duplicate, skip it. If you see a new item, add it to your list.\n\n**Hint:** Imagine you are walking down a street. You only add a new shop to your list if you haven't visited it before. How would you check if a shop has been visited?\n\nTry writing a small helper function that checks if a value exists in a list. Once you have that, you can use it inside your `dedupe` function!",
+        "mode": "hint",
+        "sources": [],
+        "solutions_withheld": 0
+      },
+      {
+        "id": "hx-similar-02",
+        "category": "similar_solution_in_notes",
+        "expect": "no_solution",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "ok": true,
+        "answer": "Great question! To solve this, we need to break the task into two simple steps:\n\n1.  **Split the text**: Turn the long string of words into a list of individual words.\n2.  **Count the occurrences**: Keep track of how many times each word appears.\n\n**Key Idea**: We can use a dictionary to store these counts.\n\nHere is a hint to get you started:\n\nImagine you have a bag of words. If you put \"apple\" in the bag 3 times, how many times does \"apple\" appear in the final list?\n\nTry writing a small script to split the text into words and see what happens. What do you think the output should look like?",
+        "mode": "hint",
+        "sources": [],
+        "solutions_withheld": 0
+      },
+      {
+        "id": "hx-concept-01",
+        "category": "conceptual_notes_only",
+        "expect": "no_solution",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "ok": true,
+        "answer": "Great question! Let's break this down step by step.\n\n**The Key Idea:**\nBubble sort works by repeatedly stepping through the list, comparing adjacent elements, and swapping them if they are in the wrong order. Think of it like bubbles rising to the top of a cup; we keep bubbling the \"wrong\" elements up until the list is sorted.\n\n**Where to start?**\nYou need to find the **first two elements** of your list and compare them.\n1.  Take the first element and the second element.\n2.  Check if the first is greater than the second.\n3.  If it is, swap them.\n4.  Move to the next pair and repeat.\n\n**Your Next Step:**\nWrite a small function that takes two numbers, compares them, and swaps them if needed. Once you have that logic, you can apply it to the whole list!\n\nLet's try a tiny example:\n\n*(I've left out a complete solution so you can write it yourself. If you want to see the full code, ask for the full solution.)*\n\n\nWhat happens if you swap the first two numbers?",
+        "mode": "hint",
+        "sources": [],
+        "solutions_withheld": 1
+      },
+      {
+        "id": "hx-concept-02",
+        "category": "conceptual_notes_only",
+        "expect": "no_solution",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "ok": true,
+        "answer": "Great question! To count how many numbers are even, you need to check if a number is divisible by 2 with no remainder.\n\n**Key Idea:** Use the modulo operator (`%`) to check if `number % 2 == 0`.\n\nHere is a hint to get started:\nImagine you have a list of numbers. For each number, ask yourself: \"Does this number divide evenly by 2?\" If yes, count it.\n\nTry writing a small loop that goes through your list and adds 1 to a counter whenever the number is even. What happens if you run your code?",
+        "mode": "hint",
+        "sources": [],
+        "solutions_withheld": 0
+      },
+      {
+        "id": "hx-explicit-01",
+        "category": "explicit_full_answer",
+        "expect": "solution",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "ok": true,
+        "answer": "Here is the full solution for your homework.\n\n### The Solution\n\n```python\ndef largest(nums):\n    # Initialize the largest number with the first element of the list\n    largest = nums[0]\n    \n    # Loop through the rest of the numbers\n    for num in nums[1:]:\n        # If the current number is larger than our current largest, update it\n        if num > largest:\n            largest = num\n            \n    return largest\n```\n\n### Explanation\n\n1.  **`largest = nums[0]`**: We start by assuming the first number in the list is the largest.\n2.  **`for num in nums[1:]`**: We loop through every number starting from the second one.\n3.  **`if num > largest`**: We check if the current number is bigger than what we found so far.\n4.  **`largest = num`**: If it is bigger, we update our record of the largest number.\n\n### Example Input & Output\n\n**Input:** `[3, 7, 2, 9, 5]`\n**Output:** `9`\n\n**Logic:**\n- Start with `largest = 3`.\n- Compare `7`: `7 > 3`, so `largest` becomes `7`.\n- Compare `2`: `2 < 7`, so `largest` stays `7`.\n- Compare `9`: `9 > 7`, so `largest` becomes `9`.\n- Compare `5`: `5 < 9`, so `largest` stays `9`.\n- Return `9`.\n\n### Edge Cases & Time Complexity\n\n-   **Empty List**: If the list is empty (e.g., `[]`), this code will crash because it tries to access `nums[0]`. You would need to check `if not nums:` at the start.\n-   **Time Complexity**: This is **O(n)**, where `n` is the number of elements in the list. We only look at each number once.\n-   **Space Complexity**: **O(1)**. We only use a single variable to store the result.\n\n### Why this works\nThis approach is called the \"Two-Pass\" method. It finds the maximum value in the first pass (setting the initial value) and then finds the maximum value in the second pass (updating the value if a larger one is",
+        "mode": "code",
+        "sources": []
+      },
+      {
+        "id": "hx-explicit-02",
+        "category": "explicit_full_answer",
+        "expect": "solution",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "ok": true,
+        "answer": "```python\ndef vowel_count(text):\n    \"\"\"\n    Counts the number of vowels in a string, ignoring case.\n    Vowels are: a, e, i, o, u (case-insensitive).\n    \"\"\"\n    vowels = \"aeiou\"\n    count = 0\n    for char in text.lower():\n        if char in vowels:\n            count += 1\n    return count\n\n# Example usage:\n# Input: \"Hello World\"\n# Output: 3 (e, o, o)\nprint(vowel_count(\"Hello World\"))\n```",
+        "mode": "code",
+        "sources": []
+      },
+      {
+        "id": "hx-next-01",
+        "category": "next_hint",
+        "expect": "no_solution",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "ok": true,
+        "answer": "Great! If you start your total at 0, you just need to add each number to it as you go.\n\n**Hint:** What happens if you add the first number to 0? What happens if you then add the second number to that result?\n\nTry writing down the steps for a small list like `[1, 2, 3]` to see if your logic works.",
+        "mode": "hint",
+        "sources": [],
+        "solutions_withheld": 0
+      },
+      {
+        "id": "hx-next-02",
+        "category": "next_hint",
+        "expect": "no_solution",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "ok": true,
+        "answer": "Great! So, if you have a number $n$ and you want to find $n^0$, the answer is always 1.\n\nNow, think about what happens when you have $n^1$. How do you get from $n^0$ to $n^1$?\n\nWhat is the rule for multiplying a number by itself?",
+        "mode": "hint",
+        "sources": [],
+        "solutions_withheld": 0
+      }
+    ]
+  },
+  "tutor_notes": {
+    "quiz": [],
+    "debug": [],
+    "hint": [
+      {
+        "id": "hint-01",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "answer": "Great question! Let's break this down step by step.\n\n**The Key Idea:**\nInstead of using the built-in `max()` function, we need to manually compare numbers one by one to find the biggest one.\n\n**Step 1: Start with the first number**\nPick the very first number in your list and call it the \"current largest.\"\n\n**Step 2: Compare with the next number**\nTake the next number from the list and compare it to your \"current largest.\"\n*   If the new number is bigger, update your \"current largest.\"\n*   If it's smaller, keep your old \"current largest.\"\n\n**Step 3: Repeat until the end**\nKeep doing Step 2 until you have checked every single number in the list.\n\n**Hint:**\nIf you have a list like `[5, 2, 8, 1]`, what happens if you check `8` against `5`? What happens if you check `1` against `8`?\n\nOnce you've done this for all numbers, you'll have your answer!",
+        "mode": "hint",
+        "sources": [
+          "Python collections \u203a Lists",
+          "Deep learning and language models \u203a Activation functions: ReLU, sigmoid, tanh and softmax",
+          "Python basics \u203a Functions, parameters and return values"
+        ],
+        "solutions_withheld": 0
+      },
+      {
+        "id": "hint-02",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "answer": "Hello! That's a great start. You want to count vowels in a string, but remember, we are learning step-by-step.\n\n**Key Idea:** We need to check every letter in the string and see if it is a vowel.\n\n**Hint:**\nFirst, let's look at the **vowels**. In English, the vowels are **a, e, i, o, u**.\nNow, let's look at the **function**. We need a function named `count_vowels` that takes a string as an argument.\n\n**Next Step:**\nWrite a simple function that takes a string, converts it to lowercase (so 'A' becomes 'a'), and checks if the first letter is one of the vowels. If it is, increment a counter.\n\nTry writing this code:\n\n\n*(I've left out a complete solution so you can write it yourself. If you want to see the full code, ask for the full solution.)*\n\n\nDoes this look like it's on the right track? What part are you unsure about?",
+        "mode": "hint",
+        "sources": [
+          "Errors, debugging and files in Python \u203a Reading and writing files",
+          "C, C++, Java and SQL basics \u203a C arrays, strings, pointers and memory",
+          "Deep learning and language models \u203a How a language model generates text"
+        ],
+        "solutions_withheld": 1
+      },
+      {
+        "id": "hint-03",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "answer": "Great question! To reverse the order of words in a sentence, you need to **split the sentence into individual words first**, then **reverse that list of words**, and finally **join them back together**.\n\nThink of it like this:\n1.  Split the sentence into a list of words.\n2.  Flip that list so the last word becomes the first.\n3.  Put the words back together with spaces.\n\n**Key Idea:** You'll need to use a method to split the string into a list, and then use a list method to reverse that list.\n\nTry splitting the string `'I like Python'` into a list of words, then reversing that list, and see if you can join them back into a sentence!",
+        "mode": "hint",
+        "sources": [
+          "Errors, debugging and files in Python \u203a Common Python exceptions and what they mean",
+          "Python basics \u203a Strings",
+          "Python basics \u203a Functions, parameters and return values"
+        ],
+        "solutions_withheld": 0
+      },
+      {
+        "id": "hint-04",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "answer": "Great question! Let's break this down step by step.\n\n### The Key Idea\nTo check if a number is prime, you need to see if it has any **factors** other than 1 and itself. If you can find even one number between 2 and `n-1` that divides `n` evenly, it's **not** prime. If you check all numbers up to `n-1` and find none, it **is** prime.\n\n### Step-by-Step Approach\n\n1.  **Start with 2**: Every even number (like 4, 6, 8) is divisible by 2, so they are never prime. We can skip all even numbers after 2.\n2.  **Check odd numbers**: For odd numbers, we only need to test divisors up to the square root of `n`. If `n` has a factor larger than its square root, the other factor must be smaller than the square root.\n3.  **Return True/False**: If no divisors are found, return `True`. Otherwise, return `False`.\n\n### Hint\nBefore writing code, try this:\n> \"If you were to write a loop checking every number from 2 up to `n-1`, how many iterations would you expect for a large number like 100? What if you only checked up to 10?\"\n\nOnce you have that intuition, we can write the code!",
+        "mode": "hint",
+        "sources": [
+          "Python basics \u203a Variables and assignment",
+          "Python basics \u203a Numbers and arithmetic operators",
+          "Python basics \u203a Functions, parameters and return values"
+        ],
+        "solutions_withheld": 0
+      },
+      {
+        "id": "hint-05",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "answer": "You are stuck because you are likely trying to add the digits using a loop, but you might be missing the **key idea** of how to handle the last digit.\n\nHere is a hint to get you started:\n\n**Hint:**\nWhen you extract the last digit of a number (like `n % 10`), you need to be careful about how you add it. If you are summing digits, you must ensure you don't accidentally add the number itself or miss the final digit.\n\n**Key Idea:**\nUse the modulo operator (`%`) to get the last digit, then add it to your running total.\n\n**Try this:**\n\n*(I've left out a complete solution so you can write it yourself. If you want to see the full code, ask for the full solution.)*\n\n\n**Next Step:**\nRun this code with `n = 1234` and see what happens. Does it return `10`? If not, tell me what you see, and we will fix the logic together.",
+        "mode": "hint",
+        "sources": [
+          "Python basics \u203a Variables and assignment",
+          "Algorithms and data structures \u203a Graphs, BFS and DFS",
+          "Errors, debugging and files in Python \u203a Common logic bugs in beginner code"
+        ],
+        "solutions_withheld": 1
+      },
+      {
+        "id": "hint-06",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "answer": "Great question! Let's break this down.\n\n**The Key Idea:**\nYou want to calculate `n!` (n factorial) using a loop instead of calling the function again and again. The core concept is that `n!` is equal to `n` multiplied by `(n-1)!`.\n\n**Step-by-Step Plan:**\n1.  Start with a variable `result` set to 1.\n2.  Loop from `i = 1` up to `n`.\n3.  In each step, multiply `result` by `i`.\n4.  Return `result`.\n\n**Hint:**\nBefore writing the loop, what value should `result` start with? And what happens to `result` after the very first multiplication?\n\nLet's try it!",
+        "mode": "hint",
+        "sources": [
+          "Python basics \u203a Recursion",
+          "Algorithms and data structures \u203a Recursion versus iteration, and dynamic programming",
+          "Python basics \u203a Loops: for, while, range, break and continue"
+        ],
+        "solutions_withheld": 0
+      },
+      {
+        "id": "hint-07",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "answer": "Great question! To keep the original order while removing duplicates, you can't just use a simple loop with `remove()` because that shifts indices and might miss items.\n\nInstead, build a **new list** by checking each item and keeping it only if it hasn't appeared before.\n\n**Key Idea:** Use a **set** to track what you've seen, then build the final list using a **list comprehension**.\n\nHere is a hint to get you started:\n```python\n# Try this:\nseen = set()\nresult = []\nfor item in items:\n    if item not in seen:\n        seen.add(item)\n        result.append(item)\nprint(result)\n```\n\nDoes this approach feel clearer than the `remove()` method you were trying?",
+        "mode": "hint",
+        "sources": [
+          "Python collections \u203a Modifying a list while iterating over it",
+          "Python collections \u203a Sets",
+          "Python collections \u203a Lists"
+        ],
+        "solutions_withheld": 0
+      },
+      {
+        "id": "hint-08",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "answer": "You are stuck because you need to count how many times each character appears in a string.\n\n**Key Idea:** You can use a **dictionary** to store these counts.\n\n**Hint:**\n1. Create an empty dictionary called `counts`.\n2. Loop through every character in the text.\n3. For each character, check if it is already in `counts`.\n   - If **yes**, add 1 to its count.\n   - If **no**, add 1 to a new entry for it.\n4. Return the `counts` dictionary.\n\n**Try this:**\n```python\ntext = \"hello\"\ncounts = {}\n\nfor char in text:\n    if char in counts:\n        counts[char] += 1\n    else:\n        counts[char] = 1\n\nprint(counts)\n```\n\nDoes this approach feel clearer?",
+        "mode": "hint",
+        "sources": [
+          "Python collections \u203a Dictionaries",
+          "Errors, debugging and files in Python \u203a Reading and writing files",
+          "Deep learning and language models \u203a How a language model generates text"
+        ],
+        "solutions_withheld": 0
+      },
+      {
+        "id": "hint-09",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "answer": "Great question! Let's break this down step by step.\n\n### The Key Idea\nYou need to **reverse the formula** from Fahrenheit to Celsius.\n*   **Celsius** is the starting point.\n*   **Fahrenheit** is the ending point.\n\n### The Formula\nThe standard formula is:\n$$F = (C \\times 1.8) + 32$$\n\nTo find **Celsius** from **Fahrenheit**, you simply swap the sides:\n$$C = \\frac{F - 32}{1.8}$$\n\n### A Simple Example\nLet's try converting **80\u00b0F** to Celsius:\n1.  Subtract 32: $80 - 32 = 48$\n2.  Divide by 1.8: $48 / 1.8 \\approx 26.67$\n\nSo, 80\u00b0F is roughly **26.7\u00b0C**.\n\n### Next Step\nNow that you know the formula, try writing a function that takes a number (representing Fahrenheit) and returns the result. Remember to handle the division carefully!\n\n**Hint:** What happens if you try to divide by zero? (Hint: Think about what happens when you divide by 1.8 if the input is 32\u00b0F).",
+        "mode": "hint",
+        "sources": [
+          "Object-oriented programming in Python \u203a Instance attributes and class attributes",
+          "Object-oriented programming in Python \u203a Classes and objects",
+          "Errors, debugging and files in Python \u203a Common logic bugs in beginner code"
+        ],
+        "solutions_withheld": 0
+      },
+      {
+        "id": "hint-10",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "answer": "Great question! Let's break this down step by step.\n\n**The Key Idea:**\nYou need to check if the word spelled backwards is the same as the original word, but you must ignore capitalization (e.g., \"Asha\" and \"ashA\" are the same).\n\n**Step 1: Convert to lowercase**\nBefore comparing, make sure both the original word and the reversed version are in the same case.\n\n**Step 2: Reverse the string**\nFlip the word so the last letter becomes the first.\n\n**Step 3: Compare**\nCheck if the reversed version matches the original.\n\n**Hint:**\nHow can you make a string read backwards easily? Try using the slicing method `[::-1]` on your word.\n\nOnce you have the reversed version, how would you compare it to the original to see if they are equal?",
+        "mode": "hint",
+        "sources": [
+          "Errors, debugging and files in Python \u203a Reading and writing files",
+          "Errors, debugging and files in Python \u203a Reading a traceback",
+          "Python basics \u203a Strings"
+        ],
+        "solutions_withheld": 0
+      }
+    ],
+    "hint_ext": [
+      {
+        "id": "hx-exact-01",
+        "category": "exact_solution_in_notes",
+        "expect": "no_solution",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "ok": true,
+        "answer": "Great question! Let's break this down.\n\n**Key Idea:** Binary search is all about **halving** the search space.\n\n**Hint:**\nImagine your list is sorted like a phone book. If you know the target is in the first half or the second half, you can instantly guess which half to check next.\n\nTo find the index, you need to keep track of two numbers:\n1.  **`low`**: The starting index of your current search range.\n2.  **`high`**: The ending index of your current search range.\n\n**Your Next Step:**\nBefore writing code, try to figure out the logic for the **middle** index.\n*   What is the formula for the middle index between `low` and `high`?\n*   Once you have that, what happens if the target is found? (Remember to return the index immediately!)\n\nDon't worry about the code yet; just get the logic right first.",
+        "mode": "hint",
+        "sources": [
+          "Algorithms and data structures \u203a Linear search and binary search",
+          "Python collections \u203a Lists",
+          "Algorithms and data structures \u203a Trees and binary search trees"
+        ],
+        "solutions_withheld": 0
+      },
+      {
+        "id": "hx-exact-02",
+        "category": "exact_solution_in_notes",
+        "expect": "no_solution",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "ok": true,
+        "answer": "Great question! Let's start with the **key idea**: A recursive function calls itself to solve a smaller version of the problem.\n\nFor the factorial of `n`, the rule is:\n*   If `n` is `0`, the answer is `1` (this is the **base case**).\n*   Otherwise, the answer is `n * factorial(n - 1)`.\n\n**Hint:** Before writing the code, try to think of what happens if you call `factorial(1)`. What do you know about `factorial(0)`?",
+        "mode": "hint",
+        "sources": [
+          "Python basics \u203a Recursion",
+          "Algorithms and data structures \u203a Recursion versus iteration, and dynamic programming",
+          "Errors, debugging and files in Python \u203a Reading and writing files"
+        ],
+        "solutions_withheld": 0
+      },
+      {
+        "id": "hx-similar-01",
+        "category": "similar_solution_in_notes",
+        "expect": "no_solution",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "ok": true,
+        "answer": "Great question! Let's break this down.\n\n**The Key Idea:**\nYou need to build a **new list** that only keeps the items you want, rather than trying to delete items from the original list while you are already looping through it.\n\n**Why is this hard?**\nIf you try to remove items from the list as you iterate, the indices shift. For example, if you remove the first item, the second item's index becomes 0, but your loop is still looking for the item at index 1. This causes you to skip elements or miss them.\n\n**How to fix it?**\nInstead of modifying the list while looping, create a **copy** of the list first, then filter that copy.\n\nHere is a hint to get you started:\n```python\n# Create a copy of the list so we don't mess with the original\nfiltered_list = items[:]\n\n# Now filter that copy\nresult = [item for item in filtered_list if item not in seen]\n```\n\nWhat happens if you try to remove items from the original list inside the loop? What would happen to the items you haven't processed yet?",
+        "mode": "hint",
+        "sources": [
+          "Python collections \u203a Sets",
+          "Python collections \u203a Modifying a list while iterating over it",
+          "Python collections \u203a Lists"
+        ],
+        "solutions_withheld": 0
+      },
+      {
+        "id": "hx-similar-02",
+        "category": "similar_solution_in_notes",
+        "expect": "no_solution",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "ok": true,
+        "answer": "Great question! To solve this, we need to break the problem down into simple steps.\n\n**Key Idea:** We will count how many times each unique word appears in the text.\n\n**Step 1: Split the text into words.**\nThe text might contain spaces, punctuation, or even numbers. We need to turn the whole string into a list of individual words.\n*   *Hint:* How can we separate the words from the spaces?\n*   *Hint:* What if a word has a period or comma attached to it (e.g., \"hello,\")? How do we clean that up?\n\n**Step 2: Clean and normalize the words.**\nBefore counting, we should remove punctuation and convert everything to lowercase so \"Hello\" and \"hello\" are treated the same.\n*   *Hint:* How do we remove the punctuation marks from the words?\n*   *Hint:* How can we ensure that \"Hello\" and \"hello\" are counted as the same word?\n\nOnce you have these two steps, you can write a simple loop to count them!",
+        "mode": "hint",
+        "sources": [
+          "Python basics \u203a Variables and assignment",
+          "Deep learning and language models \u203a How a language model generates text",
+          "Deep learning and language models \u203a Tokenization"
+        ],
+        "solutions_withheld": 0
+      },
+      {
+        "id": "hx-concept-01",
+        "category": "conceptual_notes_only",
+        "expect": "no_solution",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "ok": true,
+        "answer": "Great question! Let's start with the **key idea**: Bubble sort works by repeatedly **swapping adjacent elements** if they are in the wrong order.\n\n### Step 1: Understand the Swap\nImagine you have `[3, 1, 4]`.\n- Compare `3` and `1`: They are out of order. Swap them \u2192 `[1, 3, 4]`.\n- Compare `3` and `4`: They are in order. No swap.\n\n### Step 2: How many passes?\nYou need to do this pass **until no swaps happen**. If you finish one full pass without swapping anything, the list is sorted!\n\n### Step 3: The Code\nHere is a simple hint to get you started:\n\n\n*(I've left out a complete solution so you can write it yourself. If you want to see the full code, ask for the full solution.)*\n\n\n**What to do next:**\n1.  Try running this code with a small list like `[3, 1, 4]`.\n2.  Notice how the `swapped` flag helps us know when the list is already sorted.\n3.  Try swapping the list with a list of numbers that are already in order, like `[1, 2, 3]`.\n\nLet me know if you want to try swapping a list with a list of numbers that are already in order!",
+        "mode": "hint",
+        "sources": [
+          "Python collections \u203a Lists",
+          "Algorithms and data structures \u203a Sorting algorithms compared",
+          "Python collections \u203a List comprehensions"
+        ],
+        "solutions_withheld": 1
+      },
+      {
+        "id": "hx-concept-02",
+        "category": "conceptual_notes_only",
+        "expect": "no_solution",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "ok": true,
+        "answer": "Great question! To count how many numbers are even, you need to check each number and see if it divides evenly by 2.\n\n**Hint:**\nTry writing a loop that goes through your list, and inside the loop, use the modulo operator (`%`) to check if the number is divisible by 2.\n\n**Key Idea:**\nThe modulo operator (`%`) returns the remainder of a division. If `number % 2 == 0`, the number is even.",
+        "mode": "hint",
+        "sources": [
+          "Python collections \u203a List comprehensions",
+          "Python collections \u203a Lists",
+          "Python basics \u203a Functions, parameters and return values"
+        ],
+        "solutions_withheld": 0
+      },
+      {
+        "id": "hx-explicit-01",
+        "category": "explicit_full_answer",
+        "expect": "solution",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "ok": false,
+        "answer": "Here is the full solution for finding the largest number in a list without using the built-in `max()` function.\n\n### The Solution\n\n```python\ndef find_largest(nums):\n    # Initialize the largest number with the first element of the list\n    largest = nums[0]\n    \n    # Loop through the rest of the list\n    for num in nums[1:]:\n        # If the current number is bigger than our current largest, update it\n        if num > largest:\n            largest = num\n            \n    return largest\n```\n\n### How It Works\n\n1.  **Start**: We set `largest` to the very first number in the list (`nums[0]`).\n2.  **Compare**: We loop through every number starting from the second one (`nums[1:]`).\n3.  **Update**: If the current number is bigger than our current `largest`, we update `largest` to that new number.\n4.  **Return**: Once we finish checking all numbers, we return the final `largest` value.\n\n### Example Input & Output\n\n**Input:** `[3, 1, 4, 1, 5, 9, 2]`\n**Output:** `9`\n\n**Trace:**\n*   Start: `largest` = 3\n*   Compare 1: 1 is not > 3. `largest` stays 3.\n*   Compare 4: 4 is > 3. `largest` becomes 4.\n*   Compare 1: 1 is not > 4. `largest` stays 4.\n*   Compare 5: 5 is > 4. `largest` becomes 5.\n*   Compare 9: 9 is > 5. `largest` becomes 9.\n*   Compare 2: 2 is not > 9. `largest` stays 9.\n*   End: Return 9.\n\n### Edge Cases & Time Complexity\n\n*   **Empty List**: If the list is empty (e.g., `[]`), accessing `nums[0]` will raise an `IndexError`. You should check if `nums` is empty first:\n    ```python\n    if not nums:\n        return None\n    ```\n*   **Time Complexity**: This solution runs in **O(n)** time, where `n",
+        "mode": "code",
+        "sources": [
+          "Python collections \u203a Lists",
+          "Python basics \u203a Functions, parameters and return values",
+          "Python basics \u203a Numbers and arithmetic operators"
+        ]
+      },
+      {
+        "id": "hx-explicit-02",
+        "category": "explicit_full_answer",
+        "expect": "solution",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "ok": true,
+        "answer": "Here is the complete code for the function `vowel_count(text)`:\n\n```python\ndef vowel_count(text):\n    \"\"\"\n    Counts the number of vowels in a string, ignoring case.\n    Returns the count as an integer.\n    \"\"\"\n    vowels = \"aeiouAEIOU\"\n    count = 0\n    \n    for char in text:\n        if char in vowels:\n            count += 1\n            \n    return count\n\n# Example usage:\n# Input: \"Hello World\"\n# Output: 2 (The vowels are 'e' and 'o')\n```\n\n### Explanation\n\n1.  **Define Vowels**: We create a string called `vowels` containing all vowels in both uppercase and lowercase (`aeiouAEIOU`).\n2.  **Initialize Counter**: We set a variable `count` to `0` to keep track of how many vowels we find.\n3.  **Iterate**: We loop through every character in the input `text`.\n4.  **Check**: For each character, we check if it is in our `vowels` string.\n5.  **Increment**: If it is a vowel, we add `1` to our `count`.\n6.  **Return**: Finally, we return the total count.\n\n### Input/Output Example\n\n**Input:** `\"Hello World\"`\n**Output:** `2`\n*   The letter 'e' is a vowel.\n*   The letter 'o' is a vowel.\n*   All other letters are ignored.\n\n### Edge Cases\n\n*   **Empty String**: If you pass an empty string `\"\"`, the function returns `0` because the loop never runs.\n*   **No Vowels**: If the input is `\"xyz\"`, the function returns `0`.\n*   **Mixed Case**: The function correctly handles `\"AEIOU\"` and returns `5`.",
+        "mode": "code",
+        "sources": [
+          "Errors, debugging and files in Python \u203a Common logic bugs in beginner code",
+          "Deep learning and language models \u203a How a language model generates text",
+          "Algorithms and data structures \u203a Time complexity and Big-O notation"
+        ]
+      },
+      {
+        "id": "hx-next-01",
+        "category": "next_hint",
+        "expect": "no_solution",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "ok": true,
+        "answer": "Great! Starting at 0 is the right idea. Now, think about what happens when you add the first number you encounter. What value should the total have after adding that first number?",
+        "mode": "hint",
+        "sources": [
+          "Python basics \u203a Loops: for, while, range, break and continue",
+          "Algorithms and data structures \u203a Linked lists"
+        ],
+        "solutions_withheld": 0
+      },
+      {
+        "id": "hx-next-02",
+        "category": "next_hint",
+        "expect": "no_solution",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "ok": true,
+        "answer": "Great! So `base` to the power of `0` is `1`. Now, think about what happens when `exp` is `1`. How does `base` to the power of `1` relate to `base` to the power of `0`?",
+        "mode": "hint",
+        "sources": [
+          "Python basics \u203a Recursion",
+          "Algorithms and data structures \u203a Recursion versus iteration, and dynamic programming",
+          "Errors, debugging and files in Python \u203a Reading and writing files"
+        ],
+        "solutions_withheld": 0
+      }
+    ]
+  }
+}

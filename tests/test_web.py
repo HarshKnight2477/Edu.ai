@@ -140,8 +140,11 @@ def test_second_message_while_answering_is_refused(web):
 
 
 def test_full_context_forgets_oldest_exchanges(web, monkeypatch):
-    monkeypatch.setenv("FAKE_MAX_CHARS", "1200")  # read by the fake server at startup
-    client, _, store = web()
+    # Read by the fake server at startup. The tutor's system prompt is ~800 characters,
+    # so this fits it plus about two of the four old exchanges.
+    monkeypatch.setenv("FAKE_MAX_CHARS", "1800")
+    client, manager, store = web()
+    manager.use_notes = False  # keep the prompt size predictable
     c = client.post("/api/conversations").json()
     for _ in range(4):
         store.add_message(c["id"], "user", "q" * 200)
@@ -210,3 +213,91 @@ def test_settings_refused_while_answering(web):
     client, manager, _ = web()
     with manager.generation_lock:
         assert client.put("/api/settings", json={"context_tokens": 2048}).status_code == 409
+
+
+# ------------------------------------------------------------- tutoring (M4)
+
+def test_answer_reports_mode_and_sources(web, monkeypatch, tmp_path):
+    record = tmp_path / "requests.jsonl"
+    monkeypatch.setenv("FAKE_RECORD", str(record))
+    client, _, _ = web()
+    c = client.post("/api/conversations").json()
+    events = stream_message(client, c["id"], "What is the difference between a list and a tuple?")
+    meta = next(data for event, data in events if event == "meta")
+    assert meta["mode"] == "explain" and meta["auto"] and "Python collections › Tuples" in meta["sources"]
+    done = events[-1][1]
+    assert done["stats"]["mode"] == "explain" and done["stats"]["sources"] == meta["sources"]
+    system = json.loads(record.read_text().splitlines()[-1])["messages"][0]
+    assert system["role"] == "system" and "Course notes" in system["content"]
+
+
+def test_chosen_mode_is_used(web):
+    client, _, _ = web()
+    c = client.post("/api/conversations").json()
+    with client.stream("POST", f"/api/conversations/{c['id']}/messages",
+                       json={"content": "Find the largest number in a list", "mode": "hint"}) as r:
+        body = r.read().decode()
+    assert '"mode": "hint"' in body and '"auto": false' in body
+    bad = client.post(f"/api/conversations/{c['id']}/messages", json={"content": "x", "mode": "essay"})
+    assert bad.status_code == 422
+
+
+def test_level_and_notes_settings(web, monkeypatch, tmp_path):
+    record = tmp_path / "requests.jsonl"
+    monkeypatch.setenv("FAKE_RECORD", str(record))
+    client, manager, store = web()
+    r = client.put("/api/settings", json={"level": "advanced", "use_notes": False}).json()
+    assert not r["restarted"] and r["settings"]["level"] == "advanced" and not r["settings"]["use_notes"]
+    assert store.get_settings()["level"] == "advanced"
+    assert client.put("/api/settings", json={"level": "expert"}).status_code == 422
+    c = client.post("/api/conversations").json()
+    stream_message(client, c["id"], "What is a tuple?")
+    system = json.loads(record.read_text().splitlines()[-1])["messages"][0]["content"]
+    assert "Advanced:" in system and "Course notes" not in system
+    status = client.get("/api/status").json()
+    assert status["levels"] == ["beginner", "intermediate", "advanced"] and status["modes"]["hint"] == "Hint"
+
+
+# ------------------------------------------------------------ hint guard (M4)
+
+HINT_WITH_SOLUTION = ("Key idea: track the biggest value.\n\nTry this:\n```python\ndef largest(nums):\n"
+                      "    m = nums[0]\n    for n in nums:\n        if n > m:\n            m = n\n    return m\n```\n"
+                      "What should m start as?")
+
+
+@pytest.mark.parametrize("mode, withheld", [("hint", True), ("explain", False)])
+def test_hint_mode_withholds_complete_solutions(web, monkeypatch, mode, withheld):
+    monkeypatch.setenv("FAKE_STREAM_TEXT", HINT_WITH_SOLUTION)
+    client, _, _ = web()
+    c = client.post("/api/conversations").json()
+    with client.stream("POST", f"/api/conversations/{c['id']}/messages",
+                       json={"content": "help with largest(nums)", "mode": mode}) as r:
+        events = []
+        event = None
+        for line in r.iter_lines():
+            if line.startswith("event:"):
+                event = line[6:].strip()
+            elif line.startswith("data:"):
+                events.append((event, json.loads(line[5:])))
+    streamed = "".join(d["text"] for e, d in events if e == "token")
+    done = events[-1][1]
+    assert ("return m" in streamed) is not withheld          # never sent to the browser in hint mode
+    assert done["content"] == streamed                         # saved text = what the student saw
+    assert done["stats"]["solutions_withheld"] == (1 if withheld else 0)
+    assert streamed.startswith("Key idea") and streamed.endswith("What should m start as?")
+
+
+@pytest.mark.parametrize("request_text, trimmed", [
+    ("My code has a bug. Fix the bug. Reply with the corrected function in one code block, then one sentence.", True),
+    ("My code has a bug. Fix the bug and explain.", False),
+])
+def test_one_sentence_requests_are_trimmed(web, monkeypatch, request_text, trimmed):
+    fix = "```python\ndef f(x):\n    return x + 1\n```"
+    monkeypatch.setenv("FAKE_STREAM_TEXT", f"{fix}\nThe loop skipped index 0. That lost the first item. Start at 0.")
+    client, _, _ = web()
+    c = client.post("/api/conversations").json()
+    done = stream_message(client, c["id"], request_text)[-1][1]
+    if trimmed:
+        assert done["content"] == f"{fix}\n\nThe loop skipped index 0." and done["stats"]["trimmed_to_one_sentence"]
+    else:
+        assert done["content"].endswith("Start at 0.") and not done["stats"]["trimmed_to_one_sentence"]

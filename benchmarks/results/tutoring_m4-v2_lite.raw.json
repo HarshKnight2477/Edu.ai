@@ -1,0 +1,2350 @@
+{
+  "baseline": {
+    "quiz": [
+      {
+        "id": "py-01",
+        "answer": "The output is **B**.\n\nHere is the explanation:\nThe expression `",
+        "expected": "B"
+      },
+      {
+        "id": "py-02",
+        "answer": "The expression `len([1, [2, 3], 4])",
+        "expected": "C"
+      },
+      {
+        "id": "py-03",
+        "answer": "The correct option is **A**.\n\n**Explanation:**\n*   **Tuple",
+        "expected": "A"
+      },
+      {
+        "id": "py-04",
+        "answer": "The correct answer is **A**.\n\n**Explanation:**\nThe Python loop `",
+        "expected": "D"
+      },
+      {
+        "id": "py-05",
+        "answer": "The correct option is **D**.\n\n**Explanation:**\nIn Python, when",
+        "expected": "B"
+      },
+      {
+        "id": "py-06",
+        "answer": "The correct option is C.\n\nExplanation:\nIn Python, the `except",
+        "expected": "C"
+      },
+      {
+        "id": "py-07",
+        "answer": "The value of `7 // 2` in Python 3 is **4",
+        "expected": "A"
+      },
+      {
+        "id": "py-08",
+        "answer": "The expression `['hello'][1:3]` selects the characters at indices",
+        "expected": "D"
+      },
+      {
+        "id": "cs-01",
+        "answer": "B",
+        "expected": "B"
+      },
+      {
+        "id": "cs-02",
+        "answer": "C",
+        "expected": "C"
+      },
+      {
+        "id": "cs-03",
+        "answer": "The correct option is **A**.\n\n**Explanation:**\nA **Stack**",
+        "expected": "A"
+      },
+      {
+        "id": "cs-04",
+        "answer": "D. Inheritance",
+        "expected": "D"
+      },
+      {
+        "id": "cs-05",
+        "answer": "The correct option is **B**.\n\n**Explanation:**\nThe `WHERE`",
+        "expected": "B"
+      },
+      {
+        "id": "cs-06",
+        "answer": "C. 0",
+        "expected": "C"
+      },
+      {
+        "id": "cs-07",
+        "answer": "The correct option is A.\n\n**Explanation:**\nFor a function to avoid",
+        "expected": "A"
+      },
+      {
+        "id": "ai-01",
+        "answer": "B",
+        "expected": "B"
+      },
+      {
+        "id": "ai-02",
+        "answer": "C",
+        "expected": "C"
+      },
+      {
+        "id": "ai-03",
+        "answer": "The correct option is **A**.\n\n**Explanation:**\n*   **Over",
+        "expected": "A"
+      },
+      {
+        "id": "ai-04",
+        "answer": "D",
+        "expected": "D"
+      },
+      {
+        "id": "ai-05",
+        "answer": "A",
+        "expected": "B"
+      },
+      {
+        "id": "ai-06",
+        "answer": "The correct option is **C**.\n\n**Explanation:**\nThe ReLU (",
+        "expected": "C"
+      },
+      {
+        "id": "ai-07",
+        "answer": "A",
+        "expected": "A"
+      },
+      {
+        "id": "ai-08",
+        "answer": "D",
+        "expected": "D"
+      },
+      {
+        "id": "ai-09",
+        "answer": "B",
+        "expected": "B"
+      },
+      {
+        "id": "ai-10",
+        "answer": "C",
+        "expected": "C"
+      },
+      {
+        "id": "ai-11",
+        "answer": "A",
+        "expected": "A"
+      },
+      {
+        "id": "ai-12",
+        "answer": "D",
+        "expected": "D"
+      },
+      {
+        "id": "ai-13",
+        "answer": "B",
+        "expected": "B"
+      },
+      {
+        "id": "ai-14",
+        "answer": "The correct option is **C**.\n\n**Explanation:**\nPrecision (also known",
+        "expected": "C"
+      },
+      {
+        "id": "ai-15",
+        "answer": "A",
+        "expected": "A"
+      },
+      {
+        "id": "q2-py-01",
+        "answer": "The correct option is **C**.\n\n**Explanation:**\nIn Python, the",
+        "expected": "A"
+      },
+      {
+        "id": "q2-py-02",
+        "answer": "The answer is A.",
+        "expected": "B"
+      },
+      {
+        "id": "q2-py-03",
+        "answer": "The answer is A.",
+        "expected": "C"
+      },
+      {
+        "id": "q2-py-04",
+        "answer": "The correct option is **A**.\n\n**Explanation:**\nIn Python, the",
+        "expected": "D"
+      },
+      {
+        "id": "q2-py-05",
+        "answer": "The correct option is **C**.\n\nExplanation:\nThe `strip()` method",
+        "expected": "A"
+      },
+      {
+        "id": "q2-py-06",
+        "answer": "The correct option is **B**.\n\n**Explanation:**\nIn Python 3",
+        "expected": "B"
+      },
+      {
+        "id": "q2-py-07",
+        "answer": "The correct option is **B**.\n\n**Explanation:**\nThe `get()`",
+        "expected": "C"
+      },
+      {
+        "id": "q2-py-08",
+        "answer": "The correct option is **A**.\n\n**Explanation:**\nThe `items`",
+        "expected": "D"
+      },
+      {
+        "id": "q2-py-09",
+        "answer": "The correct option is **C**.\n\n**Explanation:**\nIn Python, the",
+        "expected": "A"
+      },
+      {
+        "id": "q2-py-10",
+        "answer": "A",
+        "expected": "B"
+      },
+      {
+        "id": "q2-ds-01",
+        "answer": "C",
+        "expected": "C"
+      },
+      {
+        "id": "q2-ds-02",
+        "answer": "The correct option is **D**.\n\n**Explanation:**\n*   **A",
+        "expected": "D"
+      },
+      {
+        "id": "q2-ds-03",
+        "answer": "A",
+        "expected": "A"
+      },
+      {
+        "id": "q2-ds-04",
+        "answer": "C",
+        "expected": "B"
+      },
+      {
+        "id": "q2-ds-05",
+        "answer": "C",
+        "expected": "C"
+      },
+      {
+        "id": "q2-ds-06",
+        "answer": "The correct option is **A**.\n\n**Explanation:**\nInsertion sort works",
+        "expected": "D"
+      },
+      {
+        "id": "q2-ds-07",
+        "answer": "A",
+        "expected": "A"
+      },
+      {
+        "id": "q2-ot-01",
+        "answer": "B",
+        "expected": "B"
+      },
+      {
+        "id": "q2-ot-02",
+        "answer": "The correct option is **C**.\n\n**Explanation:**\nIn Java, the",
+        "expected": "C"
+      },
+      {
+        "id": "q2-ot-03",
+        "answer": "D",
+        "expected": "D"
+      },
+      {
+        "id": "q2-ai-01",
+        "answer": "A",
+        "expected": "A"
+      },
+      {
+        "id": "q2-ai-02",
+        "answer": "The correct option is B.\n\n**Explanation:**\nLogistic regression is a",
+        "expected": "B"
+      },
+      {
+        "id": "q2-ai-03",
+        "answer": "The correct option is **B**.\n\n**Explanation:**\nThe F1 score",
+        "expected": "C"
+      },
+      {
+        "id": "q2-ai-04",
+        "answer": "A",
+        "expected": "D"
+      },
+      {
+        "id": "q2-ai-05",
+        "answer": "A",
+        "expected": "A"
+      },
+      {
+        "id": "q2-ai-06",
+        "answer": "The correct option is B.\n\n**Explanation:**\nLoRA (Low-R",
+        "expected": "B"
+      },
+      {
+        "id": "q2-ai-07",
+        "answer": "C",
+        "expected": "C"
+      },
+      {
+        "id": "q2-ai-08",
+        "answer": "D",
+        "expected": "D"
+      },
+      {
+        "id": "q2-ai-09",
+        "answer": "A",
+        "expected": "A"
+      },
+      {
+        "id": "q2-ai-10",
+        "answer": "B",
+        "expected": "B"
+      }
+    ],
+    "debug": [
+      {
+        "id": "debug-01-average",
+        "passed": true,
+        "unchanged": false,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "The bug is that the loop iterates from `i = 1` to `len(nums)`, but it should iterate from `i = 0` to `len(nums) - 1` to correctly sum the first `len(nums) - 1` elements.\n\n```python\ndef average(nums):\n    \"\"\"Return the arithmetic mean of a non-empty list of numbers.\"\"\"\n    total = 0\n    for i in range(0, len(nums)):\n        total += nums[i]\n    return total / len(nums)\n```"
+      },
+      {
+        "id": "debug-02-palindrome",
+        "passed": true,
+        "unchanged": false,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "The bug occurs because the `s` variable is a string, but the `reverse()` method is defined on the `list` type, not the `str` type.\n\n```python\ndef is_palindrome(s):\n    \"\"\"Return True if the string reads the same forwards and backwards.\"\"\"\n    return s == s[::-1]\n```\n\nThe fix is to replace `s.reverse()` with `s[::-1]` to use the correct slicing syntax for reversing a string."
+      },
+      {
+        "id": "debug-03-factorial",
+        "passed": false,
+        "unchanged": true,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "The bug occurs because the base case `if n == 1` is missing the argument `n` inside the function call `factorial(n - 1)`. Without `n`, the recursive step `n * factorial(n - 1)` would try to call `factorial(0)`, which never returns and causes a RecursionError.\n\n```python\ndef factorial(n):\n    \"\"\"Return n! for a non-negative integer n.\"\"\"\n    if n == 1:\n        return 1\n    return n * factorial(n - 1)\n```"
+      },
+      {
+        "id": "debug-04-vowels",
+        "passed": false,
+        "unchanged": true,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "The bug is that the `if` condition checks for lowercase letters only (`'aeiou'`), but the function ignores uppercase letters like 'H' and 'L' as well.\n\n```python\ndef count_vowels(text):\n    \"\"\"Count the vowels (a, e, i, o, u) in text, ignoring case.\"\"\"\n    count = 0\n    for ch in text:\n        if ch in 'aeiou':\n            count += 1\n    return count\n```\n\n```python\ndef count_vowels(text):\n    \"\"\"Count the vowels (a, e, i, o, u) in text, ignoring case.\"\"\"\n    count = 0\n    for ch in text:\n        if ch in 'aeiou':\n            count += 1\n    return count\n```"
+      },
+      {
+        "id": "debug-05-max",
+        "passed": true,
+        "unchanged": false,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "The bug is that `max_val` is initialized to `0`, but the list contains negative numbers, so the function incorrectly returns `0` instead of the largest negative number.\n\n```python\ndef find_max(nums):\n    \"\"\"Return the largest number in a non-empty list.\"\"\"\n    max_val = -float('inf')\n    for n in nums:\n        if n > max_val:\n            max_val = n\n    return max_val\n```"
+      },
+      {
+        "id": "debug-06-fizzbuzz",
+        "passed": false,
+        "unchanged": true,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "The bug occurs because the condition `i % 15 == 0` is checked before the `i % 5 == 0` check, so the number 15 is incorrectly classified as a multiple of 3 instead of 5.\n\n```python\ndef fizzbuzz(n):\n    \"\"\"Return a list for 1..n: 'Fizz' for multiples of 3, 'Buzz' for multiples of 5,\n    'FizzBuzz' for multiples of both, otherwise the number as a string.\"\"\"\n    result = []\n    for i in range(1, n + 1):\n        if i % 3 == 0:\n            result.append('Fizz')\n        elif i % 5 == 0:\n            result.append('Buzz')\n        elif i % 15 == 0:\n            result.append('FizzBuzz')\n        else:\n            result.append(str(i))\n    return result\n```\n\nThe bug was caused by the incorrect order of the `if` conditions, where `i % 15 == 0` was evaluated before `i % 5 == 0`."
+      },
+      {
+        "id": "debug-07-binary-search",
+        "passed": false,
+        "unchanged": true,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "The bug is that the `mid` calculation uses integer division `// 2` instead of floating-point division `/ 2`, which causes the index to be off by one when the list length is odd.\n\n```python\ndef binary_search(arr, target):\n    \"\"\"Return the index of target in the sorted list arr, or -1 if absent.\"\"\"\n    low, high = 0, len(arr) - 1\n    while low < high:\n        mid = (low + high) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            low = mid + 1\n        else:\n            high = mid - 1\n    return -1\n```\n\nThe bug is that integer division `// 2` results in `mid` being off by one when the list length is odd."
+      },
+      {
+        "id": "debug-08-remove-duplicates",
+        "passed": true,
+        "unchanged": false,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "The bug occurs because the list comprehension `items[:i]` creates a new list for every iteration, causing the list to grow indefinitely as the loop runs.\n\n```python\ndef remove_duplicates(items):\n    \"\"\"Return a new list without duplicates, keeping the first occurrence order.\"\"\"\n    for i, x in enumerate(items):\n        if x in items[:i]:\n            items.remove(x)\n    return items\n```\n\nThe function should be fixed to avoid creating a new list for each iteration. Here is the corrected version:\n\n```python\ndef remove_duplicates(items):\n    \"\"\"Return a new list without duplicates, keeping the first occurrence order.\"\"\"\n    seen = set()\n    result = []\n    for item in items:\n        if item not in seen:\n            seen.add(item)\n            result.append(item)\n    return result\n```"
+      },
+      {
+        "id": "debug-09-word-freq",
+        "passed": false,
+        "unchanged": true,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "The bug occurs because the function splits the text by whitespace, but the key in the dictionary is the lowercase version of the word, which includes the space character. When the code tries to access `counts['the']`, Python raises a `KeyError` because the key 'the' is not in the dictionary; the actual word is 'the ' (with a space).\n\n```python\ndef word_frequencies(text):\n    \"\"\"Return a dict mapping each lowercase word (split on whitespace) to its count.\"\"\"\n    counts = {}\n    for word in text.lower().split():\n        counts[word] += 1\n    return counts\n```\n\nThe fix is to use the original word as the key in the dictionary, so the code can correctly identify the word 'the' and increment its count."
+      },
+      {
+        "id": "debug-10-mutable-default",
+        "passed": true,
+        "unchanged": false,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "The bug occurs because the `items` list is initialized to an empty list `[]` inside the function definition, but the function does not actually create a new list when `items` is empty. Instead, it relies on the global variable `items` to be passed in, which means the function is modifying the global list instead of creating a new one.\n\n```python\ndef append_item(item, items=[]):\n    if not items:\n        items = []\n    items.append(item)\n    return items\n```\n\nThe fix is to ensure the function creates a new list whenever `items` is empty, preventing the global list from being modified."
+      },
+      {
+        "id": "debug-11-temperature",
+        "passed": false,
+        "unchanged": false,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "The bug is that the integer division `//` operator performs integer division, which truncates the result. When multiplying `100` by `9` (which is `9 // 5`), the result is `18`, not `20`. This causes the calculation to be `18 + 32 = 50` instead of the correct `212`.\n\n```python\ndef celsius_to_fahrenheit(c):\n    \"\"\"Convert degrees Celsius to Fahrenheit.\"\"\"\n    return c * 9 + 32\n```\n\nThe correct function is `c * 9 + 32`."
+      },
+      {
+        "id": "debug-12-second-largest",
+        "passed": false,
+        "unchanged": false,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "The bug occurs because `sorted()` sorts the list in ascending order, so `nums[-2]` returns the second element in the sorted list, which is the smallest value in the list. To find the second largest distinct value, you need to sort the list in descending order and then take the element at index 1.\n\n```python\ndef second_largest(nums):\n    \"\"\"Return the second largest distinct value in nums (at least two distinct values).\"\"\"\n    nums = sorted(nums, reverse=True)\n    return nums[1]\n```\n\nThe bug was caused by sorting the list in ascending order, which caused the function to return the smallest value instead of the second largest distinct value."
+      }
+    ],
+    "hint": [
+      {
+        "id": "hint-01",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "answer": "Great question! Let's break this down step by step.\n\n### What is the problem?\nYou need to write a function `largest(nums)` that:\n1. Takes a list of numbers as input\n2. Returns the largest number in that list\n3. **Does not use the built-in `max()` function**\n\n### How to solve it?\nThere are several approaches, but here's a clean and efficient one using Python's built-in `max()` function:\n\n```python\ndef largest(nums):\n    return max(nums)\n```\n\n### Why this works:\n- `max()` is a built-in function that returns the largest value in a list\n- It's O(n) time complexity, where n is the number of elements in the list\n- This is the most efficient way to solve it\n\n### Alternative approaches:\n1. **Using a loop**:\n   ```python\n   def largest(nums):\n       largest = 0\n       for num in nums:\n           if num > largest:\n               largest = num\n       return largest\n   ```\n   - This approach iterates through the list and keeps track of the maximum value\n   - Time complexity: O(n)\n\n2. **Using a set**:\n   ```python\n   def largest(nums):\n       return max(set(nums))\n   ```\n   - This approach converts the list to a set and then takes the max\n   - Time complexity: O(n)\n\n### Which approach should you use?\n- **For beginners**: The `max()` approach is cleaner and more readable\n- **For performance**: The loop approach might be slightly faster for very large lists\n- **For learning**: The set approach shows how to use set operations effectively\n\n### Final Answer:\n```python\ndef largest(nums):\n    return max(nums)\n```\n\nThis is the most Pythonic and efficient solution! Let me know if you need help with any specific part of the problem."
+      },
+      {
+        "id": "hint-02",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "answer": "Here is a simple way to write a function `count_vowels` that counts the vowels in a string, ignoring case.\n\n### Python Code\n\n```python\ndef count_vowels(text):\n    \"\"\"\n    Counts the vowels in a string, ignoring case.\n    \n    Vowels are: a, e, i, o, u\n    \"\"\"\n    vowels = \"aeiou\"\n    count = 0\n    \n    for char in text:\n        # Check if the character is a vowel\n        if char in vowels:\n            count += 1\n        else:\n            # If it's not a vowel, skip it\n            pass\n            \n    return count\n```\n\n### Explanation\n1.  **Vowels List**: We define the set of vowels as `aeiou`.\n2.  **Loop**: We iterate through each character in the input string.\n3.  **Condition**: We check if the current character is in the `vowels` list.\n4.  **Result**: If it is a vowel, we increment our counter. If not, we simply ignore it.\n5.  **Return**: The function returns the total count of vowels.\n\n### Example Usage\n```python\n# Test 1: Lowercase 'A'\nprint(count_vowels(\"A\"))  # Output: 1\n\n# Test 2: Mixed case 'ae'\nprint(count_vowels(\"ae\"))  # Output: 2\n\n# Test 3: 'U'\nprint(count_vowels(\"U\"))  # Output: 1\n\n# Test 4: 'aeiou'\nprint(count_vowels(\"aeiou\"))  # Output: 5\n```\n\n### Note on \"Ignoring Case\"\nThe function `count_vowels` ignores case by checking the character against the `vowels` list. It does not explicitly check for uppercase vs lowercase, but since the list `aeiou` contains lowercase letters, it works for both cases. If you need to handle uppercase letters specifically, you would need to modify the `vowels` list to include them."
+      },
+      {
+        "id": "hint-03",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "answer": "Here is a clear hint for your exercise:\n\n**Hint:**\nTo reverse the words in `sentence`, you need to:\n1.  Split the string into words using `split()`.\n2.  Store them in a list.\n3.  Reverse the list.\n4.  Join the list back into a single string.\n\n**Example:**\n```python\nsentence = \"I like Python\"\nwords = sentence.split()\nwords = words[::-1]\nresult = \" \".join(words)\nprint(result)\n```\nOutput: `Python like I`\n\n**Note:** This approach is efficient and readable for beginners."
+      },
+      {
+        "id": "hint-04",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "answer": "To solve `is_prime(n)`, you need to check if `n` is divisible only by 1 and itself. If `n` is prime, it must be greater than 1 and have no divisors other than 1 and itself.\n\nHere is a clear approach using Python:\n\n```python\ndef is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n```\n\n**Explanation:**\n1.  **Base Case**: If `n` is 1 or less, it's not prime.\n2.  **Optimization**: We only need to check divisors up to the square root of `n`. If `n` is prime, it has no divisors other than 1 and itself.\n3.  **Verification**: If the loop finishes without finding a divisor, `n` is prime.\n\n**Example:**\n```python\nprint(is_prime(2))  # Output: True\nprint(is_prime(4))  # Output: False\nprint(is_prime(100)) # Output: False\n```"
+      },
+      {
+        "id": "hint-05",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "answer": "Great question! The `sum_digits(n)` function is a classic example of **digit extraction** and **mathematical summation**.\n\n### The Core Idea\nTo add the digits of a number, we can:\n1.  **Extract digits** using `str(n).split()` to get the decimal representation.\n2.  **Convert to list** to separate them.\n3.  **Sum them** using `+`.\n\n### Python Example\n```python\ndef sum_digits(n):\n    # Convert to string to get the digits\n    digits = str(n).split()\n    \n    # Convert to list to separate them\n    digits_list = list(digits)\n    \n    # Sum them\n    return sum(digits_list)\n\n# Test it\nprint(sum_digits(1234))  # Output: 10\nprint(sum_digits(123))   # Output: 6\nprint(sum_digits(0))     # Output: 0\n```\n\n### Key Concepts Explained\n- **`str(n).split()`**: Converts the number to a string and splits it by whitespace to get individual digits.\n- **`list()`**: Turns the string into a list of digits.\n- **`sum()`**: Adds all the numbers in the list together.\n\n### Common Pitfalls to Avoid\n- **Don't use `int()` on the string**: This will convert the string to an integer, which loses the digit information. Always use `str()` first.\n- **Don't forget to convert to a list**: `sum()` works on a list, not a single number.\n\n### If You're Still Stuck\nIf you're still confused, try this:\n1.  Write a small script that prints the input number.\n2.  Try to manually extract the digits.\n3.  Try to manually sum them.\n4.  Compare your result with the expected output.\n\nLet me know if you need help with a different part of the exercise!"
+      },
+      {
+        "id": "hint-06",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "answer": "### **Step 1: Understand the Goal**\nTo write a factorial function using a loop, you need to:\n1.  **Define the function signature**: `def factorial(n)`.\n2.  **Set up the loop**: Use a `for` loop to iterate from `n` down to `1`.\n3.  **Apply the logic**: Inside the loop, multiply the current number by the result of the previous iteration.\n4.  **Handle the base case**: If `n` is 0 or 1, the result is 1.\n\n### **Step 2: The Python Code**\nHere is the complete code:\n\n```python\ndef factorial(n):\n    result = 1\n    for i in range(n, 0, -1):\n        result *= i\n    return result\n```\n\n### **Step 3: How to Test It**\nYou can test this function by calling it with different numbers:\n\n```python\n# Test with 5\nprint(factorial(5))  # Output: 120\n\n# Test with 1\nprint(factorial(1))  # Output: 1\n\n# Test with 0\nprint(factorial(0))  # Output: 1\n```\n\n### **Step 4: Explanation**\n- **The Loop**: The `for` loop runs from `n` down to `1`.\n- **The Calculation**: Inside the loop, `result *= i` multiplies the current result by the current number `i`.\n- **The Base Case**: The `range(n, 0, -1)` ensures we start at `n` and stop at `1`.\n- **The Return**: The function returns the final product.\n\n### **Step 5: Example Output**\n```\n>>> factorial(5)\n120\n>>> factorial(1)\n1\n>>> factorial(0)\n1\n```\n\n### **Step 6: Common Pitfalls to Avoid**\n- **Recursion**: Avoid using `def factorial(n): return factorial(n-1) + 1` because it causes a stack overflow.\n- **Incorrect Loop Range**: Ensure the loop starts at `n` and ends at `1`.\n- **Missing Base Case**: If `n` is 0 or 1, the loop won't run, and `result` will remain 1. Always check `if n == 0 or"
+      },
+      {
+        "id": "hint-07",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "answer": "Here is a hint for your exercise:\n\nYou need to use the `set` function to remove duplicates, but since you want to **keep the original order**, you must use a **list comprehension** or a **generator expression** with `set()`.\n\n**Hint:**\n```python\n# Example:\nunique(['a', 'b', 'a', 'c', 'b', 'a'])\n# Output: ['a', 'b', 'c']\n```\n\n**Why this works:**\n1.  `set()` creates a set, which automatically removes duplicates.\n2.  To preserve order, you iterate through the list and add each item to the new list *only if* it hasn't been seen before.\n3.  This is often done using a list comprehension:\n    ```python\n    [item for item in items if item not in seen]\n    ```\n    or\n    ```python\n    list(set(items))\n    ```\n\n**Note:** If you are unsure about the specific syntax for preserving order, the `set()` approach is the most direct way to achieve this in Python."
+      },
+      {
+        "id": "hint-08",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "answer": "Here is a clear explanation of how to write the `char_count` function in Python.\n\n### The Concept\nThe goal is to iterate through the input string, count the occurrences of every character, and return a dictionary where the keys are the characters and the values are their counts.\n\n### Python Code Example\n```python\ndef char_count(text):\n    count = {}\n    for char in text:\n        count[char] = count.get(char, 0) + 1\n    return count\n```\n\n### How It Works\n1.  **Initialize an empty dictionary**: We start with an empty dictionary `count` to store the counts.\n2.  **Iterate through the string**: We use a `for` loop to go through every character in the input string.\n3.  **Count the character**: Inside the loop, we use `count.get(char, 0) + 1`. This is crucial:\n    *   `get(char, 0)` checks if the character exists in the dictionary. If not, it returns `0`.\n    *   We add `1` to the count.\n    *   This ensures that if a character appears for the first time, it gets a count of 1.\n4.  **Return the result**: The function returns the dictionary containing the character counts.\n\n### Example Usage\n```python\n# Test 1: Simple string\nprint(char_count(\"Hello World\"))\n# Output: {'H': 1, 'e': 1, 'l': 2, ' ': 1, 'W': 1, 'o': 1, 'r': 1, 'd': 1}\n\n# Test 2: String with duplicates\nprint(char_count(\"AaBbCc\"))\n# Output: {'A': 1, 'a': 1, 'B': 1, 'c': 1, 'c': 1}\n\n# Test 3: Empty string\nprint(char_count(\"\"))\n# Output: {}\n```\n\n### Important Note\nIf you encounter an error like `AttributeError: 'str' object has no attribute 'get'`, it usually means the function is not defined in the current file or the function name is incorrect. Ensure the function name `char_count` is defined in the file where you are running the code."
+      },
+      {
+        "id": "hint-09",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "answer": "To approach this exercise, you need to follow these steps:\n\n1.  **Define the function**: Create a function named `celsius_to_fahrenheit` that takes a number (temperature in Celsius) as input.\n2.  **Apply the formula**: Use the standard conversion formula: $F = \\frac{9}{5} + C$.\n3.  **Handle edge cases**: Ensure the function handles negative numbers and zero correctly.\n4.  **Test the function**: Write a simple test script to verify the function works as expected.\n\nHere is the Python code to solve this:\n\n```python\ndef celsius_to_fahrenheit(c):\n    if c < 0:\n        raise ValueError(\"Temperature cannot be negative\")\n    return (c * 9 / 5) + 32\n\n# Test the function\nprint(celsius_to_fahrenheit(20))  # Expected: 68.0\nprint(celsius_to_fahrenheit(-5))   # Expected: -12.0\nprint(celsius_to_fahrenheit(0))    # Expected: 32.0\n```\n\n**Explanation:**\n- The function `celsius_to_fahrenheit` takes a number `c` (Celsius) and returns a number `f` (Fahrenheit).\n- The formula used is $F = \\frac{9}{5} + C$.\n- The `if c < 0` check ensures the function handles negative temperatures gracefully.\n- The `print` statements demonstrate how to test the function with different inputs."
+      },
+      {
+        "id": "hint-10",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "answer": "### **Start Here: The Core Concept**\n\nTo solve `is_palindrome`, you need to:\n1.  **Read the word** (convert to a string).\n2.  **Reverse the string**.\n3.  **Compare** the original string with the reversed string.\n4.  **Return** `True` if they match, `False` otherwise.\n\n### **Python Example**\n\n```python\ndef is_palindrome(word):\n    # Step 1: Convert the input to a string\n    word = word.lower()\n    \n    # Step 2: Reverse the string\n    reversed_word = word[::-1]\n    \n    # Step 3: Compare the original and reversed\n    if word == reversed_word:\n        return True\n    else:\n        return False\n\n# Test it\nprint(is_palindrome(\"A man, a plan, a canal: Panama\"))\n# Output: True\n```\n\n### **Why This Works**\n-   `word.lower()` ensures we ignore case.\n-   `word[::-1]` creates a new list of characters in reverse order.\n-   Comparing the original list with the reversed list confirms if the word reads the same backwards.\n\n### **Common Pitfalls to Avoid**\n-   \u274c Don't use `list()` on the string directly.\n-   \u274c Don't forget to convert the input to a string first.\n-   \u274c Don't forget to reverse the string using `[::-1]`.\n-   \u274c Don't forget to compare the two lists.\n\n### **Next Steps**\n-   Try adding a test case with a different word to see if it works.\n-   Try adding a test case with an empty string to see if it handles edge cases.\n-   Try adding a test case with a word that doesn't read the same backwards to see if it returns `False`.\n\nLet me know if you need help with a specific part!"
+      }
+    ],
+    "hint_ext": [
+      {
+        "id": "hx-exact-01",
+        "category": "exact_solution_in_notes",
+        "expect": "no_solution",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "ok": false,
+        "answer": "Here is a clear hint to help you write the binary search function.\n\n### The Core Concept\nBinary search works by repeatedly dividing the list into two halves:\n1.  **Compare** the target value with the middle element.\n2.  **Adjust** the search range based on the comparison:\n    *   If the target is **greater** than the middle element, the search must be in the **left** half.\n    *   If the target is **smaller** than the middle element, the search must be in the **right** half.\n    *   If the target is **equal**, the function returns the index immediately.\n\n### Python Example\nHere is a working example to demonstrate the logic:\n\n```python\ndef binary_search(arr, target):\n    left = 0\n    right = len(arr) - 1\n    while left <= right:\n        mid = (left + right) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] > target:\n            right = mid - 1\n        else:\n            left = mid + 1\n    return -1\n\n# Example usage\narr = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]\nresult = binary_search(arr, 11)\nprint(f\"Index of 11 is: {result}\") # Output: 4\n```\n\n### How to Use This Hint\n1.  **Read the logic**: Understand that `mid = (left + right) // 2` ensures you always compare the middle element against the target.\n2.  **Handle the cases**:\n    *   If `arr[mid] == target`, return `mid`.\n    *   If `arr[mid] > target`, move the search range to the left (`right = mid - 1`).\n    *   If `arr[mid] < target`, move the search range to the right (`left = mid + 1`).\n3.  **Handle the edge case**: If the list is empty or the target is not found, return `-1`.\n\n### Common Pitfalls to Avoid\n*   **Index Error**: Ensure you use `len(arr)` to get the correct number of elements before accessing `arr[0]` and `arr[len-1]`.\n*   **Index"
+      },
+      {
+        "id": "hx-exact-02",
+        "category": "exact_solution_in_notes",
+        "expect": "no_solution",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "ok": false,
+        "answer": "Here is a step-by-step guide to writing a recursive factorial function in Python.\n\n### The Core Concept\nTo write a recursive function, you need three things:\n1.  **The Base Case**: A condition that stops the recursion when the number is 0 or 1.\n2.  **The Recursive Step**: A function call that breaks down the problem into smaller sub-problems.\n3.  **The `@recursive` decorator**: Python 3.8+ requires this to make the function truly recursive.\n\n### The Code\n```python\ndef factorial(n):\n    if n == 0 or n == 1:\n        return 1\n    return n * factorial(n - 1)\n\n# Example usage\nprint(factorial(5))  # Output: 120\n```\n\n### Explanation\n1.  **Base Case**: The `if n == 0 or n == 1` block returns `1`. This is the stopping condition.\n2.  **Recursive Step**: The `return n * factorial(n - 1)` part calls the function with `n - 1`.\n3.  **Why it works**:\n    *   If `n = 5`, it calls `factorial(4)`.\n    *   `factorial(4)` calls `factorial(3)`.\n    *   `factorial(3)` calls `factorial(2)`.\n    *   `factorial(2)` calls `factorial(1)`.\n    *   `factorial(1)` returns `1`.\n    *   Backtracking: `factorial(1)` returns `1 * 1 = 1`.\n    *   Backtracking: `factorial(2)` returns `2 * 1 = 2`.\n    *   Backtracking: `factorial(3)` returns `3 * 2 = 6`.\n    *   Backtracking: `factorial(4)` returns `4 * 6 = 24`.\n    *   Backtracking: `factorial(5)` returns `5 * 24 = 120`.\n\n### Why Python 3.8+ is Required\nIn Python 2, you could write:\n```python\ndef factorial(n):\n    result = 1\n    while n > 0:\n        result *= n\n        n -= 1\n    return result\n```\n"
+      },
+      {
+        "id": "hx-similar-01",
+        "category": "similar_solution_in_notes",
+        "expect": "no_solution",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "ok": true,
+        "answer": "Here is the step-by-step solution to `dedupe(items)`.\n\n### The Logic\nTo remove duplicates while keeping the **first occurrence order**, we use a **Set**.\n1.  **Set** stores unique items.\n2.  **Order** is preserved because the Set maintains insertion order in Python 3.7+.\n3.  **Result**: A new list containing only the unique items in the order they were first encountered.\n\n### Python Code\n```python\ndef dedupe(items):\n    # Convert the list to a set to remove duplicates\n    # The order is preserved because sets maintain insertion order\n    unique_items = set(items)\n    return list(unique_items)\n\n# Example usage\nitems = [\"apple\", \"banana\", \"apple\", \"cherry\", \"grape\"]\nresult = dedupe(items)\nprint(result)\n```\n\n### Output\n```\n['apple', 'banana', 'cherry', 'grape']\n```\n\n### Explanation\n1.  **`set(items)`**: This converts the list into a set. Sets automatically remove duplicate elements.\n2.  **`list(unique_items)`**: This converts the set back into a list.\n3.  **Order Preservation**: In Python 3.7+, the `set` maintains insertion order. Therefore, the output list will contain the items in the order they were first added to the set."
+      },
+      {
+        "id": "hx-similar-02",
+        "category": "similar_solution_in_notes",
+        "expect": "no_solution",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "ok": false,
+        "answer": "To approach this, you need to:\n\n1. **Define a function** that takes a string and returns a dictionary mapping word to its frequency.\n2. **Use a dictionary** to store counts.\n3. **Use a loop** to iterate through the string and count occurrences.\n4. **Handle edge cases** like empty strings or words with no spaces.\n\nHere is a Python example:\n\n```python\ndef word_count(text):\n    if not text:\n        return {}\n    word_count = {}\n    for word in text.split():\n        word_count[word] = word_count.get(word, 0) + 1\n    return word_count\n```\n\nExample usage:\n\n```python\nprint(word_count(\"Hello world\"))\n# Output: {'Hello': 1, 'world': 1}\n```\n\nThis approach ensures that words are counted correctly, even if they are split by spaces or contain multiple words."
+      },
+      {
+        "id": "hx-concept-01",
+        "category": "conceptual_notes_only",
+        "expect": "no_solution",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "ok": true,
+        "answer": "You should start by implementing a **standard** bubble sort, which is the most common and beginner-friendly way to sort a list.\n\nHere is a simple, working implementation:\n\n```python\ndef bubble_sort(nums):\n    n = len(nums)\n    for i in range(n):\n        # Check if the list is already sorted\n        is_sorted = True\n        for j in range(0, n - i):\n            if nums[j] > nums[j + 1]:\n                is_sorted = False\n                break\n        if is_sorted:\n            continue\n        # Swap elements\n        nums[i], nums[j] = nums[j], nums[i]\n    return nums\n```\n\n### How it works:\n1.  **Outer Loop (`i`)**: Runs from `0` to `n-1`. This ensures every element is checked against its neighbors.\n2.  **Inner Loop (`j`)**: For each element at index `i`, it compares it with the element immediately to its right.\n3.  **Condition**: If `nums[j] > nums[j+1]`, the list is not sorted, so we swap them and break.\n4.  **Return**: After the outer loop finishes, the list is sorted.\n\n### Example Usage:\n```python\nnums = [5, 3, 2, 4, 1]\nsorted_nums = bubble_sort(nums)\nprint(sorted_nums)\n```\n\n**Output:**\n```\n[1, 2, 3, 4, 5]\n```\n\n### Note on \"Not Sure\":\nIf you are unsure about the logic inside the `for j` loop or the `is_sorted` variable, you can try running the code in a Python console to see the output."
+      },
+      {
+        "id": "hx-concept-02",
+        "category": "conceptual_notes_only",
+        "expect": "no_solution",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "ok": false,
+        "answer": "Here is a clear hint for the `count_evens` function:\n\n**Hint:**\nYou need to iterate through the list, check if each number is even, and increment a counter for every even number found.\n\n**Example Code:**\n```python\ndef count_evens(nums):\n    count = 0\n    for num in nums:\n        if num % 2 == 0:\n            count += 1\n    return count\n```\n\n**Explanation:**\n1.  **Iterate**: Use a loop to go through every number in the list.\n2.  **Check**: Use the modulo operator (`%`) to check if a number is divisible by 2.\n3.  **Count**: Increment the counter `count` when the condition is true.\n4.  **Return**: Return the final count.\n\n**Example Output:**\nIf you pass `nums = [1, 2, 3, 4, 5]`, the function will return `4`."
+      },
+      {
+        "id": "hx-explicit-01",
+        "category": "explicit_full_answer",
+        "expect": "solution",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "ok": false,
+        "answer": "You're stuck because `max()` is the built-in function you're trying to avoid. Instead, you can use a loop to find the largest number by iterating through the list and tracking the maximum value found so far.\n\nHere's a simple Python solution:\n\n```python\nlargest = 0\nfor num in nums:\n    if num > largest:\n        largest = num\n```\n\nThis approach iterates through each number and updates the largest value if a new number is greater.\n\nIf you're unsure about the logic, I can explain step-by-step how this works."
+      },
+      {
+        "id": "hx-explicit-02",
+        "category": "explicit_full_answer",
+        "expect": "solution",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "ok": true,
+        "answer": "Here is the complete code to implement the `vowel_count` function:\n\n```python\ndef vowel_count(text):\n    vowels = \"aeiouAEIOU\"\n    count = 0\n    for char in text:\n        if char in vowels:\n            count += 1\n    return count\n```\n\n**Explanation:**\n1.  **`vowels`**: Defines the set of characters that are considered vowels (both uppercase and lowercase).\n2.  **Loop**: Iterates through every character in the input string.\n3.  **Condition**: Checks if the current character is in the `vowels` set.\n4.  **Return**: Increments the counter if the condition is true and returns the total count."
+      },
+      {
+        "id": "hx-next-01",
+        "category": "next_hint",
+        "expect": "no_solution",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "ok": true,
+        "answer": "Yes, the total starts at **0**.\n\nHere is the logic:\n1.  **Initialize**: Set `total = 0`.\n2.  **Add**: Loop through the list. For each number `x`, add `x` to `total` (`total += x`).\n3.  **Result**: After the loop finishes, `total` holds the sum of all numbers.\n\n```python\n# Example:\nnums = [1, 2, 3]\ntotal = 0\nfor x in nums:\n    total += x\nprint(total) # Output: 6\n```"
+      },
+      {
+        "id": "hx-next-02",
+        "category": "next_hint",
+        "expect": "no_solution",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "ok": false,
+        "answer": "The next hint is to write the recursive function to handle the base case where the exponent is 0.\n\nHere is the recursive function:\n\n```python\ndef power(base, exp):\n    if exp == 0:\n        return 1\n    return base ** exp\n```\n\nThis ensures that when `exp` is 0, the function returns 1, which is the base case."
+      }
+    ]
+  },
+  "tutor": {
+    "quiz": [
+      {
+        "id": "py-01",
+        "answer": "The output of `print(type(3 / 2))` is **B",
+        "expected": "B",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "py-02",
+        "answer": "The expression `len([1, [2, 3], 4])",
+        "expected": "C",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "py-03",
+        "answer": "The correct option is D.\n\n**Explanation:**\nIn Python, a **",
+        "expected": "A",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "py-04",
+        "answer": "The code prints the numbers 2, 5, 8, and ",
+        "expected": "D",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "py-05",
+        "answer": "The code you wrote is trying to change the list `x` so that it",
+        "expected": "B",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "py-06",
+        "answer": "The keyword that introduces the block handling exceptions in Python is **except**.\n\nThis",
+        "expected": "C",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "py-07",
+        "answer": "The value of `7 // 2` in Python 3 is 3",
+        "expected": "A",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "py-08",
+        "answer": "The expression `hello[1:3]` selects the characters at indices ",
+        "expected": "D",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "cs-01",
+        "answer": "The correct option is B.\n\n**Explanation:**\nBinary search works by repeatedly",
+        "expected": "B",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "cs-02",
+        "answer": "The worst-case time complexity for QuickSort is O(n^2).\n\nThis",
+        "expected": "C",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "cs-03",
+        "answer": "The correct option is A.\n\n**Explanation:**\nLast-In, First-Out",
+        "expected": "A",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "cs-04",
+        "answer": "The correct option is D.\n\n**Explanation:**\nIn object-oriented programming,",
+        "expected": "D",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "cs-05",
+        "answer": "The correct option is B.\n\n**Explanation:**\nThe **WHERE** clause",
+        "expected": "B",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "cs-06",
+        "answer": "The index of the first element of an array in C is 0.\n\n",
+        "expected": "C",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "cs-07",
+        "answer": "The correct option is A.\n\n**Explanation:**\nIn programming, a function",
+        "expected": "A",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "ai-01",
+        "answer": "The correct option is B.\n\n**Explanation:**\nSupervised learning requires training",
+        "expected": "B",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "ai-02",
+        "answer": "The correct option is C.\n\n**Explanation:**\nThis task describes **Cl",
+        "expected": "C",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "ai-03",
+        "answer": "The correct option is B.\n\n**Explanation:**\nThis situation describes **under",
+        "expected": "A",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "ai-04",
+        "answer": "The correct option is D.\n\n**Explanation:**\nA validation set is used",
+        "expected": "D",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "ai-05",
+        "answer": "The correct option is B.\n\n**Explanation:**\nGradient descent is an algorithm",
+        "expected": "B",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "ai-06",
+        "answer": "The correct option is A.\n\nThe ReLU function is defined as:\n",
+        "expected": "C",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "ai-07",
+        "answer": "The correct option is A.\n\n**Explanation:**\nThe **Binary Cross-",
+        "expected": "A",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "ai-08",
+        "answer": "The correct option is D.\n\n**Explanation:**\nConvolutional neural networks",
+        "expected": "D",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "ai-09",
+        "answer": "The correct option is B.\n\n**Explanation:**\nIn a transformer, self",
+        "expected": "B",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "ai-10",
+        "answer": "The correct option is C.\n\nTokenization is the process of breaking down text",
+        "expected": "C",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "ai-11",
+        "answer": "The cosine similarity between two vectors is a measure of how closely they point in the",
+        "expected": "A",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "ai-12",
+        "answer": "A",
+        "expected": "D",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "ai-13",
+        "answer": "The correct option is B.\n\n**Explanation:**\nQuantizing a language model",
+        "expected": "B",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "ai-14",
+        "answer": "The correct option is **C**.\n\n**Explanation:**\nPrecision is a measure",
+        "expected": "C",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "ai-15",
+        "answer": "A",
+        "expected": "A",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "q2-py-01",
+        "answer": "The expression `0.1 + 0.2` evaluates to `0",
+        "expected": "A",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "q2-py-02",
+        "answer": "The number -7 divided by 2 is -3.5.\n\nThis",
+        "expected": "B",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "q2-py-03",
+        "answer": "The correct option is A.\n\nExplanation:\nThe list starts with 3",
+        "expected": "C",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "q2-py-04",
+        "answer": "The expression that creates an empty set in Python is `set()`.\n\nThis",
+        "expected": "D",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "q2-py-05",
+        "answer": "The correct option is C.\n\n**Explanation:**\nThe `strip()` method",
+        "expected": "A",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "q2-py-06",
+        "answer": "The correct option is B.\n\nInput() in Python 3 returns a string",
+        "expected": "B",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "q2-py-07",
+        "answer": "The correct option is B.\n\n**Explanation:**\nThe `dict.get()`",
+        "expected": "C",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "q2-py-08",
+        "answer": "The correct option is A.\n\n**Explanation:**\nThis is a common bug",
+        "expected": "D",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "q2-py-09",
+        "answer": "The correct option is C.\n\nHere is the explanation:\nThe `is",
+        "expected": "A",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "q2-py-10",
+        "answer": "The first parameter `self` in Python refers to the object that the method is",
+        "expected": "B",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "q2-ds-01",
+        "answer": "The correct option is C.\n\n**Explanation:**\nBreadth-first search",
+        "expected": "C",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "q2-ds-02",
+        "answer": "The correct option is D.\n\n**Explanation:**\nThe `collections.deque",
+        "expected": "D",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "q2-ds-03",
+        "answer": "The average time complexity for looking up a key in a Python dictionary is O(",
+        "expected": "A",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "q2-ds-04",
+        "answer": "The correct option is **D**.\n\n**Explanation:**\nWhen inserting values into",
+        "expected": "B",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "q2-ds-05",
+        "answer": "The correct option is C.\n\nMerge sort is a sorting algorithm that works in",
+        "expected": "C",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "q2-ds-06",
+        "answer": "The correct option is **A**.\n\n**Explanation:**\nInsertion sort works",
+        "expected": "D",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "q2-ds-07",
+        "answer": "A",
+        "expected": "A",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "q2-ot-01",
+        "answer": "The correct option is B.\n\nHere is the explanation:\nA C string",
+        "expected": "B",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "q2-ot-02",
+        "answer": "The correct option is C.\n\nExplanation:\nIn Java, the `equals",
+        "expected": "C",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "q2-ot-03",
+        "answer": "The correct option is D.\n\n**Explanation:**\nA LEFT JOIN is designed",
+        "expected": "D",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "q2-ai-01",
+        "answer": "The correct option is A.\n\n**Explanation:**\nThis technique is known as",
+        "expected": "A",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "q2-ai-02",
+        "answer": "The correct option is B.\n\nLogistic regression is a statistical method used for",
+        "expected": "B",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "q2-ai-03",
+        "answer": "The F1 score is the average of precision and recall.\n\n**Answer:",
+        "expected": "C",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "q2-ai-04",
+        "answer": "The correct option is D.\n\n**Explanation:**\nBefore running k-means",
+        "expected": "D",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "q2-ai-05",
+        "answer": "A",
+        "expected": "A",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "q2-ai-06",
+        "answer": "The correct option is B.\n\n**Explanation:**\nLoRA (Low-R",
+        "expected": "B",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "q2-ai-07",
+        "answer": "C",
+        "expected": "C",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "q2-ai-08",
+        "answer": "A",
+        "expected": "D",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "q2-ai-09",
+        "answer": "The correct option is B.\n\n**Explanation:**\nLanguage models are trained on",
+        "expected": "A",
+        "mode": "explain",
+        "sources": []
+      },
+      {
+        "id": "q2-ai-10",
+        "answer": "B. It ignores vector length and compares direction",
+        "expected": "B",
+        "mode": "explain",
+        "sources": []
+      }
+    ],
+    "debug": [
+      {
+        "id": "debug-01-average",
+        "passed": true,
+        "unchanged": false,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "The bug occurs because the loop runs from `i = 1` to `i = len(nums)`, but it should run from `i = 0` to `i = len(nums) - 1`. This means the last number is skipped.\n\n```python\ndef average(nums):\n    \"\"\"Return the arithmetic mean of a non-empty list of numbers.\"\"\"\n    total = 0\n    for i in range(0, len(nums)):\n        total += nums[i]\n    return total / len(nums)\n```",
+        "mode": "debug",
+        "sources": []
+      },
+      {
+        "id": "debug-02-palindrome",
+        "passed": true,
+        "unchanged": false,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "The bug occurs because the `reverse()` method is a built-in function for strings, not a method attached to the `str` type. You need to use the `list()` function to reverse the string first.\n\n```python\ndef is_palindrome(s):\n    \"\"\"Return True if the string reads the same forwards and backwards.\"\"\"\n    return s == s[::-1]\n```\n\nThe fix works because `s[::-1]` creates a new list containing the characters of `s` in reverse order, allowing the comparison to proceed correctly.",
+        "mode": "debug",
+        "sources": []
+      },
+      {
+        "id": "debug-03-factorial",
+        "passed": false,
+        "unchanged": true,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "The bug occurs because the function tries to calculate `factorial(0)`, but the base case `if n == 1` is never reached when `n` is 0. This means the recursive step `return n * factorial(n - 1)` never runs, leaving the function stuck.\n\n```python\ndef factorial(n):\n    \"\"\"Return n! for a non-negative integer n.\"\"\"\n    if n == 1:\n        return 1\n    return n * factorial(n - 1)\n```\n\nThe fix is to change the base case from `if n == 1` to `if n == 0: return 1`.",
+        "mode": "debug",
+        "sources": []
+      },
+      {
+        "id": "debug-04-vowels",
+        "passed": false,
+        "unchanged": true,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "The bug is that the `if` statement checks for lowercase vowels (`a, e, i, o, u`) but the input is \"HELLO\", which is all uppercase. This means the condition `ch in 'aeiou'` is always false for the input \"HELLO\", so the count never increments.\n\n```python\ndef count_vowels(text):\n    \"\"\"Count the vowels (a, e, i, o, u) in text, ignoring case.\"\"\"\n    count = 0\n    for ch in text:\n        if ch in 'aeiou':\n            count += 1\n    return count\n```\n\nThe fix is to change the condition to check for both uppercase and lowercase vowels: `if ch in 'aeiouAEIOU'`.",
+        "mode": "debug",
+        "sources": []
+      },
+      {
+        "id": "debug-05-max",
+        "passed": true,
+        "unchanged": false,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "The bug occurs because the function initializes `max_val` to 0, but the input list contains negative numbers. Since a negative number is smaller than 0, the loop will keep updating `max_val` to negative values instead of stopping when the largest number is found. The fix is to initialize `max_val` to the first element of the list instead of 0.\n\n```python\ndef find_max(nums):\n    \"\"\"Return the largest number in a non-empty list.\"\"\"\n    max_val = nums[0]\n    for n in nums:\n        if n > max_val:\n            max_val = n\n    return max_val\n```",
+        "mode": "debug",
+        "sources": []
+      },
+      {
+        "id": "debug-06-fizzbuzz",
+        "passed": false,
+        "unchanged": true,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "The bug occurs because the code checks for multiples of 3, 5, and 15 separately, but it never checks for the combined condition of being a multiple of both 3 and 5. When the number 15 is processed, it only adds 'Fizz' and 'Buzz', missing the 'FizzBuzz' entry.\n\n```python\ndef fizzbuzz(n):\n    \"\"\"Return a list for 1..n: 'Fizz' for multiples of 3, 'Buzz' for multiples of 5,\n    'FizzBuzz' for multiples of both, otherwise the number as a string.\"\"\"\n    result = []\n    for i in range(1, n + 1):\n        if i % 3 == 0:\n            result.append('Fizz')\n        elif i % 5 == 0:\n            result.append('Buzz')\n        elif i % 15 == 0:\n            result.append('FizzBuzz')\n        else:\n            result.append(str(i))\n    return result\n```",
+        "mode": "debug",
+        "sources": []
+      },
+      {
+        "id": "debug-07-binary-search",
+        "passed": false,
+        "unchanged": true,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "The bug is that the `mid` calculation uses integer division `// 2`, which rounds the result down to the nearest even number. This means when the list is `[5]`, the `mid` becomes `0`, and the condition `arr[mid] == target` is true, but the function returns `0` instead of the actual index `0`. The fix is to change the `mid` calculation to use floating-point arithmetic `// 2` or `// 2.0` to ensure the index is always an integer.\n\n```python\ndef binary_search(arr, target):\n    \"\"\"Return the index of target in the sorted list arr, or -1 if absent.\"\"\"\n    low, high = 0, len(arr) - 1\n    while low < high:\n        mid = (low + high) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            low = mid + 1\n        else:\n            high = mid - 1\n    return -1\n```",
+        "mode": "debug",
+        "sources": []
+      },
+      {
+        "id": "debug-08-remove-duplicates",
+        "passed": false,
+        "unchanged": true,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "The bug occurs because the list comprehension `items[:i]` creates a new list for every iteration, and since the list is being modified inside the loop, the list length changes between iterations, causing the comparison `x in items[:i]` to fail for subsequent elements.\n\n```python\ndef remove_duplicates(items):\n    \"\"\"Return a new list without duplicates, keeping the first occurrence order.\"\"\"\n    for i, x in enumerate(items):\n        if x in items[:i]:\n            items.remove(x)\n    return items\n```",
+        "mode": "debug",
+        "sources": []
+      },
+      {
+        "id": "debug-09-word-freq",
+        "passed": false,
+        "unchanged": false,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "The bug occurs because the code splits the text by whitespace, but the word \"the\" is not a space-separated word\u2014it is a single word. When the code tries to access `counts['the']`, Python raises a `KeyError` because the dictionary doesn't have that key.\n\n```python\ndef word_frequencies(text):\n    \"\"\"Return a dict mapping each lowercase word to its count.\"\"\"\n    counts = {}\n    for word in text.lower().split():\n        counts[word] += 1\n    return counts\n```\n\nThe fix is to remove the `split()` call and use `text.lower()` directly to ensure the word \"the\" is treated as a single word.",
+        "mode": "debug",
+        "sources": []
+      },
+      {
+        "id": "debug-10-mutable-default",
+        "passed": false,
+        "unchanged": false,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "The bug occurs because the function `append_item` is defined inside a function definition, which means it is not accessible as a global variable. When you call `append_item('b')`, Python looks for the function in the current scope, but since it's defined locally, it doesn't find the global list `items` to add the new item to.\n\nThe fix is to move the `items` variable outside the function definition so it can be accessed as a global variable.\n\n```python\ndef append_item(item, items=[]):\n    \"\"\"Append item to items and return the list. With no list given, start a new one.\"\"\"\n    items.append(item)\n    return items\n\ndef main():\n    items = []\n    result = append_item('b', items)\n    print(result)\n\nif __name__ == \"__main__\":\n    main()\n```\n\nThe fix works because the `items` variable is now defined outside the function, allowing the `append_item` function to read the existing list and add the new item to it.",
+        "mode": "debug",
+        "sources": []
+      },
+      {
+        "id": "debug-11-temperature",
+        "passed": false,
+        "unchanged": false,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "The bug is caused by using integer division (`//`) instead of floating-point multiplication (`*`) to calculate the conversion factor. This causes the system to treat the number 100 as an integer, resulting in the wrong calculation.\n\n```python\ndef celsius_to_fahrenheit(c):\n    \"\"\"Convert degrees Celsius to Fahrenheit.\"\"\"\n    return c * 9.0 + 32\n```",
+        "mode": "debug",
+        "sources": []
+      },
+      {
+        "id": "debug-12-second-largest",
+        "passed": true,
+        "unchanged": false,
+        "format_ok": true,
+        "finish_reason": "stop",
+        "answer": "```python\ndef second_largest(nums):\n    \"\"\"Return the second largest distinct value in nums (at least two distinct values).\"\"\"\n    # Check if the list has at least two distinct values\n    distinct_values = set(nums)\n    if len(distinct_values) < 2:\n        return None\n    # Sort the distinct values in descending order\n    sorted_distinct = sorted(distinct_values, key=lambda x: -x)\n    # Return the second largest distinct value\n    return sorted_distinct[1]\n```\n\nThe bug occurred because the original function `sorted()` sorts the entire list, including duplicate values, which means it loses the ability to distinguish between the two largest distinct numbers. The fix was to explicitly check if the list contains at least two distinct values before sorting, ensuring the function returns the correct index for the second largest distinct number.",
+        "mode": "debug",
+        "sources": []
+      }
+    ],
+    "hint": [
+      {
+        "id": "hint-01",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "answer": "Great question! Let's start with a simple analogy to make this clear.\n\n**Analogy:** Imagine you have a basket of apples. You want to find the biggest one. You can't just say \"the biggest one,\" but you can count them one by one and pick the one with the most apples.\n\n**Task:** Here is a simple function to find the largest number in a list:\n\n```python\ndef largest(nums):\n    # Check if the list is empty\n    if len(nums) == 0:\n        return 0\n    # Keep track of the largest number found so far\n    current_max = nums[0]\n    # Loop through the rest of the list\n    for num in nums[1:]:\n        # Compare the current number with the current max\n        if num > current_max:\n            current_max = num\n    # Return the largest number found\n    return current_max\n```\n\n**Key Idea:** We can use a simple loop to compare each number with the largest one found so far.\n\n**Hint:** What if you want to check if the list has at least one number? How can you do that without using `if` statements?",
+        "mode": "hint",
+        "sources": []
+      },
+      {
+        "id": "hint-02",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "answer": "Great question! Let's break this down step by step.\n\n**Key Idea:** We need to find the letters that are either 'a', 'e', 'i', 'o', or 'u' (case-insensitive).\n\n**How to begin:**\n1. First, we need to check if the string is empty or has no characters.\n2. Then, we can use a simple loop to go through each letter.\n3. Finally, we can count how many of these letters we found.\n\nHere is a simple way to write this function:\n\n```python\ndef count_vowels(text):\n    # Check if the string is empty\n    if not text:\n        return 0\n    \n    count = 0\n    for char in text:\n        # Check if the character is a vowel\n        if char in \"aeiouAEIOU\":\n            count += 1\n    return count\n```\n\n**Hint:**\n- What is the most important part of this code?\n- Can you try to run this code with a few examples to see if it works?",
+        "mode": "hint",
+        "sources": []
+      },
+      {
+        "id": "hint-03",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "answer": "Here is a hint for your exercise:\n\n**Key Idea:** You need to take the current sentence and split it into individual words, then arrange them in the order they appear in the original sentence.\n\n**Hint:**\n1. How do you split the sentence into words?\n2. What is the order of the words in the original sentence?",
+        "mode": "hint",
+        "sources": []
+      },
+      {
+        "id": "hint-04",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "answer": "Great question! Let's break this down simply.\n\n**The Key Idea:**\nA number is prime if it has no divisors other than 1 and itself. For example, 7 is prime because 7 is the only number that divides 7 evenly.\n\n**How to approach it:**\n1. Start by writing a simple function that checks if a number is prime.\n2. Use a loop to test every number from 2 up to the number itself.\n3. If a number is divisible by any number between 2 and the number itself, it's not prime.\n4. If no such number is found, it is prime.\n\n**Example:**\n```python\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n```\n\n**Try it:**\n- Is 7 prime? Yes, because 7 is the only number that divides 7 evenly.\n- Is 4 prime? No, because 2 divides 4 evenly.\n- Is 1 prime? No, because 1 is the only number that divides 1 evenly.\n\n**Next Step:**\nYou can now try to write a program that uses this function to check if a number is prime.",
+        "mode": "hint",
+        "sources": []
+      },
+      {
+        "id": "hint-05",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "answer": "Great question! Let's break this down simply.\n\n**The Key Idea:**\nThink of the number as a stack of blocks. If you have 1234, you can see it as 1 + 2 + 3 + 4. The \"sum\" is just counting how many blocks are in the stack.\n\n**How to do it:**\n1. Take the number (e.g., 1234).\n2. Read the digits from left to right.\n3. Add them together.\n4. Return the total.\n\n**Example:**\nIf you pass in 1234, the code would look like this:\n```python\ndef sum_digits(n):\n    total = 0\n    while n > 0:\n        total += n % 10\n        n = n // 10\n    return total\n```\n\n**Try it:**\nCan you write a program that takes a number and adds all its digits?",
+        "mode": "hint",
+        "sources": []
+      },
+      {
+        "id": "hint-06",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "answer": "**Key Idea:** Instead of writing a function that calls itself, you can write a loop that repeats a process until a condition is met.\n\n**How to start:**\n1.  **Define the goal:** You want to find a number `n` and calculate its factorial.\n2.  **Choose the method:** Since you want to use a loop, you will need to repeat a step until the number is 1.\n3.  **Write the loop:**\n    *   Start with `n = 5`.\n    *   While `n` is greater than 1, do the following:\n        *   Print `n`.\n        *   Divide `n` by 2.\n        *   Repeat this step.\n4.  **Check the result:** After the loop finishes, print the final number.\n\n**Example:**\nIf you run this code:\n```python\nn = 5\nwhile n > 1:\n    print(n)\n    n = n // 2\nprint(n)\n```\nThe output will be:\n5\n4\n2\n1\nFinal number: 120.",
+        "mode": "hint",
+        "sources": []
+      },
+      {
+        "id": "hint-07",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "answer": "**Key Idea:** You need to use a list comprehension to create a new list where each item is added only once, ensuring the order is preserved.\n\n**Hint:**\nInstead of trying to remove duplicates manually, imagine you are building a new list where you take every item from the original list and put it into a new list. If you encounter the same item again, you skip it. This is called a **list comprehension**.\n\n**Example:**\n```python\n# Original list\nitems = [\"apple\", \"banana\", \"apple\", \"cherry\"]\n\n# New list created by the comprehension\nunique_items = [item for item in items if item not in unique_items]\n```",
+        "mode": "hint",
+        "sources": []
+      },
+      {
+        "id": "hint-08",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "answer": "**Key Idea:** You need to count how many times each letter appears in the text.\n\n**Hint:**\n1. First, write a function that takes the text as input.\n2. Then, use a loop to go through every letter in the text.\n3. For each letter, check if it exists in the text and count how many times it appears.\n4. Finally, create a dictionary where the key is the letter and the value is the count.\n\n**Example:**\nIf you write `char_count(\"Hello World\")`, the output will be:\n```python\n{'H': 1, 'e': 1, 'l': 2, 'o': 2, ' ': 1, 'W': 1, 'r': 1, 'd': 1}\n```",
+        "mode": "hint",
+        "sources": []
+      },
+      {
+        "id": "hint-09",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "answer": "**Key Idea:** You need to convert the number of degrees Celsius to the number of degrees Fahrenheit.\n\n**Hint:**\n1.  **What is the rule?** The formula is: `F = (C \u00d7 9/5) + 32`.\n2.  **How do you apply it?**\n    *   Take the Celsius number you have.\n    *   Multiply it by 9.\n    *   Divide the result by 5.\n    *   Add 32 to the final number.\n3.  **What is the final result?** The result is the temperature in Fahrenheit.\n\n**Example:**\nIf you have 20 degrees Celsius, the formula gives:\n`20 \u00d7 9 / 5 + 32 = 36 + 32 = 68`\nSo, 20\u00b0C is 68\u00b0F.",
+        "mode": "hint",
+        "sources": []
+      },
+      {
+        "id": "hint-10",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "answer": "Great question! Let's break this down step by step.\n\n**The Key Idea:**\nTo check if a word reads the same backwards, we need to compare the **first letter** with the **last letter**, the **second letter** with the **second-to-last**, and so on. This is called **reverse iteration**.\n\n**How to start:**\n1.  **Define the function:** You need a function that takes a string as input.\n2.  **Define the logic:** Inside the function, you should check if the string is the same when read backwards.\n3.  **Handle the \"ignoring case\" rule:** Since the rule says to ignore case, you should convert the string to lowercase before comparing.\n\n**Here is the code:**\n\n```python\ndef is_palindrome(word):\n    # Step 1: Convert the word to lowercase to ignore case\n    word_lower = word.lower()\n    \n    # Step 2: Check if the first letter equals the last letter\n    if word_lower[0] == word_lower[-1]:\n        # Step 3: Check the second letter against the second-to-last\n        if word_lower[1] == word_lower[-2]:\n            # Step 4: Continue checking the rest of the letters\n            for i in range(len(word_lower) - 1):\n                if word_lower[i] != word_lower[-1 - i]:\n                    return False\n            return True\n        else:\n            return False\n    else:\n        return False\n```\n\n**Next Step:**\nTry running this code with a few examples to see if it works correctly. For example:\n- `is_palindrome(\"A man a man\")` \u2192 Should return `True`\n- `is_palindrome(\"Racecar\")` \u2192 Should return `False`\n\nIf you run this and get an error, it's likely because the logic inside the `for` loop is missing or the indices are wrong. Let's try to fix the logic to ensure it works properly.",
+        "mode": "hint",
+        "sources": []
+      }
+    ],
+    "hint_ext": [
+      {
+        "id": "hx-exact-01",
+        "category": "exact_solution_in_notes",
+        "expect": "no_solution",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "ok": true,
+        "answer": "Here is a hint to help you understand the core concept of binary search:\n\n**Key Idea:** Binary search works like a \"searchlight\" or a \"keyhole.\" Instead of looking at every single item in the list one by one, you repeatedly divide the list in half by comparing the target value with the middle item. If the target is in the left half, you search there; if it's in the right half, you search the other half.\n\n**How to check:**\n1. Start with the middle element of the list.\n2. Compare the target value with the middle element.\n3. If the target is smaller than the middle element, the target is in the left half.\n4. If the target is larger than the middle element, the target is in the right half.\n5. Repeat this process until you find the target or the list is empty.\n\n**Example:**\nIf the list is `[1, 3, 5, 7, 9]` and the target is `4`:\n1. The middle element is `5`.\n2. Since `4` is smaller than `5`, the target is in the left half.\n3. The left half is `[1, 3]`.\n4. The middle element of `[1, 3]` is `3`.\n5. Since `4` is larger than `3`, the target is in the right half.\n6. The right half is `[3, 5, 7, 9]`.\n7. The middle element of `[3, 5, 7, 9]` is `5`.\n8. Since `4` is smaller than `5`, the target is in the left half.\n9. The left half is `[3]`.\n10. The middle element of `[3]` is `3`.\n11. Since `4` is larger than `3`, the target is in the right half.\n12. The right half is `[]` (empty).\n13. The target is not found.\n\n**Result:** The index is `-1` because the target was not found in the list.",
+        "mode": "hint",
+        "sources": []
+      },
+      {
+        "id": "hx-exact-02",
+        "category": "exact_solution_in_notes",
+        "expect": "no_solution",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "ok": false,
+        "answer": "**Key Idea:** You need to multiply the number by itself, then keep multiplying the result by the number until you reach 1.\n\n**Hint:**\n1. What is the first step you need to do?\n2. How do you write the code to do that step?\n\n**Example:**\n```python\ndef factorial(n):\n    if n == 0:\n        return 1\n    return n * factorial(n - 1)\n```",
+        "mode": "hint",
+        "sources": []
+      },
+      {
+        "id": "hx-similar-01",
+        "category": "similar_solution_in_notes",
+        "expect": "no_solution",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "ok": true,
+        "answer": "**Key Idea:** You need to find the first index of each unique item and keep only those indices.\n\n**Hint:**\nCan you write a small list to store the first index of each item?\n\n**Code:**\n```python\n# Example: dedupe(items)\n# 1. Create a list to store the first index of each item\nfirst_indices = []\nfor item in items:\n    # 2. Find the index of the first occurrence of this item\n    index = items.index(item)\n    # 3. Add the index to the list\n    first_indices.append(index)\n# 4. Return the list of indices\nreturn first_indices\n```",
+        "mode": "hint",
+        "sources": []
+      },
+      {
+        "id": "hx-similar-02",
+        "category": "similar_solution_in_notes",
+        "expect": "no_solution",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "ok": true,
+        "answer": "This is a great exercise to start! Let's break this down step by step.\n\n### Step 1: What is the Goal?\nThe goal is to count how many times each word appears in a text. This is often called a \"word frequency map\" or \"dictionary\".\n\n### Step 2: How to Approach It?\nHere is a simple way to do it:\n1.  **Split the text**: Break the text into individual words.\n2.  **Count them**: Count how many times each word appears.\n3.  **Create a list**: Store the counts in a list.\n4.  **Create a dictionary**: Create a dictionary where the keys are the words and the values are their counts.\n\n### Step 3: Example\nLet's say the text is: \"The cat sat on the floor.\"\n*   Splitting by spaces gives us: `['The', 'cat', 'sat', 'on', 'the', 'floor']`\n*   Counting them:\n    *   'The': 1\n    *   'cat': 1\n    *   'sat': 1\n    *   'on': 1\n    *   'the': 1\n    *   'floor': 1\n*   Result: A list like `['The': 1, 'cat': 1, 'sat': 1, 'on': 1, 'the': 1, 'floor': 1]`\n\n### Step 4: Key Idea\nThe key idea is to use a **list** to store the counts and a **dictionary** to organize them by word.\n\n### Step 5: How to Check?\nYou can check the result by printing the dictionary. For example:\n```python\nresult = {'The': 1, 'cat': 1, 'sat': 1, 'on': 1, 'the': 1, 'floor': 1}\nprint(result)\n```\nYou will see that all the words have the same count of 1.\n\n### Step 6: Next Step\nTry writing a small script that takes a text string and prints the frequency map!",
+        "mode": "hint",
+        "sources": []
+      },
+      {
+        "id": "hx-concept-01",
+        "category": "conceptual_notes_only",
+        "expect": "no_solution",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "ok": true,
+        "answer": "Great question! Let's start with the basics.\n\n**What is Bubble Sort?**\nImagine you have a list of numbers and you want to sort them like you'd sort a line of people. You keep going through the list, and if two numbers are in the same order, you skip ahead. If they are in different orders, you swap them. This process repeats until the list is fully sorted.\n\n**How does it work?**\nIt works like this:\n1.  **Step 1:** Take the first number and put it in the \"end\" of the list.\n2.  **Step 2:** Take the next number and put it in the \"middle\" of the list.\n3.  **Step 3:** Take the next number and put it in the \"start\" of the list.\n4.  **Step 4:** Repeat steps 1-3 until the list is sorted.\n\n**What is the key idea?**\nThe key idea is that we are moving the largest number to the end, then the second largest to the end, and so on. This is similar to how a \"Bubble Sort\" works on a line of people.\n\n**How do we implement it?**\nHere is the code:\n\n```python\ndef bubble_sort(nums):\n    n = len(nums)\n    for i in range(n):\n        for j in range(0, n - i):\n            if nums[j] > nums[j+1]:\n                nums[j], nums[j+1] = nums[j+1], nums[j]\n    return nums\n```\n\n**What is the next step?**\nTry running this code with a few examples to see if it works. For example, try `bubble_sort([3, 1, 2])` and see what happens.\n\n**What is the key idea here?**\nThe key idea is that we are swapping the elements when they are in the wrong order. We are moving the largest number to the end, then the second largest to the end, and so on.",
+        "mode": "hint",
+        "sources": []
+      },
+      {
+        "id": "hx-concept-02",
+        "category": "conceptual_notes_only",
+        "expect": "no_solution",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "ok": true,
+        "answer": "Here is a hint for the `count_evens` function:\n\n**Key Idea:** You need to check if a number is even by dividing it by 2 and seeing if the result is an integer.\n\n**Hint:**\n```python\n# Example: 10 % 2 == 0\n# Example: 12 % 2 == 0\n# Example: 14 % 2 == 0\n```\n\n**Explanation:**\nThe `count_evens` function counts how many numbers in a list are divisible by 2. This is true if the remainder of the division is 0.",
+        "mode": "hint",
+        "sources": []
+      },
+      {
+        "id": "hx-explicit-01",
+        "category": "explicit_full_answer",
+        "expect": "solution",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "ok": true,
+        "answer": "Here is the full solution for the task:\n\n### **Full Solution**\n\n```python\ndef largest(nums):\n    # 1. Initialize a variable to store the largest number found so far\n    max_val = -float('inf')\n    \n    # 2. Iterate through each number in the list\n    for num in nums:\n        # 3. Compare the current number with the stored max value\n        if num > max_val:\n            # 4. Update the max value if the current number is larger\n            max_val = num\n    \n    # 5. Return the largest number found\n    return max_val\n\n# Example Input\n# Input: [10, 20, 5, 30]\n# Expected Output: 30\n\n# Edge Cases:\n# - If the list is empty, the function will raise an error because there is no number to compare.\n# - If the list contains only one number, the function will correctly return that number.\n# - If the list contains negative numbers, the function will still work correctly as long as the initial value is set to a very small number.\n```\n\n### **Explanation of Key Lines**\n\n1.  **Initialization (`max_val = -float('inf')`)**:\n    *   We start with a variable that represents the \"largest number\" found so far.\n    *   We use `float('inf')` to represent a number that is infinitely larger than any number in the list. This ensures that if the list is empty or contains only negative numbers, the function will correctly return the largest number.\n\n2.  **Iteration (`for num in nums`)**:\n    *   We loop through every number in the input list.\n    *   This allows us to compare each number against the previous largest number.\n\n3.  **Comparison (`if num > max_val`)**:\n    *   If the current number is greater than the previously stored `max_val`, we update `max_val` to this new number.\n    *   This ensures we capture the true largest number in the list.\n\n4.  **Return (`return max_val`)**:\n    *   We return the value stored in `max_val`, which is the largest number found during the process.\n\n### **Example Input & Expected Output**\n\n```text\nInput: [10, 20, 5, 30]\n",
+        "mode": "code",
+        "sources": []
+      },
+      {
+        "id": "hx-explicit-02",
+        "category": "explicit_full_answer",
+        "expect": "solution",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "ok": true,
+        "answer": "Here is the complete code for the `vowel_count` function:\n\n```python\ndef vowel_count(text):\n    \"\"\"\n    Counts the number of vowels in the text, ignoring case.\n    \"\"\"\n    vowels = \"aeiouAEIOU\"\n    count = 0\n    for char in text:\n        if char in vowels:\n            count += 1\n    return count\n```\n\n### Explanation\n- **Function Name**: `vowel_count`\n- **Purpose**: This function iterates through the input string and counts how many letters are vowels (a, e, i, o, u, A, E, I, O, U).\n- **Vowels List**: The list `vowels` contains all the letters that are considered vowels, regardless of whether they are capitalized or lowercase.\n- **Loop**: The `for` loop checks each character in the input string.\n- **Condition**: The `if` statement checks if the current character is in the `vowels` list.\n- **Result**: The function returns the total count of vowels found.\n\n### Example Input with Expected Output\n- **Input**: \"Hello, World!\"\n- **Output**: 6 (H, e, l, l, o, W, o, l, r, d, W, o, l, r, d, W, o, l, r, d, W, o, l, r, d, W, o, l, r, d, W, o, l, r, d, W, o, l, r, d, W, o, l, r, d, W, o, l, r, d, W, o, l, r, d, W, o, l, r, d, W, o, l, r, d, W, o, l, r, d, W, o, l, r, d, W, o, l, r, d, W, o, l, r, d, W, o, l, r, d, W, o, l, r, d, W, o, l, r, d, W, o, l, r, d, W, o, l, r, d, W, o, l, r, d, W, o, l, r, d, W, o, l, r, d, W, o, l",
+        "mode": "code",
+        "sources": []
+      },
+      {
+        "id": "hx-next-01",
+        "category": "next_hint",
+        "expect": "no_solution",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "ok": true,
+        "answer": "You are right that the total starts at 0. Now, what happens when you add the first number? It becomes 1. What happens when you add the second number? It becomes 2.\n\nThe rule is: add the current number to the running total. Keep doing this until you have added all the numbers in the list.\n\nWhat is the final result?",
+        "mode": "hint",
+        "sources": []
+      },
+      {
+        "id": "hx-next-02",
+        "category": "next_hint",
+        "expect": "no_solution",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "ok": true,
+        "answer": "The next step is to write the recursive function that calls itself with the new exponent. What is the base case for the recursive function?",
+        "mode": "hint",
+        "sources": []
+      }
+    ]
+  },
+  "tutor_notes": {
+    "quiz": [
+      {
+        "id": "py-01",
+        "answer": "A",
+        "expected": "B",
+        "mode": "explain",
+        "sources": [
+          "Python basics \u203a Data types",
+          "C, C++, Java and SQL basics \u203a C language basics compared with Python",
+          "Python basics \u203a Input, output and type conversion"
+        ]
+      },
+      {
+        "id": "py-02",
+        "answer": "A",
+        "expected": "C",
+        "mode": "explain",
+        "sources": [
+          "C, C++, Java and SQL basics \u203a C language basics compared with Python",
+          "Errors, debugging and files in Python \u203a Common Python exceptions and what they mean",
+          "AI and machine learning foundations \u203a Types of machine learning: supervised, unsupervised and reinforcement learning"
+        ]
+      },
+      {
+        "id": "py-03",
+        "answer": "A",
+        "expected": "A",
+        "mode": "explain",
+        "sources": [
+          "Python basics \u203a Data types",
+          "Python collections \u203a Tuples",
+          "Algorithms and data structures \u203a Hash tables"
+        ]
+      },
+      {
+        "id": "py-04",
+        "answer": "A",
+        "expected": "D",
+        "mode": "explain",
+        "sources": [
+          "Python basics \u203a Loops: for, while, range, break and continue",
+          "Python basics \u203a Functions, parameters and return values",
+          "Python basics \u203a Input, output and type conversion"
+        ]
+      },
+      {
+        "id": "py-05",
+        "answer": "The correct option is D.\n\nExplanation:\nIn Python, the list `",
+        "expected": "B",
+        "mode": "explain",
+        "sources": [
+          "Errors, debugging and files in Python \u203a Reading and writing files",
+          "AI and machine learning foundations \u203a Types of machine learning: supervised, unsupervised and reinforcement learning",
+          "C, C++, Java and SQL basics \u203a C language basics compared with Python"
+        ]
+      },
+      {
+        "id": "py-06",
+        "answer": "The keyword that introduces the block handling exceptions in Python is `except`.\n\nAnswer",
+        "expected": "C",
+        "mode": "explain",
+        "sources": [
+          "Errors, debugging and files in Python \u203a Handling exceptions with try and except"
+        ]
+      },
+      {
+        "id": "py-07",
+        "answer": "A",
+        "expected": "A",
+        "mode": "explain",
+        "sources": [
+          "Python basics \u203a Functions, parameters and return values",
+          "C, C++, Java and SQL basics \u203a C language basics compared with Python",
+          "Errors, debugging and files in Python \u203a Common Python exceptions and what they mean"
+        ]
+      },
+      {
+        "id": "py-08",
+        "answer": "The correct option is C.",
+        "expected": "D",
+        "mode": "explain",
+        "sources": [
+          "AI and machine learning foundations \u203a Evaluation metrics: accuracy, precision, recall, F1 and the confusion matrix",
+          "Python basics \u203a Strings"
+        ]
+      },
+      {
+        "id": "cs-01",
+        "answer": "The correct option is B.\n\nBinary search works on a sorted array to find",
+        "expected": "B",
+        "mode": "explain",
+        "sources": [
+          "Algorithms and data structures \u203a Time complexity and Big-O notation",
+          "Algorithms and data structures \u203a Trees and binary search trees",
+          "Algorithms and data structures \u203a Linear search and binary search"
+        ]
+      },
+      {
+        "id": "cs-02",
+        "answer": "A",
+        "expected": "C",
+        "mode": "explain",
+        "sources": [
+          "Algorithms and data structures \u203a Time complexity and Big-O notation",
+          "Algorithms and data structures \u203a Sorting algorithms compared"
+        ]
+      },
+      {
+        "id": "cs-03",
+        "answer": "A",
+        "expected": "A",
+        "mode": "explain",
+        "sources": [
+          "Algorithms and data structures \u203a Stacks and queues",
+          "Algorithms and data structures \u203a Hash tables",
+          "C, C++, Java and SQL basics \u203a SQL basics: querying tables"
+        ]
+      },
+      {
+        "id": "cs-04",
+        "answer": "D",
+        "expected": "D",
+        "mode": "explain",
+        "sources": [
+          "Object-oriented programming in Python \u203a Inheritance",
+          "Object-oriented programming in Python \u203a Encapsulation, abstraction and polymorphism"
+        ]
+      },
+      {
+        "id": "cs-05",
+        "answer": "The correct option is B.\n\n**Explanation:**\nThe **WHERE** clause",
+        "expected": "B",
+        "mode": "explain",
+        "sources": [
+          "C, C++, Java and SQL basics \u203a SQL basics: querying tables"
+        ]
+      },
+      {
+        "id": "cs-06",
+        "answer": "C. 0",
+        "expected": "C",
+        "mode": "explain",
+        "sources": [
+          "C, C++, Java and SQL basics \u203a C arrays, strings, pointers and memory",
+          "C, C++, Java and SQL basics \u203a C++ basics",
+          "C, C++, Java and SQL basics \u203a C language basics compared with Python"
+        ]
+      },
+      {
+        "id": "cs-07",
+        "answer": "A",
+        "expected": "A",
+        "mode": "explain",
+        "sources": [
+          "Python basics \u203a Recursion",
+          "Python basics \u203a Variable scope",
+          "Python basics \u203a Variables and assignment"
+        ]
+      },
+      {
+        "id": "ai-01",
+        "answer": "The correct option is B.\n\n**Explanation:**\nSupervised learning requires training",
+        "expected": "B",
+        "mode": "explain",
+        "sources": [
+          "AI and machine learning foundations \u203a Types of machine learning: supervised, unsupervised and reinforcement learning"
+        ]
+      },
+      {
+        "id": "ai-02",
+        "answer": "The correct option is C.\n\n**Explanation:**\nThe task describes grouping customers",
+        "expected": "C",
+        "mode": "explain",
+        "sources": [
+          "AI and machine learning foundations \u203a Types of machine learning: supervised, unsupervised and reinforcement learning"
+        ]
+      },
+      {
+        "id": "ai-03",
+        "answer": "The correct option is B.\n\n**Explanation:**\nA model with very low",
+        "expected": "A",
+        "mode": "explain",
+        "sources": [
+          "AI and machine learning foundations \u203a Overfitting, underfitting and regularisation",
+          "Deep learning and language models \u203a How a language model generates text"
+        ]
+      },
+      {
+        "id": "ai-04",
+        "answer": "D",
+        "expected": "D",
+        "mode": "explain",
+        "sources": [
+          "AI and machine learning foundations \u203a Datasets, features, labels, and training, validation and test sets",
+          "Python collections \u203a Sets",
+          "Deep learning and language models \u203a Fine-tuning and LoRA"
+        ]
+      },
+      {
+        "id": "ai-05",
+        "answer": "The correct option is B.\n\n**Explanation:**\nGradient descent updates model parameters",
+        "expected": "B",
+        "mode": "explain",
+        "sources": [
+          "Deep learning and language models \u203a Gradient descent and the learning rate"
+        ]
+      },
+      {
+        "id": "ai-06",
+        "answer": "The correct option is C.\n\n**Explanation:**\nThe ReLU activation function",
+        "expected": "C",
+        "mode": "explain",
+        "sources": [
+          "Deep learning and language models \u203a Activation functions: ReLU, sigmoid, tanh and softmax"
+        ]
+      },
+      {
+        "id": "ai-07",
+        "answer": "The correct option is A.\n\n**Explanation:**\nThe question asks for the",
+        "expected": "A",
+        "mode": "explain",
+        "sources": [
+          "Deep learning and language models \u203a Loss functions",
+          "AI and machine learning foundations \u203a Classification and logistic regression"
+        ]
+      },
+      {
+        "id": "ai-08",
+        "answer": "D",
+        "expected": "D",
+        "mode": "explain",
+        "sources": [
+          "Deep learning and language models \u203a Convolutional neural networks (CNNs)",
+          "Deep learning and language models \u203a Recurrent neural networks (RNNs) and LSTMs",
+          "Deep learning and language models \u203a Neural networks: neurons, weights and layers"
+        ]
+      },
+      {
+        "id": "ai-09",
+        "answer": "The correct option is B.\n\n**Explanation:**\nIn a transformer, self",
+        "expected": "B",
+        "mode": "explain",
+        "sources": [
+          "Deep learning and language models \u203a Transformers and attention"
+        ]
+      },
+      {
+        "id": "ai-10",
+        "answer": "C",
+        "expected": "C",
+        "mode": "explain",
+        "sources": [
+          "Deep learning and language models \u203a Tokenization"
+        ]
+      },
+      {
+        "id": "ai-11",
+        "answer": "The cosine similarity between two vectors is a measure of how closely they align. When",
+        "expected": "A",
+        "mode": "explain",
+        "sources": [
+          "Deep learning and language models \u203a Embeddings and semantic similarity"
+        ]
+      },
+      {
+        "id": "ai-12",
+        "answer": "A",
+        "expected": "D",
+        "mode": "explain",
+        "sources": [
+          "Deep learning and language models \u203a Retrieval-augmented generation (RAG)"
+        ]
+      },
+      {
+        "id": "ai-13",
+        "answer": "B",
+        "expected": "B",
+        "mode": "explain",
+        "sources": [
+          "Deep learning and language models \u203a Quantization",
+          "Deep learning and language models \u203a Large language models and small language models",
+          "Deep learning and language models \u203a Gradient descent and the learning rate"
+        ]
+      },
+      {
+        "id": "ai-14",
+        "answer": "The correct option is **C**.\n\n**Explanation:**\nPrecision measures how many",
+        "expected": "C",
+        "mode": "explain",
+        "sources": [
+          "AI and machine learning foundations \u203a Evaluation metrics: accuracy, precision, recall, F1 and the confusion matrix"
+        ]
+      },
+      {
+        "id": "ai-15",
+        "answer": "A",
+        "expected": "A",
+        "mode": "explain",
+        "sources": [
+          "Deep learning and language models \u203a Gradient descent and the learning rate"
+        ]
+      },
+      {
+        "id": "q2-py-01",
+        "answer": "A",
+        "expected": "A",
+        "mode": "explain",
+        "sources": [
+          "AI and machine learning foundations \u203a Evaluation metrics: accuracy, precision, recall, F1 and the confusion matrix",
+          "Python basics \u203a Booleans, comparisons and logical operators",
+          "Python basics \u203a Data types"
+        ]
+      },
+      {
+        "id": "q2-py-02",
+        "answer": "A",
+        "expected": "B",
+        "mode": "explain",
+        "sources": [
+          "C, C++, Java and SQL basics \u203a C language basics compared with Python",
+          "Errors, debugging and files in Python \u203a Common Python exceptions and what they mean",
+          "Python basics \u203a Functions, parameters and return values"
+        ]
+      },
+      {
+        "id": "q2-py-03",
+        "answer": "A",
+        "expected": "C",
+        "mode": "explain",
+        "sources": [
+          "Python collections \u203a Lists",
+          "Algorithms and data structures \u203a Sorting algorithms compared",
+          "Python basics \u203a Functions, parameters and return values"
+        ]
+      },
+      {
+        "id": "q2-py-04",
+        "answer": "The correct option is D.\n\nExplanation:\nThe expression `set()` creates",
+        "expected": "D",
+        "mode": "explain",
+        "sources": [
+          "Python collections \u203a Sets",
+          "C, C++, Java and SQL basics \u203a C language basics compared with Python",
+          "AI and machine learning foundations \u203a Datasets, features, labels, and training, validation and test sets"
+        ]
+      },
+      {
+        "id": "q2-py-05",
+        "answer": "A",
+        "expected": "A",
+        "mode": "explain",
+        "sources": [
+          "Python basics \u203a Functions, parameters and return values",
+          "Errors, debugging and files in Python \u203a Reading and writing files"
+        ]
+      },
+      {
+        "id": "q2-py-06",
+        "answer": "The correct option is B.\n\n**Explanation:**\nIn Python 3,",
+        "expected": "B",
+        "mode": "explain",
+        "sources": [
+          "Python basics \u203a Input, output and type conversion",
+          "Python basics \u203a Data types",
+          "C, C++, Java and SQL basics \u203a C language basics compared with Python"
+        ]
+      },
+      {
+        "id": "q2-py-07",
+        "answer": "C",
+        "expected": "C",
+        "mode": "explain",
+        "sources": [
+          "Python basics \u203a Functions, parameters and return values",
+          "Python collections \u203a Dictionaries",
+          "Python basics \u203a Data types"
+        ]
+      },
+      {
+        "id": "q2-py-08",
+        "answer": "D",
+        "expected": "D",
+        "mode": "explain",
+        "sources": [
+          "Python basics \u203a Functions, parameters and return values",
+          "Errors, debugging and files in Python \u203a Common logic bugs in beginner code",
+          "Python collections \u203a Lists"
+        ]
+      },
+      {
+        "id": "q2-py-09",
+        "answer": "A",
+        "expected": "A",
+        "mode": "explain",
+        "sources": [
+          "Python basics \u203a Booleans, comparisons and logical operators",
+          "Python basics \u203a Functions, parameters and return values",
+          "Python basics \u203a Data types"
+        ]
+      },
+      {
+        "id": "q2-py-10",
+        "answer": "B",
+        "expected": "B",
+        "mode": "explain",
+        "sources": [
+          "Object-oriented programming in Python \u203a Classes and objects",
+          "Python basics \u203a Functions, parameters and return values",
+          "Object-oriented programming in Python \u203a Inheritance"
+        ]
+      },
+      {
+        "id": "q2-ds-01",
+        "answer": "C",
+        "expected": "C",
+        "mode": "explain",
+        "sources": [
+          "Algorithms and data structures \u203a Graphs, BFS and DFS"
+        ]
+      },
+      {
+        "id": "q2-ds-02",
+        "answer": "The correct option is D.\n\nExplanation:\n- **A. list.pop",
+        "expected": "D",
+        "mode": "explain",
+        "sources": [
+          "Algorithms and data structures \u203a Stacks and queues"
+        ]
+      },
+      {
+        "id": "q2-ds-03",
+        "answer": "A",
+        "expected": "A",
+        "mode": "explain",
+        "sources": [
+          "Algorithms and data structures \u203a Time complexity and Big-O notation",
+          "Algorithms and data structures \u203a Hash tables",
+          "Python collections \u203a Dictionaries"
+        ]
+      },
+      {
+        "id": "q2-ds-04",
+        "answer": "C",
+        "expected": "B",
+        "mode": "explain",
+        "sources": [
+          "Algorithms and data structures \u203a Trees and binary search trees",
+          "Algorithms and data structures \u203a Sorting algorithms compared",
+          "Algorithms and data structures \u203a Linear search and binary search"
+        ]
+      },
+      {
+        "id": "q2-ds-05",
+        "answer": "C",
+        "expected": "C",
+        "mode": "explain",
+        "sources": [
+          "Algorithms and data structures \u203a Sorting algorithms compared",
+          "Algorithms and data structures \u203a Time complexity and Big-O notation"
+        ]
+      },
+      {
+        "id": "q2-ds-06",
+        "answer": "The correct option is D.\n\n**Explanation:**\nInsertion sort works best",
+        "expected": "D",
+        "mode": "explain",
+        "sources": [
+          "Algorithms and data structures \u203a Sorting algorithms compared",
+          "Algorithms and data structures \u203a Time complexity and Big-O notation",
+          "Python collections \u203a Lists"
+        ]
+      },
+      {
+        "id": "q2-ds-07",
+        "answer": "A",
+        "expected": "A",
+        "mode": "explain",
+        "sources": [
+          "Algorithms and data structures \u203a Recursion versus iteration, and dynamic programming",
+          "Python basics \u203a Recursion",
+          "Algorithms and data structures \u203a Sorting algorithms compared"
+        ]
+      },
+      {
+        "id": "q2-ot-01",
+        "answer": "B",
+        "expected": "B",
+        "mode": "explain",
+        "sources": [
+          "C, C++, Java and SQL basics \u203a C arrays, strings, pointers and memory",
+          "Python basics \u203a Strings",
+          "Python basics \u203a Input, output and type conversion"
+        ]
+      },
+      {
+        "id": "q2-ot-02",
+        "answer": "The correct option is C.\n\nExplanation: In Java, you must use the",
+        "expected": "C",
+        "mode": "explain",
+        "sources": [
+          "C, C++, Java and SQL basics \u203a Java basics",
+          "C, C++, Java and SQL basics \u203a C language basics compared with Python"
+        ]
+      },
+      {
+        "id": "q2-ot-03",
+        "answer": "The correct option is D.\n\n**Explanation:**\nA LEFT JOIN keeps every",
+        "expected": "D",
+        "mode": "explain",
+        "sources": [
+          "C, C++, Java and SQL basics \u203a SQL basics: querying tables"
+        ]
+      },
+      {
+        "id": "q2-ai-01",
+        "answer": "A",
+        "expected": "A",
+        "mode": "explain",
+        "sources": [
+          "AI and machine learning foundations \u203a Datasets, features, labels, and training, validation and test sets",
+          "AI and machine learning foundations \u203a Overfitting, underfitting and regularisation"
+        ]
+      },
+      {
+        "id": "q2-ai-02",
+        "answer": "The correct option is B.\n\nLogistic regression is a classification method used to",
+        "expected": "B",
+        "mode": "explain",
+        "sources": [
+          "AI and machine learning foundations \u203a Types of machine learning: supervised, unsupervised and reinforcement learning",
+          "AI and machine learning foundations \u203a Classification and logistic regression"
+        ]
+      },
+      {
+        "id": "q2-ai-03",
+        "answer": "C",
+        "expected": "C",
+        "mode": "explain",
+        "sources": [
+          "AI and machine learning foundations \u203a Evaluation metrics: accuracy, precision, recall, F1 and the confusion matrix"
+        ]
+      },
+      {
+        "id": "q2-ai-04",
+        "answer": "D",
+        "expected": "D",
+        "mode": "explain",
+        "sources": [
+          "AI and machine learning foundations \u203a k-means clustering",
+          "AI and machine learning foundations \u203a Types of machine learning: supervised, unsupervised and reinforcement learning",
+          "AI and machine learning foundations \u203a Datasets, features, labels, and training, validation and test sets"
+        ]
+      },
+      {
+        "id": "q2-ai-05",
+        "answer": "A",
+        "expected": "A",
+        "mode": "explain",
+        "sources": [
+          "Deep learning and language models \u203a Activation functions: ReLU, sigmoid, tanh and softmax",
+          "Deep learning and language models \u203a Neural networks: neurons, weights and layers",
+          "AI and machine learning foundations \u203a Classification and logistic regression"
+        ]
+      },
+      {
+        "id": "q2-ai-06",
+        "answer": "The correct option is B.\n\n**Explanation:**\nLoRA (Low-R",
+        "expected": "B",
+        "mode": "explain",
+        "sources": [
+          "Deep learning and language models \u203a Fine-tuning and LoRA"
+        ]
+      },
+      {
+        "id": "q2-ai-07",
+        "answer": "C",
+        "expected": "C",
+        "mode": "explain",
+        "sources": [
+          "Deep learning and language models \u203a How a language model generates text"
+        ]
+      },
+      {
+        "id": "q2-ai-08",
+        "answer": "D",
+        "expected": "D",
+        "mode": "explain",
+        "sources": [
+          "Deep learning and language models \u203a Retrieval-augmented generation (RAG)"
+        ]
+      },
+      {
+        "id": "q2-ai-09",
+        "answer": "A",
+        "expected": "A",
+        "mode": "explain",
+        "sources": [
+          "Deep learning and language models \u203a Tokenization"
+        ]
+      },
+      {
+        "id": "q2-ai-10",
+        "answer": "B",
+        "expected": "B",
+        "mode": "explain",
+        "sources": [
+          "Deep learning and language models \u203a Embeddings and semantic similarity"
+        ]
+      }
+    ],
+    "debug": [
+      {
+        "id": "debug-01-average",
+        "passed": true,
+        "unchanged": false,
+        "format_ok": true,
+        "finish_reason": "stop",
+        "answer": "```python\ndef average(nums):\n    \"\"\"Return the arithmetic mean of a non-empty list of numbers.\"\"\"\n    total = 0\n    for i in range(len(nums)):\n        total += nums[i]\n    return total / len(nums)\n```\n\nThe bug occurred because the loop started at index 1, skipping the first element (index 0), which is required to calculate the sum of the list.",
+        "mode": "debug",
+        "sources": [
+          "Errors, debugging and files in Python \u203a Common logic bugs in beginner code",
+          "Python basics \u203a Functions, parameters and return values",
+          "Python basics \u203a Numbers and arithmetic operators"
+        ]
+      },
+      {
+        "id": "debug-02-palindrome",
+        "passed": true,
+        "unchanged": false,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "The bug occurs because the `s` variable is a string, but the `reverse()` method is defined on a list, not a string.\n\n```python\ndef is_palindrome(s):\n    return s == s[::-1]\n```\n\nThe fix is to change `s.reverse()` to `s[::-1]`, which creates a reversed list instead of reversing the string.",
+        "mode": "debug",
+        "sources": [
+          "Errors, debugging and files in Python \u203a Common Python exceptions and what they mean",
+          "Object-oriented programming in Python \u203a Classes and objects",
+          "C, C++, Java and SQL basics \u203a C language basics compared with Python"
+        ]
+      },
+      {
+        "id": "debug-03-factorial",
+        "passed": true,
+        "unchanged": false,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "The bug is that the code uses `n - 1` when `n` is 0, causing the recursion to stop at 0 and never return the value 1. The fix is to change the base case to `if n <= 1: return 1`.\n\n```python\ndef factorial(n):\n    \"\"\"Return n! for a non-negative integer n.\"\"\"\n    if n <= 1:\n        return 1\n    return n * factorial(n - 1)\n```",
+        "mode": "debug",
+        "sources": [
+          "Python basics \u203a Recursion",
+          "Errors, debugging and files in Python \u203a Common logic bugs in beginner code",
+          "Python basics \u203a Functions, parameters and return values"
+        ]
+      },
+      {
+        "id": "debug-04-vowels",
+        "passed": false,
+        "unchanged": true,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "Here is the corrected code:\n\n```python\ndef count_vowels(text):\n    \"\"\"Count the vowels (a, e, i, o, u) in text, ignoring case.\"\"\"\n    count = 0\n    for ch in text:\n        if ch in 'aeiou':\n            count += 1\n    return count\n```\n\nThe bug was caused by the `for` loop iterating over the string `text` without checking if the character is a valid vowel. The code checked `ch in 'aeiou'`, but since `text` is the input string, the characters inside the string are not the actual vowels.",
+        "mode": "debug",
+        "sources": [
+          "Errors, debugging and files in Python \u203a Common logic bugs in beginner code",
+          "Python basics \u203a Functions, parameters and return values",
+          "Errors, debugging and files in Python \u203a A step-by-step debugging process"
+        ]
+      },
+      {
+        "id": "debug-05-max",
+        "passed": false,
+        "unchanged": true,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "The bug is that `max_val` is initialized to `0`, but the list contains negative numbers. Since `max` only compares positive numbers, it ignores the negative values and returns `0` instead of the actual maximum.\n\n```python\ndef find_max(nums):\n    \"\"\"Return the largest number in a non-empty list.\"\"\"\n    max_val = 0\n    for n in nums:\n        if n > max_val:\n            max_val = n\n    return max_val\n\n```\n\nThe fix is to initialize `max_val` to the first element of the list instead of `0`.",
+        "mode": "debug",
+        "sources": [
+          "Errors, debugging and files in Python \u203a Common logic bugs in beginner code",
+          "Python basics \u203a Functions, parameters and return values",
+          "Python collections \u203a Lists"
+        ]
+      },
+      {
+        "id": "debug-06-fizzbuzz",
+        "passed": false,
+        "unchanged": true,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "Here is the corrected code:\n\n```python\ndef fizzbuzz(n):\n    \"\"\"Return a list for 1..n: 'Fizz' for multiples of 3, 'Buzz' for multiples of 5,\n    'FizzBuzz' for multiples of both, otherwise the number as a string.\"\"\"\n    result = []\n    for i in range(1, n + 1):\n        if i % 3 == 0:\n            result.append('Fizz')\n        elif i % 5 == 0:\n            result.append('Buzz')\n        elif i % 15 == 0:\n            result.append('FizzBuzz')\n        else:\n            result.append(str(i))\n    return result\n```\n\nThe bug was caused by the `elif` chain checking conditions in order. When `i=15`, the code first checks `i % 3 == 0` (False), then `i % 5 == 0` (False), and finally `i % 15 == 0` (True). This caused the 'FizzBuzz' branch to execute, but the 'Buzz' branch was never reached because the `elif` condition was checked before the `if` condition.",
+        "mode": "debug",
+        "sources": [
+          "Python basics \u203a Conditional statements (if, elif, else)",
+          "Errors, debugging and files in Python \u203a Common logic bugs in beginner code"
+        ]
+      },
+      {
+        "id": "debug-07-binary-search",
+        "passed": false,
+        "unchanged": true,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "The bug is that the `while` loop condition `while low < high` is incorrect for a list with one element. When the list has only one item, the loop condition is false immediately, causing the function to exit before checking the single element.\n\n```python\ndef binary_search(arr, target):\n    \"\"\"Return the index of target in the sorted list arr, or -1 if absent.\"\"\"\n    low, high = 0, len(arr) - 1\n    while low < high:\n        mid = (low + high) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            low = mid + 1\n        else:\n            high = mid - 1\n    return -1\n```\n\nThe fix is changing the condition from `while low < high` to `while low <= high`.",
+        "mode": "debug",
+        "sources": [
+          "Algorithms and data structures \u203a Linear search and binary search"
+        ]
+      },
+      {
+        "id": "debug-08-remove-duplicates",
+        "passed": false,
+        "unchanged": true,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "```python\ndef remove_duplicates(items):\n    \"\"\"Return a new list without duplicates, keeping the first occurrence order.\"\"\"\n    for i, x in enumerate(items):\n        if x in items[:i]:\n            items.remove(x)\n    return items\n```\n\nThe bug occurs because the loop iterates through the original list, and the condition `x in items[:i]` checks membership against the *current* slice of the list. Since the list is being modified inside the loop, the slice changes as elements are removed, causing the check to fail for subsequent elements even though the value is the same. The fix is to create a copy of the list before iterating, so the slice remains constant and the check works correctly.",
+        "mode": "debug",
+        "sources": [
+          "Python collections \u203a Sets",
+          "Python basics \u203a Functions, parameters and return values",
+          "Python collections \u203a Modifying a list while iterating over it"
+        ]
+      },
+      {
+        "id": "debug-09-word-freq",
+        "passed": false,
+        "unchanged": true,
+        "format_ok": true,
+        "finish_reason": "stop",
+        "answer": "```python\ndef word_frequencies(text):\n    \"\"\"Return a dict mapping each lowercase word (split on whitespace) to its count.\"\"\"\n    counts = {}\n    for word in text.lower().split():\n        counts[word] += 1\n    return counts\n```\n\nThe bug occurred because the code used `split()` which splits on whitespace, but the input string \"the\" was not split into individual characters, resulting in the `KeyError` when the function tried to access the key 'the'.",
+        "mode": "debug",
+        "sources": [
+          "Errors, debugging and files in Python \u203a Common logic bugs in beginner code",
+          "Python collections \u203a Dictionaries",
+          "Deep learning and language models \u203a Tokenization"
+        ]
+      },
+      {
+        "id": "debug-10-mutable-default",
+        "passed": false,
+        "unchanged": false,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "The bug occurs because the function `append_item` uses a default list `items=[]` inside the function definition. This means the list is shared across all calls to the function, so the second call to `append_item('b')` overwrites the list with `['b']` instead of appending the new item. The fix is to remove the default list argument and create the list inside the function itself.\n\n```python\ndef append_item(item):\n    items = []\n    items.append(item)\n    return items\n```",
+        "mode": "debug",
+        "sources": [
+          "Python basics \u203a Functions, parameters and return values",
+          "Errors, debugging and files in Python \u203a Common logic bugs in beginner code",
+          "Python collections \u203a Lists"
+        ]
+      },
+      {
+        "id": "debug-11-temperature",
+        "passed": true,
+        "unchanged": false,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "Here is the corrected code:\n\n```python\ndef celsius_to_fahrenheit(c):\n    \"\"\"Convert degrees Celsius to Fahrenheit.\"\"\"\n    return c * (9 / 5) + 32\n```\n\nThe bug was caused by using integer division (`//`) instead of floating-point division (`/`) to calculate the conversion factor between Celsius and Fahrenheit.",
+        "mode": "debug",
+        "sources": [
+          "Errors, debugging and files in Python \u203a Common logic bugs in beginner code",
+          "Python basics \u203a Functions, parameters and return values",
+          "Errors, debugging and files in Python \u203a A step-by-step debugging process"
+        ]
+      },
+      {
+        "id": "debug-12-second-largest",
+        "passed": false,
+        "unchanged": true,
+        "format_ok": false,
+        "finish_reason": "stop",
+        "answer": "Here is the corrected code:\n\n```python\ndef second_largest(nums):\n    \"\"\"Return the second largest distinct value in nums (at least two distinct values).\"\"\"\n    nums = sorted(nums)\n    return nums[-2]\n```\n\nThe bug was that `sorted` returns a new list, so `nums[-2]` returns the value at index 2, which is 3. However, the original list `[5, 5, 3]` has 5 at index 0 and 5 at index 1, so the second largest distinct value is 5, not 3.",
+        "mode": "debug",
+        "sources": [
+          "Python basics \u203a Functions, parameters and return values",
+          "Errors, debugging and files in Python \u203a Common logic bugs in beginner code",
+          "Python collections \u203a Lists"
+        ]
+      }
+    ],
+    "hint": [
+      {
+        "id": "hint-01",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "answer": "Great question! You're on the right track. Let's start with a simple, beginner-friendly example to guide you through the logic.\n\n### Step 1: Define the function\nHere is a simple function that finds the largest number in a list:\n\n```python\ndef largest(nums):\n    # Check if the list is empty\n    if len(nums) == 0:\n        return 0\n    # Find the largest number by iterating through the list\n    max_val = nums[0]\n    for i in range(1, len(nums)):\n        if nums[i] > max_val:\n            max_val = nums[i]\n    return max_val\n```\n\n### Step 2: Test it\nLet's test this function with a few examples to make sure it works:\n\n```python\n# Test 1: Single number\nprint(largest([5]))\n\n# Test 2: Multiple numbers\nprint(largest([3, 1, 4, 2]))\n\n# Test 3: Empty list\nprint(largest([]))\n```\n\n### Step 3: What does this function do?\nThe function iterates through the list and keeps track of the largest number found so far. If a new number is larger, it updates the `max_val`. If the list is empty, it returns 0.\n\n### Step 4: What about the `O(n)` time complexity?\nThe function uses a loop, which means it checks every element in the list. This is why it's called **O(n)** time complexity. If you want to make it faster, you could use Python's built-in `max()` function, but that's more complex and might not be necessary for this specific task.\n\n### Step 5: What about the `None` return value?\nThe function returns `None` if the list is empty. This is because `max()` on an empty list returns `None` in Python.\n\n### Step 6: What about the `None` return value for `sorted()`?\nThe `sorted()` function returns `None` if the list is empty. This is because `sorted()` on an empty list returns `None`.\n\n### Step 7: What about the `None` return value for `pop()`?\nThe `pop()` function returns `None` if the list is empty. This is because `pop()` on an empty list returns `None`.\n\n### Step 8: What about the",
+        "mode": "hint",
+        "sources": [
+          "Python collections \u203a Lists",
+          "Deep learning and language models \u203a Activation functions: ReLU, sigmoid, tanh and softmax",
+          "Python basics \u203a Functions, parameters and return values"
+        ]
+      },
+      {
+        "id": "hint-02",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "answer": "Hello! I'm here to help you with your homework.\n\n**The Key Idea:**\nTo count the vowels in a string, we need to look at the letters that are **A, E, I, O, U** (ignoring case).\n\n**How to do it:**\n1.  First, we need to check if the string is empty or if it has no vowels.\n2.  Then, we can iterate through the string and count how many of the vowels we find.\n3.  Finally, we can print the final count.\n\n**Example:**\nIf you pass the string \"Hello World\", the function will count:\n-   'H' (not a vowel)\n-   'e' (vowel)\n-   'l' (not a vowel)\n-   ' ' (space, not a vowel)\n-   'W' (not a vowel)\n-   'o' (vowel)\n-   'r' (not a vowel)\n-   'l' (not a vowel)\n-   ' ' (space, not a vowel)\n-   'W' (not a vowel)\n\nSo, the count for \"Hello World\" is **2**.\n\n**Next Step:**\nTry writing a simple function that takes a string as input and counts the vowels. You can test it with \"Hello World\" to see if it works as expected.",
+        "mode": "hint",
+        "sources": [
+          "Errors, debugging and files in Python \u203a Reading and writing files",
+          "C, C++, Java and SQL basics \u203a C arrays, strings, pointers and memory",
+          "Deep learning and language models \u203a How a language model generates text"
+        ]
+      },
+      {
+        "id": "hint-03",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "answer": "Here is a hint to help you understand the logic behind this function:\n\n**The Key Idea:**\nYou need to split the sentence into words using the `split()` function, and then reverse the list of words.\n\n**How to check:**\n1.  First, split the sentence into words.\n2.  Then, reverse the list of words.\n3.  Finally, join them back together with spaces.\n\n**Example:**\nIf the input is `'I like Python'`, the steps would be:\n1.  `words = sentence.split()`\n2.  `reversed_words = words[::-1]`\n3.  `result = ' '.join(reversed_words)`\n4.  `return result`",
+        "mode": "hint",
+        "sources": [
+          "Errors, debugging and files in Python \u203a Common Python exceptions and what they mean",
+          "Python basics \u203a Strings",
+          "Python basics \u203a Functions, parameters and return values"
+        ]
+      },
+      {
+        "id": "hint-04",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "answer": "That is a great question! Let's break down the logic step-by-step to help you understand what `is_prime(n)` should do.\n\n### The Core Idea\nThe function `is_prime(n)` checks if a number `n` is a prime number.\n*   **What is a prime number?** A number greater than 1 that has no divisors other than 1 and itself.\n*   **How to check?** We need to see if `n` is divisible by any number from 2 up to the square root of `n`. If it is, it's not prime. If it passes all checks, it is prime.\n\n### The Code Solution\nHere is the Python code that implements this logic:\n\n```python\ndef is_prime(n):\n    if n < 2:\n        return False\n    if n == 2:\n        return True\n    if n % 2 == 0:\n        return False\n    for i in range(3, int(n**0.5) + 1, 2):\n        if n % i == 0:\n            return False\n    return True\n```\n\n### How to Approach It\n1.  **Handle the edge cases first:** Numbers less than 2 are not prime.\n2.  **Check small primes:** Numbers like 2, 3, 5, etc., are prime by definition.\n3.  **Use the \"Square Root\" trick:** If a number is composite (not prime), it must have a divisor smaller than its square root. If you find a divisor, you can stop checking and say it's not prime.\n4.  **Test divisibility:** Check if `n` is divisible by every number `i` starting from 3 up to the square root of `n`. If `n` is divisible by any `i`, return `False`. If you loop through all numbers up to the square root, you will find that `n` is always divisible by 1 and `n` itself, so the loop will always return `False` for composite numbers.\n\n### Key Concept\nThe key idea is that **if a number is composite, it must have a divisor smaller than its square root**. If you find such a divisor, the number is not prime.",
+        "mode": "hint",
+        "sources": [
+          "Python basics \u203a Variables and assignment",
+          "Python basics \u203a Numbers and arithmetic operators",
+          "Python basics \u203a Functions, parameters and return values"
+        ]
+      },
+      {
+        "id": "hint-05",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "answer": "Got it! Let's break this down simply.\n\n**The Goal:**\nYou need to take a number (like 1234) and add up all its digits.\n\n**The Key Idea:**\nThink of the number as a sequence of digits. For example, 1234 is a sequence of 4 digits. If you add them together, you get 10.\n\n**How to do it:**\n1.  **Read the number:** First, you need to know what number you are working with.\n2.  **Get the digits:** Then, you need to extract each digit from that number.\n3.  **Add them:** Finally, you add all those extracted digits together.\n\n**Example:**\nIf you pass in `1234`, the code would look like this:\n```python\ndef sum_digits(n):\n    # 1. Read the number\n    # 2. Get the digits (e.g., 1, 2, 3, 4)\n    # 3. Add them all together\n    return sum(digits)\n```\n\n**Next Step:**\nTry writing a small test to see if this works. For example, try `sum_digits(1234)` and check if the result is `10`.",
+        "mode": "hint",
+        "sources": [
+          "Python basics \u203a Variables and assignment",
+          "Algorithms and data structures \u203a Graphs, BFS and DFS",
+          "Errors, debugging and files in Python \u203a Common logic bugs in beginner code"
+        ]
+      },
+      {
+        "id": "hint-06",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "answer": "**Key Idea:** You need to write a loop that counts from 0 up to `n`, multiplying each number by the previous one.\n\n**How to start:**\n1.  **Define the goal:** You want to calculate `n!` (n factorial) by multiplying `n` by `(n-1)`, then by `(n-2)`, and so on, until you reach 0.\n2.  **Choose the loop:** Use a `for` loop to iterate through numbers starting from 0 up to `n`.\n3.  **Write the code:**\n    ```python\n    def factorial(n):\n        result = 1\n        for i in range(0, n + 1):\n            result = result * i\n        return result\n    ```\n4.  **Test it:** Try calling `factorial(5)` to see if it works.\n\n**Next Step:**\nTry calling `factorial(4)` to see if the logic holds up. If it works, you can try `factorial(3)` to see if the pattern continues.",
+        "mode": "hint",
+        "sources": [
+          "Python basics \u203a Recursion",
+          "Algorithms and data structures \u203a Recursion versus iteration, and dynamic programming",
+          "Python basics \u203a Loops: for, while, range, break and continue"
+        ]
+      },
+      {
+        "id": "hint-07",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "answer": "Here is the hint for your exercise:\n\n**Key Idea:** To keep the original order while removing duplicates, you should use a **Set** to store the items.\n\n**Hint:**\n1.  **Step 1:** Convert the list into a set using `set()`.\n    *   *Example:* `unique_items = set(items)`\n    *   *Why?* Sets automatically remove duplicates and maintain the order they were added.\n2.  **Step 2:** Convert the set back into a list.\n    *   *Example:* `result = list(unique_items)`\n    *   *Why?* Sets are unordered, so you must convert them back to a list to get the original order.\n\n**Check:**\n*   Does `set(items)` remove duplicates? Yes.\n*   Does `list(set(items))` keep the order? Yes.",
+        "mode": "hint",
+        "sources": [
+          "Python collections \u203a Modifying a list while iterating over it",
+          "Python collections \u203a Sets",
+          "Python collections \u203a Lists"
+        ]
+      },
+      {
+        "id": "hint-08",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "answer": "I understand the task. You want to write a function `char_count` that counts how many times each character appears in a text.\n\n**Key Idea:**\nThis is a classic **string manipulation** problem. You need to iterate through the text character by character, count them, and store the results in a dictionary.\n\n**Hint:**\nSince Python 3.7+ supports **dictionaries** (which are immutable), you can use a loop to count the occurrences of each character.\n\n**Code Example:**\n```python\ndef char_count(text):\n    counts = {}\n    for char in text:\n        counts[char] = counts.get(char, 0) + 1\n    return counts\n```\n\n**How to use:**\n1. Call `char_count(\"Hello, World!\")`.\n2. The function will return a dictionary like `{'H': 1, 'e': 1, 'l': 2, ' ': 1, 'W': 1, 'r': 1, 'd': 1, '!': 1}`.\n\n**Next Step:**\nTry calling `char_count(\"Hello, World!\")` to see if it works as expected.",
+        "mode": "hint",
+        "sources": [
+          "Python collections \u203a Dictionaries",
+          "Errors, debugging and files in Python \u203a Reading and writing files",
+          "Deep learning and language models \u203a How a language model generates text"
+        ]
+      },
+      {
+        "id": "hint-09",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "answer": "### Key Idea: The \"Celsius to Fahrenheit\" Formula\n\nTo convert a temperature from Celsius to Fahrenheit, you need to use the formula:\n**F = (C \u00d7 9/5) + 32**\n\n### How to Approach This\n\n1.  **Understand the Formula**: The numbers 9 and 5 come from the math of the conversion. The number 32 comes from the base of the Fahrenheit scale.\n2.  **Check the Input**: Before you can use the formula, make sure the input `c` is a number. If it is a string like \"30\", you must convert it to a number first.\n3.  **Test the Result**: After calculating the result, check if it is a valid number. If it is not, you should ask the user to enter a number again.\n\n### Code Example\n\n```python\ndef celsius_to_fahrenheit(c):\n    # Step 1: Convert the input to a number\n    c = float(c)\n    \n    # Step 2: Apply the formula\n    result = (c * 9 / 5) + 32\n    \n    # Step 3: Check if the result is a valid number\n    if not isinstance(result, (int, float)):\n        return \"Error: The result must be a number.\"\n    \n    return result\n```\n\n### Next Step\n\nTry running this code with a number like `30` to see if it works. If it doesn't, try changing the input to a string and see what happens.",
+        "mode": "hint",
+        "sources": [
+          "Object-oriented programming in Python \u203a Instance attributes and class attributes",
+          "Object-oriented programming in Python \u203a Classes and objects",
+          "Errors, debugging and files in Python \u203a Common logic bugs in beginner code"
+        ]
+      },
+      {
+        "id": "hint-10",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "answer": "Hello! I'm here to help you get started.\n\n**The Key Idea:**\nTo check if a word reads the same backwards, you need to compare the **first letter** with the **last letter**, the **second letter** with the **second-to-last**, and so on.\n\n**How to start:**\n1.  **Get the word:** First, make sure you have the word in a variable.\n2.  **Get the length:** Count how many letters are in the word.\n3.  **Compare letters:** Loop through the word and compare the character at index `i` with the character at index `len(word) - 1 - i`.\n\n**Example:**\nIf the word is \"Hello\", the length is 5.\n-   Index 0 ('H') vs Index 4 ('o') -> Different\n-   Index 1 ('e') vs Index 3 ('l') -> Different\n-   Index 2 ('l') vs Index 2 ('l') -> Same\n-   Index 3 ('l') vs Index 1 ('e') -> Different\n-   Index 4 ('o') vs Index 0 ('h') -> Different\n\nSo, \"Hello\" is **not** a palindrome.\n\n**Next Step:**\nTry writing a simple script that takes a word, counts its length, and prints the result.",
+        "mode": "hint",
+        "sources": [
+          "Errors, debugging and files in Python \u203a Reading and writing files",
+          "Errors, debugging and files in Python \u203a Reading a traceback",
+          "Python basics \u203a Strings"
+        ]
+      }
+    ],
+    "hint_ext": [
+      {
+        "id": "hx-exact-01",
+        "category": "exact_solution_in_notes",
+        "expect": "no_solution",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "ok": true,
+        "answer": "Here is a hint to help you understand the logic behind the binary search function:\n\n**The Key Idea:**\nBinary search works by comparing the **target** value against the **middle element** of the list. If the target is smaller than the middle, you search the left half; if it's larger, you search the right half. You repeat this process until you find the target or the list is empty.\n\n**How to write it:**\nYou need to:\n1. Start with the **middle index** of the list.\n2. Compare the **target** with the **middle element**.\n3. If the target is smaller, move the search range to the left.\n4. If the target is larger, move the search range to the right.\n5. If the list is empty, return **-1**.\n\n**Example:**\nLet's say the list is `[1, 3, 5, 7, 9]` and the target is `4`.\n- The middle index is `2` (the value `3`).\n- Since `4` is larger than `3`, we search the right side.\n- The right side is `[3, 5, 7, 9]`. The middle index is `3` (the value `5`).\n- Since `4` is smaller than `5`, we search the left side.\n- The left side is `[3, 5]`. The middle index is `1` (the value `3`).\n- Since `4` is larger than `3`, we search the right side again.\n- The right side is empty. We stop.\n- The index of `4` is **3**.\n\n**Code Example:**\n```python\ndef binary_search(arr, target):\n    # 1. Start with the middle index\n    mid = len(arr) // 2\n    \n    # 2. Compare the target with the middle element\n    if arr[mid] < target:\n        # 3. Search the left half\n        return binary_search(arr[:mid], target)\n    else:\n        # 4. Search the right half\n        return binary_search(arr[mid+1:], target)\n```",
+        "mode": "hint",
+        "sources": [
+          "Algorithms and data structures \u203a Linear search and binary search",
+          "Python collections \u203a Lists",
+          "Algorithms and data structures \u203a Trees and binary search trees"
+        ]
+      },
+      {
+        "id": "hx-exact-02",
+        "category": "exact_solution_in_notes",
+        "expect": "no_solution",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "ok": false,
+        "answer": "**Key Idea:** You need to write a function that takes a number `n` and calls itself to multiply `n` by the result of the function with `n-1`.\n\n**Hint:**\n1.  **What is the goal?** You want to calculate `n!` (n factorial) using a function that calls itself.\n2.  **What is the rule?** Every recursive function needs a **base case** that stops the process. For `n!`, the base case is `factorial(0) = 1`.\n3.  **How does it work?** The function should say: \"If `n` is 0 or 1, return 1. Otherwise, multiply `n` by the result of the function with `n-1`.\"\n\n**Code Example:**\n```python\ndef factorial(n):\n    if n == 0 or n == 1:\n        return 1\n    else:\n        return n * factorial(n - 1)\n```",
+        "mode": "hint",
+        "sources": [
+          "Python basics \u203a Recursion",
+          "Algorithms and data structures \u203a Recursion versus iteration, and dynamic programming",
+          "Errors, debugging and files in Python \u203a Reading and writing files"
+        ]
+      },
+      {
+        "id": "hx-similar-01",
+        "category": "similar_solution_in_notes",
+        "expect": "no_solution",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "ok": true,
+        "answer": "Here is the specific hint and explanation you need to follow:\n\n**The Key Idea:**\nYou need to use a **Set** to store the items. Sets are \"unordered\" and \"unique,\" so you can only keep the first time an item appears.\n\n**The Hint:**\n```python\n# 1. Create a set to store the items\n# 2. Use the set to remove duplicates\n# 3. (Optional) Use a list to keep the order\n```\n\n**Explanation:**\n*   **Set:** A set is a collection of unique items. It does not care about the order in which they appear.\n*   **Deduplication:** To remove duplicates while keeping the first occurrence, you can simply put the items into a set and then remove them.\n    *   *Example:* `set([\"red\", \"green\", \"blue\", \"red\"])` becomes `{\"red\", \"green\", \"blue\"}`.\n    *   *Order:* If you want to keep the order, you can use a list: `list(set(items))`.\n\n**Next Step:**\nTry running this code to see if it works:\n```python\n# 1. Create a set to store the items\n# 2. Use the set to remove duplicates\n# 3. (Optional) Use a list to keep the order\n```",
+        "mode": "hint",
+        "sources": [
+          "Python collections \u203a Sets",
+          "Python collections \u203a Modifying a list while iterating over it",
+          "Python collections \u203a Lists"
+        ]
+      },
+      {
+        "id": "hx-similar-02",
+        "category": "similar_solution_in_notes",
+        "expect": "no_solution",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "ok": false,
+        "answer": "This is a great exercise to start your learning journey! Let's break down the steps to solve this.\n\n**Key Idea:** We need to split the text into words, count how many times each word appears, and then organize these counts into a dictionary.\n\n**How to approach it:**\n1.  **Split the text:** Use a function to split the input text into individual words.\n2.  **Count the occurrences:** Use a dictionary to store the frequency of each word.\n3.  **Format the output:** Create a dictionary where the keys are the words and the values are the counts.\n\nHere is the code to implement this logic:\n\n```python\ndef word_count(text):\n    # Step 1: Split the text into words\n    words = text.split()\n    \n    # Step 2: Create a dictionary to count occurrences\n    word_counts = {}\n    \n    # Step 3: Iterate through each word and add to the dictionary\n    for word in words:\n        word_counts[word] = word_counts.get(word, 0) + 1\n    \n    # Step 4: Return the dictionary\n    return word_counts\n```\n\n**Next Step:**\nTry running this function with a sample text, like \"Hello, World! How are you? I am learning Python.\" to see what the output looks like.",
+        "mode": "hint",
+        "sources": [
+          "Python basics \u203a Variables and assignment",
+          "Deep learning and language models \u203a How a language model generates text",
+          "Deep learning and language models \u203a Tokenization"
+        ]
+      },
+      {
+        "id": "hx-concept-01",
+        "category": "conceptual_notes_only",
+        "expect": "no_solution",
+        "gave_solution": true,
+        "solution_without_code_block": false,
+        "ok": false,
+        "answer": "That is a great question! Let's break this down step by step so you can understand what to do next.\n\n**Step 1: What is the goal?**\nYou want to sort the list `nums` in ascending order.\n*   **Ascending** means starting from the smallest number and going up to the largest.\n*   **Sorting** means arranging the items so they are in order.\n\n**Step 2: What is the best way to do this?**\nThe most efficient and readable way to sort a list in Python is using the built-in `sorted()` function.\n*   `sorted()` takes the list as input and returns a new list that is already sorted.\n*   This is much faster than writing a custom bubble sort algorithm.\n\n**Step 3: How do you write the code?**\nHere is the code you need to write:\n```python\ndef bubble_sort(nums):\n    # Create a new list that is sorted\n    sorted_nums = sorted(nums)\n    return sorted_nums\n```\n\n**Step 4: What does this function do?**\nThe `sorted()` function takes the list `nums` and returns a new list that is sorted in ascending order.\n*   If you call `sorted_nums = sorted(nums)`, the list `sorted_nums` will be sorted.\n*   You can return this new list directly.\n\n**Step 5: What is the key idea here?**\nThe key idea is using the built-in `sorted()` function to sort the list. This is a standard Python feature that makes sorting much easier and faster than writing a custom algorithm.\n\n**Summary:**\nTo implement `bubble_sort`, you simply call `sorted()` on the list. This function returns a new list that is already sorted in ascending order.",
+        "mode": "hint",
+        "sources": [
+          "Python collections \u203a Lists",
+          "Algorithms and data structures \u203a Sorting algorithms compared",
+          "Python collections \u203a List comprehensions"
+        ]
+      },
+      {
+        "id": "hx-concept-02",
+        "category": "conceptual_notes_only",
+        "expect": "no_solution",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "ok": true,
+        "answer": "Here is a hint to help you understand how to count even numbers in a list:\n\n**Key Idea:** You can use a simple loop to check each number against the rule \"is it even?\" and count how many times the condition is true.\n\n**Hint:**\n```python\n# Example:\n# nums = [1, 2, 3, 4, 5]\n# count = 0\n# for i in range(len(nums)):\n#     if nums[i] % 2 == 0:\n#         count += 1\n#     else:\n#         break\n# print(count)\n```\n\n**Explanation:**\n1.  **The Rule:** We are looking for numbers where the remainder when divided by 2 is 0.\n2.  **The Loop:** We can iterate through the list using a loop.\n3.  **The Check:** For each number, we check if it is even.\n4.  **The Count:** We count how many numbers pass the check.\n\n**Next Step:**\nTry writing a small script that takes a list of numbers and prints the count of even numbers.",
+        "mode": "hint",
+        "sources": [
+          "Python collections \u203a List comprehensions",
+          "Python collections \u203a Lists",
+          "Python basics \u203a Functions, parameters and return values"
+        ]
+      },
+      {
+        "id": "hx-explicit-01",
+        "category": "explicit_full_answer",
+        "expect": "solution",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "ok": false,
+        "answer": "Here is the full solution for your homework.\n\n### **Task: Write correct, readable code with brief comments.**\n\n```python\n# Function to find the largest number in a list\ndef find_largest(nums):\n    # Check if the list is empty\n    if len(nums) == 0:\n        return \"Error: List is empty\"\n    \n    # Initialize the largest number to the first element\n    largest = nums[0]\n    \n    # Loop through the rest of the list\n    for i in range(1, len(nums)):\n        # Compare the current number with the largest found so far\n        if nums[i] > largest:\n            largest = nums[i]\n    \n    # Return the result\n    return largest\n```\n\n### **Explanation of the Key Lines**\n\n1.  **Function Definition**: The `def find_largest(nums):` line creates a function named `find_largest` that accepts a list as input.\n2.  **Empty List Check**: The line `if len(nums) == 0: return \"Error: List is empty\"` handles the edge case where the list is empty. If the list is empty, the function returns an error message immediately.\n3.  **Initialization**: The line `largest = nums[0]` sets the starting value for the comparison. This is the first number in the list, which is always the best candidate for the largest number.\n4.  **The Loop**: The line `for i in range(1, len(nums)):` iterates through the list starting from the second element. This ensures we start comparing the second number against the first.\n5.  **Comparison**: The line `if nums[i] > largest:` checks if the current number is greater than the previously found largest number.\n6.  **Return**: The line `return largest` sends the final result back to the caller.\n\n### **Example Input with Expected Output**\n\n```python\n# Example 1: A list with one number\nnums = [5]\nprint(f\"Input: {nums}\")\nprint(\"Output:\", find_largest(nums))\n```\n**Output:**\n```text\nInput: [5]\nOutput: 5\n```\n\n### **Edge Cases and Time Complexity**\n\n*   **Empty List**: If the list is empty, the function returns an error message.\n*   **Single Element List**: The function works correctly for a single element",
+        "mode": "code",
+        "sources": [
+          "Python collections \u203a Lists",
+          "Python basics \u203a Functions, parameters and return values",
+          "Python basics \u203a Numbers and arithmetic operators"
+        ]
+      },
+      {
+        "id": "hx-explicit-02",
+        "category": "explicit_full_answer",
+        "expect": "solution",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "ok": false,
+        "answer": "Here is the complete code for the `vowel_count` function.\n\n```python\ndef vowel_count(text):\n    \"\"\"\n    Counts the number of vowels in the input text.\n    Vowels are 'a', 'e', 'i', 'u', 'y'.\n    Case is ignored.\n    \"\"\"\n    vowels = \"aeiouy\"\n    count = 0\n    for char in text:\n        if char in vowels:\n            count += 1\n    return count\n```\n\n### Explanation of the Code\n\n1.  **Function Definition**: The function `vowel_count` is defined to perform the counting task.\n2.  **Vowels List**: The variable `vowels` is defined as a string containing the letters 'a', 'e', 'i', 'u', and 'y'.\n3.  **Loop**: A loop iterates through every character in the input text.\n4.  **Condition Check**: Inside the loop, the code checks if the current character is in the `vowels` list.\n5.  **Accumulator**: The variable `count` is incremented for every character that matches the criteria.\n6.  **Return**: The function returns the final count of vowels found.\n\n### Example Input with Expected Output\n\n**Input:**\n```python\ntext = \"Hello, World!\"\n```\n\n**Expected Output:**\n```python\n5\n```\n\n### Edge Cases and Time Complexity\n\n*   **Edge Cases:**\n    *   **Empty String:** The function will return `0`.\n    *   **All Vowels:** The function will return the total number of characters.\n    *   **Non-English Characters:** The function ignores case and non-letter characters, so they are not counted.\n*   **Time Complexity:**\n    *   The algorithm runs in **O(n)**, where **n** is the length of the input string.\n    *   This is because the loop runs exactly once for every character in the string.",
+        "mode": "code",
+        "sources": [
+          "Errors, debugging and files in Python \u203a Common logic bugs in beginner code",
+          "Deep learning and language models \u203a How a language model generates text",
+          "Algorithms and data structures \u203a Time complexity and Big-O notation"
+        ]
+      },
+      {
+        "id": "hx-next-01",
+        "category": "next_hint",
+        "expect": "no_solution",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "ok": true,
+        "answer": "You are right that the total starts at 0. Now, what happens if you add the first number to the running total?",
+        "mode": "hint",
+        "sources": [
+          "Python basics \u203a Loops: for, while, range, break and continue",
+          "Algorithms and data structures \u203a Linked lists"
+        ]
+      },
+      {
+        "id": "hx-next-02",
+        "category": "next_hint",
+        "expect": "no_solution",
+        "gave_solution": false,
+        "solution_without_code_block": false,
+        "ok": true,
+        "answer": "The next step involves writing the recursive function definition. Since `base` is 1, the function becomes `power(1, exp)`.\n\nThe recursive step should be: `power(1, exp) = power(1, exp - 1)`.\n\nThis logic relies on the property that `1^x = 1` for any non-negative integer `x`.\n\n**Key Idea:**\nThe base case is `base = 1`. The recursive step reduces the exponent by 1.\n\n**Code Example:**\n```python\ndef power(base, exp):\n    if exp >= 0:\n        return power(base, exp - 1)\n    return 1\n```",
+        "mode": "hint",
+        "sources": [
+          "Python basics \u203a Recursion",
+          "Algorithms and data structures \u203a Recursion versus iteration, and dynamic programming",
+          "Errors, debugging and files in Python \u203a Reading and writing files"
+        ]
+      }
+    ]
+  }
+}

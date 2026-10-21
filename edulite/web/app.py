@@ -16,10 +16,13 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 from edulite import __version__
-from edulite.conversation import DEFAULT_SYSTEM_PROMPT, Conversation
+from edulite.conversation import Conversation
 from edulite.inference import ContextOverflowError, InferenceError
 from edulite.model_manager import ModelBusyError, ModelManager, models_overview
 from edulite.storage import Store
+from edulite.tutor.engine import AUTO, Tutor
+from edulite.tutor.guard import select_guard
+from edulite.tutor.prompts import LEVELS, MODE_LABELS
 
 STATIC_DIR = Path(__file__).parent / "static"
 LOCAL_HOSTS = {"127.0.0.1", "localhost", "::1"}
@@ -32,6 +35,8 @@ class SettingsIn(BaseModel):
     max_tokens: int | None = None
     threads: int | None = None
     temperature: float | None = None
+    level: str | None = None
+    use_notes: bool | None = None
 
 
 class RenameIn(BaseModel):
@@ -40,6 +45,7 @@ class RenameIn(BaseModel):
 
 class MessageIn(BaseModel):
     content: str = Field(min_length=1, max_length=MAX_MESSAGE_CHARS)
+    mode: str = AUTO
 
 
 def sse(event: str, data: dict) -> str:
@@ -50,14 +56,15 @@ def _host_of(value: str) -> str:
     return (urlsplit(value if "//" in value else f"//{value}").hostname or "").lower()
 
 
-def context_for(store: Store, conversation_id: int) -> Conversation:
+def turns_for(store: Store, conversation_id: int) -> Conversation:
     """The model's view of a chat. Answers that were stopped half-way are left out."""
     turns = [{"role": m.role, "content": m.content} for m in store.messages(conversation_id)
              if not (m.role == "assistant" and m.stopped)]
-    return Conversation(system_prompt=DEFAULT_SYSTEM_PROMPT, turns=turns)
+    return Conversation(system_prompt="", turns=turns)
 
 
-def create_app(manager: ModelManager, store: Store, start_model: bool = True) -> FastAPI:
+def create_app(manager: ModelManager, store: Store, start_model: bool = True, tutor: Tutor | None = None) -> FastAPI:
+    tutor = tutor or Tutor()
     current_cancel: dict[str, threading.Event | None] = {"event": None}
 
     @asynccontextmanager
@@ -95,7 +102,8 @@ def create_app(manager: ModelManager, store: Store, start_model: bool = True) ->
     @app.get("/api/status")
     def status():
         return {**manager.status(), "busy": manager.generation_lock.locked(), "version": __version__,
-                "models": models_overview(manager.registry, manager.config.models_dir)}
+                "models": models_overview(manager.registry, manager.config.models_dir),
+                "levels": list(LEVELS), "modes": {AUTO: "Auto", **MODE_LABELS}}
 
     @app.put("/api/settings")
     def update_settings(body: SettingsIn):
@@ -150,6 +158,8 @@ def create_app(manager: ModelManager, store: Store, start_model: bool = True) ->
     @app.post("/api/conversations/{conversation_id}/messages")
     async def send_message(conversation_id: int, body: MessageIn, request: Request):
         _conversation_or_404(conversation_id)
+        if body.mode != AUTO and body.mode not in MODE_LABELS:
+            raise HTTPException(422, f"Unknown mode '{body.mode}'")
         if manager.generation_lock.locked():
             raise HTTPException(409, "EduLite is already answering. Wait for it or press Stop.")
         try:
@@ -172,21 +182,38 @@ def create_app(manager: ModelManager, store: Store, start_model: bool = True) ->
             try:
                 user_message = store.add_message(conversation_id, "user", text)
                 yield sse("user", user_message.to_dict())
-                context = context_for(store, conversation_id)
+                context = turns_for(store, conversation_id)
                 dropped = 0
+                prepared = None
                 while True:
-                    stream = server.stream_chat(context.messages(), max_tokens=settings.max_tokens,
+                    prepared = tutor.prepare(context.turns, settings.level, body.mode, settings.use_notes)
+                    if dropped == 0:
+                        yield sse("meta", {"mode": prepared.mode, "mode_label": MODE_LABELS[prepared.mode],
+                                           "auto": prepared.detected, "sources": prepared.sources})
+                    stream = server.stream_chat(prepared.messages, max_tokens=settings.max_tokens,
                                                 temperature=settings.temperature, cancel_event=cancel)
                     chunks = iter(stream)
+                    # Output checks: hint mode withholds complete solutions; an explicit
+                    # "one sentence" request is trimmed to that format.
+                    guard = select_guard(prepared.mode, text)
+                    shown = []
                     try:
                         while True:
                             chunk = await asyncio.to_thread(next, chunks, None)
                             if chunk is None:
                                 break
-                            yield sse("token", {"text": chunk})
+                            safe = guard.feed(chunk) if guard else chunk
+                            if safe:
+                                shown.append(safe)
+                                yield sse("token", {"text": safe})
                             if await request.is_disconnected():
                                 stream.cancel()  # tab closed or fetch aborted
                                 break
+                        if guard:
+                            tail = guard.finish()
+                            if tail:
+                                shown.append(tail)
+                                yield sse("token", {"text": tail})
                         break
                     except ContextOverflowError:
                         if context.drop_oldest_exchange():
@@ -199,8 +226,12 @@ def create_app(manager: ModelManager, store: Store, start_model: bool = True) ->
                         return
                 stats = {"seconds": round(time.perf_counter() - started, 1),
                          "tokens_per_second": stream.tokens_per_second,
-                         "finish_reason": stream.finish_reason, "forgotten_exchanges": dropped}
-                answer = store.add_message(conversation_id, "assistant", stream.text, model=settings.model,
+                         "finish_reason": stream.finish_reason, "forgotten_exchanges": dropped,
+                         "mode": prepared.mode, "sources": prepared.sources, "level": settings.level,
+                         "solutions_withheld": getattr(guard, "removed", 0),
+                         "trimmed_to_one_sentence": getattr(guard, "trimmed", False)}
+                # Save what the student actually saw (the guarded text in hint mode).
+                answer = store.add_message(conversation_id, "assistant", "".join(shown), model=settings.model,
                                            stopped=stream.cancelled, stats=stats)
                 yield sse("done", answer.to_dict())
             except InferenceError as error:

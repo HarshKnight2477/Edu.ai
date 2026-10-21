@@ -4,10 +4,10 @@
     python -m edulite --model lite       # Qwen3.5-0.8B for low-memory PCs
     python -m edulite --list-models
     python -m edulite --web              # browser interface at http://127.0.0.1:8770
-    python -m edulite --web              # browser interface at http://127.0.0.1:8770
+    python -m edulite --level intermediate
 
-Commands during a chat: /help, /reset, /info, /exit. Ctrl+C stops the current
-answer; Ctrl+C at the prompt (or /exit) quits.
+Commands during a chat: /help, /reset, /info, /level, /mode, /notes, /exit.
+Ctrl+C stops the current answer; Ctrl+C at the prompt (or /exit) quits.
 """
 
 from __future__ import annotations
@@ -17,6 +17,7 @@ import logging
 import sys
 import time
 from collections.abc import Callable
+from dataclasses import dataclass
 from typing import TextIO
 
 from edulite import __version__
@@ -24,11 +25,17 @@ from edulite.config import REGISTRY, config_from_env, model_status
 from edulite.conversation import Conversation
 from edulite.inference import (ContextOverflowError, InferenceError, LlamaServer, ModelNotFoundError,
                                ServerNotRunningError, ServerStartError)
+from edulite.tutor.engine import AUTO, Tutor
+from edulite.tutor.guard import select_guard
+from edulite.tutor.prompts import LEVELS, MODE_LABELS
 
 HELP = """Commands:
   /help    show this help
   /reset   start a new conversation (forget earlier messages)
   /info    model, settings and memory use
+  /level   beginner | intermediate | advanced   (how detailed answers are)
+  /mode    auto | explain | hint | debug | code | quiz | project
+  /notes   on | off   (use EduLite's course notes to ground answers)
   /exit    quit (also /quit, or Ctrl+C at the prompt)
 Ctrl+C while EduLite is answering stops that answer."""
 
@@ -41,13 +48,23 @@ def list_models(out: TextIO) -> None:
         out.write(f"  {key:8s} {spec.name:15s} {spec.quantization:7s} ~{spec.peak_ram_mb / 1024:.1f} GB RAM  {state}\n")
 
 
-def info_text(server: LlamaServer, conversation: Conversation) -> str:
+@dataclass
+class TutorOptions:
+    level: str = "beginner"
+    mode: str = AUTO
+    use_notes: bool = True
+
+
+def info_text(server: LlamaServer, conversation: Conversation, options: TutorOptions | None = None) -> str:
     cfg = server.config
     lines = [f"Model:    {cfg.model.name} ({cfg.model.quantization}, {cfg.model.license})",
              f"File:     {cfg.model_path}",
              f"Threads:  {cfg.threads}   Context: {cfg.context_tokens} tokens   Max answer: {cfg.max_tokens} tokens",
              f"Server:   {cfg.base_url} (local only), pid {server.pid or 'external'}",
              f"History:  {conversation.exchanges} exchange(s)"]
+    if options:
+        lines.append(f"Tutor:    level {options.level}, mode {options.mode}, "
+                     f"course notes {'on' if options.use_notes else 'off'}")
     if server.pid:
         try:
             import psutil
@@ -58,18 +75,36 @@ def info_text(server: LlamaServer, conversation: Conversation) -> str:
     return "\n".join(lines)
 
 
-def answer(server: LlamaServer, conversation: Conversation, out: TextIO, show_stats: bool) -> None:
+def answer(server: LlamaServer, conversation: Conversation, out: TextIO, show_stats: bool,
+           tutor: Tutor | None = None, options: TutorOptions | None = None) -> None:
     """Stream one reply to the latest user message, recovering from a full context window."""
+    tutor = tutor or Tutor()
+    options = options or TutorOptions()
     dropped = 0
     while True:
-        stream = server.stream_chat(conversation.messages())
+        prepared = tutor.prepare(conversation.turns, options.level, options.mode, options.use_notes)
+        stream = server.stream_chat(prepared.messages)
         started = time.perf_counter()
         try:
+            if dropped == 0:
+                label = MODE_LABELS[prepared.mode] + (" (auto)" if prepared.detected else "")
+                notes = f" · notes: {'; '.join(prepared.sources)}" if prepared.sources else ""
+                out.write(f"[{label}{notes}]\n")
             out.write("EduLite: ")
             out.flush()
+            # Output checks: hint mode withholds complete solutions; an explicit
+            # "one sentence" request is trimmed to that format.
+            guard = select_guard(prepared.mode, conversation.turns[-1]["content"])
+            shown = []
             for chunk in stream:
-                out.write(chunk)
+                safe = guard.feed(chunk) if guard else chunk
+                shown.append(safe)
+                out.write(safe)
                 out.flush()
+            if guard:
+                tail = guard.finish()
+                shown.append(tail)
+                out.write(tail)
         except KeyboardInterrupt:
             stream.cancel()
             out.write("\n[answer stopped]\n\n")
@@ -85,7 +120,7 @@ def answer(server: LlamaServer, conversation: Conversation, out: TextIO, show_st
             return
         if dropped:
             out.write(f"\n(Older messages were forgotten to make room: {dropped} removed.)")
-        conversation.add_assistant(stream.text)
+        conversation.add_assistant("".join(shown))  # what the student saw
         out.write("\n")
         if stream.finish_reason == "length":
             out.write(f"  (Answer cut off at the {server.config.max_tokens}-token limit. "
@@ -98,8 +133,39 @@ def answer(server: LlamaServer, conversation: Conversation, out: TextIO, show_st
         return
 
 
+def handle_tutor_command(command: str, options: TutorOptions, out: TextIO) -> bool:
+    """/level, /mode and /notes. Returns True if the command was one of them."""
+    name, _, value = command.partition(" ")
+    value = value.strip().lower()
+    if name == "/level":
+        if value in LEVELS:
+            options.level = value
+            out.write(f"Level set to {value}.\n\n")
+        else:
+            out.write(f"Level is {options.level}. Choose: {', '.join(LEVELS)}\n\n")
+        return True
+    if name == "/mode":
+        if value == AUTO or value in MODE_LABELS:
+            options.mode = value
+            out.write(f"Mode set to {value}.\n\n")
+        else:
+            out.write(f"Mode is {options.mode}. Choose: auto, {', '.join(MODE_LABELS)}\n\n")
+        return True
+    if name == "/notes":
+        if value in ("on", "off"):
+            options.use_notes = value == "on"
+            out.write(f"Course notes {value}.\n\n")
+        else:
+            out.write(f"Course notes are {'on' if options.use_notes else 'off'}. Use /notes on or /notes off.\n\n")
+        return True
+    return False
+
+
 def chat_loop(server: LlamaServer, conversation: Conversation, read_input: Callable[[str], str],
-              out: TextIO, show_stats: bool = False) -> None:
+              out: TextIO, show_stats: bool = False, options: TutorOptions | None = None,
+              tutor: Tutor | None = None) -> None:
+    options = options or TutorOptions()
+    tutor = tutor or Tutor()
     while True:
         try:
             message = read_input("Student: ").strip()
@@ -120,7 +186,9 @@ def chat_loop(server: LlamaServer, conversation: Conversation, read_input: Calla
             out.write("Started a new conversation.\n\n")
             continue
         if command == "/info":
-            out.write(info_text(server, conversation) + "\n\n")
+            out.write(info_text(server, conversation, options) + "\n\n")
+            continue
+        if handle_tutor_command(command, options, out):
             continue
         if command.startswith("/"):
             out.write(f"Unknown command {message.split()[0]}. Type /help.\n\n")
@@ -128,7 +196,7 @@ def chat_loop(server: LlamaServer, conversation: Conversation, read_input: Calla
 
         conversation.add_user(message)
         try:
-            answer(server, conversation, out, show_stats)
+            answer(server, conversation, out, show_stats, tutor, options)
         except ServerNotRunningError:
             out.write("\nThe model server stopped unexpectedly. Restarting it...\n")
             conversation.undo_last_user()
@@ -151,6 +219,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--max-tokens", type=int, help="maximum answer length in tokens (default: 1024)")
     parser.add_argument("--port", type=int, help="local port for the model server (default: 8765)")
     parser.add_argument("--stats", action="store_true", help="show time and speed after each answer")
+    parser.add_argument("--level", choices=list(LEVELS), default="beginner", help="student level (default: beginner)")
+    parser.add_argument("--no-notes", action="store_true", help="don't use the course notes")
     parser.add_argument("--web", action="store_true", help="open the web interface instead of the terminal chat")
     parser.add_argument("--web-port", type=int, default=8770, help="port for the web interface (default: 8770)")
     parser.add_argument("--no-browser", action="store_true", help="with --web: don't open a browser window")
@@ -199,7 +269,8 @@ def main(argv: list[str] | None = None) -> int:
     out.write(f"ready in {seconds:.1f} s.\n")
     out.write("Ask a question about programming or AI. Type /help for commands.\n\n")
     try:
-        chat_loop(server, Conversation(), input, out, show_stats=args.stats)
+        chat_loop(server, Conversation(), input, out, show_stats=args.stats,
+                  options=TutorOptions(level=args.level, use_notes=not args.no_notes))
     finally:
         server.close()
     return 0

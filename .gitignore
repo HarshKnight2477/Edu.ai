@@ -8,6 +8,7 @@ models/*.gguf
 runtime/
 benchmarks/data/
 benchmarks/bench_run.log
+benchmarks/eval_tutoring.log
 
 # Local student data stays on the device
 data/

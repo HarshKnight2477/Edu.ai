@@ -1,0 +1,44 @@
+{
+  "baseline": {
+    "old_first_letter_accuracy": 0.683,
+    "correct": 40,
+    "incorrect": 16,
+    "unparseable": 4,
+    "total": 60,
+    "accuracy": 0.667,
+    "accuracy_on_parseable": 0.714,
+    "coverage": 0.933,
+    "accuracy_95ci": [
+      0.541,
+      0.773
+    ]
+  },
+  "tutor": {
+    "old_first_letter_accuracy": 0.517,
+    "correct": 29,
+    "incorrect": 9,
+    "unparseable": 22,
+    "total": 60,
+    "accuracy": 0.483,
+    "accuracy_on_parseable": 0.763,
+    "coverage": 0.633,
+    "accuracy_95ci": [
+      0.362,
+      0.607
+    ]
+  },
+  "tutor_notes": {
+    "old_first_letter_accuracy": 0.733,
+    "correct": 44,
+    "incorrect": 8,
+    "unparseable": 8,
+    "total": 60,
+    "accuracy": 0.733,
+    "accuracy_on_parseable": 0.846,
+    "coverage": 0.867,
+    "accuracy_95ci": [
+      0.61,
+      0.829
+    ]
+  }
+}
