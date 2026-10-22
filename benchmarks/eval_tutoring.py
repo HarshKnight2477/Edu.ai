@@ -28,6 +28,7 @@ import statistics
 import subprocess
 import sys
 import time
+from dataclasses import replace
 from datetime import datetime
 from pathlib import Path
 
@@ -104,16 +105,23 @@ def llama_build() -> str:
         return "unknown"
 
 
-def evaluate(model_key: str, threads: int, task_set: str = "all") -> dict:
+def evaluate(model_key: str, threads: int, task_set: str = "all", model_file: Path | None = None,
+             configs: tuple[str, ...] = CONFIGS, label: str | None = None) -> dict:
+    """``model_file`` evaluates another GGUF (e.g. a fine-tune) with the ``model_key`` settings."""
     load = lambda name: json.loads((TASKS / name).read_text(encoding="utf-8"))
     quiz = load("concept_quiz.json") + load("concept_quiz_2.json")
     debug, hints, hints_ext = load("debug_tasks.json"), load("hint_tasks.json"), load("hint_tasks_extended.json")
     tutor = Tutor()
     config = config_from_env(model_key).with_overrides(threads=threads, port=8795)
+    if model_file:
+        model_file = Path(model_file).resolve()
+        config = config.with_overrides(models_dir=model_file.parent, model=replace(
+            config.model, file=model_file.name, size_bytes=model_file.stat().st_size))
+    label = label or model_key
     server = LlamaServer(config)
     server.start()
     results = {
-        "prompt_version": PROMPT_VERSION, "model": model_key, "model_file": config.model.file,
+        "prompt_version": PROMPT_VERSION, "model": label, "model_file": config.model.file,
         "runtime": llama_build(), "threads": threads, "context_tokens": config.context_tokens,
         "decoding": {"temperature": 0, "top_p": config.top_p, "max_tokens": MAX_TOKENS},
         "task_counts": {"quiz": len(quiz), "debug": len(debug), "hint": len(hints), "hint_ext": len(hints_ext)},
@@ -122,7 +130,7 @@ def evaluate(model_key: str, threads: int, task_set: str = "all") -> dict:
     }
     raw = {}
     try:
-        for name in CONFIGS:
+        for name in configs:
             started = time.perf_counter()
             row, log = {}, {"quiz": [], "debug": [], "hint": [], "hint_ext": []}
             latency = {"quiz": [], "debug": [], "hint": []}
@@ -224,12 +232,12 @@ def evaluate(model_key: str, threads: int, task_set: str = "all") -> dict:
             }
             results["configs"][name] = row
             raw[name] = log
-            print(model_key, name, json.dumps(row), flush=True)
+            print(label, name, json.dumps(row), flush=True)
     finally:
         server.close()
 
     RESULTS.mkdir(parents=True, exist_ok=True)
-    stem = f"tutoring_{PROMPT_VERSION}_{model_key}" + ("" if task_set == "all" else f"_{task_set}")
+    stem = f"tutoring_{PROMPT_VERSION}_{label}" + ("" if task_set == "all" else f"_{task_set}")
     (RESULTS / f"{stem}.json").write_text(json.dumps(results, indent=2), encoding="utf-8")
     (RESULTS / f"{stem}.raw.json").write_text(json.dumps(raw, indent=2), encoding="utf-8")
     return results

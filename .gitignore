@@ -12,3 +12,10 @@ benchmarks/eval_tutoring.log
 
 # Local student data stays on the device
 data/
+.venv-train/
+training/data/
+training/runs/
+models/finetuned/
+models/hf/
+training/train_run.log
+benchmarks/eval_finetune_*.log

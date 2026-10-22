@@ -1,0 +1,12 @@
+{
+  "model": "Qwen/Qwen3.5-0.8B",
+  "method": "LoRA r=16, alpha=32, dropout 0.05 on q/k/v/o, gate/up/down, in_proj_qkv/in_proj_z/out_proj",
+  "trainable_params": 10223616,
+  "optimizer": "AdamW lr 2e-4, cosine schedule, 5% warmup, batch 2 x 8 accumulation, bf16, gradient checkpointing",
+  "train_examples": 1142,
+  "val_examples": 140,
+  "val_loss_before": 0.7287,
+  "epochs_completed": [{"epoch": 1, "train_loss": 0.1848, "val_loss": 0.1190, "minutes": 16.2}],
+  "note": "Planned 3 epochs; the run was interrupted during epoch 2 (machine sleep). The epoch-1 adapter (best saved) is the one evaluated.",
+  "gpu": "NVIDIA GeForce RTX 5060 8 GB"
+}
